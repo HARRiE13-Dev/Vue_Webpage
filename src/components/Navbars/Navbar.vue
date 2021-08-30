@@ -1,9 +1,10 @@
 <template>
   <nav
     class="absolute top-0 z-50 flex flex-wrap items-center justify-between w-full px-2 py-3 navbar-expand-lg"
+
   >
     <div
-      class="container flex flex-wrap items-center justify-between px-4 mx-auto"
+      class="container flex flex-wrap items-center justify-between px-4 mx-auto custom"
     >
       <div
         class="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start"
@@ -32,17 +33,20 @@
         <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
         
           <li class="flex items-center">
+               <router-link to="/">
             <button
               class="px-4 py-2 mb-3 ml-3 text-xs font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none text-blueGray-700 active:bg-blueGray-50 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
               type="button"
             >
-              <i class="fas fa-arrow-alt-circle-down"></i> ย้อนกลับ
+              <i class="fas fa-angle-left"></i> ย้อนกลับ
             </button>
+              </router-link>
           </li>
           
         </ul>
       </div>
     </div>
+      
   </nav>
 </template>
 <script>

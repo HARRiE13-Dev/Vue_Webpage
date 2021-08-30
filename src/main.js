@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createWebHistory, createRouter } from "vue-router";
+// import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 // styles--------------------------------------------------
 
@@ -41,6 +42,7 @@ import About from "@/views/About.vue";
 import Appeal from "@/views/Appeal.vue";
 import Service from "@/views/Service.vue";
 import Program from "@/views/Program.vue";
+import News from "@/views/News.vue";
 
 
 const routes = [
@@ -116,6 +118,10 @@ const routes = [
     path: "/service",
     component: Service,
   },
+  {
+    path: "/news",
+    component: News,
+  },
 
   
   //Error 404
@@ -137,7 +143,29 @@ const router = createRouter({
   routes,
 });
 
+// const component = {
+//   setup() {
+//     const { executeRecaptcha, recaptchaLoaded } = useReCaptcha()
+
+//     const recaptcha = async () => {
+//       // (optional) Wait until recaptcha has been loaded.
+//       await recaptchaLoaded()
+
+//       // Execute reCAPTCHA with action "login".
+//       const token = await executeRecaptcha('login')
+
+//       // Do stuff with the received token.
+//     }
+
+//     return {
+//       recaptcha
+//     }
+//   },
+//   template: '<button @click="recaptcha">Execute recaptcha</button>'
+// }
+
 //Create Constant Var--------------------------------------------------------------------
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
+//app.use(VueReCaptcha, { siteKey: '<site key>' })

@@ -44,14 +44,10 @@
             </router-link>
           </li>
 
-          <li class="flex items-center">
-            <router-link
-              to="/about"
-              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-            >
-              เกี่ยวกับเรา
-            </router-link>
+            <li class="flex items-center">
+            <about-dropdown />
           </li>
+
 
           <li class="flex items-center">
             <router-link
@@ -62,12 +58,32 @@
             </router-link>
           </li>
 
+        
+
+          <li class="flex items-center">
+            <router-link
+              to="/appeal"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+            >
+                ข่าวสาร
+            </router-link>
+          </li>
+
           <li class="flex items-center">
             <router-link
               to="/appeal"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
             >
                 ร้องเรียน
+            </router-link>
+          </li>
+
+           <li class="flex items-center">
+            <router-link
+              to="/appeal"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+            >
+               ติดต่อเรา
             </router-link>
           </li>
 
@@ -100,6 +116,7 @@
 
 <script>
 import IndexDropdown from "@/components/Dropdowns/IndexDropdown.vue";
+import AboutDropdown from "@/components/Dropdowns/AboutDropdown.vue";
 import { createPopper } from "@popperjs/core";
 
 export default {
@@ -127,6 +144,7 @@ export default {
   },
   components: {
     IndexDropdown,
+    AboutDropdown,
   },
 };
 </script>
