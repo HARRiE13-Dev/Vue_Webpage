@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import Navbar from "@/components/Navbars/AuthNavbar.vue";
+import Navbar from "@/components/Navbars/Navbar.vue";
 import Foot from "@/components/Footers/Foot.vue";
 
 import registerBg2 from "@/assets/img/register_bg_2.png";

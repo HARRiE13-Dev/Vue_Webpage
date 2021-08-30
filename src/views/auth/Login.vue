@@ -44,6 +44,7 @@
                   placeholder="เลขประจำตัวประชาชน 13 หลัก"
                 />
               </div>
+              
               <div>
                 <label class="inline-flex items-center cursor-pointer">
                   <input
@@ -65,6 +66,7 @@
                   เข้าสู่ระบบ
                 </button>
               </div>
+              
             </form>
           </div>
         </div>
@@ -75,14 +77,12 @@
   </div>
 </template>
 <script>
-import github from "@/assets/img/github.svg";
-import google from "@/assets/img/google.svg";
+
 
 export default {
   data() {
     return {
-      github,
-      google,
+      
     };
   },
 };

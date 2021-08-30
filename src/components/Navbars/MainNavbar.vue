@@ -37,7 +37,7 @@
 
           <li class="flex items-center">
             <router-link
-              to="/auth/login"
+              to="/"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
             >
               หน้าแรก
@@ -46,7 +46,7 @@
 
           <li class="flex items-center">
             <router-link
-              to="/auth/login"
+              to="/about"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
             >
               เกี่ยวกับเรา
@@ -55,7 +55,7 @@
 
           <li class="flex items-center">
             <router-link
-              to="/auth/login"
+              to="/program"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
             >
               หลักสูตร
@@ -64,7 +64,7 @@
 
           <li class="flex items-center">
             <router-link
-              to="/auth/login"
+              to="/appeal"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
             >
                 ร้องเรียน

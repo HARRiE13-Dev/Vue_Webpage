@@ -49,7 +49,7 @@
                 <h3
                   class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
-                  เกี่ยวกับเรา
+                  หลักสูตร
                 </h3>
                 
               </div>
@@ -58,9 +58,9 @@
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-9/12">
                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                     <br> ประวัติ 
-                      <br> พันธกิจ 
-                      <br> วิสัยทัศน์
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus velit pariatur laboriosam itaque esse molestiae autem numquam totam, vero aliquam atque dolor tempora ex, dignissimos accusantium earum delectus maiores rerum.
+                    
                     </p>
                     
                   </div>
@@ -80,13 +80,10 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 
-import team2 from "@/assets/img/team-2-800x800.jpg";
-
-
 export default {
   data() {
     return {
-      team2,
+     
     };
   },
   components: {

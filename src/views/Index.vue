@@ -70,6 +70,7 @@
           ></polygon>
         </svg>
       </div>
+      
       <div class="container mx-auto">
         <div class="flex flex-wrap items-center">
           <div
@@ -126,6 +127,7 @@
                     </p>
                   </div>
                 </div>
+                
                 <div class="relative flex flex-col min-w-0">
                   <div class="flex-auto px-4 py-5">
                     <div
@@ -572,10 +574,13 @@
     </section>
 
     <section class="relative block z-1 bg-blueGray-600">
+      
       <div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
+          
           <div class="w-full px-4 -mt-24 lg:w-12/12">
             <div class="flex flex-wrap">
+              
               <div class="w-full px-4 lg:w-4/12">
                 <h5 class="pb-4 text-xl font-semibold text-center">
                   Login Page
@@ -584,11 +589,9 @@
                   <div
                     class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
                   >
-                    <img
-                      alt="..."
-                      class="h-auto max-w-full align-middle border-none rounded-lg"
-                      :src="login"
-                    />
+                    <img src="@/assets/img/login.jpg" 
+                    class="h-auto max-w-full align-middle border-none rounded-lg"
+                     >
                   </div>
                 </router-link>
               </div>
@@ -601,11 +604,9 @@
                   <div
                     class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
                   >
-                    <img
-                      alt="..."
-                      class="h-auto max-w-full align-middle border-none rounded-lg"
-                      :src="profile"
-                    />
+                    <img src="@/assets/img/login.jpg" 
+                    class="h-auto max-w-full align-middle border-none rounded-lg"
+                     >
                   </div>
                 </router-link>
               </div>
@@ -618,16 +619,16 @@
                   <div
                     class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
                   >
-                    <img
-                      alt="..."
-                      class="h-auto max-w-full align-middle border-none rounded-lg"
-                      :src="landing"
-                    />
+                    <img src="@/assets/img/login.jpg" 
+                    class="h-auto max-w-full align-middle border-none rounded-lg"
+                     >
                   </div>
                 </router-link>
               </div>
+              
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -34,8 +34,14 @@ import Register from "@/views/auth/Register.vue";
 import Landing from "@/views/Landing.vue";
 import Profile from "@/views/Profile.vue";
 import Index from "@/views/Index.vue";
+
 import Home from "@/views/Home.vue";
 import Page404 from "@/views/Page404.vue";
+import About from "@/views/About.vue";
+import Appeal from "@/views/Appeal.vue";
+import Service from "@/views/Service.vue";
+import Program from "@/views/Program.vue";
+
 
 const routes = [
 
@@ -94,6 +100,23 @@ const routes = [
     path: "/",
     component: Home,
   },
+  {
+    path: "/about",
+    component: About,
+  },
+  {
+    path: "/appeal",
+    component: Appeal,
+  }, 
+  {
+    path: "/program",
+    component: Program,
+  },
+  {
+    path: "/service",
+    component: Service,
+  },
+
   
   //Error 404
   {
