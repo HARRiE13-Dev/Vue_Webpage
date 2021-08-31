@@ -22,12 +22,12 @@
                   class="block mb-2 text-xs font-bold uppercase text-blueGray-600"
                   htmlFor="grid-password"
                 >
-                Student ID
+                Email
                 </label>
                 <input
                   type="email"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="รหัสนักศึกษา"
+                  placeholder="@mju.ac.th"
                 />
               </div>
 
@@ -44,6 +44,7 @@
                   placeholder="เลขประจำตัวประชาชน 13 หลัก"
                 />
               </div>
+              
               <div>
                 <label class="inline-flex items-center cursor-pointer">
                   <input
@@ -65,6 +66,7 @@
                   เข้าสู่ระบบ
                 </button>
               </div>
+              
             </form>
           </div>
         </div>
@@ -75,14 +77,12 @@
   </div>
 </template>
 <script>
-import github from "@/assets/img/github.svg";
-import google from "@/assets/img/google.svg";
+
 
 export default {
   data() {
     return {
-      github,
-      google,
+      
     };
   },
 };

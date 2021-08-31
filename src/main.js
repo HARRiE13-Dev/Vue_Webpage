@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createWebHistory, createRouter } from "vue-router";
+// import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 // styles--------------------------------------------------
 
@@ -34,8 +35,15 @@ import Register from "@/views/auth/Register.vue";
 import Landing from "@/views/Landing.vue";
 import Profile from "@/views/Profile.vue";
 import Index from "@/views/Index.vue";
+
 import Home from "@/views/Home.vue";
 import Page404 from "@/views/Page404.vue";
+import About from "@/views/About.vue";
+import Appeal from "@/views/Appeal.vue";
+import Service from "@/views/Service.vue";
+import Program from "@/views/Program.vue";
+import News from "@/views/News.vue";
+
 
 const routes = [
 
@@ -94,6 +102,27 @@ const routes = [
     path: "/",
     component: Home,
   },
+  {
+    path: "/about",
+    component: About,
+  },
+  {
+    path: "/appeal",
+    component: Appeal,
+  }, 
+  {
+    path: "/program",
+    component: Program,
+  },
+  {
+    path: "/service",
+    component: Service,
+  },
+  {
+    path: "/news",
+    component: News,
+  },
+
   
   //Error 404
   {
@@ -114,7 +143,29 @@ const router = createRouter({
   routes,
 });
 
+// const component = {
+//   setup() {
+//     const { executeRecaptcha, recaptchaLoaded } = useReCaptcha()
+
+//     const recaptcha = async () => {
+//       // (optional) Wait until recaptcha has been loaded.
+//       await recaptchaLoaded()
+
+//       // Execute reCAPTCHA with action "login".
+//       const token = await executeRecaptcha('login')
+
+//       // Do stuff with the received token.
+//     }
+
+//     return {
+//       recaptcha
+//     }
+//   },
+//   template: '<button @click="recaptcha">Execute recaptcha</button>'
+// }
+
 //Create Constant Var--------------------------------------------------------------------
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
+//app.use(VueReCaptcha, { siteKey: '<site key>' })

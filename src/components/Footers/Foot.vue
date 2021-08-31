@@ -16,7 +16,7 @@
           >
             Copyright © 2021 
             <a
-              href="https://www.creative-tim.com?ref=vn-footer-small"
+              
               class="py-1 text-sm font-semibold text-white hover:text-blueGray-300"
             >
               Computer Science MJU
@@ -26,37 +26,15 @@
         <div class="w-full px-4 md:w-8/12">
           <ul class="flex flex-wrap justify-center list-none md:justify-end">
             <li>
-              <a
-                href="https://www.creative-tim.com?ref=vn-footer-small"
+              <p
                 class="block px-3 py-1 text-sm font-semibold text-white hover:text-blueGray-300"
               >
-                Creative Tim
-              </a>
+              | Development & Design by HOP Team
+              </p>
             </li>
-            <li>
-              <a
-                href="https://www.creative-tim.com/presentation?ref=vn-footer-small"
-                class="block px-3 py-1 text-sm font-semibold text-white hover:text-blueGray-300"
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="http://blog.creative-tim.com?ref=vn-footer-small"
-                class="block px-3 py-1 text-sm font-semibold text-white hover:text-blueGray-300"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/creativetimofficial/vue-notus/blob/main/LICENSE.md?ref=vn-footer-small"
-                class="block px-3 py-1 text-sm font-semibold text-white hover:text-blueGray-300"
-              >
-                MIT License
-              </a>
-            </li>
+            
+            
+            
           </ul>
         </div>
       </div>

@@ -3319,6 +3319,9 @@ select {
   --tw-text-opacity: 1;
   color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
+.text-green-400{
+  color: rgb(49, 177, 49)
+}
 
 .text-gray-600 {
   --tw-text-opacity: 1;
