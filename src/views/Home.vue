@@ -55,7 +55,7 @@
       <section class="pb-20 -mt-24 bg-blueGray-200">
         <div class="container px-4 mx-auto">
 
-            <div class="flex flex-wrap ">
+            <div class="flex flex-wrap">
             
 
             <div class="w-full px-4 text-center md:w-4/12">
@@ -69,7 +69,10 @@
                     <i class="fas fa-fingerprint"></i>
                   </div>
                   <h6 class="text-xl font-semibold">Verified Company</h6>
-                  
+                  <p class="mt-2 mb-4 text-blueGray-500">
+                    Keep you user engaged by providing meaningful information.
+                    Remember that by this time, the user is curious.
+                  </p>
                 </div>
               </div>
             </div>
@@ -112,10 +115,12 @@
               </div>
             </div>
             
+            </div>
           
             <!-- Column 1 -->
           
-              
+              <div class="flex flex-wrap ">
+                
             <div class="w-full px-4 text-center md:w-4/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
@@ -156,7 +161,7 @@
 
              <div class="w-full px-4 text-center md:w-6/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg" style="height:500px"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg" 
               >
                 <div class="flex-auto px-4 py-5">
                   <div
@@ -166,20 +171,25 @@
                   </div>
                   <h6 class="text-xl font-semibold">Free Revisions</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
-                    Keep you user engaged by providing .
-                    
+                    Write a few lines about each one. A paragraph describing a
+                    feature will be enough. Keep you user engaged! enough. Keep you user engaged!
+                  Write a few lines about each one. A paragraph describing a
+                    feature will be enough. Keep 
+               
                   </p>
                 </div>
               </div>
             </div>
 
+            </div>
             
           
 
             <!-- Column 2 -->
             
-                
-            <div class=" w-full px-4 text-center md:w-6/12">
+                <div class="flex flex-wrap ">
+                  
+            <div class="w-full px-4 text-center md:w-6/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
               >
@@ -198,13 +208,31 @@
               </div>
             </div>
 
+              <div class="w-full px-4 text-center md:w-6/12">
+              <div
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+              >
+                <div class="flex-auto px-4 py-5">
+                  <div
+                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
+                  >
+                    <i class="fas fa-fingerprint"></i>
+                  </div>
+                  <h6 class="text-xl font-semibold">Verified Company</h6>
+                  <p class="mt-2 mb-4 text-blueGray-500">
+                    Write a few lines about each one. A paragraph describing a
+                    feature will be enough. Keep you user engaged!
+                  </p>
+                </div>
+              </div>
+            </div>
             
-          
+            </div>
 
-
-            <!-- Column 5 -->
-          
-              <div class="w-full px-4 text-center">
+            
+            <!-- Column 4 -->
+          <div class="flex flex-wrap ">
+              <div class="w-full px-4 text-center md:w-12/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
               >
@@ -227,6 +255,7 @@
      
         </div>
       </section>
+      
     </main>
     <main-footer/>
   </div>

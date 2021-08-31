@@ -62,7 +62,7 @@
 
           <li class="flex items-center">
             <router-link
-              to="/appeal"
+              to="/news"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
             >
                 ข่าวสาร
@@ -80,7 +80,7 @@
 
            <li class="flex items-center">
             <router-link
-              to="/appeal"
+              to="/contact"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
             >
                ติดต่อเรา
@@ -108,6 +108,7 @@
               <span class="inline-block ml-2 lg:hidden">Facebook</span>
             </a>
           </li>
+          
         </ul>
       </div>
     </div>
@@ -116,7 +117,7 @@
 
 <script>
 import IndexDropdown from "@/components/Dropdowns/IndexDropdown.vue";
-import AboutDropdown from "@/components/Dropdowns/AboutDropdown.vue";
+import AboutDropdown from "@/components/Dropdowns/AboutMain.vue";
 import { createPopper } from "@popperjs/core";
 
 export default {

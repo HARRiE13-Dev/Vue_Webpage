@@ -43,6 +43,8 @@ import Appeal from "@/views/Appeal.vue";
 import Service from "@/views/Service.vue";
 import Program from "@/views/Program.vue";
 import News from "@/views/News.vue";
+import Staff from "@/views/Staff.vue";
+import Teacher from "@/views/Teacher.vue";
 
 
 const routes = [
@@ -121,6 +123,14 @@ const routes = [
   {
     path: "/news",
     component: News,
+  },
+  {
+    path: "/staff",
+    component: Staff,
+  },
+  {
+    path: "/teacher",
+    component: Teacher,
   },
 
   
