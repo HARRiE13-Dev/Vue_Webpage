@@ -8,13 +8,14 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('');
+            background-image: url('https://www.wallpapertip.com/wmimgs/237-2373103_web-url.jpg');
           "
         >
           <span
             id="blackOverlay"
             class="absolute w-full h-full bg-black opacity-75"
           ></span>
+          
         </div>
 
         <div class="container relative mx-auto">
@@ -52,12 +53,9 @@
         </div>
       </div>
 
-      <section class="pb-20 -mt-24 bg-blueGray-200">
+      <section class="pb-20 -mt-24 bg-blueGray-200 custom">
         <div class="container px-4 mx-auto">
-
-            <div class="flex flex-wrap">
-            
-
+          <div class="flex flex-wrap">
             <div class="w-full px-4 text-center md:w-4/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
@@ -66,9 +64,9 @@
                   <div
                     class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
                   >
-                    <i class="fas fa-fingerprint"></i>
+                    <i class="fas fa-laptop-code"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Verified Company</h6>
+                  <h6 class="text-xl font-semibold">เกี่ยวกับเรา</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
                     Keep you user engaged by providing meaningful information.
                     Remember that by this time, the user is curious.
@@ -77,7 +75,7 @@
               </div>
             </div>
 
-             <div class="w-full px-4 text-center md:w-4/12">
+            <div class="w-full px-4 text-center md:w-4/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
               >
@@ -85,9 +83,9 @@
                   <div
                     class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
                   >
-                    <i class="fas fa-retweet"></i>
+                    <i class="fas fa-user-graduate"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Free Revisions</h6>
+                  <h6 class="text-xl font-semibold">รับสมัคร</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
                     Keep you user engaged by providing meaningful information.
                     Remember that by this time, the user is curious.
@@ -104,9 +102,9 @@
                   <div
                     class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
                   >
-                    <i class="fas fa-fingerprint"></i>
+                    <i class="fas fa-comment-dots"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Verified Company</h6>
+                  <h6 class="text-xl font-semibold">ติดต่อเรา</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
                     Write a few lines about each one. A paragraph describing a
                     feature will be enough. Keep you user engaged!
@@ -114,28 +112,30 @@
                 </div>
               </div>
             </div>
-            
-            </div>
-          
-            <!-- Column 1 -->
-          
-              <div class="flex flex-wrap ">
-                
+          </div>
+
+          <!-- Column 1 -->
+
+          <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-4/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
               >
-                <div class="flex-auto px-4 py-5">
+                <div class="flex-auto px-1 py-1">
                   <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white bg-red-400 rounded-full shadow-lg"
+                    class="block w-24 overflow-hidden text-center bg-white rounded-t"
                   >
-                    <i class="fas fa-award"></i>
+                    <div class="py-3 text-xl font-bold text-white bg-teal-500">
+                      FEBRUARY
+                    </div>
+                    <div class="pt-2 text-xl font-bold text-blueGray-400 ">
+                      Tuesday
+                    </div>
+
+                    <div class="pt-0 border-l border-r">
+                      <span class="font-bold text-55">19</span>
+                    </div>
                   </div>
-                  <h6 class="text-xl font-semibold">Awarded Agency</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    Divide details about your product or agency work into parts.
-                    A paragraph describing a feature will be enough.
-                  </p>
                 </div>
               </div>
             </div>
@@ -148,47 +148,30 @@
                   <div
                     class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
                   >
-                    <i class="fas fa-retweet"></i>
+                    <i class="fas fa-map-marker-alt"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Free Revisions</h6>
+                  <h6 class="text-xl font-semibold">MAP</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
                     Keep you user engaged by providing .
-                    
                   </p>
                 </div>
               </div>
             </div>
 
-             <div class="w-full px-4 text-center md:w-6/12">
+            <div class="w-full px-4 text-center md:w-6/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg" 
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
               >
                 <div class="flex-auto px-4 py-5">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
-                  >
-                    <i class="fas fa-retweet"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">Free Revisions</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    Write a few lines about each one. A paragraph describing a
-                    feature will be enough. Keep you user engaged! enough. Keep you user engaged!
-                  Write a few lines about each one. A paragraph describing a
-                    feature will be enough. Keep 
-               
-                  </p>
+                  <h6 class="text-xl font-semibold">News feeds</h6>
                 </div>
               </div>
             </div>
+          </div>
 
-            </div>
-            
-          
+          <!-- Column 2 -->
 
-            <!-- Column 2 -->
-            
-                <div class="flex flex-wrap ">
-                  
+          <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-6/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
@@ -199,7 +182,7 @@
                   >
                     <i class="fas fa-fingerprint"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Verified Company</h6>
+                  <h6 class="text-xl font-semibold">ห้องเรียน</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
                     Write a few lines about each one. A paragraph describing a
                     feature will be enough. Keep you user engaged!
@@ -208,56 +191,48 @@
               </div>
             </div>
 
-              <div class="w-full px-4 text-center md:w-6/12">
+            <div class="w-full px-4 text-center md:w-6/12">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
               >
                 <div class="flex-auto px-4 py-5">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
-                  >
-                    <i class="fas fa-fingerprint"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">Verified Company</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    Write a few lines about each one. A paragraph describing a
-                    feature will be enough. Keep you user engaged!
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            </div>
-
-            
-            <!-- Column 4 -->
-          <div class="flex flex-wrap ">
-              <div class="w-full px-4 text-center md:w-12/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
-              >
-                <div class="flex-auto px-4 py-5">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
-                  >
-                    <i class="fas fa-retweet"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">Free Revisions</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    Keep you user engaged by providing meaningful information.
-                    Remember that by this time, the user is curious.
-                  </p>
+                  <h6 class="text-xl font-semibold">บุคคลากร</h6>
                 </div>
               </div>
             </div>
           </div>
-          
-     
+
+          <!-- Column 4 -->
+          <div class="flex flex-wrap ">
+            <div class="w-full px-4 text-center md:w-12/12">
+              <div
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+              >
+                <div class="flex-auto px-0 py-1">
+                  <h6 class="py-5 text-xl font-semibold">
+                     <i class="text-red-500 fab fa-youtube"></i>
+                    วีดีโอแนะนำหลักสูตร</h6>
+                  <div
+                    class="relative w-full max-w-full pb-64 overflow-hidden"
+                    
+                  >
+                    <iframe
+                      class="absolute top-0 left-0 w-full h-full"
+                      src="https://www.youtube-nocookie.com/embed/88JeU0ShY60"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      
     </main>
-    <main-footer/>
+    <main-footer />
   </div>
 </template>
 

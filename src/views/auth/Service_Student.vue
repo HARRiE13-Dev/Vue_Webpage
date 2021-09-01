@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar />
+ 
     <main class="profile-page custom">
         
       <section class="relative block h-500-px">
@@ -177,12 +177,12 @@
       
       
     </main>
-    <main-footer />
+    
   </div>
 </template>
 <script>
-import Navbar from "@/components/Navbars/AuthNavbar.vue";
-import MainFooter from "@/components/Footers/MainFooter.vue";
+
+
 
 import team2 from "@/assets/img/team-2-800x800.jpg";
 
@@ -194,8 +194,8 @@ export default {
     };
   },
   components: {
-    Navbar,
-    MainFooter
+   
+    
     
   },
 };

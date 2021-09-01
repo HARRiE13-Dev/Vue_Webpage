@@ -1399,6 +1399,7 @@ select {
   background-color: rgba(228, 228, 231, var(--tw-bg-opacity));
 }
 
+
 .bg-blueGray-50 {
   --tw-bg-opacity: 1;
   background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
@@ -1427,6 +1428,10 @@ select {
 .bg-blueGray-800 {
   --tw-bg-opacity: 1;
   background-color: rgba(30, 41, 59, var(--tw-bg-opacity));
+}
+.bg-blueGray-900 {
+  --tw-bg-opacity: 1;
+  background-color: #111827;
 }
 
 .focus\:bg-white:focus {
@@ -2200,7 +2205,7 @@ select {
 }
 
 .text-55 {
-  font-size: 55rem;
+  font-size: 5rem;
 }
 
 .text-xs {

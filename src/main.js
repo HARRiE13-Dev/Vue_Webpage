@@ -28,7 +28,9 @@ import Maps from "@/views/admin/Maps.vue";
 // views for Auth layout
 
 import Login from "@/views/auth/Login.vue";
-import Register from "@/views/auth/Register.vue";
+import Service_Student from "@/views/auth/Service_Student.vue";
+import Service_Teacher from "@/views/auth/Service_Teacher.vue";
+
 
 // views without layouts
 
@@ -40,7 +42,6 @@ import Home from "@/views/Home.vue";
 import Page404 from "@/views/Page404.vue";
 import About from "@/views/About.vue";
 import Appeal from "@/views/Appeal.vue";
-import Service from "@/views/Service.vue";
 import Program from "@/views/Program.vue";
 import News from "@/views/News.vue";
 import Staff from "@/views/Staff.vue";
@@ -83,8 +84,12 @@ const routes = [
         component: Login,
       },
       {
-        path: "/auth/register",
-        component: Register,
+        path: "/auth/service_student",
+        component: Service_Student,
+      },
+      {
+        path: "/auth/service_teacher",
+        component: Service_Teacher,
       },
     ],
   },
@@ -116,10 +121,7 @@ const routes = [
     path: "/program",
     component: Program,
   },
-  {
-    path: "/service",
-    component: Service,
-  },
+  
   {
     path: "/news",
     component: News,
