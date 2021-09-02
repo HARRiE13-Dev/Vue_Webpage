@@ -22,19 +22,19 @@
          รู้จักกับเรา
       </span>
       <router-link
-        to="/admin/dashboard"
+        to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
           ประวัติความเป็นมา
       </router-link>
       <router-link
-        to="/admin/settings"
+        to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         วิสัยทัศน์
       </router-link>
       <router-link
-        to="/admin/tables"
+        to="/classroom"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         อาคาร/ห้องเรียน
@@ -47,13 +47,13 @@
        บุคคลากร
       </span>
       <router-link
-        to="/auth/login"
+        to="/teacher"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         คณาจารย์
       </router-link>
       <router-link
-        to="/auth/register"
+        to="/staff"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         เจ้าหน้าที่
@@ -65,17 +65,12 @@
         โครงการ
       </span>
       <router-link
-        to="/landing"
+        to="/activity"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
          กิจกรรม
       </router-link>
-      <router-link
-        to="/profile"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-      >
-        ผลงาน
-      </router-link>
+     
     </div>
   </div>
 </template>

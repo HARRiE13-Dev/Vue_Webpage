@@ -1,10 +1,9 @@
 <template>
   <div>
-    <navbar/>
+    <service-navbar/>
 
     <main>
-      <section class="relative w-full h-full min-h-screen py-40">
-         
+      <section class="relative w-full h-full min-h-screen py-16">         
         <div
           class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
           :style="`background-image: url('${backgroundLogin}');`"
@@ -16,7 +15,7 @@
   </div>
 </template>
 <script>
-import Navbar from "@/components/Navbars/Navbar.vue";
+import ServiceNavbar from "@/components/Navbars/ServiceNavbar.vue";
 import Foot from "@/components/Footers/Foot.vue";
 
 //import backgroundLogin from "@/assets/img/bg-1.png";
@@ -28,7 +27,7 @@ export default {
     };
   },
   components: {
-    Navbar,
+    ServiceNavbar,
     Foot,
   },
 };

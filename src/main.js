@@ -17,6 +17,7 @@ import App from "@/App.vue";
 
 import Admin from "@/layouts/Admin.vue";
 import Auth from "@/layouts/Auth.vue";
+import Service from "@/layouts/Service.vue";
 
 // views for Admin layout
 
@@ -47,6 +48,7 @@ import News from "@/views/News.vue";
 import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
+import Classroom from "@/views/Classroom.vue";
 
 
 const routes = [
@@ -84,6 +86,15 @@ const routes = [
         path: "/auth/login",
         component: Login,
       },
+     
+    ],
+  },
+  {
+    path: "/service",
+    redirect: "/auth/service_student",
+    component: Service,
+    children: [
+      
       {
         path: "/auth/service_student",
         component: Service_Student,
@@ -138,6 +149,10 @@ const routes = [
   {
     path: "/contact",
     component: Contact,
+  },
+  {
+    path: "/classroom",
+    component: Classroom,
   },
 
   

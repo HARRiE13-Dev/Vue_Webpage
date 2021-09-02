@@ -213,7 +213,7 @@
                      <i class="text-red-500 fab fa-youtube"></i>
                     วีดีโอแนะนำหลักสูตร</h6>
                   <div
-                    class="relative w-full max-w-full pb-64 overflow-hidden"
+                    class="relative w-full max-w-full overflow-hidden pb-72"
                     
                   >
                     <iframe

@@ -9,8 +9,9 @@
             สาขาวิชาวิทยาการคอมพิวเตอร์ <br />
             อาคาร 60 ปี คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ <br />
             63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290<br />
-            โทร. 053-873890-3 <br>
-            Fax. 053-873898
+            โทร. <a href="tel:053-873890-3">053-873890-3</a> <br>
+            Fax. 053-873898 <br>
+            E-mail : csmju@gmail.com <a href=""></a>
           </p>
 
           <div class="mt-6 mb-6 lg:mb-0">
@@ -46,7 +47,7 @@
           <div class="flex flex-wrap mb-6 items-top">
             <div class="w-full px-4 lg:w-6/12">
               <span
-                class="block mb-2 text-sm font-semibold uppercase text-blueGray-500"
+                class="block mb-2 text-lg font-semibold uppercase text-blueGray-500"
               >
                 ระบบสารสนเทศ
               </span>
@@ -56,17 +57,42 @@
                     to="/appeal"
                     class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
                   >
-                    ระบบ 1
+                    ระบบจองห้องเรียน
                   </router-link>
                 </li>
                 <li>
-                  <a
+                  <router-link
+                    to="/appeal"
                     class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
-                    href="https://blog.creative-tim.com?ref=vn-footer"
                   >
-                    ระบบ2
-                  </a>
+                    ระบบแจ้งรายวิชาตกค้าง
+                  </router-link>
                 </li>
+                <li>
+                  <router-link
+                    to="/appeal"
+                    class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
+                  >
+                    ระบบแจ้งซ่อม
+                  </router-link>
+                </li>
+                <li>
+                  <router-link
+                    to="/appeal"
+                    class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
+                  >
+                    ระบบบันทึกกิจกรรม
+                  </router-link>
+                </li>
+                <li>
+                  <router-link
+                    to="/appeal"
+                    class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
+                  >
+                    ข่าวสาร/ประชาสัมพันธ์
+                  </router-link>
+                </li>
+                
                 
                
               </ul>
@@ -74,9 +100,9 @@
             
             <div class="w-full px-4 lg:w-6/12">
               <span
-                class="block mb-2 text-sm font-semibold uppercase text-blueGray-500"
+                class="block mb-2 text-lg font-semibold uppercase text-blueGray-500"
               >
-                หน่วยงานเกี่ยวข้อง
+                MJU Links
               </span>
               <ul class="list-unstyled">
                 <li>
@@ -91,10 +117,19 @@
                 <li>
                   <a
                     class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
+                    href="http://www.science.mju.ac.th/"
+                    target="_blank"
+                  >
+                   คณะวิทยาศาสตร์
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
                     href="http://reg.mju.ac.th/registrar/home.asp"
                     target="_blank"
                   >
-                    งานทะเบียน
+                    งานทะเบียนนักศึกษา
                   </a>
                 </li>
                 <li>
@@ -111,6 +146,14 @@
                     href="http://www.admissions.mju.ac.th/main.aspx"
                   >
                     การรับสมัครนักศึกษา
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
+                    href="https://it.mju.ac.th/"
+                  >
+                    ศูนย์เทคโนโลยีสารสนเทศ
                   </a>
                 </li>
               </ul>

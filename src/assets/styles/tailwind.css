@@ -155,6 +155,9 @@ sup {
   top: -0.5em;
 }
 
+.rem2{
+  text-indent: 50px;
+}
 /*
 Tabular data
 ============
@@ -2947,6 +2950,10 @@ select {
 
 .pb-64 {
   padding-bottom: 16rem;
+}
+
+.pb-72 {
+  padding-bottom: 20rem;
 }
 
 .placeholder-blueGray-300::-webkit-input-placeholder {
