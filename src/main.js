@@ -46,6 +46,7 @@ import Program from "@/views/Program.vue";
 import News from "@/views/News.vue";
 import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
+import Contact from "@/views/Contact.vue";
 
 
 const routes = [
@@ -133,6 +134,10 @@ const routes = [
   {
     path: "/teacher",
     component: Teacher,
+  },
+  {
+    path: "/contact",
+    component: Contact,
   },
 
   

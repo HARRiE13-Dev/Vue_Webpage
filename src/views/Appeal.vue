@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="pt-10 mb-3 text-center">
-                      <vue-recaptcha
+                      <!-- <vue-recaptcha
                         v-if="showRecaptcha"
                         siteKey="..."
                         size="normal"
@@ -85,7 +85,7 @@
                         @fail="recaptchaFailed"
                         ref="vueRecaptcha"
                       >
-                      </vue-recaptcha>
+                      </vue-recaptcha> -->
                     </div>
 
                     <div class="pt-10 mb-3 text-center">
@@ -107,7 +107,7 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-import vueRecaptcha from "vue3-recaptcha2";
+// import vueRecaptcha from "vue3-recaptcha2";
 
 export default {
   data() {
@@ -120,14 +120,14 @@ export default {
   components: {
     Navbar,
     MainFooter,
-    vueRecaptcha,
+    // vueRecaptcha,
   },
-  methods: {
-    recaptchaVerified() {},
-    recaptchaExpired() {
-      this.$refs.vueRecaptcha.reset();
-    },
-    recaptchaFailed() {},
-  },
+  // methods: {
+  // //   recaptchaVerified() {},
+  // //   recaptchaExpired() {
+  // //     this.$refs.vueRecaptcha.reset();
+  // //   },
+  // //   recaptchaFailed() {},
+  // // },
 };
 </script>
