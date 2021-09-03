@@ -48,7 +48,7 @@
                 <h3
                   class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
-                  MIS
+                ระบบสารสนเทศสำหรับนักศึกษา
                 </h3>
                 
               </div>

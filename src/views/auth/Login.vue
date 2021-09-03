@@ -25,6 +25,7 @@
                 Email
                 </label>
                 <input
+                v-model="email"
                   type="email"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                   placeholder="@mju.ac.th"
@@ -33,12 +34,14 @@
 
               <div class="relative w-full mb-3">
                 <label
+                
                   class="block mb-2 text-xs font-bold uppercase text-blueGray-600"
                   htmlFor="grid-password"
                 >
                   Password
                 </label>
                 <input
+                v-model="password"
                   type="password"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                   placeholder="เลขประจำตัวประชาชน 13 หลัก"
@@ -60,6 +63,7 @@
 
               <div class="mt-6 text-center">
                 <button
+                  @click="submit"
                   class="w-full px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
@@ -77,13 +81,41 @@
   </div>
 </template>
 <script>
-
+import axios from 'axios'
 
 export default {
   data() {
     return {
-      
+    email : '',
+    password : ''
+    
     };
   },
+  methods:{
+    
+    submit(){
+      if(this.email=="student"&&this.password=="123456"){
+        this.$router.push('service_student')
+        
+      }else if(this.email=="teacher"&&this.password=="123456"){
+
+        this.$router.push('service_teacher')
+      }
+      
+      else{
+        alert("Your Account is not Data")
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200')
+        //axios.get('https://api.mju.ac.th/Student/API/STUDENTe8ee4f3759cc4763a8f231965a2da6db23052020/Program/0401')
+        .then((resp)=>{
+          console.log(resp.data);
+          console.log('Success');
+        })
+        .catch((err)=>{
+          console.log(err);
+          console.log('Failed')
+        })
+      }
+    },
+  }
 };
 </script>

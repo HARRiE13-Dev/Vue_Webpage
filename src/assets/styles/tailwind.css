@@ -3786,6 +3786,11 @@ select {
           transition-duration: 150ms;
 }
 
+.duration-700 {
+  -webkit-transition-duration: 700ms;
+          transition-duration: 700ms;
+}
+
 @-webkit-keyframes spin {
   to {
     -webkit-transform: rotate(360deg);
