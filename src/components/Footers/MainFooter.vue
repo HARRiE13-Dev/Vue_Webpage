@@ -3,7 +3,7 @@
     
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap text-center lg:text-left">
-        <div class="w-full px-4 lg:w-6/12">
+        <div class="w-full px-6 lg:w-6/12">
           <h4 class="text-3xl font-semibold">{Logo}</h4>
           <p class="py-2">
             สาขาวิชาวิทยาการคอมพิวเตอร์ <br />

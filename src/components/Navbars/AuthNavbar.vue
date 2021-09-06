@@ -39,7 +39,7 @@
           </li>
 
             <li class="flex items-center">
-            <about-page />
+            <about-page  class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"/>
           </li>
 
 

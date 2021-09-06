@@ -1,7 +1,7 @@
 <template>
   <div>
     <a
-      class="flex items-center px-3 py-4 text-sm font-normal uppercase lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 lg:py-2"
+      
       href="#pablo"
       ref="btnDropdownRef"
       v-on:click="toggleDropdown($event)"
@@ -26,6 +26,12 @@
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
           ประวัติความเป็นมา
+      </router-link>
+        <router-link
+        to="/about"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+      >
+        พันธกิจ
       </router-link>
       <router-link
         to="/about"

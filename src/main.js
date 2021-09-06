@@ -26,6 +26,7 @@ import Settings from "@/views/admin/Settings.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
 
+
 // views for Auth layout
 
 import Login from "@/views/auth/Login.vue";
@@ -154,6 +155,8 @@ const routes = [
     path: "/classroom",
     component: Classroom,
   },
+ 
+  
 
   
   //Error 404

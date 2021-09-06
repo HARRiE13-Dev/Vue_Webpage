@@ -44,7 +44,7 @@
                 v-model="password"
                   type="password"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="เลขประจำตัวประชาชน 13 หลัก"
+                  placeholder="รหัสผ่าน"
                 />
               </div>
               
@@ -87,7 +87,8 @@ export default {
   data() {
     return {
     email : '',
-    password : ''
+    password : '',
+    //user : axios.get('http://wwwdev.csmju.com/api/personnel/1',${e_mail})
     
     };
   },
@@ -104,10 +105,12 @@ export default {
       
       else{
         alert("Your Account is not Data")
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200')
+        //axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200')
+        axios.get('http://wwwdev.csmju.com/api/personnel/1')
         //axios.get('https://api.mju.ac.th/Student/API/STUDENTe8ee4f3759cc4763a8f231965a2da6db23052020/Program/0401')
         .then((resp)=>{
-          console.log(resp.data);
+          console.log(resp.data.e_mail);
+          //console.log(personnel.e_mail);
           console.log('Success');
         })
         .catch((err)=>{

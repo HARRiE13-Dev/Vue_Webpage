@@ -31,6 +31,13 @@
         to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
+        พันธกิจ
+      </router-link>
+
+        <router-link
+        to="/about"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+      >
         วิสัยทัศน์
       </router-link>
       <router-link

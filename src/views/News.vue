@@ -63,9 +63,9 @@
                 </div>
               </div>
 
-              <div class="w-full px-0 mt-10 lg:w-12/12">
+              
                 <div class="flex flex-wrap">
-                  <div class="w-6/12 px-4 lg:w-4/12 ">
+                  <div class="w-full px-2 lg:w-4/12 ">
                     <div
                       class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
                     >
@@ -99,7 +99,7 @@
                     </div>
                   </div>
 
-                  <div class="w-6/12 px-4 lg:w-4/12 ">
+                  <div class="w-full px-2 lg:w-4/12 ">
                     <div
                       class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
                     >
@@ -133,7 +133,7 @@
                     </div>
                   </div>
 
-                  <div class="w-6/12 px-4 lg:w-4/12 ">
+                  <div class="w-full px-2 lg:w-4/12 ">
                     <div
                       class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
                     >
@@ -167,121 +167,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              
 
-              <div class="w-full px-4 mt-10 lg:w-12/12">
-                <div class="flex flex-wrap">
-                  <div class="w-6/12 px-4 lg:w-4/12 ">
-                    <div
-                      class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                    >
-                      <img
-                        alt="..."
-                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-                        class="w-full align-middle rounded-t-lg"
-                      />
-                      <blockquote class="relative p-8 mb-4">
-                        <svg
-                          preserveAspectRatio="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 583 95"
-                          class="absolute left-0 block w-full h-95-px -top-94-px"
-                        >
-                          <polygon
-                            points="-30,95 583,95 583,65"
-                            class="fill-current text-emerald-500"
-                          ></polygon>
-                        </svg>
-                        <h4 class="text-xl font-bold text-white">
-                          Great for your awesome project
-                        </h4>
-                        <p class="mt-2 font-light text-white text-md">
-                          Putting together a page has never been easier than
-                          matching together pre-made components. From landing
-                          pages presentation to login areas, you can easily
-                          customise and built your pages.
-                        </p>
-                      </blockquote>
-                    </div>
-                  </div>
-
-                  <div class="w-6/12 px-4 lg:w-4/12 ">
-                    <div
-                      class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                    >
-                      <img
-                        alt="..."
-                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-                        class="w-full align-middle rounded-t-lg"
-                      />
-                      <blockquote class="relative p-8 mb-4">
-                        <svg
-                          preserveAspectRatio="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 583 95"
-                          class="absolute left-0 block w-full h-95-px -top-94-px"
-                        >
-                          <polygon
-                            points="-30,95 583,95 583,65"
-                            class="fill-current text-emerald-500"
-                          ></polygon>
-                        </svg>
-                        <h4 class="text-xl font-bold text-white">
-                          ข่าว 1
-                        </h4>
-                        <p class="mt-2 font-light text-white text-md">
-                          Putting together a page has never been easier than
-                          matching together pre-made components. From landing
-                          pages presentation to login areas, you can easily
-                          customise and built your pages.
-                        </p>
-                        <router-link
-                          class="inline-block py-2 mr-4 leading-relaxed whitespace-nowrap"
-                          to="/"
-                        >
-                        <button class="px-4 py-2 mb-1 ml-auto text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-blueGray-600 active:bg-blueGray-600 hover:shadow-md focus:outline-none" type="button">
-  อ่านต่อ...
-</button>
-                        </router-link>
-                      </blockquote>
-                    </div>
-                  </div>
-
-                  <div class="w-6/12 px-4 lg:w-4/12 ">
-                    <div
-                      class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                    >
-                      <img
-                        alt="..."
-                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-                        class="w-full align-middle rounded-t-lg"
-                      />
-                      <blockquote class="relative p-8 mb-4">
-                        <svg
-                          preserveAspectRatio="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 583 95"
-                          class="absolute left-0 block w-full h-95-px -top-94-px"
-                        >
-                          <polygon
-                            points="-30,95 583,95 583,65"
-                            class="fill-current text-emerald-500"
-                          ></polygon>
-                        </svg>
-                        <h4 class="text-xl font-bold text-white">
-                          Great for your awesome project
-                        </h4>
-                        <p class="mt-2 font-light text-white text-md">
-                          Putting together a page has never been easier than
-                          matching together pre-made components. From landing
-                          pages presentation to login areas, you can easily
-                          customise and built your pages.
-                        </p>
-                      </blockquote>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            
             </div>
           </div>
         </div>
