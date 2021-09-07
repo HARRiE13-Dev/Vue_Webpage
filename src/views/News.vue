@@ -99,73 +99,7 @@
                     </div>
                   </div>
 
-                  <div class="w-full px-2 lg:w-4/12 ">
-                    <div
-                      class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                    >
-                      <img
-                        alt="..."
-                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-                        class="w-full align-middle rounded-t-lg"
-                      />
-                      <blockquote class="relative p-8 mb-4">
-                        <svg
-                          preserveAspectRatio="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 583 95"
-                          class="absolute left-0 block w-full h-95-px -top-94-px"
-                        >
-                          <polygon
-                            points="-30,95 583,95 583,65"
-                            class="fill-current text-emerald-500"
-                          ></polygon>
-                        </svg>
-                        <h4 class="text-xl font-bold text-white">
-                          Great for your awesome project
-                        </h4>
-                        <p class="mt-2 font-light text-white text-md">
-                          Putting together a page has never been easier than
-                          matching together pre-made components. From landing
-                          pages presentation to login areas, you can easily
-                          customise and built your pages.
-                        </p>
-                      </blockquote>
-                    </div>
-                  </div>
-
-                  <div class="w-full px-2 lg:w-4/12 ">
-                    <div
-                      class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                    >
-                      <img
-                        alt="..."
-                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-                        class="w-full align-middle rounded-t-lg"
-                      />
-                      <blockquote class="relative p-8 mb-4">
-                        <svg
-                          preserveAspectRatio="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 583 95"
-                          class="absolute left-0 block w-full h-95-px -top-94-px"
-                        >
-                          <polygon
-                            points="-30,95 583,95 583,65"
-                            class="fill-current text-emerald-500"
-                          ></polygon>
-                        </svg>
-                        <h4 class="text-xl font-bold text-white">
-                          Great for your awesome project
-                        </h4>
-                        <p class="mt-2 font-light text-white text-md">
-                          Putting together a page has never been easier than
-                          matching together pre-made components. From landing
-                          pages presentation to login areas, you can easily
-                          customise and built your pages.
-                        </p>
-                      </blockquote>
-                    </div>
-                  </div>
+                  
                 </div>
               
 
