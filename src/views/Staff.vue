@@ -51,7 +51,9 @@
               </div>
               <div class="w-full px-4 mt-12 lg:w-12/12">
                 <div class="flex flex-wrap py-6">
-                  <div class="w-full px-4 text-center lg:w-4/12">
+                  <div
+                 
+                   class="w-full px-4 text-center lg:w-4/12">
                   
                    <div class="relative px-12">
                     <img
@@ -96,235 +98,9 @@
                       </p>
                     
                   </div>
-                  <div class="w-full px-4 text-center lg:w-4/12">
                   
-                   <div class="relative px-12">
-                    <img
-                      alt="..."
-                      :src="team2"
-                      class="h-auto align-middle border-none rounded-full shadow-xl lg:max-w-100-px"
-                    />
-                  </div>
-                   
-                      <h3
-                        class="mb-0 text-3xl font-semibold leading-normal text-blueGray-700"
-                      >
-                        Jenna Stones
-                      </h3>
-                      <p class="mb-4 text-xl font-semibold text-blueGray-500">
-                        Jenna Stones
-                      </p>
-
-                      <p class="mt-3 mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                        ></i>
-                        Solution Manager - Creative Tim Officer
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-university text-blueGray-400"
-                        ></i>
-                        University of Computer Science
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                        ></i>
-                        09-9999999
-                      </p>
-                      <p class="mb-6 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                        ></i>
-                        email@email.com
-                      </p>
-                    
-                  </div>
-                  <div class="w-full px-4 text-center lg:w-4/12">
-                  
-                   <div class="relative px-12">
-                    <img
-                      alt="..."
-                      :src="team2"
-                      class="h-auto align-middle border-none rounded-full shadow-xl lg:max-w-100-px"
-                    />
-                  </div>
-                   
-                      <h3
-                        class="mb-0 text-3xl font-semibold leading-normal text-blueGray-700"
-                      >
-                        Jenna Stones
-                      </h3>
-                      <p class="mb-4 text-xl font-semibold text-blueGray-500">
-                        Jenna Stones
-                      </p>
-
-                      <p class="mt-3 mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                        ></i>
-                        Solution Manager - Creative Tim Officer
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-university text-blueGray-400"
-                        ></i>
-                        University of Computer Science
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                        ></i>
-                        09-9999999
-                      </p>
-                      <p class="mb-6 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                        ></i>
-                        email@email.com
-                      </p>
-                    
-                  </div>
                 </div>
-                <hr>
-                <div class="flex flex-wrap py-6">
-                  <div class="w-full px-4 text-center lg:w-4/12">
-                  
-                   <div class="relative px-12">
-                    <img
-                      alt="..."
-                      :src="team2"
-                      class="h-auto align-middle border-none rounded-full shadow-xl " 
-                    />
-                  </div>
-                   
-                      <h3
-                        class="mb-0 text-3xl font-semibold leading-normal text-blueGray-700"
-                      >
-                        Jenna Stones
-                      </h3>
-                      <p class="mb-4 text-xl font-semibold text-blueGray-500">
-                        Jenna Stones
-                      </p>
-
-                      <p class="mt-3 mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                        ></i>
-                        Solution Manager - Creative Tim Officer
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-university text-blueGray-400"
-                        ></i>
-                        University of Computer Science
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                        ></i>
-                        09-9999999
-                      </p>
-                      <p class="mb-6 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                        ></i>
-                        email@email.com
-                      </p>
-                    
-                  </div>
-                  <div class="w-full px-4 text-center lg:w-4/12">
-                  
-                   <div class="relative px-12">
-                    <img
-                      alt="..."
-                      :src="team2"
-                      class="h-auto align-middle border-none rounded-full shadow-xl lg:max-w-100-px"
-                    />
-                  </div>
-                   
-                      <h3
-                        class="mb-0 text-3xl font-semibold leading-normal text-blueGray-700"
-                      >
-                        Jenna Stones
-                      </h3>
-                      <p class="mb-4 text-xl font-semibold text-blueGray-500">
-                        Jenna Stones
-                      </p>
-
-                      <p class="mt-3 mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                        ></i>
-                        Solution Manager - Creative Tim Officer
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-university text-blueGray-400"
-                        ></i>
-                        University of Computer Science
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                        ></i>
-                        09-9999999
-                      </p>
-                      <p class="mb-6 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                        ></i>
-                        email@email.com
-                      </p>
-                    
-                  </div>
-                  <div class="w-full px-4 text-center lg:w-4/12">
-                  
-                   <div class="relative px-12">
-                    <img
-                      alt="..."
-                      :src="team2"
-                      class="h-auto align-middle border-none rounded-full shadow-xl lg:max-w-100-px"
-                    />
-                  </div>
-                   
-                      <h3
-                        class="mb-0 text-3xl font-semibold leading-normal text-blueGray-700"
-                      >
-                        Jenna Stones
-                      </h3>
-                      <p class="mb-4 text-xl font-semibold text-blueGray-500">
-                        Jenna Stones
-                      </p>
-
-                      <p class="mt-3 mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                        ></i>
-                        Solution Manager - Creative Tim Officer
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-university text-blueGray-400"
-                        ></i>
-                        University of Computer Science
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                        ></i>
-                        09-9999999
-                      </p>
-                      <p class="mb-6 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                        ></i>
-                        email@email.com
-                      </p>
-                    
-                  </div>
-                </div>
+                
                 
               </div>
             </div>
@@ -338,14 +114,39 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-
+import axios from "axios";
 import team2 from "@/assets/img/team-2-800x800.jpg";
 
 export default {
   data() {
     return {
       team2,
+       personnel_array: [],
+       personnel:{
+          personnelPhoto: "",
+       },
     };
+  },
+  mounted() {
+    this.getPersonnelData();
+  },
+  methods: {
+    getPersonnelData() {
+     
+      axios({
+        method : 'GET',
+        url:'http://wwwdev.csmju.com/api/personnel?position=อาจารย์',
+        
+      }) 
+      
+      .then((Response) => {
+        this.personnel_array = Response.data;
+        
+      
+        
+      });
+      
+    },
   },
   components: {
     Navbar,

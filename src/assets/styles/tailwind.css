@@ -1231,6 +1231,12 @@ select {
      -moz-appearance: none;
           appearance: none;
 }
+.cropped {
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover;
+ 
+}
 
 .bg-fixed {
   background-attachment: fixed;
@@ -2529,6 +2535,7 @@ select {
   max-height: 860px;
 }
 
+
 .max-w-md {
   max-width: 28rem;
 }
@@ -2903,6 +2910,7 @@ select {
 .pl-10 {
   padding-left: 2.5rem;
 }
+
 
 .pt-12 {
   padding-top: 3rem;

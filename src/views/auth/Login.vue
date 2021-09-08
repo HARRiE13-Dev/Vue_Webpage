@@ -88,7 +88,7 @@ export default {
     return {
     email : '',
     password : '',
-    //user : axios.get('http://wwwdev.csmju.com/api/personnel/1',${e_mail})
+   
     
     };
   },
@@ -106,10 +106,10 @@ export default {
       else{
         alert("Your Account is not Data")
         //axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200')
-        axios.get('http://wwwdev.csmju.com/api/personnel/1')
+        axios.get('http://wwwdev.csmju.com/api/personnel')
         //axios.get('https://api.mju.ac.th/Student/API/STUDENTe8ee4f3759cc4763a8f231965a2da6db23052020/Program/0401')
         .then((resp)=>{
-          console.log(resp.data.e_mail);
+          console.log(resp.data);
           //console.log(personnel.e_mail);
           console.log('Success');
         })

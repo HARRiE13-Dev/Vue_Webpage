@@ -25,6 +25,7 @@ import Dashboard from "@/views/admin/Dashboard.vue";
 import Settings from "@/views/admin/Settings.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
+import Feed from "@/views/admin/Feed.vue";
 
 
 // views for Auth layout
@@ -75,6 +76,10 @@ const routes = [
       {
         path: "/admin/maps",
         component: Maps,
+      },
+      {
+        path: "/admin/feed",
+        component: Feed,
       },
     ],
   },

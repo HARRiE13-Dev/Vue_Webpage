@@ -198,6 +198,23 @@
                 <div class="flex-auto px-4 py-5">
                   <h6 class="text-xl font-semibold">บุคคลากร</h6>
                 </div>
+            <div class="container px-4 mx-auto">
+  <div class="flex flex-wrap">
+    <div 
+     v-for="personnel in personnel_array"
+                  v-bind:key="personnel.personnelId"
+    class="flex-1 w-full">
+       <div class="relative px-2 py-2 ">
+                    <img
+                      :src="personnel.personnelPhoto"
+                      class="h-auto max-w-full align-middle bg-teal-500 border-none rounded-full shadow-xl"
+                    />
+                  </div>
+    </div>
+   
+  </div>
+</div>
+
               </div>
             </div>
           </div>
@@ -238,13 +255,37 @@
 </template>
 
 <script>
+
 import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-
+import axios from 'axios'
 export default {
   components: {
     MainNavbar,
     MainFooter,
+  },
+  data(){
+    return{
+          personnel_array: [],
+      personnel: {
+        personnelId: 0,
+        personnelPhoto: "",
+      },
+      
+    }
+  },
+  mounted() {
+    this.getPersonnelData();
+  },
+  methods: {
+    getPersonnelData() {
+      axios({
+        method: "GET",
+        url:"http://wwwdev.csmju.com/api/personnel"
+      }).then((Response) => {
+        this.personnel_array = Response.data;
+      });
+    },
   },
 };
 </script>

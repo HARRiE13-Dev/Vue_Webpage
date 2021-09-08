@@ -1,7 +1,7 @@
 <template>
   <footer class="relative pt-8 pb-6 bg-blueGray-200 custom">
     
-    <div class="container px-4 mx-auto">
+    <div class="container px-0 mx-auto">
       <div class="flex flex-wrap text-center lg:text-left">
         <div class="w-full px-6 lg:w-6/12">
           <h4 class="text-3xl font-semibold">{Logo}</h4>

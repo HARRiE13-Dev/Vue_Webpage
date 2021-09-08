@@ -47,59 +47,58 @@
                   คณาจารย์
                 </h3>
               </div>
-              
-                <div class="flex flex-wrap py-6">
-                  <div
-                    v-for="personnel in personnel_array"
-                    v-bind:key="personnel.personnelId"
-                    class="w-full px-4 text-center lg:w-4/12"
-                  >
-                    <div class="relative px-12 py-12">
-                      <img
-                      
-                        :src="personnel.personnelPhoto"
-                        class="h-auto align-middle border-none rounded-full shadow-xl "
-                      />
-                    </div>
 
-                    <h3
-                      class="mb-0 text-lg font-semibold leading-normal text-blueGray-700"
-                    >
-                      {{ personnel.titlePosition }} {{ personnel.firstName }}
-                      {{ personnel.lastName }}
-                    </h3>
-                    <p class="mb-4 text-sm font-semibold text-blueGray-500">
-                      {{ personnel.fistNameEn }} {{ personnel.lastNameEn }}
-                    </p>
-
-                    <p class="mt-3 mb-0 text-blueGray-600">
-                      <i
-                        class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                      ></i>
-                      {{ personnel.adminPosition }}
-                    </p>
-                    <p class="mb-0 text-blueGray-600">
-                      <i
-                        class="mr-2 text-lg fas fa-university text-blueGray-400"
-                      ></i>
-                      {{ personnel.education }} <br>
-                       {{ personnel.major }} <br>
-                      {{ personnel.university }}
-                    </p>
-                    <p class="mb-0 text-blueGray-600">
-                      <i
-                        class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                      ></i>
-                    </p>
-                    <p class="mb-6 text-blueGray-600">
-                      <i
-                        class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                      ></i>
-                      {{ personnel.e_mail }}
-                    </p>
+              <div class="flex flex-wrap py-6">
+                <div
+                  v-for="personnel in personnel_array"
+                  v-bind:key="personnel.personnelId"
+                  class="w-full px-4 text-center lg:w-4/12"
+                >
+                  <div class="relative px-12 py-12 ">
+                    <img
+                      :src="personnel.personnelPhoto"
+                      class="h-auto max-w-full align-middle bg-teal-500 border-none rounded-full shadow-xl"
+                    />
                   </div>
+
+                  <h3
+                    class="mb-0 text-lg font-semibold leading-normal text-blueGray-700"
+                  >
+                    {{ personnel.titlePosition }} {{ personnel.firstName }}
+                    {{ personnel.lastName }}
+                  </h3>
+                  <p class="mb-4 text-sm font-semibold text-blueGray-500">
+                    {{ personnel.fistNameEn }} {{ personnel.lastNameEn }}
+                  </p>
+
+                  <p class="mt-3 mb-0 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
+                    ></i>
+                    {{ personnel.adminPosition }}
+                  </p>
+                  <p class="mb-0 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-university text-blueGray-400"
+                    ></i>
+                    {{ personnel.education }} <br />
+                    {{ personnel.major }} <br />
+                    {{ personnel.university }}
+                  </p>
+                  <p class="mb-0 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
+                    ></i>
+                    {{ personnel.phoneNumber }}
+                  </p>
+                  <p class="mb-6 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-envelope text-blueGray-400"
+                    ></i>
+                    {{ personnel.e_mail }}
+                  </p>
                 </div>
-             
+              </div>
             </div>
           </div>
         </div>
@@ -138,13 +137,14 @@ export default {
         major: "",
         university: "",
 
+        //tel
+        phoneNumber: "",
+
         //email
         e_mail: "",
 
         //profile picture
         personnelPhoto: "",
-
-        
       },
     };
   },
@@ -153,16 +153,13 @@ export default {
   },
   methods: {
     getPersonnelData() {
-     
-      axios.get("http://wwwdev.csmju.com/api/personnel")
-      .then((Response) => {
+      axios({
+        method: "GET",
+        url: "http://wwwdev.csmju.com/api/personnel",
+      }).then((Response) => {
         this.personnel_array = Response.data;
-        //get Teacher Only
-      
-        
       });
     },
-   
   },
   components: {
     Navbar,

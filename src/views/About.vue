@@ -94,10 +94,11 @@
                         </a>
                       </li>
                     </ul>
+                    
                     <div
-                      class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
+                      class="relative flex flex-col w-full"
                     >
-                      <div class="flex-auto px-4 py-5 ">
+                      <div class="flex-auto px-0 py-5 ">
                         <div class="text-justify tab-content tab-space text-blueGray-700">
                           <div
                             v-bind:class="{

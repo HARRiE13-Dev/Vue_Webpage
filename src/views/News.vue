@@ -65,7 +65,11 @@
 
               
                 <div class="flex flex-wrap">
-                  <div class="w-full px-2 lg:w-4/12 ">
+                  <div 
+                   v-for="news in news_array"
+                    v-bind:key="news.newsId"
+                  
+                  class="w-full px-2 lg:w-4/12 ">
                     <div
                       class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
                     >
@@ -87,13 +91,10 @@
                           ></polygon>
                         </svg>
                         <h4 class="text-xl font-bold text-white">
-                          Great for your awesome project
+                        {{ news.News_Title}}
                         </h4>
                         <p class="mt-2 font-light text-white text-md">
-                          Putting together a page has never been easier than
-                          matching together pre-made components. From landing
-                          pages presentation to login areas, you can easily
-                          customise and built your pages.
+                             {{ news.News_Detail}}
                         </p>
                       </blockquote>
                     </div>
@@ -116,13 +117,35 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 
-import team2 from "@/assets/img/team-2-800x800.jpg";
+import axios from "axios"
 
 export default {
   data() {
     return {
-      team2,
+      news_array:[],
+      news:{
+        newsId : 0,
+        News_Title : null,
+        News_Detail : null,
+        News_Picture : null
+      }
     };
+  },
+  mounted() {
+    this.getNewsData();
+  },methods: {
+    getNewsData(){
+
+      axios({
+        method: 'get',
+        url : 'http://wwwdev.csmju.com/api/news',
+        
+      })
+      .then((resp)=>{
+          this.news_array = resp.data;
+        
+      })
+    }
   },
   components: {
     Navbar,
