@@ -1,89 +1,31 @@
 <template>
-  <div class="text-center font-weight mt-lg">
-    <h1>Example</h1>
-    <h2>Test Database Vue.js mixed Laravel.php</h2>
-
-    <div class="container px-4 mx-auto">
-      <div class="flex flex-wrap">
-        <div class="flex-1 w-full px-4">
-          <span
-            class="block p-3 my-4 text-sm border border-solid rounded text-blueGray-700 border-blueGray-100"
-            >ID</span
-          >
+  <div class="h-screen px-2 py-20 bg-gray-300">
+    <div class="max-w-md mx-auto overflow-hidden bg-white rounded-lg md:max-w-lg">
+        <div class="md:flex">
+            <div class="w-full px-4 py-6 ">
+                <div class="mb-1"> <span class="text-sm">Full name</span> <input type="text" class="w-full h-12 px-3 border-2 border-blue-400 rounded focus:outline-none focus:border-blue-600"> </div>
+                <div class="mb-1"> <span class="text-sm">Description</span> <textarea type="text" class="w-full h-24 px-3 py-1 border-2 border-blue-400 rounded resize-none focus:outline-none focus:border-blue-600"></textarea> </div>
+                <div class="mb-1"> <span class="text-sm text-gray-400">You will be able to edit this information later</span> </div>
+                <div class="mb-1"> <span>Attachments</span>
+                    <div class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 border-dashed border-dotted rounded-lg">
+                        <div class="absolute">
+                            <div class="flex flex-col items-center"> <i class="text-blue-700 fa fa-folder-open fa-3x"></i> <span class="block font-normal text-gray-400">Attach you files here</span> </div>
+                        </div> <input type="file" class="w-full h-full opacity-0" name="">
+                    </div>
+                </div>
+                <div class="mt-3 text-right"> <a href="#">Cancel</a> <button class="w-32 h-10 ml-2 text-white bg-blue-600 rounded hover:bg-blue-700">Create</button> </div>
+            </div>
         </div>
-        <div class="flex-1 w-full px-4">
-          <span
-            class="block p-3 my-4 text-sm border border-solid rounded text-blueGray-700 border-blueGray-100"
-            >Name</span
-          >
-        </div>
-        <div class="flex-1 w-full px-4">
-          <span
-            class="block p-3 my-4 text-sm border border-solid rounded text-blueGray-700 border-blueGray-100"
-            >Lastname</span
-          >
-        </div>
-      </div>
-      <div
-        v-for="personnel in personnel_array"
-        v-bind:key="personnel.personnelId"
-        class="flex flex-wrap"
-      >
-        <div class="flex-1 w-full px-4">
-          <span
-            class="block p-3 my-4 text-sm border border-solid rounded text-blueGray-700 border-blueGray-100"
-            >{{ personnel.personnelId }}</span
-          >
-        </div>
-        <div class="flex-1 w-full px-4">
-          <span
-            class="block p-3 my-4 text-sm border border-solid rounded text-blueGray-700 border-blueGray-100"
-            >{{ personnel.firstName }}</span
-          >
-        </div>
-        <div class="flex-1 w-full px-4">
-          <span
-            class="block p-3 my-4 text-sm border border-solid rounded text-blueGray-700 border-blueGray-100"
-            >{{ personnel.lastName }}</span
-          >
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
-import axios from "axios";
 export default {
-  mounted() {
-    this.getUserData();
-  },
-  methods: {
-    getUserData() {
-      axios.get("http://wwwdev.csmju.com/api/personnel").then((Response) => {
-        //console.log(Response);
-        this.personnel_array = Response.data;
-      });
-    },
-    deleteUser(id, index) {
-      //console.log(id);
-      axios
-        .delete("http://wwwdev.csmju.com/api/personnel/" + id)
-        .then((Response) => {
-          console.log(Response);
-          this.personnel_array.splice(index, 1);
-        });
-    },
-  },
-  data() {
-    return {
-      personnel_array: [],
-      personnel: {
-        personnelId: 0,
-        firstName: "",
-        lastName: "",
-      },
-    };
-  },
-};
+
+}
 </script>
+
+<style>
+
+</style>

@@ -120,7 +120,8 @@
                     </h3>
                   </div>
                 </div>
-
+                  <hr class="py-2 ">
+                  
                 <div class="flex flex-wrap justify-center ">
                   <div class="w-full px-0 mb-4 lg:w-12/12">
                     <div

@@ -21,14 +21,13 @@
                     <div class="pt-0 mb-3">
                       <p>หัวข้อเรื่อง</p>
                       <input
-                       
                         v-model="n_title"
                         type="text"
                         placeholder="หัวข้อเรื่อง"
                         class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                       />
                     </div>
-                    {{ n_title }}
+                   
                     <div class="pt-10 mb-3 ">
                       <p>รายละเอียด</p>
                       <textarea
@@ -60,7 +59,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
@@ -70,16 +69,22 @@ export default {
   },
   methods: {
     enter() {
-        
       axios({
         method: "POST",
         url: "http://wwwdev.csmju.com/api/news",
-        data:{
-            News_Title : this.n_title,
-            News_Detail : this.n_detail
-        }
-      });
-      
+        data: {
+          News_Detail: this.n_title,
+          News_Date: "2021-09-08",
+          News_Time: "13:33:25",
+          News_Picture: "abc",
+          News_Title: this.n_detail,
+          News_File: "1",
+          News_links: "1",
+          News_Type: "1",
+        },
+      }).then((resp)=>{
+        console.log(resp);
+      })
     },
   },
 };

@@ -55,7 +55,7 @@
                     <div class="pt-0 mb-3">
                       <p>หัวข้อเรื่อง</p>
                       <input
-                        name="topic"
+                        v-model="topic"
                         type="text"
                         placeholder="หัวข้อเรื่อง"
                         class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
@@ -65,12 +65,33 @@
                     <div class="pt-10 mb-3 ">
                       <p>รายละเอียด</p>
                       <textarea
-                        name="detail"
+                        v-model="detail"
                         cols="30"
                         placeholder="เนื้อหา / รายละเอียด"
                         rows="10"
                         class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                       ></textarea>
+                    </div>
+
+                    <div class="mb-1">
+                      <span>แนบไฟล์</span>
+                      <div
+                        class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 rounded-lg border-all"
+                      >
+                        <div class="absolute">
+                          <div class="flex flex-col items-center py-10">
+                            <span
+                              class="block py-10 font-normal border-blueGray-300"
+                            ></span>
+                          </div>
+                        </div>
+                        <input
+                          id="attach"
+                          type="file"
+                          class="w-full h-full opacity-0"
+                          name=""
+                        />
+                      </div>
                     </div>
 
                     <div class="pt-10 mb-3 text-center">
@@ -89,9 +110,13 @@
                     </div>
 
                     <div class="pt-10 mb-3 text-center">
-                     <button class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-lg focus:outline-none" type="button">
-  ยืนยันส่งข้อความ
-</button>
+                      <button
+                        v-on:click="commit()"
+                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ยืนยันส่งข้อความ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -108,14 +133,34 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 // import vueRecaptcha from "vue3-recaptcha2";
-
+import axios from "axios";
 export default {
   data() {
     return {
       topic: "",
       detail: "",
+      attach: "",
       showRecaptcha: true,
+      date: new Date().toString(),
     };
+  },
+  methods: {
+    commit() {
+      console.log(this.topic, this.detail, this.date);
+
+      axios({
+        method: "POST",
+        url: "http://wwwdev.csmju.com/api/complain",
+        data: {
+          Complain_Title: this.topic,
+          Complain_Detail: this.detail,
+         Complain_Picture: this.attach,
+          Complain_Date: this.date,
+        },
+      }).then((resp) => {
+        console.log(resp);
+      });
+    },
   },
   components: {
     Navbar,

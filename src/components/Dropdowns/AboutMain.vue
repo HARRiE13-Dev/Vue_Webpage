@@ -77,12 +77,7 @@
       >
         กิจกรรม
       </router-link>
-      <router-link
-        to="/reward"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-      >
-        ผลงาน
-      </router-link>
+   
     </div>
   </div>
 </template>
