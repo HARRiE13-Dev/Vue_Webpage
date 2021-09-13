@@ -19,25 +19,25 @@
               class="items-center justify-center w-10 h-10 mr-2 font-normal text-red-500 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
               type="button"
             >
-              <i class="fab fa-youtube"></i>
+              <i class="fab fa-youtube fa-lg"></i>
             </button>
             <button
               class="items-center justify-center w-10 h-10 mr-2 font-normal text-green-400 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
               type="button"
             >
-              <i class="fab fa-line"></i>
+              <i class="fab fa-line fa-lg"></i>
             </button>
             <button
               class="items-center justify-center w-10 h-10 mr-2 font-normal bg-white rounded-full shadow-lg outline-none text-lightBlue-600 align-center focus:outline-none"
               type="button"
             >
-              <i class="fab fa-facebook-square"></i>
+              <i class="fab fa-facebook-square fa-lg"></i>
             </button>
             <button
-              class="items-center justify-center w-10 h-10 mr-2 font-normal text-black bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
+              class="items-center justify-center w-10 h-10 mr-2 font-normal text-green-400 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
               type="button"
             >
-              <i class="fas fa-phone-alt"></i>
+              <i class="fas fa-phone-alt "></i>
             </button>
 
             

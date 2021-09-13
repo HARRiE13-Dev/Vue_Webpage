@@ -31,9 +31,9 @@
         id="example-navbar-warning"
       >
         <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
-          <li class="flex items-center">
+          <!-- <li class="flex items-center">
             <index-dropdown />
-          </li>
+          </li> -->
 
           <li class="flex items-center">
             <router-link
@@ -98,16 +98,7 @@
             </router-link>
           </li>       
 
-          <li class="flex items-center">
-            <a
-              class="flex items-center px-3 py-2 text-xs font-bold uppercase hover:text-blueGray-500 text-blueGray-700"
-              href=""
-              target="_blank"
-            >
-              <i class="text-lg text-blueGray-400 fab fa-facebook leading-lg" />
-              <span class="inline-block ml-2 lg:hidden">Facebook</span>
-            </a>
-          </li>
+         
           
         </ul>
       </div>
@@ -116,7 +107,7 @@
 </template>
 
 <script>
-import IndexDropdown from "@/components/Dropdowns/IndexDropdown.vue";
+//import IndexDropdown from "@/components/Dropdowns/IndexDropdown.vue";
 import AboutDropdown from "@/components/Dropdowns/AboutMain.vue";
 import { createPopper } from "@popperjs/core";
 
@@ -144,7 +135,7 @@ export default {
     },
   },
   components: {
-    IndexDropdown,
+    //IndexDropdown,
     AboutDropdown,
   },
 };

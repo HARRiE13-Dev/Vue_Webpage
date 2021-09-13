@@ -1,31 +1,128 @@
 <template>
-  <div class="h-screen px-2 py-20 bg-gray-300">
-    <div class="max-w-md mx-auto overflow-hidden bg-white rounded-lg md:max-w-lg">
-        <div class="md:flex">
-            <div class="w-full px-4 py-6 ">
-                <div class="mb-1"> <span class="text-sm">Full name</span> <input type="text" class="w-full h-12 px-3 border-2 border-blue-400 rounded focus:outline-none focus:border-blue-600"> </div>
-                <div class="mb-1"> <span class="text-sm">Description</span> <textarea type="text" class="w-full h-24 px-3 py-1 border-2 border-blue-400 rounded resize-none focus:outline-none focus:border-blue-600"></textarea> </div>
-                <div class="mb-1"> <span class="text-sm text-gray-400">You will be able to edit this information later</span> </div>
-                <div class="mb-1"> <span>Attachments</span>
-                    <div class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 border-dashed border-dotted rounded-lg">
-                        <div class="absolute">
-                            <div class="flex flex-col items-center"> <i class="text-blue-700 fa fa-folder-open fa-3x"></i> <span class="block font-normal text-gray-400">Attach you files here</span> </div>
-                        </div> <input type="file" class="w-full h-full opacity-0" name="">
-                    </div>
-                </div>
-                <div class="mt-3 text-right"> <a href="#">Cancel</a> <button class="w-32 h-10 ml-2 text-white bg-blue-600 rounded hover:bg-blue-700">Create</button> </div>
-            </div>
+  <div>
+    <navbar />
+    <main class="profile-page">
+      <section class="relative block h-500-px">
+        <div
+          class="absolute top-0 w-full h-full bg-center bg-cover"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80');
+          "
+        >
+          <span
+            id="blackOverlay"
+            class="absolute w-full h-full bg-black opacity-50"
+          ></span>
         </div>
-    </div>
-</div>
+        <div
+          class="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none h-70-px"
+          style="transform: translateZ(0);"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon
+              class="fill-current text-blueGray-200"
+              points="2560 0 2560 100 0 100"
+            ></polygon>
+          </svg>
+        </div>
+      </section>
+      <section class="relative py-16 bg-blueGray-200">
+        <div class="container px-4 mx-auto">
+          <div
+            class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+          >
+            <div class="px-6 ">
+              <div class="mt-6 mb-10 text-center ">
+                <h3
+                  class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
+                >
+                  
+                </h3>
+              </div>
+
+              <div class="flex flex-wrap py-6">
+                <div
+                  v-for="student in personnel_array"
+                  v-bind:key="student.studentID"
+                  class="w-full px-4 text-center lg:w-4/12"
+                >
+                  <div class="relative px-12 py-12 ">
+                   
+                  </div>
+
+                  <h3
+                    class="mb-0 text-lg font-semibold leading-normal text-blueGray-700"
+                  >
+                  
+                    {{ student.nameTh }} 
+                    
+                  </h3>
+                  
+               
+                 
+                 
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <main-footer />
+  </div>
 </template>
-
 <script>
+import Navbar from "@/components/Navbars/AuthNavbar.vue";
+import MainFooter from "@/components/Footers/MainFooter.vue";
+import axios from "axios";
+
 export default {
+  data() {
+    return {
+      token: "2c32ddd497924dfcabb3bec972341808",
+      //team2,
+      personnel_array: [],
+      personnel: {
+        studentID: 0,
+        nameTh: '',
+        
 
-}
+      },
+    };
+  },
+  mounted() {
+    this.getPersonnelData();
+  },
+  methods: {
+    getPersonnelData() {
+      axios(
+        {
+          method: "GET",
+          url:
+            "https://api.mju.ac.th/Student/API/STUDENTe8ee4f3759cc4763a8f231965a2da6db23052020/Program/0401",
+        },
+        {
+          headers: {
+            'Authorization': `Basic ${this.token}`,
+          },
+        }
+      ).then((Response) => {
+        this.personnel_array = Response.data;
+      });
+    },
+  },
+  components: {
+    Navbar,
+    MainFooter,
+  },
+};
 </script>
-
-<style>
-
-</style>

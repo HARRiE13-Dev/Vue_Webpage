@@ -15,7 +15,6 @@
             id="blackOverlay"
             class="absolute w-full h-full bg-black opacity-75"
           ></span>
-          
         </div>
 
         <div class="container relative mx-auto">
@@ -125,15 +124,15 @@
                   <div
                     class="block w-24 overflow-hidden text-center bg-white rounded-t"
                   >
-                    <div class="py-3 text-xl font-bold text-white bg-teal-500">
-                      FEBRUARY
-                    </div>
+                    <div
+                      class="py-3 text-xl font-bold text-white bg-teal-500"
+                    ></div>
                     <div class="pt-2 text-xl font-bold text-blueGray-400 ">
-                      Tuesday
+                      {{ nameDate }}
                     </div>
 
                     <div class="pt-0 border-l border-r">
-                      <span class="font-bold text-55">19</span>
+                      <span class="font-bold text-55">{{ date }}</span>
                     </div>
                   </div>
                 </div>
@@ -152,18 +151,8 @@
                   </div>
                   <h6 class="text-xl font-semibold">MAP</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
-                    Keep you user engaged by providing .
+                    Keep
                   </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="w-full px-4 text-center md:w-6/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
-              >
-                <div class="flex-auto px-4 py-5">
-                  <h6 class="text-xl font-semibold">News feeds</h6>
                 </div>
               </div>
             </div>
@@ -191,30 +180,28 @@
               </div>
             </div>
 
-            <div class="w-full px-4 text-center md:w-6/12">
+            <div class="w-full px-4 -mt-48 text-center md:w-6/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
               >
                 <div class="flex-auto px-4 py-5">
-                  <h6 class="text-xl font-semibold">บุคคลากร</h6>
+                  <h6 class="text-xl font-semibold">News feeds</h6>
                 </div>
-            <div class="container px-4 mx-auto">
-  <div class="flex flex-wrap">
-    <div 
-     v-for="personnel in personnel_array"
-                  v-bind:key="personnel.personnelId"
-    class="flex-1 w-full">
-       <div class="relative px-2 py-2 ">
-                    <img
-                      :src="personnel.personnelPhoto"
-                      class="h-auto max-w-full align-middle bg-teal-500 border-none rounded-full shadow-xl"
-                    />
-                  </div>
-    </div>
-   
-  </div>
-</div>
-
+                <p class="mx-4 mt-2 mb-4 text-blueGray-500">
+                  Write a few lines about each one. A paragraph describing a
+                  feature will be enough. Keep you user engaged! Lorem ipsum
+                  dolor sit amet consectetur, adipisicing elit. Nostrum nam
+                  ullam expedita unde odio animi aut adipisci saepe molestiae,
+                  nobis distinctio libero? Ullam dolorem repellat molestiae
+                  deserunt quae aliquid saepe! Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Qui eum porro ab perspiciatis
+                  est, aliquid laudantium id quidem repellat deleniti expedita
+                  tenetur sit incidunt voluptates fugiat totam nesciunt
+                  obcaecati nostrum? Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Alias quidem deserunt, soluta atque quod
+                  iure harum et vero dolorum, doloribus labore animi earum
+                  omnis, adipisci nemo sed sint! Provident, rem.
+                </p>
               </div>
             </div>
           </div>
@@ -227,12 +214,10 @@
               >
                 <div class="flex-auto px-0 py-1">
                   <h6 class="py-5 text-xl font-semibold">
-                     <i class="text-red-500 fab fa-youtube"></i>
-                    วีดีโอแนะนำหลักสูตร</h6>
-                  <div
-                    class="relative w-full max-w-full overflow-hidden pb-72"
-                    
-                  >
+                    <i class="text-red-500 fab fa-youtube"></i>
+                    วีดีโอแนะนำหลักสูตร
+                  </h6>
+                  <div class="relative w-full max-w-full overflow-hidden pb-72">
                     <iframe
                       class="absolute top-0 left-0 w-full h-full"
                       src="https://www.youtube-nocookie.com/embed/88JeU0ShY60"
@@ -247,7 +232,6 @@
             </div>
           </div>
         </div>
-        
       </section>
     </main>
     <main-footer />
@@ -255,33 +239,39 @@
 </template>
 
 <script>
-
 import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-import axios from 'axios'
+import axios from "axios";
+
 export default {
   components: {
     MainNavbar,
     MainFooter,
   },
-  data(){
-    return{
-          personnel_array: [],
+  data() {
+    return {
+      date: new Date().getDate(),
+     
+      
+      
+
+      personnel_array: [],
       personnel: {
         personnelId: 0,
         personnelPhoto: "",
       },
-      
-    }
+    };
   },
   mounted() {
     this.getPersonnelData();
   },
   methods: {
     getPersonnelData() {
+
+  
       axios({
         method: "GET",
-        url:"http://wwwdev.csmju.com/api/personnel"
+        url: "http://wwwdev.csmju.com/api/personnel",
       }).then((Response) => {
         this.personnel_array = Response.data;
       });

@@ -86,8 +86,9 @@
                           </div>
                         </div>
                         <input
-                          id="attach"
+                        
                           type="file"
+                          @change="onFileSelected"
                           class="w-full h-full opacity-0"
                           name=""
                         />
@@ -111,7 +112,7 @@
 
                     <div class="pt-10 mb-3 text-center">
                       <button
-                        v-on:click="commit()"
+                        @click.prevent="commit"
                         class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
@@ -139,24 +140,34 @@ export default {
     return {
       topic: "",
       detail: "",
-      attach: "",
+     
       showRecaptcha: true,
       date: new Date().toString(),
+      selectedFile: null,
     };
   },
   methods: {
+    onFileSelected(event) {
+      //console.log(event);
+      this.selectedFile = event.target.files[0];
+    },
     commit() {
       console.log(this.topic, this.detail, this.date);
-
+      const formData = new FormData();
+      formData.append('image', this.selectedFile, this.selectedFile.name)
       axios({
         method: "POST",
         url: "http://wwwdev.csmju.com/api/complain",
         data: {
           Complain_Title: this.topic,
           Complain_Detail: this.detail,
-         Complain_Picture: this.attach,
+          Complain_Picture: this.selectedFile.name,
           Complain_Date: this.date,
         },
+        formData,
+        onUploadProgress: uploadEvent => {
+          console.log('Upload Progress: '+ Math.round(uploadEvent.loaded / uploadEvent.tolal*100)+ '%');
+        }
       }).then((resp) => {
         console.log(resp);
       });
