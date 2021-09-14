@@ -6,7 +6,7 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80');
+            background-image: url('https://3l4jojspj4-flywheel.netdna-ssl.com/wp-content/uploads/iStock-655597202-1.jpg');
           "
         >
           <span
@@ -63,48 +63,42 @@
                 </div>
               </div>
 
-              
-                <div class="flex flex-wrap">
-                  <div 
-                   v-for="news in news_array"
-                    v-bind:key="news.newsId"
-                  
-                  class="w-full px-2 lg:w-4/12 ">
-                    <div
-                      class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                    >
-                      <img
-                        alt="..."
-                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-                        class="w-full align-middle rounded-t-lg"
-                      />
-                      <blockquote class="relative p-8 mb-4">
-                        <svg
-                          preserveAspectRatio="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 583 95"
-                          class="absolute left-0 block w-full h-95-px -top-94-px"
-                        >
-                          <polygon
-                            points="-30,95 583,95 583,65"
-                            class="fill-current text-emerald-500"
-                          ></polygon>
-                        </svg>
-                        <h4 class="text-xl font-bold text-white">
-                        {{ news.News_Title}}
-                        </h4>
-                        <p class="mt-2 font-light text-white text-md">
-                             {{ news.News_Detail}}
-                        </p>
-                      </blockquote>
-                    </div>
+              <div class="flex flex-wrap">
+                <div
+                  v-for="news in news_array"
+                  v-bind:key="news.newsId"
+                  class="w-full px-2 lg:w-4/12 "
+                >
+                  <div
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
+                  >
+                    <img
+                      alt="..."
+                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+                      class="w-full align-middle rounded-t-lg"
+                    />
+                    <blockquote class="relative p-8 mb-4">
+                      <svg
+                        preserveAspectRatio="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 583 95"
+                        class="absolute left-0 block w-full h-95-px -top-94-px"
+                      >
+                        <polygon
+                          points="-30,95 583,95 583,65"
+                          class="fill-current text-emerald-500"
+                        ></polygon>
+                      </svg>
+                      <h4 class="text-xl font-bold text-white">
+                        {{ news.News_Title }}
+                      </h4>
+                      <p class="mt-2 font-light text-white text-md">
+                        {{ news.News_Detail }}
+                      </p>
+                    </blockquote>
                   </div>
-
-                  
                 </div>
-              
-
-            
+              </div>
             </div>
           </div>
         </div>
@@ -117,35 +111,40 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 
-import axios from "axios"
+import axios from "axios";
 
 export default {
   data() {
     return {
-      news_array:[],
-      news:{
-        newsId : 0,
-        News_Title : null,
-        News_Detail : null,
-        News_Picture : null
-      }
+      news_array: [],
+      news: {
+        newsId: 0,
+        News_Title: "",
+        News_Detail: "",
+        News_Picture: "",
+      },
     };
   },
   mounted() {
     this.getNewsData();
-  },methods: {
-    getNewsData(){
-
+  },
+  methods: {
+    getNewsData() {
       axios({
-        method: 'get',
-        url : 'http://wwwdev.csmju.com/api/news',
-        
+        method: "GET",
+        url: "http://wwwdev.csmju.com/api/news",
       })
-      .then((resp)=>{
-          this.news_array = resp.data;
-        
-      })
-    }
+        .then((response) => {
+          this.news_array = response.data;
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
+    },
   },
   components: {
     Navbar,

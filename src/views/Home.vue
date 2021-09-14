@@ -57,26 +57,32 @@
           <div class="flex flex-wrap">
             <div class="w-full px-4 text-center md:w-4/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
-                <div class="flex-auto px-4 py-5">
+                <div class="flex-auto px-4 py-5 ">
+                  
                   <div
                     class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
                   >
+                  
+                  
                     <i class="fas fa-laptop-code"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">เกี่ยวกับเรา</h6>
+                  <h6 class="text-xl font-semibold">เรียนเกี่ยวกับ ?</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
                     Keep you user engaged by providing meaningful information.
                     Remember that by this time, the user is curious.
                   </p>
+                   <router-link to="/auth/login">
+   
+            </router-link>
                 </div>
               </div>
             </div>
 
             <div class="w-full px-4 text-center md:w-4/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
                 <div class="flex-auto px-4 py-5">
                   <div
@@ -95,7 +101,7 @@
 
             <div class="w-full px-4 text-center md:w-4/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
                 <div class="flex-auto px-4 py-5">
                   <div
@@ -118,7 +124,7 @@
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-4/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
                 <div class="flex-auto px-1 py-1">
                   <div
@@ -141,7 +147,7 @@
 
             <div class="w-full px-4 text-center md:w-2/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
                 <div class="flex-auto px-4 py-5">
                   <div
@@ -151,7 +157,7 @@
                   </div>
                   <h6 class="text-xl font-semibold">MAP</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
-                    Keep
+                    lo
                   </p>
                 </div>
               </div>
@@ -163,7 +169,7 @@
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-6/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
                 <div class="flex-auto px-4 py-5">
                   <div
@@ -182,7 +188,7 @@
 
             <div class="w-full px-4 -mt-48 text-center md:w-6/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
                 <div class="flex-auto px-4 py-5">
                   <h6 class="text-xl font-semibold">News feeds</h6>
@@ -210,7 +216,7 @@
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-12/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
               >
                 <div class="flex-auto px-0 py-1">
                   <h6 class="py-5 text-xl font-semibold">

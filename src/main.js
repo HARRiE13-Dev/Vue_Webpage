@@ -51,6 +51,10 @@ import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
 import Classroom from "@/views/Classroom.vue";
+import Activity from "@/views/Activity.vue";
+
+
+
 import TestApi from "@/views/TestApi.vue";
 
 
@@ -160,6 +164,10 @@ const routes = [
   {
     path: "/classroom",
     component: Classroom,
+  },
+  {
+    path: "/activity",
+    component: Activity,
   },
  
   {

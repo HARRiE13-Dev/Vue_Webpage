@@ -6,7 +6,7 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80');
+            background-image: url('https://3l4jojspj4-flywheel.netdna-ssl.com/wp-content/uploads/iStock-655597202-1.jpg');
           "
         >
           <span
@@ -35,19 +35,24 @@
         </div>
       </section>
       <section class="relative py-16 bg-blueGray-200">
-        <div class="container px-4 mx-auto">
+        <div class="container px-4 mx-auto custom">
           <div
             class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
           >
             <div class="px-6 ">
-              <div class="mt-6 mb-10 text-center ">
+              <div class="mt-10 mb-6 text-center ">
                 <h3
                   class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
-                  คณาจารย์
+                  คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์
+                </h3>
+                <h3
+                  class="mb-2 text-xl font-semibold leading-normal text-blueGray-700"
+                >
+                  คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
                 </h3>
               </div>
-
+              <hr />
               <div class="flex flex-wrap py-6">
                 <div
                   v-for="personnel in personnel_array"
@@ -155,10 +160,18 @@ export default {
     getPersonnelData() {
       axios({
         method: "GET",
-        url: "http://wwwdev.csmju.com/api/personnel",
-      }).then((Response) => {
-        this.personnel_array = Response.data;
-      });
+        url: "http://wwwdev.csmju.com/api/personnel/teacher",
+      })
+        .then((response) => {
+          this.personnel_array = response.data;
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
     },
   },
   components: {

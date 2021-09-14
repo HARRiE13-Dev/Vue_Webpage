@@ -38,7 +38,7 @@
           <li class="flex items-center">
             <router-link
               to="/"
-              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
             >
               หน้าแรก
             </router-link>
@@ -52,7 +52,7 @@
           <li class="flex items-center">
             <router-link
               to="/program"
-              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
             >
               หลักสูตร
             </router-link>

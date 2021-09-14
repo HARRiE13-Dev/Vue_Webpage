@@ -7,38 +7,47 @@
           <h4 class="text-3xl font-semibold">{Logo}</h4>
           <p class="py-2">
             สาขาวิชาวิทยาการคอมพิวเตอร์ <br />
+           <a class="hover:text-blueGray-500" href="https://g.page/CSMJU?shar"> 
             อาคาร 60 ปี คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ <br />
-            63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290<br />
-            โทร. <a href="tel:053-873890-3">053-873890-3</a> <br>
+            63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</a> <br>
+            โทร. <a class=" hover:text-blueGray-500" href="tel:053-873890-3">053-873890-3</a> <br>
             Fax. 053-873898 <br>
-            E-mail : csmju@gmail.com <a href=""></a>
+            E-mail : <a class="hover:text-blueGray-500" href="mailto:csmju@gmail.com">csmju@gmail.com</a>
           </p>
-
-          <div class="mt-6 mb-6 lg:mb-0">
+          <h3 class="pt-2 font-semibold">
+            ติดตามข่าวสารออนไลน์ :
+            
+          </h3>
+          <div class="mt-2 mb-6 lg:mb-0">
+            <a href="https://www.youtube.com/user/comscimaejo">
             <button
-              class="items-center justify-center w-10 h-10 mr-2 font-normal text-red-500 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
+              class="items-center justify-center w-10 h-10 mr-4 font-normal text-red-500 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
               type="button"
+              
             >
               <i class="fab fa-youtube fa-lg"></i>
             </button>
+            </a>
+            
+             <a href="https://line.me/R/ti/p/%40053vfccm">
             <button
-              class="items-center justify-center w-10 h-10 mr-2 font-normal text-green-400 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
+              class="items-center justify-center w-10 h-10 mr-4 font-normal text-green-400 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
               type="button"
             >
               <i class="fab fa-line fa-lg"></i>
             </button>
+            </a>
+
+             <a href="https://www.facebook.com/computersciencemju">
             <button
-              class="items-center justify-center w-10 h-10 mr-2 font-normal bg-white rounded-full shadow-lg outline-none text-lightBlue-600 align-center focus:outline-none"
+              class="items-center justify-center w-10 h-10 mr-4 font-normal bg-white rounded-full shadow-lg outline-none text-lightBlue-600 align-center focus:outline-none"
               type="button"
             >
               <i class="fab fa-facebook-square fa-lg"></i>
             </button>
-            <button
-              class="items-center justify-center w-10 h-10 mr-2 font-normal text-green-400 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
-              type="button"
-            >
-              <i class="fas fa-phone-alt "></i>
-            </button>
+            </a>
+
+         
 
             
             

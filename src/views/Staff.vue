@@ -6,7 +6,7 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80');
+            background-image: url('https://3l4jojspj4-flywheel.netdna-ssl.com/wp-content/uploads/iStock-655597202-1.jpg');
           "
         >
           <span
@@ -35,73 +35,74 @@
         </div>
       </section>
       <section class="relative py-16 bg-blueGray-200">
-        <div class="container px-4 mx-auto">
+        <div class="container px-4 mx-auto custom">
           <div
             class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
           >
-          
             <div class="px-6 ">
-                <div class="mt-6 mb-10 text-center">
+              <div class="mt-10 mb-6 text-center ">
                 <h3
                   class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
-                 พนักงาน
+                  เจ้าหน้าที่สาขาวิชาวิทยาการคอมพิวเตอร์
                 </h3>
-                
+                <h3
+                  class="mb-2 text-xl font-semibold leading-normal text-blueGray-700"
+                >
+                  คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
+                </h3>
               </div>
-              <div class="w-full px-4 mt-12 lg:w-12/12">
-                <div class="flex flex-wrap py-6">
-                  <div
-                 
-                   class="w-full px-4 text-center lg:w-4/12">
-                  
-                   <div class="relative px-12">
+              <hr />
+              <div class="flex flex-wrap py-6">
+                <div
+                  v-for="personnel in personnel_array"
+                  v-bind:key="personnel.personnelId"
+                  class="w-full px-4 text-center lg:w-4/12"
+                >
+                  <div class="relative px-12 py-12 ">
                     <img
-                      alt="..."
-                      :src="team2"
-                      class="h-auto align-middle border-none rounded-full shadow-xl " 
+                      :src="personnel.personnelPhoto"
+                      class="h-auto max-w-full align-middle bg-teal-500 border-none rounded-full shadow-xl"
                     />
                   </div>
-                   
-                      <h3
-                        class="mb-0 text-3xl font-semibold leading-normal text-blueGray-700"
-                      >
-                        Jenna Stones
-                      </h3>
-                      <p class="mb-4 text-xl font-semibold text-blueGray-500">
-                        Jenna Stones
-                      </p>
 
-                      <p class="mt-3 mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                        ></i>
-                        Solution Manager - Creative Tim Officer
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-university text-blueGray-400"
-                        ></i>
-                        University of Computer Science
-                      </p>
-                      <p class="mb-0 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                        ></i>
-                        09-9999999
-                      </p>
-                      <p class="mb-6 text-blueGray-600">
-                        <i
-                          class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                        ></i>
-                        email@email.com
-                      </p>
-                    
-                  </div>
-                  
+                  <h3
+                    class="mb-0 text-lg font-semibold leading-normal text-blueGray-700"
+                  >
+                    {{ personnel.titlePosition }} {{ personnel.firstName }}
+                    {{ personnel.lastName }}
+                  </h3>
+                  <p class="mb-4 text-sm font-semibold text-blueGray-500">
+                    {{ personnel.fistNameEn }} {{ personnel.lastNameEn }}
+                  </p>
+
+                  <p class="mt-3 mb-0 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
+                    ></i>
+                    {{ personnel.adminPosition }}
+                  </p>
+                  <p class="mb-0 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-university text-blueGray-400"
+                    ></i>
+                    {{ personnel.education }} <br />
+                    {{ personnel.major }} <br />
+                    {{ personnel.university }}
+                  </p>
+                  <p class="mb-0 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
+                    ></i>
+                    {{ personnel.phoneNumber }}
+                  </p>
+                  <p class="mb-6 text-blueGray-600">
+                    <i
+                      class="mr-2 text-lg fas fa-envelope text-blueGray-400"
+                    ></i>
+                    {{ personnel.e_mail }}
+                  </p>
                 </div>
-                
-                
               </div>
             </div>
           </div>
@@ -115,16 +116,41 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 import axios from "axios";
-import team2 from "@/assets/img/team-2-800x800.jpg";
 
 export default {
   data() {
     return {
-      team2,
-       personnel_array: [],
-       personnel:{
-          personnelPhoto: "",
-       },
+      //team2,
+      personnel_array: [],
+      personnel: {
+        personnelId: 0,
+
+        //Name Thai Top
+        titlePosition: "",
+        firstName: "",
+        lastName: "",
+
+        //Name English sub
+        fistNameEn: "",
+        lastNameEn: "",
+
+        //Position
+        adminPosition: "",
+
+        //Education
+        education: "",
+        major: "",
+        university: "",
+
+        //tel
+        phoneNumber: "",
+
+        //email
+        e_mail: "",
+
+        //profile picture
+        personnelPhoto: "",
+      },
     };
   },
   mounted() {
@@ -132,20 +158,20 @@ export default {
   },
   methods: {
     getPersonnelData() {
-     
       axios({
-        method : 'GET',
-        url:'http://wwwdev.csmju.com/api/personnel?position=อาจารย์',
-        
-      }) 
-      
-      .then((Response) => {
-        this.personnel_array = Response.data;
-        
-      
-        
-      });
-      
+        method: "GET",
+        url: "http://wwwdev.csmju.com/api/personnel/staff",
+      })
+        .then((response) => {
+          this.personnel_array = response.data;
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
     },
   },
   components: {
