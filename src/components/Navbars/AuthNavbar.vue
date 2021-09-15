@@ -32,21 +32,21 @@
          <li class="flex items-center">
             <router-link
               to="/"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
               หน้าแรก
             </router-link>
           </li>
 
             <li class="flex items-center">
-            <about-page  class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"/>
+            <about-page  class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"/>
           </li>
 
 
           <li class="flex items-center">
             <router-link
               to="/program"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
               หลักสูตร
             </router-link>
@@ -57,7 +57,7 @@
           <li class="flex items-center">
             <router-link
               to="/news"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
                 ข่าวสาร
             </router-link>
@@ -66,7 +66,7 @@
           <li class="flex items-center">
             <router-link
               to="/appeal"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
                 ร้องเรียน
             </router-link>
@@ -75,7 +75,7 @@
            <li class="flex items-center">
             <router-link
               to="/contact"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
                ติดต่อเรา
             </router-link>

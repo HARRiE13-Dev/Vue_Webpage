@@ -63,7 +63,7 @@
           <li class="flex items-center">
             <router-link
               to="/news"
-              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
             >
                 ข่าวสาร
             </router-link>
@@ -72,7 +72,7 @@
           <li class="flex items-center">
             <router-link
               to="/appeal"
-              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
             >
                 ร้องเรียน
             </router-link>
@@ -81,7 +81,7 @@
            <li class="flex items-center">
             <router-link
               to="/contact"
-              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
             >
                ติดต่อเรา
             </router-link>

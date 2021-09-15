@@ -1,7 +1,7 @@
 <template>
   <div>
     <a
-      class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+      class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
       href="#pablo"
       ref="btnDropdownRef"
       v-on:click="toggleDropdown($event)"
@@ -23,26 +23,26 @@
       </span>
       <router-link
         to="/about"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         ประวัติความเป็นมา
       </router-link>
       <router-link
         to="/about"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         พันธกิจ
       </router-link>
 
         <router-link
         to="/about"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         วิสัยทัศน์
       </router-link>
       <router-link
         to="/classroom"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         อาคาร/ห้องเรียน
       </router-link>
@@ -55,13 +55,13 @@
       </span>
       <router-link
         to="/teacher"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         คณาจารย์
       </router-link>
       <router-link
-        to="/stuff"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        to="/staff"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         เจ้าหน้าที่
       </router-link>
@@ -73,7 +73,7 @@
       </span>
       <router-link
         to="/activity"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         กิจกรรม
       </router-link>
