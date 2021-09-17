@@ -77,6 +77,14 @@
                 ร้องเรียน
             </router-link>
           </li>
+          <li class="flex items-center">
+            <router-link
+              to="/document"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
+            >
+                แบบฟอร์มเอกสาร
+            </router-link>
+          </li>
 
            <li class="flex items-center">
             <router-link

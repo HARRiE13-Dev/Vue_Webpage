@@ -52,6 +52,8 @@ import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
 import Classroom from "@/views/Classroom.vue";
 import Activity from "@/views/Activity.vue";
+import Document from "@/views/Document.vue";
+import Calendar from "@/views/Calendar.vue";
 
 
 
@@ -168,6 +170,14 @@ const routes = [
   {
     path: "/activity",
     component: Activity,
+  },
+  {
+    path: "/document",
+    component: Document,
+  },
+  {
+    path: "/calendar",
+    component: Calendar,
   },
  
   {
