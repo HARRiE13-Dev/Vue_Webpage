@@ -60,12 +60,9 @@
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
                 <div class="flex-auto px-4 py-5 ">
-                  
                   <div
                     class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
                   >
-                  
-                  
                     <i class="fas fa-laptop-code"></i>
                   </div>
                   <h6 class="text-xl font-semibold">เรียนเกี่ยวกับ ?</h6>
@@ -73,9 +70,7 @@
                     Keep you user engaged by providing meaningful information.
                     Remember that by this time, the user is curious.
                   </p>
-                   <router-link to="/auth/login">
-   
-            </router-link>
+                  <router-link to="/auth/login"> </router-link>
                 </div>
               </div>
             </div>
@@ -186,7 +181,7 @@
               </div>
             </div>
 
-            <div class="w-full px-4 -mt-48 text-center md:w-6/12">
+            <div class="w-full px-4 text-center md:w-6/12 md:-mt-48">
               <div
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
               >
@@ -257,9 +252,6 @@ export default {
   data() {
     return {
       date: new Date().getDate(),
-     
-      
-      
 
       personnel_array: [],
       personnel: {
@@ -273,8 +265,6 @@ export default {
   },
   methods: {
     getPersonnelData() {
-
-  
       axios({
         method: "GET",
         url: "http://wwwdev.csmju.com/api/personnel",

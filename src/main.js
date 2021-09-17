@@ -1,5 +1,13 @@
 import { createApp } from "vue";
 import { createWebHistory, createRouter } from "vue-router";
+
+
+import VCalendar from 'v-calendar';
+
+
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 // import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 // styles--------------------------------------------------
@@ -53,7 +61,7 @@ import Contact from "@/views/Contact.vue";
 import Classroom from "@/views/Classroom.vue";
 import Activity from "@/views/Activity.vue";
 import Document from "@/views/Document.vue";
-import Calendar from "@/views/Calendar.vue";
+import Schedule from "@/views/Schedule.vue";
 
 
 
@@ -176,8 +184,8 @@ const routes = [
     component: Document,
   },
   {
-    path: "/calendar",
-    component: Calendar,
+    path: "/schedule",
+    component: Schedule,
   },
  
   {
@@ -230,6 +238,11 @@ const router = createRouter({
 
 //Create Constant Var--------------------------------------------------------------------
 const app = createApp(App)
+
 app.use(router)
 app.mount('#app')
+
+app.use(VCalendar, {})
+
+app.use(VueSweetalert2);
 //app.use(VueReCaptcha, { siteKey: '<site key>' })

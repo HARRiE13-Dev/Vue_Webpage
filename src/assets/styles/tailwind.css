@@ -4072,6 +4072,9 @@ select {
   .md\:w-64 {
     width: 16rem;
   }
+  .md\:-mt-48 {
+    margin-top:  -12rem;
+  }
 
   .md\:w-2\/12 {
     width: 16.5%;

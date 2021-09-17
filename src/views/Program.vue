@@ -2,7 +2,6 @@
   <div>
     <navbar />
     <main class="profile-page custom">
-        
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
@@ -42,36 +41,81 @@
             class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
           >
             <div class="px-6">
-                
-           
-              
               <div class="mt-6 text-center">
                 <h3
-                  class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
+                  class="mb-6 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
                   หลักสูตร
                 </h3>
-                
               </div>
 
-              <div class="py-6 mt-2 text-center border-t border-blueGray-200">
-                <div class="flex flex-wrap justify-center">
-                  <div class="w-full px-4 lg:w-9/12">
-                    <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                    
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus velit pariatur laboriosam itaque esse molestiae autem numquam totam, vero aliquam atque dolor tempora ex, dignissimos accusantium earum delectus maiores rerum.
-                    
-                    </p>
-                    
-                  </div>
-                </div>
+              <div class="block w-full mb-4 overflow-x-auto">
+                <!-- Projects table -->
+                <table
+                  class="items-center w-full bg-transparent border-collapse"
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        :class="[
+                          color === 'light'
+                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+                        ]"
+                      >
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        :class="[
+                          color === 'light'
+                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+                        ]"
+                      >
+                        ชื่อวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        :class="[
+                          color === 'light'
+                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+                        ]"
+                      >
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                   v-for="subject in subject_array"
+                  v-bind:key="subject.subjectId"
+                  >
+                    <tr>
+                      <th
+                        class="flex items-center p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        {{subject.Subject_Code}}
+                      </th>
+                      <td
+                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        {{subject.Subject_NameTh}}
+                      </td>
+                      <td
+                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        {{subject.Subject_Credit}}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              
             </div>
           </div>
         </div>
       </section>
-      
     </main>
     <main-footer />
   </div>
@@ -79,17 +123,44 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
+import axios from "axios";
 
 export default {
   data() {
     return {
-     
+      subject_array: [],
+      subject: {
+        subjectId: 0,
+        Subject_Code: "",
+        Subject_NameTh: "",
+        Subject_Credit: 0,
+      },
     };
+  },
+  mounted() {
+    this.getSubjectData();
+  },
+  methods: {
+    getSubjectData() {
+      axios({
+        method: "GET",
+        url: "http://wwwdev.csmju.com/api/subject",
+      })
+        .then((response) => {
+          this.subject_array = response.data;
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
+    },
   },
   components: {
     Navbar,
-    MainFooter
-    
+    MainFooter,
   },
 };
 </script>

@@ -27,7 +27,7 @@
                         class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                       />
                     </div>
-                   
+
                     <div class="pt-10 mb-3 ">
                       <p>รายละเอียด</p>
                       <textarea
@@ -71,7 +71,7 @@ export default {
     enter() {
       axios({
         method: "POST",
-        url: "http://wwwdev.csmju.com/api/news",
+        url: "http://wwwdev.csmju.com/api/newsadd",
         data: {
           News_Detail: this.n_title,
           News_Date: "2021-09-08",
@@ -82,9 +82,49 @@ export default {
           News_links: "1",
           News_Type: "1",
         },
-      }).then((resp)=>{
-        console.log(resp);
       })
+        .then((response) => {
+          //console.log(response);
+          localStorage.setItem("user", JSON.stringify(response.data));
+
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", this.$swal.stopTimer);
+              toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+            },
+          });
+
+          Swal.fire({
+            icon: "success",
+            title: "บันทึกข้อมูลเรียบร้อย",
+          });
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 401) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener("mouseenter", this.$swal.stopTimer);
+                  toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+                },
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "ข้อมูลไม่ถูกต้อง",
+              });
+            }
+          }
+        });
     },
   },
 };

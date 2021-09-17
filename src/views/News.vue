@@ -116,7 +116,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      news_array: [],
+      news_array : [],
       news: {
         newsId: 0,
         News_Title: "",

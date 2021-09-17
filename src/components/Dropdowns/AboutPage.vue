@@ -77,7 +77,7 @@
          กิจกรรม
       </router-link>
        <router-link
-        to="/calendar"
+        to="/schedule"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         ปฏิทิน
