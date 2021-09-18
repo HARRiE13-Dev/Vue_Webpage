@@ -164,12 +164,41 @@ export default {
       })
         .then((response) => {
           this.personnel_array = response.data;
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", this.$swal.stopTimmer);
+              toast.addEventListener("mouseleave", this.$swal.resumeTimmer);
+            },
+          });
+          Swal.fire({
+            icon: "success",
+            title: "Loading...",
+          });
         })
         .catch((error) => {
           if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener("mouseenter", this.$swal.stopTimer);
+                  toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+                },
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "ระบบไม่สามารถเชื่อมต่อได้",
+              });
+            }
           }
         });
     },

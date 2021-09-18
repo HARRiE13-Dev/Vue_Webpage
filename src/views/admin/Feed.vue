@@ -85,7 +85,7 @@ export default {
       })
         .then((response) => {
           //console.log(response);
-          localStorage.setItem("user", JSON.stringify(response.data));
+          
 
           const Swal = this.$swal.mixin({
             position: "center",
@@ -105,7 +105,7 @@ export default {
         })
         .catch((error) => {
           if (error.response) {
-            if (error.response.status == 401) {
+            if (error.response.status == 500) {
               //Call Sweet Alert
               const Toast = this.$swal.mixin({
                 position: "center",
@@ -120,7 +120,7 @@ export default {
 
               Toast.fire({
                 icon: "error",
-                title: "ข้อมูลไม่ถูกต้อง",
+                title: "ไม่สามารถบันทึกข้อมูลได้",
               });
             }
           }

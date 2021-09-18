@@ -86,7 +86,6 @@
                           </div>
                         </div>
                         <input
-                        
                           type="file"
                           @change="onFileSelected"
                           class="w-full h-full opacity-0"
@@ -140,7 +139,7 @@ export default {
     return {
       topic: "",
       detail: "",
-     
+
       showRecaptcha: true,
       date: new Date().toString(),
       selectedFile: null,
@@ -152,12 +151,12 @@ export default {
       this.selectedFile = event.target.files[0];
     },
     commit() {
-      console.log(this.topic, this.detail, this.date);
+      //console.log(this.topic, this.detail, this.date);
       const formData = new FormData();
-      formData.append('image', this.selectedFile, this.selectedFile.name)
+      formData.append("image", this.selectedFile, this.selectedFile.name);
       axios({
         method: "POST",
-        url: "http://wwwdev.csmju.com/api/complain",
+        url: "http://wwwdev.csmju.com/api/complainadd",
         data: {
           Complain_Title: this.topic,
           Complain_Detail: this.detail,
@@ -165,12 +164,56 @@ export default {
           Complain_Date: this.date,
         },
         formData,
-        onUploadProgress: uploadEvent => {
-          console.log('Upload Progress: '+ Math.round(uploadEvent.loaded / uploadEvent.tolal*100)+ '%');
-        }
-      }).then((resp) => {
-        console.log(resp);
-      });
+        onUploadProgress: (uploadEvent) => {
+          console.log(
+            "Upload Progress: " +
+              Math.round((uploadEvent.loaded / uploadEvent.tolal) * 100) +
+              "%"
+          );
+        },
+      })
+        .then((response) => {
+          //console.log(response);
+          localStorage.setItem("user", JSON.stringify(response.data));
+
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", this.$swal.stopTimer);
+              toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+            },
+          });
+
+          Swal.fire({
+            icon: "success",
+            title: "บันทึกข้อมูลเรียบร้อย",
+          });
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener("mouseenter", this.$swal.stopTimer);
+                  toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+                },
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "ไม่สามารถบันทึกข้อมูลได้",
+              });
+            }
+          }
+        });
     },
   },
   components: {
