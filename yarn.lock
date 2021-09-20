@@ -9477,6 +9477,11 @@
     "@vue/runtime-dom" "3.0.7"
     "@vue/shared" "3.0.7"
 
+"vue3-carousel@^0.1.27":
+  "integrity" "sha512-0NhqqmIIm+RgUOmdEAXAgHsbrgcLuulJtUAb4JscDlB3xe2Fy75r5epUxTB3umJVblzOs/13waR0KNi2w4CjCw=="
+  "resolved" "https://registry.npmjs.org/vue3-carousel/-/vue3-carousel-0.1.27.tgz"
+  "version" "0.1.27"
+
 "vue3-recaptcha2@^1.2.0":
   "integrity" "sha512-k3sucX/PEGnk6ZpYGnpsr+kPHYNN40HoUbqvO1FT/WQrXdO83HHBDnql/dr8x7KkV2ZSdzxFrltDkOyTRGPSIw=="
   "resolved" "https://registry.npmjs.org/vue3-recaptcha2/-/vue3-recaptcha2-1.2.0.tgz"

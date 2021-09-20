@@ -140,9 +140,6 @@
                   <div
                     class="block overflow-hidden text-center bg-white rounded-t"
                   >
-                   
-                   
-
                     <div class="container px-4 pt-6 mx-auto">
                       <div class="flex flex-wrap justify-center">
                         <div class="w-1/3 px-2">
@@ -150,20 +147,18 @@
                             class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
                           >
                             <h3 class="text-4xl">
-                             {{day}}
-                              </h3>
-                           
+                              {{ day }}
+                            </h3>
                           </div>
-                            <h3 class="mb-5 text-lg">Day</h3>
-          
+                          <h3 class="mb-5 text-lg">Day</h3>
                         </div>
                         <div class="w-1/3 px-2">
                           <div
                             class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
                           >
-                             <h3 class="text-4xl">
-                              {{month}}
-                              </h3>
+                            <h3 class="text-4xl">
+                              {{ month }}
+                            </h3>
                           </div>
                           <h3 class="mb-5 text-lg">Month</h3>
                         </div>
@@ -171,9 +166,9 @@
                           <div
                             class="inline-flex items-center justify-center w-24 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
                           >
-                             <h3 class="text-4xl">
-                              {{year}}
-                              </h3>
+                            <h3 class="text-4xl">
+                              {{ year }}
+                            </h3>
                           </div>
                           <h3 class="mb-5 text-lg">Year</h3>
                         </div>
@@ -196,9 +191,9 @@
                       <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h6 class="text-xl font-semibold">Location</h6>
-                       <p class="mt-2 mb-4 text-blueGray-500">
-                    Maejo University
-                  </p>
+                    <p class="mt-2 mb-4 text-blueGray-500">
+                      Maejo University
+                    </p>
                   </div>
                 </div>
               </a>
@@ -229,12 +224,27 @@
 
             <div class="w-full px-4 text-center md:w-6/12 md:-mt-48">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                class="relative flex flex-col w-full min-w-0 py-12 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
               >
-               
-
-
-               
+                <h6 class="mt-4 text-xl font-semibold">ข่าวสาร</h6>
+                <div class="py-6">
+                  <Carousel
+                    :autoplay="2000"
+                    :items-to-show="1.2"
+                    :wrap-around="true"
+                  >
+                    <Slide v-for="slide in 2" :key="slide">
+                      <div class="carousel__item">
+                        <img
+                          alt="..."
+                          src="@/assets/img/landing.jpg"
+                          class="relative w-full mx-auto rounded-lg shadow-lg "
+                        />
+                      </div>
+                      c
+                    </Slide>
+                  </Carousel>
+                </div>
               </div>
             </div>
           </div>
@@ -276,24 +286,26 @@ import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 //Program Filesimport axios from "axios";
 
-export default {
+import { defineComponent } from "vue";
+import { Carousel, Slide } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
+
+export default defineComponent({
   components: {
     MainNavbar,
     MainFooter,
+
+    Carousel,
+    Slide,
   },
   data() {
     return {
       day: new Date().getDate(),
-      month: new Date().getMonth()+1,
-      year: new Date().getFullYear()
-      
-
-     
+      month: new Date().getMonth() + 1,
+      year: new Date().getFullYear(),
     };
   },
- 
-  methods: {
-    
-  },
-};
+
+  methods: {},
+});
 </script>

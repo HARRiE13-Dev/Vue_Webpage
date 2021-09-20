@@ -1,29 +1,26 @@
 <template>
-  <carousel :items-to-show="1.5">
-    <slide v-for="slide in 10" :key="slide">
-      {{ slide }}
-    </slide>
+  <Carousel :autoplay="2000" :items-to-show="1.5" :wrap-around="true">
+    <Slide v-for="slide in 10" :key="slide">
+      <div class="carousel__item">{{ slide }}</div>
+    </Slide>
 
-    <template #addons>
-      <navigation />
-      <pagination />
-    </template>
-  </carousel>
+    ...
+  </Carousel>
 </template>
 
 <script>
-// If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
+import { defineComponent } from 'vue'
+import { Carousel,  Slide } from 'vue3-carousel';
 
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import 'vue3-carousel/dist/carousel.css';
 
-export default {
-  name: "App",
+export default 
+defineComponent({
+  name: 'Autoplay',
   components: {
     Carousel,
     Slide,
-    Pagination,
-    Navigation,
+    
   },
-};
+});
 </script>
-Keywords
