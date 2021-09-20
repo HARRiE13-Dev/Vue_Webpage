@@ -167,15 +167,12 @@ export default {
           const Swal = this.$swal.mixin({
             position: "center",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 2000,
             timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener("mouseenter", this.$swal.stopTimmer);
-              toast.addEventListener("mouseleave", this.$swal.resumeTimmer);
-            },
+          
           });
           Swal.fire({
-            icon: "success",
+            icon: "info",
             title: "Loading...",
           });
         })
@@ -186,17 +183,14 @@ export default {
               const Toast = this.$swal.mixin({
                 position: "center",
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 2000,
                 timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener("mouseenter", this.$swal.stopTimer);
-                  toast.addEventListener("mouseleave", this.$swal.resumeTimer);
-                },
+               
               });
 
               Toast.fire({
                 icon: "error",
-                title: "ระบบไม่สามารถเชื่อมต่อได้",
+                title: "Connection Error",
               });
             }
           }

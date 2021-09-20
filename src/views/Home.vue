@@ -21,10 +21,14 @@
           <div class="flex flex-wrap items-center">
             <div class="w-full px-4 ml-auto mr-auto text-center lg:w-6/12">
               <div class="pr-12">
-                <h1 class="text-5xl font-semibold text-white">
+                <h1
+                  class="text-5xl font-semibold text-white duration-150 ease-linear hover:text-emerald-600 hover:zoom"
+                >
                   Computer Science
                 </h1>
-                <h2 class="mt-4 text-2xl text-blueGray-200">
+                <h2
+                  class="mt-4 text-2xl duration-150 ease-linear text-blueGray-200 hover:text-emerald-600 hover:zoom"
+                >
                   Maejo University
                 </h2>
               </div>
@@ -56,47 +60,57 @@
         <div class="container px-4 mx-auto">
           <div class="flex flex-wrap">
             <div class="w-full px-4 text-center md:w-4/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-              >
-                <div class="flex-auto px-4 py-5 ">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
-                  >
-                    <i class="fas fa-laptop-code"></i>
+              <router-link to="program" target="_blank">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:bg-teal-500"
+                >
+                  <div class="flex-auto px-4 py-5 ">
+                    <div
+                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg ustify bg-emerald-400"
+                    >
+                      <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h6 class="text-xl font-semibold ">เรียนเกี่ยวกับ ?</h6>
+                    <p class="mt-2 mb-4 text-blueGray-500 ">
+                      สาขาวิชาของเราสอนพื้นฐานการเขียนโปรแกรมคอมพิวเตอร์
+                      ,การวิเคราะห์ และออกแบบระบบสารสนเทศ ,การสร้างเว็บไซต์
+                      และแอปพลิเคชัน<br />
+                      รวมถึงการสร้าง AI (Artificial Intelligence)
+                    </p>
+                    <router-link to="/auth/login"> </router-link>
                   </div>
-                  <h6 class="text-xl font-semibold">เรียนเกี่ยวกับ ?</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    Keep you user engaged by providing meaningful information.
-                    Remember that by this time, the user is curious.
-                  </p>
-                  <router-link to="/auth/login"> </router-link>
                 </div>
-              </div>
+              </router-link>
+            </div>
+
+            <div class="w-full px-4 text-center md:w-4/12">
+              <a
+                href="http://www.admissions.mju.ac.th/main.aspx"
+                target="_blank"
+              >
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                >
+                  <div class="flex-auto px-4 py-5">
+                    <div
+                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
+                    >
+                      <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h6 class="text-xl font-semibold">รับสมัคร</h6>
+                    <p class="mt-2 mb-4 text-blueGray-500">
+                      เปิดรับสมัครนักศึกษาใหม่ ผ่านทางระบบ TCAS <br />
+                      ทางมหาลัยวิทยาลัยแม่โจ้ โดยสามารถอ่านรายละเอียดได้ที่
+                      www.admission.mju.ac.th
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
 
             <div class="w-full px-4 text-center md:w-4/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-              >
-                <div class="flex-auto px-4 py-5">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
-                  >
-                    <i class="fas fa-user-graduate"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">รับสมัคร</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    Keep you user engaged by providing meaningful information.
-                    Remember that by this time, the user is curious.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="w-full px-4 text-center md:w-4/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
               >
                 <div class="flex-auto px-4 py-5">
                   <div
@@ -106,8 +120,9 @@
                   </div>
                   <h6 class="text-xl font-semibold">ติดต่อเรา</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
-                    Write a few lines about each one. A paragraph describing a
-                    feature will be enough. Keep you user engaged!
+                    ท่านสามารถติดต่อกับทางสาขาวิชาของเราโดยตรงได้ที่ Facebook
+                    Fanpage หรือผ่านช่องทาง <br />
+                    Line Official ของเราได้เลย
                   </p>
                 </div>
               </div>
@@ -119,21 +134,50 @@
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-4/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
               >
-                <div class="flex-auto px-1 py-1">
+                <div class="flex-auto px-1 ">
                   <div
-                    class="block w-24 overflow-hidden text-center bg-white rounded-t"
+                    class="block overflow-hidden text-center bg-white rounded-t"
                   >
-                    <div
-                      class="py-3 text-xl font-bold text-white bg-teal-500"
-                    ></div>
-                    <div class="pt-2 text-xl font-bold text-blueGray-400 ">
-                      {{ nameDate }}
-                    </div>
+                   
+                   
 
-                    <div class="pt-0 border-l border-r">
-                      <span class="font-bold text-55">{{ date }}</span>
+                    <div class="container px-4 pt-6 mx-auto">
+                      <div class="flex flex-wrap justify-center">
+                        <div class="w-1/3 px-2">
+                          <div
+                            class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                          >
+                            <h3 class="text-4xl">
+                             {{day}}
+                              </h3>
+                           
+                          </div>
+                            <h3 class="mb-5 text-lg">Day</h3>
+          
+                        </div>
+                        <div class="w-1/3 px-2">
+                          <div
+                            class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                          >
+                             <h3 class="text-4xl">
+                              {{month}}
+                              </h3>
+                          </div>
+                          <h3 class="mb-5 text-lg">Month</h3>
+                        </div>
+                        <div class="w-1/3 px-2">
+                          <div
+                            class="inline-flex items-center justify-center w-24 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                          >
+                             <h3 class="text-4xl">
+                              {{year}}
+                              </h3>
+                          </div>
+                          <h3 class="mb-5 text-lg">Year</h3>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -141,21 +185,23 @@
             </div>
 
             <div class="w-full px-4 text-center md:w-2/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-              >
-                <div class="flex-auto px-4 py-5">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
-                  >
-                    <i class="fas fa-map-marker-alt"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">MAP</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    lo
+              <a href="https://g.page/CSMJU?share">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                >
+                  <div class="flex-auto px-4 py-5">
+                    <div
+                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
+                    >
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h6 class="text-xl font-semibold">Location</h6>
+                       <p class="mt-2 mb-4 text-blueGray-500">
+                    Maejo University
                   </p>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -164,7 +210,7 @@
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-6/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
               >
                 <div class="flex-auto px-4 py-5">
                   <div
@@ -183,26 +229,12 @@
 
             <div class="w-full px-4 text-center md:w-6/12 md:-mt-48">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
               >
-                <div class="flex-auto px-4 py-5">
-                  <h6 class="text-xl font-semibold">News feeds</h6>
-                </div>
-                <p class="mx-4 mt-2 mb-4 text-blueGray-500">
-                  Write a few lines about each one. A paragraph describing a
-                  feature will be enough. Keep you user engaged! Lorem ipsum
-                  dolor sit amet consectetur, adipisicing elit. Nostrum nam
-                  ullam expedita unde odio animi aut adipisci saepe molestiae,
-                  nobis distinctio libero? Ullam dolorem repellat molestiae
-                  deserunt quae aliquid saepe! Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Qui eum porro ab perspiciatis
-                  est, aliquid laudantium id quidem repellat deleniti expedita
-                  tenetur sit incidunt voluptates fugiat totam nesciunt
-                  obcaecati nostrum? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Alias quidem deserunt, soluta atque quod
-                  iure harum et vero dolorum, doloribus labore animi earum
-                  omnis, adipisci nemo sed sint! Provident, rem.
-                </p>
+               
+
+
+               
               </div>
             </div>
           </div>
@@ -211,16 +243,16 @@
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-12/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
               >
-                <div class="flex-auto px-0 py-1">
+                <div class="flex-auto px-0">
                   <h6 class="py-5 text-xl font-semibold">
                     <i class="text-red-500 fab fa-youtube"></i>
                     วีดีโอแนะนำหลักสูตร
                   </h6>
                   <div class="relative w-full max-w-full overflow-hidden pb-72">
                     <iframe
-                      class="absolute top-0 left-0 w-full h-full"
+                      class="absolute top-0 left-0 w-full h-full rounded-b"
                       src="https://www.youtube-nocookie.com/embed/88JeU0ShY60"
                       title="YouTube video player"
                       frameborder="0"
@@ -242,7 +274,7 @@
 <script>
 import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-import axios from "axios";
+//Program Filesimport axios from "axios";
 
 export default {
   components: {
@@ -251,27 +283,17 @@ export default {
   },
   data() {
     return {
-      date: new Date().getDate(),
+      day: new Date().getDate(),
+      month: new Date().getMonth()+1,
+      year: new Date().getFullYear()
+      
 
-      personnel_array: [],
-      personnel: {
-        personnelId: 0,
-        personnelPhoto: "",
-      },
+     
     };
   },
-  mounted() {
-    this.getPersonnelData();
-  },
+ 
   methods: {
-    getPersonnelData() {
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/personnel",
-      }).then((Response) => {
-        this.personnel_array = Response.data;
-      });
-    },
+    
   },
 };
 </script>
