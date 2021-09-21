@@ -70,7 +70,7 @@
                     >
                       <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h6 class="text-xl font-semibold ">เรียนเกี่ยวกับ ?</h6>
+                    <h6 class="text-xl font-semibold ">เรียนเกี่ยวกับ</h6>
                     <p class="mt-2 mb-4 text-blueGray-500 ">
                       สาขาวิชาของเราสอนพื้นฐานการเขียนโปรแกรมคอมพิวเตอร์
                       ,การวิเคราะห์ และออกแบบระบบสารสนเทศ ,การสร้างเว็บไซต์
@@ -109,23 +109,25 @@
             </div>
 
             <div class="w-full px-4 text-center md:w-4/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
-              >
-                <div class="flex-auto px-4 py-5">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
-                  >
-                    <i class="fas fa-comment-dots"></i>
+              <router-link target="_blank" to="contact">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                >
+                  <div class="flex-auto px-4 py-5">
+                    <div
+                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
+                    >
+                      <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h6 class="text-xl font-semibold">ติดต่อเรา</h6>
+                    <p class="mt-2 mb-4 text-blueGray-500">
+                      ท่านสามารถติดต่อกับทางสาขาวิชาของเราโดยตรงได้ที่ Facebook
+                      Fanpage หรือผ่านช่องทาง <br />
+                      Line Official ของเราได้เลย
+                    </p>
                   </div>
-                  <h6 class="text-xl font-semibold">ติดต่อเรา</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    ท่านสามารถติดต่อกับทางสาขาวิชาของเราโดยตรงได้ที่ Facebook
-                    Fanpage หรือผ่านช่องทาง <br />
-                    Line Official ของเราได้เลย
-                  </p>
                 </div>
-              </div>
+              </router-link>
             </div>
           </div>
 
@@ -133,54 +135,56 @@
 
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-4/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
-              >
-                <div class="flex-auto px-1 ">
-                  <div
-                    class="block overflow-hidden text-center bg-white rounded-t"
-                  >
-                    <div class="container px-4 pt-6 mx-auto">
-                      <div class="flex flex-wrap justify-center">
-                        <div class="w-1/3 px-2">
-                          <div
-                            class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
-                          >
-                            <h3 class="text-4xl">
-                              {{ day }}
-                            </h3>
+              <router-link target="_blank" to="schedule">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                >
+                  <div class="flex-auto px-1 ">
+                    <div
+                      class="block overflow-hidden text-center bg-white rounded-t"
+                    >
+                      <div class="container px-4 pt-6 mx-auto">
+                        <div class="flex flex-wrap justify-center">
+                          <div class="w-1/3 px-2">
+                            <div
+                              class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                            >
+                              <h3 class="text-4xl">
+                                {{ day }}
+                              </h3>
+                            </div>
+                            <h3 class="mb-5 text-lg">Day</h3>
                           </div>
-                          <h3 class="mb-5 text-lg">Day</h3>
-                        </div>
-                        <div class="w-1/3 px-2">
-                          <div
-                            class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
-                          >
-                            <h3 class="text-4xl">
-                              {{ month }}
-                            </h3>
+                          <div class="w-1/3 px-2">
+                            <div
+                              class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                            >
+                              <h3 class="text-4xl">
+                                {{ month }}
+                              </h3>
+                            </div>
+                            <h3 class="mb-5 text-lg">Month</h3>
                           </div>
-                          <h3 class="mb-5 text-lg">Month</h3>
-                        </div>
-                        <div class="w-1/3 px-2">
-                          <div
-                            class="inline-flex items-center justify-center w-24 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
-                          >
-                            <h3 class="text-4xl">
-                              {{ year }}
-                            </h3>
+                          <div class="w-1/3 px-2">
+                            <div
+                              class="inline-flex items-center justify-center w-24 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                            >
+                              <h3 class="text-4xl">
+                                {{ year }}
+                              </h3>
+                            </div>
+                            <h3 class="mb-5 text-lg">Year</h3>
                           </div>
-                          <h3 class="mb-5 text-lg">Year</h3>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </router-link>
             </div>
 
             <div class="w-full px-4 text-center md:w-2/12">
-              <a href="https://g.page/CSMJU?share">
+              <a href="https://g.page/CSMJU?share" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
                 >
@@ -204,47 +208,69 @@
 
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-6/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
-              >
-                <div class="flex-auto px-4 py-5">
-                  <div
-                    class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
-                  >
-                    <i class="fas fa-fingerprint"></i>
+              <router-link to="program" target="_blank">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                >
+                  <h6 class="text-xl font-semibold">
+                    กิจกกรรมค่ายยุวชนคอมพิวเตอร์
+                  </h6>
+                  <div class="container px-4 pt-6 mx-auto">
+                    <div class="flex flex-wrap justify-center">
+                      <div class="relative w-1/3 px-2">
+                        <img
+                          alt="..."
+                          src="@/assets/img/team-2-800x800.jpg"
+                          class="rounded-full shadow-xl max-w-100-px"
+                        />
+                      </div>
+                      <div class="relative w-1/3 px-2">
+                        <img
+                          alt="..."
+                          src="@/assets/img/team-2-800x800.jpg"
+                          class="rounded-full shadow-xl max-w-100-px"
+                        />
+                      </div>
+                      <div class="relative w-1/3 px-2">
+                        <img
+                          alt="..."
+                          src="@/assets/img/team-2-800x800.jpg"
+                          class="rounded-full shadow-xl max-w-100-px"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <h6 class="text-xl font-semibold">ห้องเรียน</h6>
-                  <p class="mt-2 mb-4 text-blueGray-500">
-                    Write a few lines about each one. A paragraph describing a
-                    feature will be enough. Keep you user engaged!
-                  </p>
                 </div>
-              </div>
+              </router-link>
             </div>
 
             <div class="w-full px-4 text-center md:w-6/12 md:-mt-48">
               <div
-                class="relative flex flex-col w-full min-w-0 py-12 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                class="relative flex flex-col w-full min-w-0 py-6 mb-8 break-words bg-white rounded-lg shadow-lg "
               >
-                <h6 class="mt-4 text-xl font-semibold">ข่าวสาร</h6>
-                <div class="py-6">
-                  <Carousel
-                    :autoplay="2000"
-                    :items-to-show="1.2"
-                    :wrap-around="true"
-                  >
-                    <Slide v-for="slide in 2" :key="slide">
-                      <div class="carousel__item">
-                        <img
-                          alt="..."
-                          src="@/assets/img/landing.jpg"
-                          class="relative w-full mx-auto rounded-lg shadow-lg "
-                        />
-                      </div>
-                      c
-                    </Slide>
-                  </Carousel>
-                </div>
+                <h6 class="mt-1 text-xl font-semibold">ข่าวสาร</h6>
+                <router-link to="news" target="_blank">
+                  <div class="py-0">
+                    <Carousel
+                      :autoplay="3000"
+                      :items-to-show="1.2"
+                      :wrap-around="true"
+                    >
+                      <Slide
+                        v-for="news in news_array"
+                        v-bind:key="news.newsId"
+                      >
+                        <div class="carousel__item">
+                          <img
+                            alt="..."
+                            src="@\assets\img\profile.jpg"
+                            class="relative mx-auto duration-150 ease-linear rounded-lg shadow-lg cropped hover:zoom-xs"
+                          />
+                        </div>
+                      </Slide>
+                    </Carousel>
+                  </div>
+                </router-link>
               </div>
             </div>
           </div>
@@ -258,13 +284,13 @@
                 <div class="flex-auto px-0">
                   <h6 class="py-5 text-xl font-semibold">
                     <i class="text-red-500 fab fa-youtube"></i>
-                    วีดีโอแนะนำหลักสูตร
+                    วีดีโอแนะนำสาขาวิชา
                   </h6>
                   <div class="relative w-full max-w-full overflow-hidden pb-72">
                     <iframe
                       class="absolute top-0 left-0 w-full h-full rounded-b"
                       src="https://www.youtube-nocookie.com/embed/88JeU0ShY60"
-                      title="YouTube video player"
+                      title="Presentation | Com-Sci MJU 2020"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
@@ -284,7 +310,7 @@
 <script>
 import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-//Program Filesimport axios from "axios";
+import axios from "axios";
 
 import { defineComponent } from "vue";
 import { Carousel, Slide } from "vue3-carousel";
@@ -303,9 +329,36 @@ export default defineComponent({
       day: new Date().getDate(),
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
+
+      news_array: [],
+      news: {
+        newsId: 0,
+        News_Title: "",
+        News_Detail: "",
+        News_Picture: "",
+      },
     };
   },
-
-  methods: {},
+  mounted() {
+    this.getNewsData();
+  },
+  methods: {
+    getNewsData() {
+      axios({
+        method: "GET",
+        url: "http://wwwdev.csmju.com/api/news",
+      })
+        .then((response) => {
+          this.news_array = response.data;
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
+    },
+  },
 });
 </script>

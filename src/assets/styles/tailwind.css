@@ -1232,8 +1232,8 @@ select {
           appearance: none;
 }
 .cropped {
-  width: 200px; 
-  height: 200px; 
+  width: 500px; 
+  height: 300px; 
   object-fit: cover;
  
 }
@@ -2534,9 +2534,12 @@ select {
 .hover\:zoom:hover {
   transform: scale(1.1);
 }
+.hover\:zoom-xs:hover {
+  transform: scale(1.05);
+}
 
 .max-h-860-px {
-  max-height: 860px;
+  max-height: 200px;
 }
 
 
