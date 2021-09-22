@@ -136,6 +136,7 @@ export default {
       })
         .then((response) => {
           this.news_array = response.data;
+          this.news_array.reverse();
         })
         .catch((error) => {
           if (error.response) {

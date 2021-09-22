@@ -208,33 +208,23 @@
 
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-6/12">
-              <router-link to="program" target="_blank">
+              <router-link to="teacher" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                  class="relative flex flex-col w-full min-w-0 py-6 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
                 >
                   <h6 class="text-xl font-semibold">
-                    กิจกกรรมค่ายยุวชนคอมพิวเตอร์
+                    ผู้บริหาร คณาจารย์ และเจ้าหน้าที่
                   </h6>
                   <div class="container px-4 pt-6 mx-auto">
                     <div class="flex flex-wrap justify-center">
-                      <div class="relative w-1/3 px-2">
+                      <div
+                        v-for="personnel in personnel_array"
+                        v-bind:key="personnel.personnelId"
+                        class="h-auto max-w-full mx-4 align-middle duration-150 ease-linear bg-teal-500 border-none rounded-full shadow-xl hover:zoom"
+                      >
                         <img
                           alt="..."
-                          src="@/assets/img/team-2-800x800.jpg"
-                          class="rounded-full shadow-xl max-w-100-px"
-                        />
-                      </div>
-                      <div class="relative w-1/3 px-2">
-                        <img
-                          alt="..."
-                          src="@/assets/img/team-2-800x800.jpg"
-                          class="rounded-full shadow-xl max-w-100-px"
-                        />
-                      </div>
-                      <div class="relative w-1/3 px-2">
-                        <img
-                          alt="..."
-                          src="@/assets/img/team-2-800x800.jpg"
+                          :src="personnel.personnelPhoto"
                           class="rounded-full shadow-xl max-w-100-px"
                         />
                       </div>
@@ -257,7 +247,7 @@
                       :wrap-around="true"
                     >
                       <Slide
-                        v-for="news in news_array"
+                        v-for="news=1 in news_array=10"
                         v-bind:key="news.newsId"
                       >
                         <div class="carousel__item">
@@ -337,10 +327,17 @@ export default defineComponent({
         News_Detail: "",
         News_Picture: "",
       },
+
+      personnel_array: [],
+      q: 4,
+      personnel: {
+        personnelPhoto: "",
+      },
     };
   },
   mounted() {
     this.getNewsData();
+    this.getPersonnelData();
   },
   methods: {
     getNewsData() {
@@ -358,6 +355,17 @@ export default defineComponent({
             console.log(error.response.headers);
           }
         });
+    },
+    getPersonnelData() {
+      axios({
+        method: "GET",
+        url: "http://wwwdev.csmju.com/api/personnel/teacher",
+      }).then((response) => {
+        this.personnel_array = response.data;
+        for (let i = 0; i <= 7; i++) {
+          this.personnel_array.pop();
+        }
+      });
     },
   },
 });
