@@ -83,6 +83,7 @@ export default {
     return {
       email: "",
       password: "",
+      
     };
   },
   methods: {
@@ -93,7 +94,7 @@ export default {
             password: this.password,
           })
           .then((response) => {
-           // console.log(response.data);
+            console.log(response.data.token);
 
             //Data User LocalStorage
             localStorage.setItem("user", JSON.stringify(response.data));
