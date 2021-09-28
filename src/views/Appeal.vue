@@ -72,7 +72,9 @@
                         class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                       ></textarea>
                     </div>
-
+                    <div class="mt-4 ">
+                      <img v-if="imgUrl" :src="imgUrl" class="w-full" />
+                    </div>
                     <div class="mb-1">
                       <span>แนบไฟล์</span>
                       <div
@@ -89,7 +91,6 @@
                           type="file"
                           @change="onFileSelected"
                           class="w-full h-full opacity-0"
-                          name=""
                         />
                       </div>
                     </div>
@@ -142,13 +143,17 @@ export default {
 
       showRecaptcha: true,
       date: new Date().toString(),
+
       selectedFile: null,
+      imgUrl: "",
     };
   },
   methods: {
     onFileSelected(event) {
       //console.log(event);
+      const file = event.target.files[0];
       this.selectedFile = event.target.files[0];
+      this.imgUrl = URL.createObjectURL(file);
     },
     commit() {
       //console.log(this.topic, this.detail, this.date);
