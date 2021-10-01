@@ -63,10 +63,26 @@ import Activity from "@/views/Activity.vue";
 import Document from "@/views/Document.vue";
 import Schedule from "@/views/Schedule.vue";
 
-
-
 import TestApi from "@/views/TestApi.vue";
 
+// Authentication Route Guards Function
+function authGuard(to, from, next){
+  
+  let isAuthenticated = false
+
+  if(localStorage.getItem('user')){
+    isAuthenticated = true 
+  }else{
+    isAuthenticated = false 
+  }
+
+  if(isAuthenticated){
+    next() 
+  }else{
+    next({name: 'Login'})
+  }
+
+}
 
 const routes = [
 
@@ -77,7 +93,9 @@ const routes = [
     children: [
       {
         path: "/admin/dashboard",
+        name: 'Dashboard',
         component: Dashboard,
+        beforeEnter: authGuard
       },
       {
         path: "/admin/settings",
@@ -105,6 +123,7 @@ const routes = [
     children: [
       {
         path: "/auth/login",
+        name: 'Login',
         component: Login,
       },
      
