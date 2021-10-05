@@ -1,6 +1,7 @@
 <template>
   <div>
-    <service-navbar/>
+    
+    <admin-navbar/>
 
     <main>
       <section class="relative w-full h-full min-h-screen py-16">         
@@ -15,20 +16,22 @@
   </div>
 </template>
 <script>
-import ServiceNavbar from "@/components/Navbars/ServiceNavbar.vue";
-import Foot from "@/components/Footers/Foot.vue";
 
-//import backgroundLogin from "@/assets/img/bg-1.png";
+import Foot from "@/components/Footers/Foot.vue";
+import AdminNavbar from "@/components/Navbars/AdminNavbar.vue";
+
 
 export default {
   data() {
     return {
-     // backgroundLogin,
+     
+     
     };
   },
   components: {
-    ServiceNavbar,
+   
     Foot,
+    AdminNavbar
   },
 };
 </script>

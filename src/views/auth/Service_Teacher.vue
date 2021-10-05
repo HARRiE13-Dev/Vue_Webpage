@@ -182,15 +182,10 @@
 </template>
 <script>
 
-
-
-import team2 from "@/assets/img/team-2-800x800.jpg";
-
-
 export default {
   data() {
     return {
-      team2,
+    
     };
   },
   components: {

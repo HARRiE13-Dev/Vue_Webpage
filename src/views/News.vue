@@ -66,7 +66,7 @@
                   class="w-full px-2 lg:w-4/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
                   >
                     <img
                       alt="..."

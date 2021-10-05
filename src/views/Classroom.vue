@@ -53,7 +53,9 @@
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-9/12">
                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                      อาคารเรียนในปัจจุบันมีอยู่ด้วยกัน 2 อาคารเรียน ได้แก่ อาคารแม่โจ้ 60 ปี และอาคารจุฬาภรณ์ คณะวิทยาศาสตร์
+                      อาคารเรียนในปัจจุบันมีอยู่ด้วยกัน 2 อาคารเรียน ได้แก่ อาคารแม่โจ้ 60 ปี และอาคารจุฬาภรณ์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ แบ่งห้องเรียนออกเป็น 2 รูปแบบได้แก่ ห้องบรรยายคอมพิวเตอร์ และปฏิบัติการคอมพิวเตอร์ <br>
+                      โดยมีห้องสำนักงานตั้งอยู่ที่ ชั้น 6 อาหารแม่โจ้ 60 ปี
+                      
                     </p>
                   </div>
                 </div>
@@ -76,11 +78,11 @@
                   class="w-full px-4 lg:w-4/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
                   >
                     <img
                       alt="..."
-                      src="@/assets/img/vue.jpg"
+                      :src="classroom.Classroom_Images"
                       class="w-full align-middle rounded-t-lg"
                     />
                     <blockquote class="relative p-8 mb-4">
@@ -124,11 +126,11 @@
                   class="w-full px-4 lg:w-3/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
                   >
                     <img
                       alt="..."
-                      src="@/assets/img/vue.jpg"
+                      :src="classroom.Classroom_Images"
                       class="w-full align-middle rounded-t-lg"
                     />
                     <blockquote class="relative p-5 mb-4">
@@ -181,6 +183,7 @@ export default {
         Classroom_Number: "",
         Classroom_sit: 0,
         Classroom_Detail: "",
+        Classroom_Images: "",
       },
     };
   },
@@ -195,7 +198,8 @@ export default {
       })
         .then((response) => {
           this.lab_array = response.data;
-          console.log(response.data);
+           console.log(response.data);
+           
         })
         .catch((error) => {
           if (error.response) {
@@ -211,6 +215,7 @@ export default {
         .then((response) => {
           this.lec_array = response.data;
           console.log(response.data);
+          
         })
         .catch((error) => {
           if (error.response) {
@@ -218,8 +223,8 @@ export default {
             console.log(error.response.status);
             console.log(error.response.headers);
           }
-        });
-    },
+        });    
+        },
   },
   components: {
     Navbar,

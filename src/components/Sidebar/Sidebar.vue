@@ -1,13 +1,13 @@
 <template>
   <nav
-    class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
+    class="relative z-10 flex flex-wrap items-center justify-between px-6 py-4 bg-white shadow-xl md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden md:w-64"
   >
     <div
-      class="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto"
+      class="flex flex-wrap items-center justify-between w-full px-0 mx-auto md:flex-col md:items-stretch md:min-h-full md:flex-nowrap"
     >
       <!-- Toggler -->
       <button
-        class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+        class="px-3 py-1 text-xl leading-none text-black bg-transparent border border-transparent border-solid rounded opacity-50 cursor-pointer md:hidden"
         type="button"
         v-on:click="toggleCollapseShow('bg-white m-2 py-3 px-6')"
       >
@@ -15,42 +15,42 @@
       </button>
       <!-- Brand -->
       <router-link
-        class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+        class="inline-block p-4 px-0 mr-0 text-sm font-bold text-left uppercase md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
         to="/"
       >
-        Vue Notus
+        CSMJU | Administrator
       </router-link>
       <!-- User -->
-      <ul class="md:hidden items-center flex flex-wrap list-none">
-        <li class="inline-block relative">
+      <ul class="flex flex-wrap items-center list-none md:hidden">
+        <li class="relative inline-block">
           <notification-dropdown />
         </li>
-        <li class="inline-block relative">
+        <li class="relative inline-block">
           <user-dropdown />
         </li>
       </ul>
       <!-- Collapse -->
       <div
-        class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded"
+        class="absolute top-0 left-0 right-0 z-40 items-center flex-1 h-auto overflow-x-hidden overflow-y-auto rounded shadow md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none"
         v-bind:class="collapseShow"
       >
         <!-- Collapse header -->
         <div
-          class="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200"
+          class="block pb-4 mb-4 border-b border-solid md:min-w-full md:hidden border-blueGray-200"
         >
           <div class="flex flex-wrap">
             <div class="w-6/12">
               <router-link
-                class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                class="inline-block p-4 px-0 mr-0 text-sm font-bold text-left uppercase md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
                 to="/"
               >
-                Vue Notus
+                Sidebar Menu
               </router-link>
             </div>
-            <div class="w-6/12 flex justify-end">
+            <div class="flex justify-end w-6/12">
               <button
                 type="button"
-                class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+                class="px-3 py-1 text-xl leading-none text-black bg-transparent border border-transparent border-solid rounded opacity-50 cursor-pointer md:hidden"
                 v-on:click="toggleCollapseShow('hidden')"
               >
                 <i class="fas fa-times"></i>
@@ -60,11 +60,11 @@
         </div>
         <!-- Form -->
         <form class="mt-6 mb-4 md:hidden">
-          <div class="mb-3 pt-0">
+          <div class="pt-0 mb-3">
             <input
               type="text"
               placeholder="Search"
-              class="border-0 px-3 py-2 h-12 border border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
+              class="w-full h-12 px-3 py-2 text-base font-normal leading-snug bg-white border border-0 border-solid rounded shadow-none outline-none border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 focus:outline-none"
             />
           </div>
         </form>
@@ -73,13 +73,13 @@
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
-          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+          class="block pt-1 pb-4 text-xs font-bold no-underline uppercase md:min-w-full text-blueGray-500"
         >
           Admin Layout Pages
         </h6>
         <!-- Navigation -->
 
-        <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+        <ul class="flex flex-col list-none md:flex-col md:min-w-full">
           <li class="items-center">
             <router-link
               to="/admin/dashboard"
@@ -88,7 +88,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="text-xs uppercase py-3 font-bold block"
+                class="block py-3 text-xs font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -96,7 +96,7 @@
                 ]"
               >
                 <i
-                  class="fas fa-tv mr-2 text-sm"
+                  class="mr-2 text-sm fas fa-tv"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Dashboard
@@ -112,7 +112,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="text-xs uppercase py-3 font-bold block"
+                class="block py-3 text-xs font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -120,7 +120,7 @@
                 ]"
               >
                 <i
-                  class="fas fa-tools mr-2 text-sm"
+                  class="mr-2 text-sm fas fa-tools"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Settings
@@ -136,7 +136,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="text-xs uppercase py-3 font-bold block"
+                class="block py-3 text-xs font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -144,7 +144,7 @@
                 ]"
               >
                 <i
-                  class="fas fa-table mr-2 text-sm"
+                  class="mr-2 text-sm fas fa-table"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Tables
@@ -157,7 +157,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="text-xs uppercase py-3 font-bold block"
+                class="block py-3 text-xs font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -165,7 +165,7 @@
                 ]"
               >
                 <i
-                  class="fas fa-map-marked mr-2 text-sm"
+                  class="mr-2 text-sm fas fa-map-marked"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Maps
@@ -178,30 +178,30 @@
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
-          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+          class="block pt-1 pb-4 text-xs font-bold no-underline uppercase md:min-w-full text-blueGray-500"
         >
           Auth Layout Pages
         </h6>
         <!-- Navigation -->
 
-        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+        <ul class="flex flex-col list-none md:flex-col md:min-w-full md:mb-4">
           <li class="items-center">
             <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+              class="block py-3 text-xs font-bold uppercase text-blueGray-700 hover:text-blueGray-500"
               to="/auth/login"
             >
-              <i class="fas fa-fingerprint text-blueGray-300 mr-2 text-sm"></i>
+              <i class="mr-2 text-sm fas fa-fingerprint text-blueGray-300"></i>
               Login
             </router-link>
           </li>
 
           <li class="items-center">
             <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+              class="block py-3 text-xs font-bold uppercase text-blueGray-700 hover:text-blueGray-500"
               to="/auth/register"
             >
               <i
-                class="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"
+                class="mr-2 text-sm fas fa-clipboard-list text-blueGray-300"
               ></i>
               Register
             </router-link>
@@ -212,132 +212,173 @@
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
-          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+          class="block pt-1 pb-4 text-xs font-bold no-underline uppercase md:min-w-full text-blueGray-500"
         >
-          No Layout Pages
+          ระบบสารสนเทศ | MIS
         </h6>
         <!-- Navigation -->
-
-        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+        <ul class="flex flex-col list-none md:flex-col md:min-w-full md:mb-4">
           <li class="items-center">
             <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-              to="/landing"
+              to="/admin/feed"
+              v-slot="{ href, navigate, isActive }"
             >
-              <i class="fas fa-newspaper text-blueGray-300 mr-2 text-sm"></i>
-              Landing Page
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-xs font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบประกาศข่าวสาร
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/participation"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-xs font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบบันทึกกิจกรรม
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/booking_classroom"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-xs font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบจองห้องเรียน
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/reparing"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-xs font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบแจ้งซ่อม
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/remaining"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-xs font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบแจ้งตกค้างรายวิชา
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/borrow_return"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-xs font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบยืม-คืนอุปกรณ์
+              </a>
             </router-link>
           </li>
 
           <li class="items-center">
             <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-              to="/profile"
+              to="/admin/educational_objects"
+              v-slot="{ href, navigate, isActive }"
             >
-              <i class="fas fa-user-circle text-blueGray-300 mr-2 text-sm"></i>
-              Profile Page
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-xs font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบครุภัณฑ์
+              </a>
             </router-link>
-          </li>
-        </ul>
-
-        <!-- Divider -->
-        <hr class="my-4 md:min-w-full" />
-        <!-- Heading -->
-        <h6
-          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
-        >
-          Documentation
-        </h6>
-        <!-- Navigation -->
-        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/vue/colors/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i
-                class="fas fa-paint-brush mr-2 text-blueGray-300 text-base"
-              ></i>
-              Styles
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-css3-alt mr-2 text-blueGray-300 text-base"></i>
-              CSS Components
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-angular mr-2 text-blueGray-300 text-base"></i>
-              Angular
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-js-square mr-2 text-blueGray-300 text-base"></i>
-              Javascript
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-              NextJS
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-              React
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fas fa-link mr-2 text-blueGray-300 text-base"></i>
-              Svelte
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-vuejs mr-2 text-blueGray-300 text-base"></i>
-              VueJS
-            </a>
           </li>
         </ul>
       </div>
@@ -357,7 +398,7 @@ export default {
     };
   },
   methods: {
-    toggleCollapseShow: function (classes) {
+    toggleCollapseShow: function(classes) {
       this.collapseShow = classes;
     },
   },

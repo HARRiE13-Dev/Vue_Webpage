@@ -34,20 +34,18 @@ import Settings from "@/views/admin/Settings.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
 import Feed from "@/views/admin/Feed.vue";
+import EducationalObjects from "@/views/admin/EducationalObjects.vue";
 
 
 // views for Auth layout
 
 import Login from "@/views/auth/Login.vue";
+import Login_Student from "@/views/auth/Login_Student.vue";
 import Service_Student from "@/views/auth/Service_Student.vue";
 import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 
 
 // views without layouts
-
-import Landing from "@/views/Landing.vue";
-import Profile from "@/views/Profile.vue";
-import Index from "@/views/Index.vue";
 
 import Home from "@/views/Home.vue";
 import Page404 from "@/views/Page404.vue";
@@ -100,18 +98,27 @@ const routes = [
       {
         path: "/admin/settings",
         component: Settings,
+        beforeEnter: authGuard
       },
       {
         path: "/admin/tables",
         component: Tables,
+        beforeEnter: authGuard
       },
       {
         path: "/admin/maps",
         component: Maps,
+        beforeEnter: authGuard
       },
       {
         path: "/admin/feed",
         component: Feed,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/admin/educational_objects",
+        component: EducationalObjects,
+        beforeEnter: authGuard
       },
     ],
   },
@@ -126,6 +133,11 @@ const routes = [
         name: 'Login',
         component: Login,
       },
+      {
+        path: "/auth/login_student",
+        name: 'Login for Student',
+        component: Login_Student,
+      },
      
     ],
   },
@@ -138,25 +150,16 @@ const routes = [
       {
         path: "/auth/service_student",
         component: Service_Student,
+        beforeEnter: authGuard
       },
       {
         path: "/auth/service_teacher",
         component: Service_Teacher,
+        beforeEnter: authGuard
       },
     ],
   },
-  {
-    path: "/landing",
-    component: Landing,
-  },
-  {
-    path: "/profile",
-    component: Profile,
-  },
-  {
-    path: "/index",
-    component: Index,
-  },
+ 
   {
     path: "/",
     component: Home,

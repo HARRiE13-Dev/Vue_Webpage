@@ -62,7 +62,7 @@
             <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:bg-teal-500"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
                 >
                   <div class="flex-auto px-4 py-5 ">
                     <div
@@ -70,8 +70,8 @@
                     >
                       <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h6 class="text-xl font-semibold ">เรียนเกี่ยวกับ</h6>
-                    <p class="mt-2 mb-4 text-blueGray-500 ">
+                    <h6 class="text-xl font-semibold ">เราเรียนเกี่ยวกับ ?</h6>
+                    <p class="mt-2 mb-4 text-blueGray-500">
                       สาขาวิชาของเราสอนพื้นฐานการเขียนโปรแกรมคอมพิวเตอร์
                       ,การวิเคราะห์ และออกแบบระบบสารสนเทศ ,การสร้างเว็บไซต์
                       และแอปพลิเคชัน<br />
@@ -89,7 +89,7 @@
                 target="_blank"
               >
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
                 >
                   <div class="flex-auto px-4 py-5">
                     <div
@@ -97,10 +97,10 @@
                     >
                       <i class="fas fa-user-graduate"></i>
                     </div>
-                    <h6 class="text-xl font-semibold">รับสมัคร</h6>
+                    <h6 class="text-xl font-semibold">เปิดรับสมัคร...สำหรับผู้ที่สนใจ</h6>
                     <p class="mt-2 mb-4 text-blueGray-500">
                       เปิดรับสมัครนักศึกษาใหม่ ผ่านทางระบบ TCAS <br />
-                      ทางมหาลัยวิทยาลัยแม่โจ้ โดยสามารถอ่านรายละเอียดได้ที่
+                      ทางมหาวิทยาลัยแม่โจ้ โดยสามารถอ่านรายละเอียดได้ที่
                       www.admission.mju.ac.th
                     </p>
                   </div>
@@ -111,15 +111,15 @@
             <div class="w-full px-4 text-center md:w-4/12">
               <router-link target="_blank" to="contact">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
                 >
                   <div class="flex-auto px-4 py-5">
                     <div
-                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-emerald-400"
+                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white bg-indigo-500 rounded-full shadow-lg"
                     >
                       <i class="fas fa-comment-dots"></i>
                     </div>
-                    <h6 class="text-xl font-semibold">ติดต่อเรา</h6>
+                    <h6 class="text-xl font-semibold">สามารถติดต่อเราได้ที่</h6>
                     <p class="mt-2 mb-4 text-blueGray-500">
                       ท่านสามารถติดต่อกับทางสาขาวิชาของเราโดยตรงได้ที่ Facebook
                       Fanpage หรือผ่านช่องทาง <br />
@@ -137,17 +137,17 @@
             <div class="w-full px-4 text-center md:w-4/12">
               <router-link target="_blank" to="schedule">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
                 >
                   <div class="flex-auto px-1 ">
                     <div
-                      class="block overflow-hidden text-center bg-white rounded-t"
+                      class="block overflow-hidden text-center rounded-t"
                     >
                       <div class="container px-4 pt-6 mx-auto">
                         <div class="flex flex-wrap justify-center">
                           <div class="w-1/3 px-2">
                             <div
-                              class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                              class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white bg-teal-500 rounded-lg shadow-lg"
                             >
                               <h3 class="text-4xl">
                                 {{ day }}
@@ -157,7 +157,7 @@
                           </div>
                           <div class="w-1/3 px-2">
                             <div
-                              class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                              class="inline-flex items-center justify-center w-20 h-20 p-3 text-center text-white bg-teal-500 rounded-lg shadow-lg"
                             >
                               <h3 class="text-4xl">
                                 {{ month }}
@@ -167,7 +167,7 @@
                           </div>
                           <div class="w-1/3 px-2">
                             <div
-                              class="inline-flex items-center justify-center w-24 h-20 p-3 text-center text-white rounded-lg shadow-lg bg-emerald-400"
+                              class="inline-flex items-center justify-center w-24 h-20 p-3 text-center text-white bg-teal-500 rounded-lg shadow-lg"
                             >
                               <h3 class="text-4xl">
                                 {{ year }}
@@ -186,11 +186,11 @@
             <div class="w-full px-4 text-center md:w-2/12">
               <a href="https://g.page/CSMJU?share" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
                 >
                   <div class="flex-auto px-4 py-5">
                     <div
-                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white rounded-full shadow-lg bg-lightBlue-400"
+                      class="inline-flex items-center justify-center w-12 h-12 p-3 mb-5 text-center text-white bg-orange-500 rounded-full shadow-lg"
                     >
                       <i class="fas fa-map-marker-alt"></i>
                     </div>
@@ -210,7 +210,7 @@
             <div class="w-full px-4 text-center md:w-6/12">
               <router-link to="teacher" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 py-6 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                  class="relative flex flex-col w-full min-w-0 py-6 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
                 >
                   <h6 class="text-xl font-semibold">
                     ผู้บริหาร คณาจารย์ และเจ้าหน้าที่
@@ -220,7 +220,7 @@
                       <div
                         v-for="personnel in personnel_array"
                         v-bind:key="personnel.personnelId"
-                        class="h-auto max-w-full mx-4 align-middle duration-150 ease-linear bg-teal-500 border-none rounded-full shadow-xl hover:zoom"
+                        class="h-auto max-w-full mx-4 align-middle duration-150 ease-linear border-none rounded-full shadow-xl bg-lightBlue-400 hover:zoom"
                       >
                         <img
                           alt="..."
@@ -236,7 +236,7 @@
 
             <div class="w-full px-4 text-center md:w-6/12 md:-mt-48">
               <div
-                class="relative flex flex-col w-full min-w-0 py-6 mb-8 break-words bg-white rounded-lg shadow-lg "
+                class="relative flex flex-col w-full min-w-0 py-6 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:text-white hover:bg-blueGray-700"
               >
                 <h6 class="mt-1 text-xl font-semibold">ข่าวสาร</h6>
                 <router-link to="news" target="_blank">
@@ -254,7 +254,7 @@
                           <img
                             alt="..."
                             src="@\assets\img\profile.jpg"
-                            class="relative mx-auto duration-150 ease-linear rounded-lg shadow-lg cropped hover:zoom-xs"
+                            class="relative mx-auto duration-150 ease-linear rounded-lg shadow-lg cropped hover:zoom-xs "
                           />
                         </div>
                       </Slide>
@@ -269,7 +269,7 @@
           <div class="flex flex-wrap ">
             <div class="w-full px-4 text-center md:w-12/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom"
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white rounded-lg shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
               >
                 <div class="flex-auto px-0">
                   <h6 class="py-5 text-xl font-semibold">
@@ -279,7 +279,7 @@
                   <div class="relative w-full max-w-full overflow-hidden pb-72">
                     <iframe
                       class="absolute top-0 left-0 w-full h-full rounded-b"
-                      src="https://www.youtube-nocookie.com/embed/88JeU0ShY60"
+                      src="https://www.youtube.com/embed/88JeU0ShY60"
                       title="Presentation | Com-Sci MJU 2020"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

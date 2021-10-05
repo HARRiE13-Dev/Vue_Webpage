@@ -8,7 +8,7 @@
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">
               <h4 class="font-bold text-blueGray-500">
-                เข้าสู่ระบบสำหรับบุคคลากร
+                เข้าสู่ระบบสำหรับนักศึกษา 
               </h4>
             </div>
 
