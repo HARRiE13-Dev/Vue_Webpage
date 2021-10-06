@@ -1,160 +1,60 @@
 <template>
   <div>
-    <navbar />
     <main class="profile-page custom">
-      <section class="relative block h-500-px">
-        <div
-          class="absolute top-0 w-full h-full bg-center bg-cover"
-          style="
-            background-image: url('https://3l4jojspj4-flywheel.netdna-ssl.com/wp-content/uploads/iStock-655597202-1.jpg');
-          "
-        >
-          <span
-            id="blackOverlay"
-            class="absolute w-full h-full bg-black opacity-50"
-          ></span>
-        </div>
-        <div
-          class="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none h-70-px"
-          style="transform: translateZ(0);"
-        >
-          <svg
-            class="absolute bottom-0 overflow-hidden"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            version="1.1"
-            viewBox="0 0 2560 100"
-            x="0"
-            y="0"
-          >
-            <polygon
-              class="fill-current text-blueGray-200"
-              points="2560 0 2560 100 0 100"
-            ></polygon>
-          </svg>
-        </div>
-      </section>
-
-      <section class="relative py-16 bg-blueGray-200">
+      <section class="relative ">
         <div class="container px-4 mx-auto">
           <div
-            class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+            class="relative flex flex-col w-full min-w-0 mt-64 mb-6 break-words bg-white rounded-lg shadow-xl"
           >
             <div class="px-6">
-              <div class="mt-6 text-center">
-                <h3
-                  class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
-                >
-                  อาคาร / ห้องเรียน
-                </h3>
-              </div>
+              <h1 class="py-6 text-2xl text-center">ระบบครุภัณฑ์</h1>
 
-              <div class="py-6 mt-2 text-center border-t border-blueGray-200">
-                <div class="flex flex-wrap justify-center">
-                  <div class="w-full px-4 lg:w-9/12">
-                    <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                      อาคารเรียนในปัจจุบันมีอยู่ด้วยกัน 2 อาคารเรียน ได้แก่ อาคารแม่โจ้ 60 ปี และอาคารจุฬาภรณ์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ แบ่งห้องเรียนออกเป็น 2 รูปแบบได้แก่ ห้องบรรยายคอมพิวเตอร์ และปฏิบัติการคอมพิวเตอร์ <br>
-                      โดยมีห้องสำนักงานตั้งอยู่ที่ ชั้น 6 อาหารแม่โจ้ 60 ปี
-                      
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <hr />
-
-              <div class="px-6 mt-6">
-                <h3
-                  class="mb-6 text-2xl font-semibold leading-normal text-blueGray-700"
-                >
-                  ห้องปฏิบัติการคอมพิวเตอร์
-                </h3>
-              </div>
-
-              <div class="flex flex-wrap">
-                <div
-                  v-for="classroom in lab_array"
-                  v-bind:key="classroom.ClassroomId"
-                  class="w-full px-4 lg:w-4/12 "
-                >
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                  >
-                    <img
-                      alt="..."
-                      src="@/assets/img/vue.jpg"
-                      class="w-full align-middle rounded-t-lg"
-                    />
-                    <blockquote class="relative p-8 mb-4">
-                      <svg
-                        preserveAspectRatio="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 583 95"
-                        class="absolute left-0 block w-full h-95-px -top-94-px"
+              <!-- ตารางแสดงสินค้า -->
+              <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                <div class="w-full overflow-x-auto">
+                  <table class="w-full whitespace-no-wrap">
+                    <thead>
+                      <tr
+                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
                       >
-                        <polygon
-                          points="-30,95 583,95 583,65"
-                          class="fill-current text-emerald-500"
-                        ></polygon>
-                      </svg>
-                      <h4 class="text-xl font-bold text-white">
-                        {{ classroom.Classroom_Name }}
-                      </h4>
-                      <p class="mt-2 font-light text-white text-md">
-                        จำนวนที่นั่ง : {{ classroom.Classroom_sit }} <br />
-                        หมายเลขห้อง {{ classroom.Classroom_Number }} <br />
-                        สถานที่ : {{ classroom.Classroom_Detail }}
-                      </p>
-                    </blockquote>
-                  </div>
-                </div>
-              </div>
+                        <th class="px-4 py-3">รหัสครุภัณฑ์</th>
+                        <th class="px-4 py-3">ชื่อ</th>
+                        <th class="px-4 py-3">ราคา</th>
+                        <th class="px-4 py-3">วันที่จัดซื้อ</th>
+                        <th class="px-4 py-3">ประเภท</th>
+                        <th class="px-4 py-3">สภาพ</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      v-for="equipments in equipment_array"
+                      v-bind:key="equipments.equipmentId"
+                      class="bg-white divide-y dark:divide-gray-700 "
+                    >
+                      <tr class="text-black dark:text-gray-400 ">
+                        <td class="px-4 py-3 text-sm">
+                          {{ equipments.Equipment_Code }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ equipments.Equipment_Name }}
+                        </td>
 
-              <br />
-              <div class="px-6">
-                <h3
-                  class="mt-6 mb-6 text-2xl font-semibold leading-normal text-blueGray-700"
-                >
-                  ห้องบรรยายคอมพิวเตอร์
-                </h3>
-              </div>
+                        <td class="px-4 py-3 text-sm">
+                          {{ equipments.Equipment_Price }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ equipments.Equipment_Date }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ equipments.Equipment_Type }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ equipments.Equipment_Status }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-              <div class="flex flex-wrap">
-                <div
-                  v-for="classroom in lec_array"
-                  v-bind:key="classroom.ClassrooomId"
-                  class="w-full px-4 lg:w-3/12 "
-                >
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-lg bg-emerald-500"
-                  >
-                    <img
-                      alt="..."
-                      src="@/assets/img/vue.jpg"
-                      class="w-full align-middle rounded-t-lg"
-                    />
-                    <blockquote class="relative p-5 mb-4">
-                      <svg
-                        preserveAspectRatio="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 583 95"
-                        class="absolute left-0 block w-full h-95-px -top-94-px"
-                      >
-                        <polygon
-                          points="-30,95 583,95 583,65"
-                          class="fill-current text-emerald-500"
-                        ></polygon>
-                      </svg>
-                      <h4 class="text-xl font-bold text-white">
-                        {{ classroom.Classroom_Name }}
-                      </h4>
-                      <p class="mt-2 font-light text-white text-md">
-                        จำนวนที่นั่ง : {{ classroom.Classroom_sit }} <br />
-                        หมายเลขห้อง {{ classroom.Classroom_Number }} <br />
-                        สถานที่ : {{ classroom.Classroom_Detail }}
-                      </p>
-                    </blockquote>
-                  </div>
+                  <!-- แสดงผลตัวแบ่งหน้าเพจ-->
                 </div>
               </div>
             </div>
@@ -162,59 +62,171 @@
         </div>
       </section>
     </main>
-    <main-footer />
+
+    <div
+       v-if="showAddModal"
+                id="addProductModal"
+      class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none"
+    >
+      <div class="relative w-auto max-w-sm mx-auto my-6">
+        <!--content-->
+        <div
+          class="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none"
+        >
+          <!--header-->
+          <div
+            class="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200"
+          >
+            <h3 class="text-3xl font-semibold">
+               เพิ่มสินค้าใหม่
+            </h3>
+            <button
+              class="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none"
+              v-on:click="toggleModal()"
+            >
+              <span
+                class="block w-6 h-6 text-2xl text-black bg-transparent outline-none opacity-5 focus:outline-none"
+              >
+                ×
+              </span>
+            </button>
+          </div>
+          <!--body-->
+          <div class="relative flex-auto p-6">
+            <form
+              ref="addProductForm"
+              @submit.prevent="onSubmit"
+              enctype="multipart/form-data"
+            >
+              <label class="block my-3 text-gray-700 text-md" for="name"
+                >ชื่อสินค้า</label
+              >
+              <input
+                v-model="name"
+                class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                type="text"
+                placeholder="Product name"
+              />
+              <div v-if="v$.name.$error" class="mt-2 text-sm text-red-500">
+                {{ v$.name.$errors[0].$message }}
+              </div>
+
+              <label class="block my-3 text-gray-700 text-md" for="slug"
+                >สลัก</label
+              >
+              <input
+                v-model="slug"
+                class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                type="text"
+                placeholder="product-name"
+              />
+              <div v-if="v$.slug.$error" class="mt-2 text-sm text-red-500">
+                {{ v$.slug.$errors[0].$message }}
+              </div>
+
+              <label class="block my-3 text-gray-700 text-md" for="description"
+                >รายละเอียด</label
+              >
+              <textarea
+                v-model="description"
+                class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                rows="5"
+                placeholder="Product description"
+              ></textarea>
+
+              <label class="block my-3 text-gray-700 text-md" for="price"
+                >ราคา</label
+              >
+              <input
+                v-model="price"
+                class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                type="text"
+                placeholder="0.00"
+              />
+              <div v-if="v$.price.$error" class="mt-2 text-sm text-red-500">
+                {{ v$.price.$errors[0].$message }}
+              </div>
+
+              <div class="mt-4">
+                <img v-if="imgUrl" :src="imgUrl" class="w-ful" />
+              </div>
+
+              <label class="block my-3 text-gray-700 text-md" for="image"
+                >ภาพสินค้า</label
+              >
+              <input
+                ref="fileupload"
+                @change="onFileChange"
+                class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                type="file"
+              />
+
+              <div class="grid grid-cols-3 gap-4">
+                <div class="col-span-2">
+                  <button
+                    @click="submitForm"
+                    class="w-full px-4 py-2 mt-4 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg text-md active:bg-purple-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple"
+                  >
+                    บันทึกรายการ
+                  </button>
+                </div>
+
+                <div>
+                  <button
+                    @click="onResetForm"
+                    class="w-full px-4 py-2 mt-4 font-medium leading-5 text-white transition-colors duration-150 bg-gray-500 border border-transparent rounded-lg text-md active:bg-purple-600 hover:bg-gray-700 focus:outline-none focus:shadow-outline-purple"
+                  >
+                    ล้าง
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="showModal" class="fixed inset-0 z-40 bg-black opacity-25"></div>
   </div>
 </template>
 <script>
-import Navbar from "@/components/Navbars/AuthNavbar.vue";
-import MainFooter from "@/components/Footers/MainFooter.vue";
-
 import axios from "axios";
 
 export default {
   data() {
     return {
-      lec_array: [],
-      lab_array: [],
-      classroom: {
-        ClassroomId: 0,
-        Classroom_Name: "",
-        Classroom_Type: "",
-        Classroom_Number: "",
-        Classroom_sit: 0,
-        Classroom_Detail: "",
-        Classroom_Images: "",
+      equipment_array: [],
+      equipments: {
+        equipmentId: 0,
+        Equipment_Code: "",
+        Equipment_Name: "",
+        Equipment_Price: "",
+        Equipment_Date: "",
+        Equipment_Type: "",
+        Equipment_Status: "",
       },
     };
   },
   mounted() {
-    this.getRoomData();
+    this.getEquipmentData();
   },
   methods: {
-    getRoomData() {
+    getEquipmentData() {
       axios({
         method: "GET",
-        url: "http://wwwdev.csmju.com/api/classroom/ห้องปฏิบัติการ",
+        url: "https://wwwdev.csmju.com/api/equipment",
       })
         .then((response) => {
-          this.lab_array = response.data;
-          
+          this.equipment_array = response.data;
         })
-        
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/classroom/ห้องบรรยาย",
-      })
-        .then((response) => {
-          this.lec_array = response.data;
-         
-        })
-        
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
     },
   },
-  components: {
-    Navbar,
-    MainFooter,
-  },
+  components: {},
 };
 </script>

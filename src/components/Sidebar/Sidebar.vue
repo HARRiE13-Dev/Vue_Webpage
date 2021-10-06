@@ -64,7 +64,7 @@
             <input
               type="text"
               placeholder="Search"
-              class="w-full h-12 px-3 py-2 text-base font-normal leading-snug bg-white border border-0 border-solid rounded shadow-none outline-none border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 focus:outline-none"
+              class="w-full h-12 px-3 py-2 text-base font-normal leading-snug bg-white border-solid rounded shadow-none outline-none border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 focus:outline-none"
             />
           </div>
         </form>
@@ -75,7 +75,7 @@
         <h6
           class="block pt-1 pb-4 text-xs font-bold no-underline uppercase md:min-w-full text-blueGray-500"
         >
-          Admin Layout Pages
+          Admin Layout Pagea
         </h6>
         <!-- Navigation -->
 

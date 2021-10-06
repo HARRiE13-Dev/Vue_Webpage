@@ -7,20 +7,16 @@
             class="relative flex flex-col w-full min-w-0 mt-64 mb-6 break-words bg-white rounded-lg shadow-xl"
           >
             <div class="px-6">
-                <h1 class="py-6 text-2xl text-center">ระบบครุภัณฑ์</h1>
+              <h1 class="py-6 text-2xl text-center">CSMJU | ระบบครุภัณฑ์</h1>
               <div class="flex items-center justify-between my-8">
-                  
                 <h2
-                  class="my-6 text-sm font-semibold text-gray-700 md:text-xl dark:text-gray-200"
+                  class="mx-4 my-6 text-sm font-semibold text-gray-700 md:text-xl "
                 >
                   จำนวน {{ products.total }} รายการ
                 </h2>
 
                 <div class="flex justify-center flex-1 lg:mr-32">
-                  <div
-                    class="relative w-full max-w-xl ml-4 mr-6 "
-                  >
-                
+                  <div class="relative w-full ">
                     <form @submit.prevent="onSubmit">
                       <input
                         v-model="keyword"
@@ -39,70 +35,46 @@
                     </form>
                   </div>
 
-                  <div>
-                    <button
-                      @click="submitSearchForm"
-                      class="flex items-center justify-center px-4 py-1 mx-4 text-sm font-normal leading-normal text-white rounded-lg bg-lightBlue-500 "
-                    >
-                      <svg
-                        class="w-4 h-4 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                      </svg>
-                      <span>ค้นหา</span>
-                    </button>
-                  </div>
-
-                  <div>
-                    <button
-                      @click="resetSearchForm"
-                      class="flex items-center justify-center px-4 py-1 mx-0 text-sm font-normal leading-normal text-white bg-yellow-500 rounded-lg "
-                    >
-                      <svg
-                        class="w-4 h-4 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                        />
-                      </svg>
-                      <span>ล้าง</span>
-                    </button>
-                  </div>
-                </div>
-
-                <button
-                  @click="openModalAddProduct"
-                  class="flex items-center justify-center px-4 py-1 mx-0 text-sm font-normal leading-normal text-white rounded-lg bg-blueGray-700 "
-                >
-                  <svg
-                    class="w-4 h-4 mr-2 -ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                  <button
+                    @click="submitSearchForm"
+                    class="flex items-center justify-center px-4 py-1 mx-4 text-sm font-normal leading-normal text-white rounded-lg bg-lightBlue-500 "
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 4v16m8-8H4"
-                    />
-                  </svg>
-                  <span>เพิ่ม</span>
-                </button>
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                    <span>ค้นหา</span>
+                  </button>
+
+                  <button
+                    @click="openModalAddProduct"
+                    class="flex items-center justify-center px-6 py-1 mx-0 ml-3 text-sm font-normal leading-normal text-white rounded-lg bg-blueGray-700 "
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2 -ml-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
+                    <span>เพิ่ม</span>
+                  </button>
+                </div>
               </div>
 
               <!-- ตารางแสดงสินค้า -->
@@ -117,8 +89,7 @@
                         <th class="px-4 py-3">ชื่อ</th>
                         <th class="px-4 py-3">ราคา</th>
                         <th class="px-4 py-3">วันที่จัดซื้อ</th>
-                        <th class="px-4 py-3">ประเภท</th>
-                        <th class="px-4 py-3">สภาพ</th>
+                        <th class="px-4 py-3">แก้ไข / ลบ</th>
                       </tr>
                     </thead>
                     <tbody
@@ -132,7 +103,6 @@
                         <td class="px-4 py-3 text-sm">{{ product.id }}</td>
                         <td class="px-4 py-3">
                           <div class="flex items-center text-sm">
-                           
                             <div>
                               <p class="font-semibold">{{ product.name }}</p>
                               <p
@@ -177,7 +147,7 @@
                         <td class="px-4 py-3 text-sm">
                           <button
                             @click="openModalEditProduct(product.id)"
-                            class="px-4 py-2 mx-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-yellow-400 border border-transparent rounded-lg active:bg-purple-600 hover:bg-yellow-500 focus:outline-none focus:shadow-outline-purple"
+                            class="px-4 py-2 mx-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-lg active:bg-purple-600 hover:bg-yellow-500 focus:outline-none focus:shadow-outline-purple"
                           >
                             <svg
                               class="w-3 h-3"
@@ -496,7 +466,6 @@
                   <!-- End of Modal Content-->
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
@@ -505,8 +474,8 @@
   </div>
 </template>
 <script>
-import http from "@/services/EquipmentService";
-import '@ocrv/vue-tailwind-pagination/styles'
+import http from "@/services/BackendService";
+//import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 import useValidate from "@vuelidate/core";
 import { required, helpers } from "@vuelidate/validators";
@@ -525,14 +494,14 @@ export default {
       showAddModal: false, // popup เพิ่มสินค้า
       showEditModal: false, // popup แก้ไขสินค้า
       /** ตัวแปรสำหรับผูกกับฟอร์มเพิ่มสินค้า */
-      
+
       Equipment_Code: "",
       Equipment_Name: "",
       Equipment_Price: "",
       Equipment_Date: "",
       Equipment_Type: "",
       Equipment_Status: "",
-      
+
       /** ตัวแปรสำหรับการแก้ไขข้อมูลสินค้า */
       eid: "",
       ename: "",
