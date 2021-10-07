@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="relative z-10 flex flex-wrap items-center justify-between px-6 py-4 bg-white shadow-xl md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden md:w-64"
+    class="relative z-10 flex flex-wrap items-center justify-between px-6 py-4 bg-white shadow-xl custom md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden md:w-64"
   >
     <div
       class="flex flex-wrap items-center justify-between w-full px-0 mx-auto md:flex-col md:items-stretch md:min-h-full md:flex-nowrap"
@@ -15,8 +15,8 @@
       </button>
       <!-- Brand -->
       <router-link
-        class="inline-block p-4 px-0 mr-0 text-sm font-bold text-left uppercase md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
-        to="/"
+        class="inline-block p-4 px-0 mr-0 font-bold text-left uppercase text-md md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
+        to="/admin"
       >
         CSMJU | Administrator
       </router-link>
@@ -41,10 +41,10 @@
           <div class="flex flex-wrap">
             <div class="w-6/12">
               <router-link
-                class="inline-block p-4 px-0 mr-0 text-sm font-bold text-left uppercase md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
+                class="inline-block p-4 px-0 mr-0 font-bold text-left uppercase text-md md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
                 to="/"
               >
-                Sidebar Menu
+                Admin's Menu
               </router-link>
             </div>
             <div class="flex justify-end w-6/12">
@@ -73,9 +73,9 @@
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
-          class="block pt-1 pb-4 text-xs font-bold no-underline uppercase md:min-w-full text-blueGray-500"
+          class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"
         >
-          Admin Layout Pagea
+          การจัดการเว็บไซต์
         </h6>
         <!-- Navigation -->
 
@@ -88,7 +88,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -112,7 +112,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -123,7 +123,7 @@
                   class="mr-2 text-sm fas fa-tools"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-                Settings
+                Account Users 
               </a>
             </router-link>
           </li>
@@ -136,7 +136,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -157,7 +157,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -174,47 +174,14 @@
           </li>
         </ul>
 
+        
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
-          class="block pt-1 pb-4 text-xs font-bold no-underline uppercase md:min-w-full text-blueGray-500"
+          class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"
         >
-          Auth Layout Pages
-        </h6>
-        <!-- Navigation -->
-
-        <ul class="flex flex-col list-none md:flex-col md:min-w-full md:mb-4">
-          <li class="items-center">
-            <router-link
-              class="block py-3 text-xs font-bold uppercase text-blueGray-700 hover:text-blueGray-500"
-              to="/auth/login"
-            >
-              <i class="mr-2 text-sm fas fa-fingerprint text-blueGray-300"></i>
-              Login
-            </router-link>
-          </li>
-
-          <li class="items-center">
-            <router-link
-              class="block py-3 text-xs font-bold uppercase text-blueGray-700 hover:text-blueGray-500"
-              to="/auth/register"
-            >
-              <i
-                class="mr-2 text-sm fas fa-clipboard-list text-blueGray-300"
-              ></i>
-              Register
-            </router-link>
-          </li>
-        </ul>
-
-        <!-- Divider -->
-        <hr class="my-4 md:min-w-full" />
-        <!-- Heading -->
-        <h6
-          class="block pt-1 pb-4 text-xs font-bold no-underline uppercase md:min-w-full text-blueGray-500"
-        >
-          ระบบสารสนเทศ | MIS
+          การจัดการระบบสารสนเทศ 
         </h6>
         <!-- Navigation -->
         <ul class="flex flex-col list-none md:flex-col md:min-w-full md:mb-4">
@@ -226,7 +193,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -249,7 +216,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -272,7 +239,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -295,7 +262,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -318,7 +285,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -341,7 +308,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'
@@ -365,7 +332,7 @@
               <a
                 :href="href"
                 @click="navigate"
-                class="block py-3 text-xs font-bold uppercase"
+                class="block py-3 text-sm font-bold uppercase"
                 :class="[
                   isActive
                     ? 'text-emerald-500 hover:text-emerald-600'

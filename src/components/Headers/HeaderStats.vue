@@ -1,14 +1,14 @@
 <template>
   <!-- Header -->
-  <div class="relative bg-emerald-600 md:pt-32 pb-32 pt-12">
-    <div class="px-4 md:px-10 mx-auto w-full">
+  <div class="relative pt-8 pb-32 bg-emerald-600 md:pt-32">
+    <div class="w-full px-4 mx-auto md:px-10">
       <div>
         <!-- Card stats -->
         <div class="flex flex-wrap">
-          <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
-              statSubtitle="TRAFFIC"
-              statTitle="350,897"
+              statSubtitle="จำนวนผู้ที่เข้าสู่ระบบต่อวัน"
+              statTitle="xxx"
               statArrow="up"
               statPercent="3.48"
               statPercentColor="text-emerald-500"
@@ -17,10 +17,50 @@
               statIconColor="bg-red-500"
             />
           </div>
-          <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          
+          <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
-              statSubtitle="NEW USERS"
-              statTitle="2,356"
+              statSubtitle="ประสิทธิภาพ"
+              statTitle="xx.xx%"
+              statArrow="up"
+              statPercent="12"
+              statPercentColor="text-emerald-500"
+              statDescripiron="Since last month"
+              statIconName="fas fa-percent"
+              statIconColor="bg-emerald-500"
+            />
+          </div>
+
+          <div class="w-full px-4 lg:w-6/12 xl:w-6/12">
+            <card-stats
+              statSubtitle="ระบบแจ้งตกค้างรายวิชา"
+              statTitle="ผู้ติดต่อ xx คน"
+              statArrow="up"
+              statPercent="12"
+              statPercentColor="text-emerald-500"
+              statDescripiron="Since last month"
+              statIconName="fas fa-percent"
+              statIconColor="bg-emerald-500"
+            />
+          </div>
+        </div>
+        <div class="flex flex-wrap mt-6">
+          <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
+            <card-stats
+              statSubtitle="ระบบจองห้องเรียน"
+              statTitle="ผู้ติดต่อ xx คน"
+              statArrow="up"
+              statPercent="3.48"
+              statPercentColor="text-emerald-500"
+              statDescripiron="Since last month"
+              statIconName="far fa-chart-bar"
+              statIconColor="bg-red-500"
+            />
+          </div>
+          <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
+            <card-stats
+              statSubtitle="ระบบแจ้งซ่อม"
+              statTitle="ผู้ติดต่อ xx คน"
               statArrow="down"
               statPercent="3.48"
               statPercentColor="text-red-500"
@@ -29,10 +69,10 @@
               statIconColor="bg-orange-500"
             />
           </div>
-          <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
-              statSubtitle="SALES"
-              statTitle="924"
+              statSubtitle="ระบบร้องเรียน"
+              statTitle="ผู้ติดต่อ xx คน"
               statArrow="down"
               statPercent="1.10"
               statPercentColor="text-orange-500"
@@ -41,10 +81,10 @@
               statIconColor="bg-pink-500"
             />
           </div>
-          <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
-              statSubtitle="PERFORMANCE"
-              statTitle="49,65%"
+              statSubtitle="ระบบยืม-คืน"
+              statTitle="ผู้ติดต่อ xx คน"
               statArrow="up"
               statPercent="12"
               statPercentColor="text-emerald-500"

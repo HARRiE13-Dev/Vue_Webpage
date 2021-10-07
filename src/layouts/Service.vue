@@ -18,7 +18,7 @@
 <script>
 
 import Foot from "@/components/Footers/Foot.vue";
-import AdminNavbar from "@/components/Navbars/AdminNavbar.vue";
+import AdminNavbar from "@/components/Navbars/ServiceNavbar.vue";
 
 
 export default {

@@ -2,6 +2,7 @@
   <div>
  
     <main class="profile-page custom">
+      
         
       <section class="relative block h-500-px">
         <div

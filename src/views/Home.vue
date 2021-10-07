@@ -220,7 +220,7 @@
                       <div
                         v-for="personnel in personnel_array"
                         v-bind:key="personnel.personnelId"
-                        class="h-auto max-w-full mx-4 align-middle duration-150 ease-linear border-none rounded-full shadow-xl bg-lightBlue-400 hover:zoom"
+                        class="h-auto max-w-full mx-4 my-2 align-middle duration-150 ease-linear border-none rounded-full shadow-xl bg-lightBlue-400 hover:zoom"
                       >
                         <img
                           alt="..."

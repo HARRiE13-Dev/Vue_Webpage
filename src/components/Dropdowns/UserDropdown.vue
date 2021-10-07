@@ -46,6 +46,7 @@
       </a>
       <div class="h-0 my-2 border border-solid border-blueGray-100" />
       <a
+      @click="onClickLogout"
         href="javascript:void(0);"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
@@ -58,6 +59,7 @@
 <script>
 import { createPopper } from "@popperjs/core";
 import image from "@/assets/img/team-1-800x800.jpg";
+//import http from '@/services/AuthService';
 
 export default {
   data() {
@@ -77,6 +79,12 @@ export default {
           placement: "bottom-start",
         });
       }
+    },
+    onClickLogout() {
+ 
+     localStorage.removeItem("user");
+      this.$router.push({ name: "Login" });
+      
     },
   },
 };
