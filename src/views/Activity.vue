@@ -58,9 +58,7 @@
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-9/12">
                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                    
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus velit pariatur laboriosam itaque esse molestiae autem numquam totam, vero aliquam atque dolor tempora ex, dignissimos accusantium earum delectus maiores rerum.
-                    
+                    กิจกรรมที่ 1
                     </p>
                     
                   </div>
