@@ -8,22 +8,18 @@ gulp.task("licenses", async function () {
     .pipe(
       gap.prependText(`/*!
 
-=========================================================
-* Vue Notus - v1.1.0 based on Tailwind Starter Kit by Creative Tim
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vue-notus
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/vue-notus/blob/main/LICENSE.md)
-
-* Tailwind Starter Kit Page: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
+      =========================================================
+      * CSMJU | Computer Science MJU by Hop Team
+      =========================================================
+      
+      * Product Page CSMJU 2021
+      * Copyright 2021 Creative Tim 
+      * Licensed under MIT 
+      * Tailwind Starter Kit Page
+      
+      * Coded by HOP Team
+      
+      =========================================================
 */`)
     )
     .pipe(gulp.dest("./", { overwrite: true }));
@@ -34,22 +30,18 @@ gulp.task("licenses", async function () {
     .pipe(
       gap.prependText(`<!--
 
-=========================================================
-* Vue Notus - v1.1.0 based on Tailwind Starter Kit by Creative Tim
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vue-notus
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/vue-notus/blob/main/LICENSE.md)
-
-* Tailwind Starter Kit Page: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
+      =========================================================
+      * CSMJU | Computer Science MJU by Hop Team
+      =========================================================
+      
+      * Product Page CSMJU 2021
+      * Copyright 2021 Creative Tim 
+      * Licensed under MIT 
+      * Tailwind Starter Kit Page
+      
+      * Coded by HOP Team
+      
+      =========================================================
 -->`)
     )
     .pipe(gulp.dest("./", { overwrite: true }));
@@ -60,22 +52,18 @@ gulp.task("licenses", async function () {
     .pipe(
       gap.prependText(`/*!
 
-=========================================================
-* Vue Notus - v1.1.0 based on Tailwind Starter Kit by Creative Tim
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vue-notus
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/vue-notus/blob/main/LICENSE.md)
-
-* Tailwind Starter Kit Page: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
+      =========================================================
+      * CSMJU | Computer Science MJU by Hop Team
+      =========================================================
+      
+      * Product Page CSMJU 2021
+      * Copyright 2021 Creative Tim 
+      * Licensed under MIT 
+      * Tailwind Starter Kit Page
+      
+      * Coded by HOP Team
+      
+      =========================================================
 */`)
     )
     .pipe(gulp.dest("./", { overwrite: true }));

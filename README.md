@@ -17,6 +17,7 @@
 2. Vue Tailwind Pagination `npm install --save @ocrv/vue-tailwind-pagination`
 3. Vue 3 Carousel `npm i vue3-carousel`
 4. vue-sweetalert2 `npm i vue-sweetalert2`
+
 ## Versions
 
 ## Directory Files
