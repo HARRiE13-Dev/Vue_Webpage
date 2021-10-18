@@ -45,7 +45,7 @@
                 <h3
                   class="mb-6 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
-                  หลักสูตร
+                  กระบวนวิชาระดับปริญญาตรี
                 </h3>
               </div>
 
@@ -57,57 +57,82 @@
                   <thead>
                     <tr>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                         :class="[
                           color === 'light'
                             ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+                            : 'bg-emerald-800 text-white border-emerald-700',
+                        ]"
+                      >
+                        ลำดับ
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        :class="[
+                          color === 'light'
+                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                            : 'bg-emerald-800 text-white border-emerald-700',
                         ]"
                       >
                         รหัสรายวิชา
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                         :class="[
                           color === 'light'
                             ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+                            : 'bg-emerald-800 text-white border-emerald-700',
                         ]"
                       >
                         ชื่อวิชา
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                         :class="[
                           color === 'light'
                             ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+                            : 'bg-emerald-800 text-white border-emerald-700',
                         ]"
                       >
                         หน่วยกิต
                       </th>
+                     
                     </tr>
                   </thead>
                   <tbody
-                   v-for="subject in subject_array"
-                  v-bind:key="subject.subjectId"
+                    v-for="subject in subject_array"
+                    v-bind:key="subject.subjectId"
                   >
                     <tr>
-                      <th
-                        class="flex items-center p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        {{subject.Subject_Code}}
-                      </th>
                       <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="items-center p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        {{subject.Subject_NameTh}}
+                        {{ subject.subjectId }}
                       </td>
-                      <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                         <td
+                        class="items-center p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        {{subject.Subject_Credit}}
+                        {{ subject.Subject_Code }}
                       </td>
+                         <td
+                        class="p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 tems-center whitespace-nowrap"
+                      >
+                        
+                        <div class="font-semibold">
+                          {{ subject.Subject_NameTh }} 
+                        </div>
+                        {{ subject.Subject_NameEn }}
+                      </td>
+                         <td
+                        class="items-center p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        {{ subject.Subject_Credit }}
+                      </td>
+                      
+                      
+                
+                    
+                      
                     </tr>
                   </tbody>
                 </table>
