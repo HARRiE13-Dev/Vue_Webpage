@@ -6,8 +6,11 @@
           <div
             class="relative flex flex-col w-full min-w-0 mt-64 mb-6 break-words bg-white rounded-lg shadow-xl"
           >
-            <div class="px-6">
-              <h1 class="py-6 text-2xl text-center">CSMJU | ระบบครุภัณฑ์</h1>
+            <div class="px-6 mt-6">
+              <h1 class="py-6 text-3xl font-bold text-center">
+                CSMJU | ระบบครุภัณฑ์
+              </h1>
+              <br class="shadow-xl" />
               <div class="flex items-center justify-between my-8">
                 <h2
                   class="items-center mx-4 my-6 text-sm font-semibold text-gray-700 md:text-xl "
@@ -614,11 +617,13 @@
                         placeholder="0"
                       />
 
+                   
                       <button
-                        @click="submitFormEdit(up_equipmentId)"
-                        class="w-full px-4 py-2 mt-4 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg text-md active:bg-purple-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple"
+                       @click="submitFormEdit(up_equipmentId)"
+                        class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
                       >
-                        อัพเดทข้อมูล
+                         อัพเดทข้อมูล
                       </button>
                     </form>
                   </div>
@@ -633,7 +638,7 @@
   </div>
 </template>
 <script>
-import http from "@/services/EquipmentService";
+import http from "@/services/APIService";
 //import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 import useValidate from "@vuelidate/core";

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap custom">
     <div class="w-full px-4">
       <div
         class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
@@ -7,86 +7,172 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h3
-                class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
-              >
-                Feed
-              </h3>
+              <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร</h1>
             </div>
-
-            <div class="py-6 mt-2 border-t border-blueGray-200">
-              <div class="flex flex-wrap justify-center">
-                <div class="w-full px-4 lg:w-9/12">
-                  <div class="pt-0 mb-3">
-                    <p>หัวข้อเรื่อง</p>
-                    <input
-                      v-model="topic"
-                      type="text"
-                      placeholder="หัวข้อเรื่อง"
-                      class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                    />
-                  </div>
-
-                  <div class="pt-10 mb-3 ">
-                    <p>รายละเอียด</p>
-                    <textarea
-                      v-model="detail"
-                      cols="30"
-                      placeholder="เนื้อหา / รายละเอียด"
-                      rows="10"
-                      class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                    ></textarea>
-                  </div>
-                  <div class="mt-4 ">
-                    <img v-if="imgUrl" :src="imgUrl" class="w-full" />
-                  </div>
-                  <div class="mb-1">
-                    <span>แนบไฟล์</span>
+              <br class="shadow-xl">
+              <div
+    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded shadow-lg"
+    :class="[color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white']"
+  >
+    <div class="px-4 py-3 mb-0 border-0 rounded-t">
+      <div class="flex flex-wrap items-center">
+        <div class="relative flex-1 flex-grow w-full max-w-full px-4">
+          <h3
+            class="text-lg font-semibold"
+            :class="[color === 'light' ? 'text-blueGray-700' : 'text-white']"
+          >
+            search taps
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="block w-full overflow-x-auto">
+      <!-- Projects table -->
+      <table class="items-center w-full bg-transparent border-collapse">
+        <thead>
+          <tr>
+            <th
+              class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            >
+              ลำดับ
+            </th>
+            <th
+              class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            >
+              หัวข้อข่าว
+            </th>
+            <th
+              class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            >
+              รายละเอียด
+            </th>
+            <th
+              class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            >
+              ผู้เขียน
+            </th>
+            <th
+              class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            >
+              การจัดการ
+            </th>
+            <th
+              class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            ></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th
+              class="flex items-center p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+            >
+              <img
+                :src="bootstrap"
+                class="w-12 h-12 bg-white border rounded-full"
+                alt="..."
+              />
+              <span
+                class="ml-3 font-bold"
+                :class="[
+                  color === 'light' ? 'text-blueGray-600' : 'text-white',
+                ]"
+              >
+                ข่าว 1
+              </span>
+            </th>
+            <td
+              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+            >
+              xxx
+            </td>
+            <td
+              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+            >
+              <i class="mr-2 text-orange-500 fas fa-circle"></i> xxxx
+            </td>
+            <td
+              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+            >
+              <div   class="flex items-center text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+                <img
+                  :src="team1"
+                  alt="..."
+                  class="w-10 h-10 border-2 rounded-full shadow border-blueGray-50"
+                />
+                  <span
+                class="ml-3 text-sm font-bold"
+                :class="[
+                  color === 'light' ? 'text-blueGray-600' : 'text-white',
+                ]"
+              >
+               user 1 
+               <div class="text-xs font-normal">
+                 12 ตุลาคม 2564
+               </div>
+              </span>
+              
+               
+              </div>
+            </td>
+            <td
+              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+            >
+              <div class="flex items-center">
+                <span class="mr-2">60%</span>
+                <div class="relative w-full">
+                  <div
+                    class="flex h-2 overflow-hidden text-xs bg-red-200 rounded"
+                  >
                     <div
-                      class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 rounded-lg border-all"
-                    >
-                      <div class="absolute">
-                        <div class="flex flex-col items-center py-10">
-                          <span
-                            class="block py-10 font-normal border-blueGray-300"
-                          ></span>
-                        </div>
-                      </div>
-                      <input
-                        type="file"
-                        @change="onFileSelected"
-                        class="w-full h-full opacity-0"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="pt-10 mb-3 text-center">
-                    <!-- <vue-recaptcha
-                        v-if="showRecaptcha"
-                        siteKey="..."
-                        size="normal"
-                        theme="light"
-                        :tabindex="0"
-                        @verify="recaptchaVerified"
-                        @expire="recaptchaExpired"
-                        @fail="recaptchaFailed"
-                        ref="vueRecaptcha"
-                      >
-                      </vue-recaptcha> -->
-                  </div>
-
-                  <div class="pt-10 mb-3 text-center">
-                    <button
-                      @click.prevent="commit"
-                      class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-lg focus:outline-none"
-                      type="button"
-                    >
-                      ยืนยันส่งข้อความ
-                    </button>
+                      style="width: 60%;"
+                      class="flex flex-col justify-center text-center text-white bg-red-500 shadow-none whitespace-nowrap"
+                    ></div>
                   </div>
                 </div>
               </div>
-            </div>
+            </td>
+            <td
+              class="p-4 px-6 text-xs text-right align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+            >
+              <table-dropdown />
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+           
           </div>
         </div>
       </div>

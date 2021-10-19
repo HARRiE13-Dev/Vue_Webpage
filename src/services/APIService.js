@@ -1,16 +1,20 @@
 import axios from "axios";
 
-const NewsService = axios.create({
-  baseURL:"https://wwwdev.csmju.com/api/",
+
+const APIService = axios.create({
+  baseURL: "https://wwwdev.csmju.com/api/",
   withCredentials: true,
   headers: {
     "Content-type": "multipart/form-data",
     "Accept": "application/json",
+    // "Authorization": `Bearer ${token}`
   },
 });
 
-NewsService.interceptors.request.use(config => {
+// การใช้ interceptors เพื่อแทรกตัว token เข้าไปใน header
+APIService.interceptors.request.use(config => {
 
+  // อ่าน token จาก localStorage
   let token = ''
 
   try{
@@ -21,7 +25,7 @@ NewsService.interceptors.request.use(config => {
     console.log(error);
   }
 
-
+  // เช็คว่าถ้า token ไม่ null
   if(token){
     config.headers.Authorization = "Bearer "+token
   }
@@ -30,4 +34,4 @@ NewsService.interceptors.request.use(config => {
 
 })
 
-export default NewsService;
+export default APIService;
