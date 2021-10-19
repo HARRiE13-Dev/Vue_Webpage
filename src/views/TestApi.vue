@@ -1,61 +1,213 @@
 <template>
-  <div>
-    <button class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-pink-500 rounded shadow outline-none active:bg-pink-600 hover:shadow-lg focus:outline-none" type="button" v-on:click="toggleModal()">
-      Open small modal
-    </button>
-    <div v-if="showModal" class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-      <div class="relative w-auto max-w-sm mx-auto my-6">
-        <!--content-->
-        <div class="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
-          <!--header-->
-          <div class="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200">
-            <h3 class="text-3xl font-semibold">
-              Modal Title
-            </h3>
-            <button class="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none" v-on:click="toggleModal()">
-              <span class="block w-6 h-6 text-2xl text-black bg-transparent outline-none opacity-5 focus:outline-none">
-                ×
-              </span>
-            </button>
-          </div>
-          <!--body-->
-          <div class="relative flex-auto p-6">
-            <p class="my-4 text-lg leading-relaxed text-blueGray-500">
-              I always felt like I could do anything. That’s the main
-              thing people are controlled by! Thoughts- their perception
-              of themselves! They're slowed down by their perception of
-              themselves. If you're taught you can’t do anything, you
-              won’t do anything. I was taught I could do everything.
-            </p>
-          </div>
-          <!--footer-->
-          <div class="flex items-center justify-end p-6 border-t border-solid rounded-b border-blueGray-200">
-            <button class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none" type="button" v-on:click="toggleModal()">
-              Close
-            </button>
-            <button class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none" type="button" v-on:click="toggleModal()">
-              Save Changes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div v-if="showModal" class="fixed inset-0 z-40 bg-black opacity-25"></div>
-  </div>
+   <form
+                      ref="addProductForm"
+                      @submit.prevent="onSubmit"
+                      enctype="multipart/form-data"
+                    >
+                      <label class="block my-3 text-gray-700 text-md" for="name"
+                        >รหัสครุภัณฑ์</label
+                      >
+                      <input
+                        v-model="code"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="Product name"
+                      />
+                      <div
+                        v-if="v$.code.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.code.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ชื่อ</label
+                      >
+                      <input
+                        v-model="name"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.name.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.name.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ยี่ห้อ</label
+                      >
+                      <input
+                        v-model="brand"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.brand.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.brand.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >เลขตัวเครื่อง (Serial Number)</label
+                      >
+                      <input
+                        v-model="serial_no"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.serial_no.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.serial_no.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >วันที่จัดซื้อ</label
+                      >
+                      <input
+                        v-model="date"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.date.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.date.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >สังกัด</label
+                      >
+                      <input
+                        v-model="users"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.users.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.users.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ตำแหน่งจัดเก็บ</label
+                      >
+                      <input
+                        v-model="room"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.room.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.room.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ผู้รับผิดชอบ</label
+                      >
+                      <input
+                        v-model="caretaker"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.caretaker.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.caretaker.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ประเภท</label
+                      >
+                      <input
+                        v-model="type"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.type.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.type.$errors[0].$message }}
+                      </div>
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="detail"
+                        >รายละเอียด</label
+                      >
+                      <textarea
+                        v-model="detail"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        rows="5"
+                        placeholder="Product description"
+                      ></textarea>
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="price"
+                        >ราคา</label
+                      >
+                      <input
+                        v-model="price"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="0.00"
+                      />
+                      <div
+                        v-if="v$.price.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.price.$errors[0].$message }}
+                      </div>
+
+                      <div class="grid grid-cols-3 gap-4">
+                        <div class="col-span-2">
+                          <button
+                            @click="submitForm"
+                            class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                            type="button"
+                          >
+                            บันทึกรายการ
+                          </button>
+                        </div>
+
+                        <div>
+                          <button
+                            @click="onResetForm"
+                            class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
+                            type="button"
+                          >
+                            ล้าง
+                          </button>
+                        </div>
+                      </div>
+                    </form>
 </template>
 
 <script>
 export default {
-  name: "small-modal",
-  data() {
-    return {
-      showModal: false
-    }
-  },
-  methods: {
-    toggleModal: function(){
-      this.showModal = !this.showModal;
-    }
-  }
+
 }
 </script>
+
+<style>
+
+</style>

@@ -45,7 +45,7 @@
                 <h3
                   class="mb-6 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
-                  กระบวนวิชาระดับปริญญาตรี
+                  กระบวนวิชาของหลักสูตร
                 </h3>
               </div>
 

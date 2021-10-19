@@ -38,12 +38,14 @@
 
                 <div class="flex justify-center">
                   <button
+                    @click="submitSearchForm"
                     class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-lightBlue-500 active:bg-lightBlue-600 hover:shadow-md focus:outline-none"
                     type="button"
                   >
                     <i class="fas fa-search"></i> ค้นหา
                   </button>
                   <button
+                    @click="resetSearchForm"
                     class="px-4 py-2 mb-1 mr-4 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none"
                     type="button"
                   >
@@ -51,7 +53,7 @@
                   </button>
                   <button
                     @click="openModalAddProduct"
-                    class="px-4 py-2 mb-1 ml-2 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                    class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
                     type="button"
                   >
                     <i class="fas fa-plus"></i> เพิ่ม
@@ -123,6 +125,7 @@
                         </td>
                         <td class="px-4 py-3 text-sm">
                           <button
+                            @click="openModalEditProduct(equipment.equipmentId)"
                             class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                             type="button"
                           >
@@ -154,66 +157,474 @@
               <div
                 v-if="showAddModal"
                 id="addProductModal"
-                class="fixed top-0 items-center justify-center w-1/2 h-full overflow-x-hidden overflow-y-auto shadow-xl outline-none modal focus:outline-none"
+                class="fixed top-0 left-0 flex justify-center w-full h-full modal"
               >
-                <div class="relative w-auto max-w-3xl mx-auto my-6">
-                  <!--content-->
-                  <div
-                    class="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none"
-                  >
-                    <!--header-->
+                <div
+                  class="absolute w-full h-full bg-gray-900 opacity-70 modal-overlay"
+                ></div>
+                <div
+                  class="z-50 w-11/12 p-5 mx-auto overflow-y-auto bg-white rounded shadow-lg h-4/5 modal-container md:max-w-md"
+                >
+                  <!-- Header -->
+                  <div class="flex items-center justify-center w-full h-auto">
                     <div
-                      class="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200"
+                      class="flex items-start justify-start w-full h-auto py-2 text-xl font-bold"
                     >
-                      <h3 class="text-3xl font-semibold">
-                        เพิ่มข้อมูลครุภัณฑ์
-                      </h3>
-                      <button
-                        class="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none"
-                        v-on:click="toggleModal()"
-                      >
-                        <span
-                          class="block w-6 h-6 text-2xl text-black bg-transparent outline-none opacity-5 focus:outline-none"
-                        >
-                          ×
-                        </span>
-                      </button>
+                      เพิ่มครุภัณฑ์
                     </div>
-                    <!--body-->
-                    <div class="relative flex-auto p-6">
-                      <p class="my-4 text-lg leading-relaxed text-blueGray-500">
-                        I always felt like I could do anything. That’s the main
-                        thing people are controlled by! Thoughts- their
-                        perception of themselves! They're slowed down by their
-                        perception of themselves. If you're taught you can’t do
-                        anything, you won’t do anything. I was taught I could do
-                        everything.
-                      </p>
-                    </div>
-                    <!--footer-->
                     <div
-                      class="flex items-center justify-end p-6 border-t border-solid rounded-b border-blueGray-200"
+                      @click="closeAddModal"
+                      class="flex justify-center w-1/12 h-auto cursor-pointer"
                     >
-                      <button
-                        class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
-                        type="button"
-                        v-on:click="toggleModal()"
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-x"
                       >
-                        Close
-                      </button>
-                      <button
-                        class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                        type="button"
-                        v-on:click="toggleModal()"
-                      >
-                        Save Changes
-                      </button>
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
                     </div>
+                    <!--Header End-->
+                  </div>
+                  <!-- Modal Content-->
+                  <div class="w-full h-auto mb-4">
+                    <form
+                      ref="addProductForm"
+                      @submit.prevent="onSubmit"
+                      enctype="multipart/form-data"
+                    >
+                      <label class="block my-3 text-gray-700 text-md" for="name"
+                        >รหัสครุภัณฑ์</label
+                      >
+                      <input
+                        v-model="code"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="Product name"
+                      />
+                      <div
+                        v-if="v$.code.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.code.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ชื่อ</label
+                      >
+                      <input
+                        v-model="name"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.name.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.name.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ยี่ห้อ</label
+                      >
+                      <input
+                        v-model="brand"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.brand.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.brand.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >เลขตัวเครื่อง (Serial Number)</label
+                      >
+                      <input
+                        v-model="serial_no"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.serial_no.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.serial_no.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >วันที่จัดซื้อ</label
+                      >
+                      <input
+                        v-model="date"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.date.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.date.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >สังกัด</label
+                      >
+                      <input
+                        v-model="users"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.users.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.users.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ตำแหน่งจัดเก็บ</label
+                      >
+                      <input
+                        v-model="room"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.room.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.room.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ผู้รับผิดชอบ</label
+                      >
+                      <input
+                        v-model="caretaker"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.caretaker.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.caretaker.$errors[0].$message }}
+                      </div>
+
+                      <label class="block my-3 text-gray-700 text-md" for="slug"
+                        >ประเภท</label
+                      >
+                      <input
+                        v-model="type"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+                      <div
+                        v-if="v$.type.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.type.$errors[0].$message }}
+                      </div>
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="detail"
+                        >รายละเอียด</label
+                      >
+                      <textarea
+                        v-model="detail"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        rows="5"
+                        placeholder="Product description"
+                      ></textarea>
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="price"
+                        >ราคา</label
+                      >
+                      <input
+                        v-model="price"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="0.00"
+                      />
+                      <div
+                        v-if="v$.price.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.price.$errors[0].$message }}
+                      </div>
+
+                      <div class="grid grid-cols-3 gap-4">
+                        <div class="col-span-2">
+                          <button
+                            @click="submitForm"
+                            class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                            type="button"
+                          >
+                            บันทึกรายการ
+                          </button>
+                        </div>
+
+                        <div>
+                          <button
+                            @click="onResetForm"
+                            class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
+                            type="button"
+                          >
+                            ล้าง
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
 
               <!-- Popup สำหรับการแก้ไขสินค้า -->
+              <div
+                v-if="showEditModal"
+                id="editProductModal"
+                class="fixed top-0 left-0 flex justify-center w-full h-full modal"
+              >
+                <div
+                  class="absolute w-full h-full bg-gray-900 opacity-70 modal-overlay"
+                ></div>
+
+                <div
+                  class="z-50 w-11/12 p-5 mx-auto overflow-y-auto bg-white rounded shadow-lg h-5/6 modal-container md:max-w-md"
+                >
+                  <!-- Header -->
+                  <div class="flex items-center justify-center w-full h-auto">
+                    <div
+                      class="flex items-start justify-start w-full h-auto py-2 text-xl font-bold"
+                    >
+                      แก้ไขครุภัณฑ์
+                    </div>
+                    <div
+                      @click="closeEditModal"
+                      class="flex justify-center w-1/12 h-auto cursor-pointer"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-x"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </div>
+                    <!--Header End-->
+                  </div>
+                  <!-- Modal Content-->
+                  <div class="w-full h-auto mb-4">
+                    <form
+                      @submit.prevent="onSubmit"
+                      enctype="multipart/form-data"
+                    >
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="ecode"
+                        >รหัสครุภัณฑ์</label
+                      >
+                      <input
+                        v-model="ecode"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="Product name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="ename"
+                        >ชื่อ</label
+                      >
+                      <input
+                        v-model="ename"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="ebrand"
+                        >ยี่ห้อ</label
+                      >
+                      <input
+                        v-model="ebrand"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="eserial_no"
+                        >เลขตัวเครื่อง (Serial Number)</label
+                      >
+                      <input
+                        v-model="eserial_no"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="edate"
+                        >วันที่จัดซื้อ</label
+                      >
+                      <input
+                        v-model="edate"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="eusers"
+                        >สังกัด</label
+                      >
+                      <input
+                        v-model="eusers"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="eroom"
+                        >ตำแหน่งจัดเก็บ</label
+                      >
+                      <input
+                        v-model="eroom"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="ecaretaker"
+                        >ผู้รับผิดชอบ</label
+                      >
+                      <input
+                        v-model="ecaretaker"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="etype"
+                        >ประเภท</label
+                      >
+                      <input
+                        v-model="etype"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="estatus"
+                        >สภาพ</label
+                      >
+                      <input
+                        v-model="estatus"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="product-name"
+                      />
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="edetail"
+                        >รายละเอียด</label
+                      >
+                      <textarea
+                        v-model="edetail"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        rows="5"
+                        placeholder="Product description"
+                      ></textarea>
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="enote"
+                        >หมายเหตุ</label
+                      >
+                      <textarea
+                        v-model="enote"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        rows="5"
+                        placeholder="Product description"
+                      ></textarea>
+
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="eprice"
+                        >ราคา</label
+                      >
+                      <input
+                        v-model="eprice"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="0.00"
+                      />
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="equantity"
+                        >จำนวน</label
+                      >
+                      <input
+                        v-model="equantity"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                        type="text"
+                        placeholder="0"
+                      />
+
+                      <button
+                        @click="submitFormEdit(up_equipmentId)"
+                        class="w-full px-4 py-2 mt-4 font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg text-md active:bg-purple-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple"
+                      >
+                        อัพเดทข้อมูล
+                      </button>
+                    </form>
+                  </div>
+                  <!-- End of Modal Content-->
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -233,6 +644,7 @@ export default {
     return {
       /** ตัวแปรสำหรับเรียกใช้งาน Validation */
       v$: useValidate(),
+
       /** ตัวแปรสำหรับเก็บข้อมูลสินค้าที่อ่านจาก API */
       products: [],
       currentPage: 0,
@@ -251,17 +663,41 @@ export default {
       keyword: "",
 
       /** ตัวแปรสำหรับผูกกับฟอร์มเพิ่มสินค้า */
+      code: "",
+      quantity: "1",
       name: "",
-      description: "",
-      slug: "",
+      brand: "",
+      serial_no: "",
       price: "",
-      imgSrc: "",
-      fileName: "",
-      imgUrl: "",
-      file: null,
+      date: "",
+      room: "",
+      users: "",
+      caretaker: "",
+      status: "ดี",
+      note: "-",
+      type: "",
+      detail: "",
+
+      /** ตัวแปรสำหรับการแก้ไขข้อมูลสินค้า */
+      up_equipmentId: 0,
+      ecode: "",
+      equantity: "",
+      ename: "",
+      ebrand: "",
+      eserial_no: "",
+      eprice: "",
+      edate: "",
+      eroom: "",
+      eusers: "",
+      ecaretaker: "",
+      estatus: "",
+      enote: "-",
+      etype: "",
+      edetail: "",
 
       /** ตัวแปรสำหรับเปิด/ปิด popup */
       showAddModal: false, // popup เพิ่มสินค้า
+      showEditModal: false, // popup แก้ไขสินค้า
     };
   },
   components: {
@@ -302,6 +738,7 @@ export default {
         this.getProductsSearch(this.currentPage);
       }
     },
+
     /***********************************************************************
      * ส่วนของการเพิ่มสินค้าใหม่
      ************************************************************************/
@@ -320,15 +757,17 @@ export default {
       // การเคลียร์ค่าทั้งหมดในฟอร์ม เราจะต้อง ref
       // ล้างข้อมูลในฟอร์ม
       this.$refs.addProductForm.reset();
-      this.name = "";
-      this.description = "";
-      this.slug = "";
-      this.price = "";
-      this.imgSrc = "";
-      this.fileName = "";
-      this.imgUrl = "";
-      this.file = "";
-      this.$refs.fileupload.value = null;
+      (this.code = ""),
+        (this.name = ""),
+        (this.brand = ""),
+        (this.serial_no = ""),
+        (this.price = ""),
+        (this.date = ""),
+        (this.room = ""),
+        (this.users = ""),
+        (this.Caretaker = ""),
+        (this.type = ""),
+        (this.detail = "");
     },
     // สร้างฟังก์ชันสำหรับ submit form สินค้า
     submitForm() {
@@ -339,15 +778,25 @@ export default {
         // alert('succcess')
         // ใช้ FormData ของ HTML 5 API ในการรับค่าจากฟอร์มที่มีการแนบไฟล์
         let data = new FormData();
-        data.append("Equipment_Code", this.name);
-        data.append("Equipment_Name", this.description);
-        data.append("Equipment_Type", this.slug);
+        data.append("Equipment_Code", this.code);
+        data.append("Equipment_Name", this.name);
+        data.append("Equipment_Brand", this.brand);
+        data.append("Equipment_Serialnumber", this.serial_no);
         data.append("Equipment_Price", this.price);
+        data.append("Equipment_Date", this.date);
+        data.append("Equipment_Room", this.room);
+        data.append("Equipment_Users", this.users);
+        data.append("Equipment_Caretaker", this.caretaker);
+        data.append("Equipment_Type", this.type);
+        data.append("Equipment_Detail", this.detail);
 
+        data.append("Equipment_Note", this.note);
+        data.append("Equipment_Status", this.status);
+        data.append("Equipment_Quantity", this.quantity);
         // console.log(data)
         // ส่งค่าไปยัง Laravel API Product Add
         http.post("equipmentadd", data).then((response) => {
-          console.log(response);
+          console.log(response.data);
           // เพิ่มเสร็จทำการเคลียร์ค่าในฟอร์ม
           this.onResetForm();
           // เมื่อเพิ่มสินค้าแล้วให้ดึงรายการล่าสุดมาแสดง
@@ -370,6 +819,93 @@ export default {
           });
         });
       }
+    },
+    /***********************************************************************
+     * ส่วนของการแก้ไขข้อมูลสินค้า
+     ************************************************************************/
+    // สร้างฟังก์ชันสำหรับเปิด popup แก้ไขสินค้า
+    openModalEditProduct(equipmentId) {
+      http.get(`equipment/${equipmentId}`).then((response) => {
+        // console.log(response.data)
+        this.up_equipmentId = response.data.equipmentId;
+        this.ecode = response.data.Equipment_Code;
+        this.equantity = response.data.Equipment_Quantity;
+        this.ename = response.data.Equipment_Name;
+        this.ebrand = response.data.Equipment_Brand;
+        this.eserial_no = response.data.Equipment_Serialnumber;
+        this.eprice = response.data.Equipment_Price;
+        this.edate = response.data.Equipment_Date;
+        this.eroom = response.data.Equipment_Room;
+        this.eusers = response.data.Equipment_Users;
+        this.ecaretaker = response.data.Equipment_Caretaker;
+        this.estatus = response.data.Equipment_Status;
+        this.enote = response.data.Equipment_Note;
+        this.etype = response.data.Equipment_Type;
+        this.edetail = response.data.Equipment_Detail;
+        this.showEditModal = !this.showEditModal;
+      });
+    },
+    // สร้างฟังก์ชันสำหรับปิด popup แก้ไขสินค้า
+    closeEditModal() {
+      this.showEditModal = false;
+    },
+    // สร้างฟังก์ขันสำหรับอัพเดทข้อมูล
+    submitFormEdit(equipmentId) {
+      // console.log(id)
+      let data = new FormData();
+
+      data.append("Equipment_Code", this.ecode);
+      data.append("Equipment_Name", this.ename);
+      data.append("Equipment_Brand", this.ebrand);
+      data.append("Equipment_Serialnumber", this.eserial_no);
+      data.append("Equipment_Price", this.eprice);
+      data.append("Equipment_Date", this.edate);
+      data.append("Equipment_Room", this.eroom);
+      data.append("Equipment_Users", this.eusers);
+      data.append("Equipment_Caretaker", this.ecaretaker);
+      data.append("Equipment_Type", this.etype);
+      data.append("Equipment_Detail", this.edetail);
+
+      data.append("Equipment_Note", this.enote);
+      data.append("Equipment_Status", this.estatus);
+      data.append("Equipment_Quantity", this.equantity);
+
+      // Send Patch request to laravel
+      data.append("_method", "PUT");
+      http
+        .post(`equipmentedit/${equipmentId}`, data)
+        .then((response) => {
+          console.log(response.data);
+          // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
+          if (this.keyword == "") {
+            this.getProducts(this.currentPage);
+          } else {
+            this.getProductsSearch(this.currentPage);
+          }
+          // เรียกใช้งาน popup ของ sweetalert2
+          const Toast = this.$swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", this.$swal.stopTimer);
+              toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: "success",
+            title: "อัพเดทข้อมูลเรียบร้อย",
+          }).then(() => {
+            this.showEditModal = false; // ปิดหน้าต่าง popup modal แก้ไข
+          });
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        });
     },
 
     /***********************************************************************
@@ -418,7 +954,7 @@ export default {
           showDenyButton: false,
           showCancelButton: true,
           confirmButtonText: `ยืนยัน`,
-          cancelButtonText: `ปิดหน้าต่าง`,
+          cancelButtonText: `ยกเลิก`,
         })
         .then((result) => {
           if (result.isConfirmed) {
@@ -444,11 +980,32 @@ export default {
   },
   validations() {
     return {
-      name: {
-        required: helpers.withMessage("ป้อนชื่อสินค้าก่อน", required),
+      code: {
+        required: helpers.withMessage("ป้อนรหัสครุภัณฑ์ก่อน", required),
       },
-      slug: {
-        required: helpers.withMessage("ป้อนสลักก่อน", required),
+      name: {
+        required: helpers.withMessage("ป้อนชื่อครุภัณฑ์ก่อน", required),
+      },
+      brand: {
+        required: helpers.withMessage("ป้อนยี่ห้อก่อน", required),
+      },
+      serial_no: {
+        required: helpers.withMessage("ป้อนเลขตัวเครื่องก่อน", required),
+      },
+      date: {
+        required: helpers.withMessage("ป้อนวันที่ก่อน", required),
+      },
+      room: {
+        required: helpers.withMessage("ป้อนสถานที่จัดเก็บก่อน", required),
+      },
+      users: {
+        required: helpers.withMessage("ป้อนสังกัดก่อน", required),
+      },
+      caretaker: {
+        required: helpers.withMessage("ป้อนผู้ดูแลก่อน", required),
+      },
+      type: {
+        required: helpers.withMessage("ป้อนประเภทก่อน", required),
       },
       price: {
         required: helpers.withMessage("ป้อนราคาก่อน", required),
