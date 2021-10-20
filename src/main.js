@@ -33,8 +33,10 @@ import Dashboard from "@/views/admin/Dashboard.vue";
 import Settings from "@/views/admin/Settings.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
-import Feed from "@/views/admin/Feed.vue";
 import EducationalObjects from "@/views/admin/EducationalObjects.vue";
+
+import Feed from "@/views/admin/Feed.vue";
+import AddFeed from "@/views/admin/AddFeed.vue";
 
 
 // views for Auth layout
@@ -113,6 +115,11 @@ const routes = [
       {
         path: "/admin/feed",
         component: Feed,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/admin/addfeed",
+        component: AddFeed,
         beforeEnter: authGuard
       },
       {

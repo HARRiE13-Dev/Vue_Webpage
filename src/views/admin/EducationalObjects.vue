@@ -10,16 +10,19 @@
               <h1 class="py-6 text-3xl font-bold text-center">
                 CSMJU | ระบบครุภัณฑ์
               </h1>
-              <br class="shadow-xl" />
-              <div class="flex items-center justify-between my-8">
-                <h2
-                  class="items-center mx-4 my-6 text-sm font-semibold text-gray-700 md:text-xl "
-                >
-                  จำนวน {{ products.total }} รายการ
-                </h2>
 
-                <div class="flex justify-center flex-1 ">
-                  <div class="relative w-full mr-2">
+              <br class="shadow-xl" />
+              <div class="flex flex-wrap items-center justify-between my-8">
+                <div class="w-full md:w-2/12">
+                  <h2
+                    class="items-center mx-4 text-sm font-semibold text-gray-700 md:text-xl "
+                  >
+                    จำนวน {{ products.total }} รายการ
+                  </h2>
+                </div>
+
+                <div class="w-full px-4 md:w-6/12">
+                  <div class="relative w-full my-4 mr-2">
                     <form @submit.prevent="onSubmit">
                       <input
                         v-model="keyword"
@@ -39,7 +42,7 @@
                   </div>
                 </div>
 
-                <div class="flex justify-center">
+                <div class="w-full px-4 text-center md:w-4/12">
                   <button
                     @click="submitSearchForm"
                     class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-lightBlue-500 active:bg-lightBlue-600 hover:shadow-md focus:outline-none"
@@ -617,13 +620,12 @@
                         placeholder="0"
                       />
 
-                   
                       <button
-                       @click="submitFormEdit(up_equipmentId)"
+                        @click="submitFormEdit(up_equipmentId)"
                         class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
-                         อัพเดทข้อมูล
+                        อัพเดทข้อมูล
                       </button>
                     </form>
                   </div>
