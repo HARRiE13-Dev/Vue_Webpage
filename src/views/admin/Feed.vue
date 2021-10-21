@@ -7,7 +7,7 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร </h1>
             </div>
             <br class="shadow-xl" />
             <div
@@ -200,7 +200,7 @@
                         class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
                         <button
-                          @click="Edit"
+                          @click="Edit(feed.newsId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
@@ -250,7 +250,7 @@ export default {
       perPage: 0,
       total: 0,
 
-      newsId: 1,
+      newsId: 0,
       News_Detail: "",
       News_Date: "",
       News_Time: "",
@@ -262,8 +262,10 @@ export default {
     };
   },
   methods: {
-    Edit(){
+    Edit(newsId){
        this.$router.push({ name: "EditFeed" });
+       this.$store.state.newsEdit = newsId;
+       
     },
     /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง

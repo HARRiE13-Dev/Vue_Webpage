@@ -151,8 +151,9 @@ export default {
      * ส่วนของการแก้ไขข้อมูลสินค้า
      ************************************************************************/
     // สร้างฟังก์ชันสำหรับเปิด popup แก้ไขสินค้า
-    EditProduct(newsId) {
-      http.get(`newsid/${newsId}`).then((response) => {
+    EditProduct() {
+        this.newsId = this.$store.state.newsEdit
+      http.get(`newsid/${this.newsId}`).then((response) => {
         // console.log(response.data)
         this.enewsId = response.data.newsId;
         this.eTitle = response.data.News_Title;

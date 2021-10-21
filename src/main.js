@@ -65,6 +65,7 @@ import Document from "@/views/Document.vue";
 import Schedule from "@/views/Schedule.vue";
 
 import TestApi from "@/views/TestApi.vue";
+import store from './store'
 
 // Authentication Route Guards Function
 function authGuard(to, from, next){
@@ -278,7 +279,7 @@ const app = createApp(App)
 
 app.use(router)
 app.mount('#app')
-
+app.use(store)
 app.use(VCalendar, {})
 
 app.use(VueSweetalert2);
