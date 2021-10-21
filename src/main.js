@@ -37,6 +37,7 @@ import EducationalObjects from "@/views/admin/EducationalObjects.vue";
 
 import Feed from "@/views/admin/Feed.vue";
 import AddFeed from "@/views/admin/AddFeed.vue";
+import EditFeed from "@/views/admin/EditFeed.vue";
 
 
 // views for Auth layout
@@ -114,12 +115,19 @@ const routes = [
       },
       {
         path: "/admin/feed",
+        name: 'Feed',
         component: Feed,
         beforeEnter: authGuard
       },
       {
         path: "/admin/addfeed",
         component: AddFeed,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/admin/editfeed",
+        name: 'EditFeed',
+        component: EditFeed,
         beforeEnter: authGuard
       },
       {

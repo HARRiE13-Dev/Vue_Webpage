@@ -61,8 +61,8 @@
 
               <div class="flex flex-wrap">
                 <div
-                  v-for="news in news_array"
-                  v-bind:key="news.newsId"
+                   v-for="news in products.data"
+                      :key="news.newsId"
                   class="w-full px-2 lg:w-4/12 "
                 >
                   <div
@@ -70,7 +70,7 @@
                   >
                     <img
                       alt="..."
-                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+                      :src="news.News_Picture"
                       class="w-full align-middle rounded-t-lg"
                     />
                     <blockquote class="relative p-8 mb-4">
@@ -95,6 +95,12 @@
                   </div>
                 </div>
               </div>
+               <VueTailwindPagination
+        :current="currentPage"
+        :total="total"
+        :per-page="perPage"
+        @page-changed="onPageClick($event)"
+      />
             </div>
           </div>
         </div>
@@ -106,46 +112,56 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-
-import axios from "axios";
+import http from "@/services/APIService";
+//import "@ocrv/vue-tailwind-pagination/dist/style.css";
+import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 
 export default {
   data() {
     return {
-      news_array : [],
-      news: {
-        newsId: 0,
-        News_Title: "",
-        News_Detail: "",
-        News_Picture: "",
-      },
+     products: [],
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
     };
   },
   mounted() {
-    this.getNewsData();
+    this.currentPage = 1;
+    // อ่านสินค้าจาก API
+    this.getProducts(this.currentPage);
   },
   methods: {
-    getNewsData() {
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/news",
-      })
-        .then((response) => {
-          this.news_array = response.data;
-          this.news_array.reverse();
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          }
-        });
+       /***********************************************************************
+     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
+     ************************************************************************/
+    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
+    async getProducts(pageNumber) {
+      let response = await http.get(`news?page=${pageNumber}`);
+      let responseProduct = response.data;
+      this.products = response.data;
+      this.products.reverse();
+      this.currentPage = responseProduct.current_page;
+      this.perPage = responseProduct.per_page;
+      this.total = responseProduct.total;
+      
+    },
+   
+    // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
+    onPageClick(event) {
+      this.currentPage = event;
+      // เช็คว่ามีการค้นหาสินค้าอยู่หรือไม่
+      if (this.keyword == "") {
+        // ไม่ได้ค้นหา
+        this.getProducts(this.currentPage);
+      } else {
+        this.getProductsSearch(this.currentPage);
+      }
     },
   },
   components: {
     Navbar,
     MainFooter,
+     VueTailwindPagination,
   },
 };
 </script>

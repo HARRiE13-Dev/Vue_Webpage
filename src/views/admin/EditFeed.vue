@@ -14,87 +14,68 @@
               </router-link>
             </div>
             <div class="text-center ">
-              <h1 class="py-6 text-3xl font-bold ">เพิ่มข้อมูลข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">แก้ไขข้อมูลข่าวสาร</h1>
             </div>
 
             <br class="shadow-xl" />
-            <form
-              ref="addProductForm"
-              @submit.prevent="onSubmit"
-              enctype="multipart/form-data"
-            >
+            <form @submit.prevent="onSubmit" enctype="multipart/form-data">
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="Title"
+                  <label class="block my-3 text-gray-700 text-md" for="eTitle"
                     >หัวข้อข่าว</label
                   >
                   <input
-                    v-model="Title"
+                    v-model="eTitle"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
                   />
-                  <div v-if="v$.Title.$error" class="mt-2 text-sm text-red-500">
-                    {{ v$.Title.$errors[0].$message }}
-                  </div>
                 </div>
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="Type"
+                  <label class="block my-3 text-gray-700 text-md" for="eType"
                     >ประเภทข่าว</label
                   >
                   <input
-                    v-model="Type"
+                    v-model="eType"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
                   />
-                  <div v-if="v$.Type.$error" class="mt-2 text-sm text-red-500">
-                    {{ v$.Type.$errors[0].$message }}
-                  </div>
                 </div>
               </div>
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="Dates"
+                  <label class="block my-3 text-gray-700 text-md" for="eDates"
                     >วันที่</label
                   >
                   <input
-                    v-model="Dates"
+                    v-model="eDates"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
                   />
-                  <div v-if="v$.Dates.$error" class="mt-2 text-sm text-red-500">
-                    {{ v$.Dates.$errors[0].$message }}
-                  </div>
                 </div>
               </div>
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
-                  <label class="block my-3 text-gray-700 text-md" for="Detail"
+                  <label class="block my-3 text-gray-700 text-md" for="eDetail"
                     >รายละเอียด</label
                   >
                   <textarea
-                    v-model="Detail"
+                    v-model="eDetail"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     rows="5"
                     placeholder="Product description"
                   ></textarea>
-                  <div
-                    v-if="v$.Detail.$error"
-                    class="mt-2 text-sm text-red-500"
-                  >
-                    {{ v$.Detail.$errors[0].$message }}
-                  </div>
                 </div>
               </div>
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
-                  <label class="block my-3 text-gray-700 text-md" for="links"
+                  <label class="block my-3 text-gray-700 text-md" for="elinks"
                     >ลิงค์ที่เกี่ยวข้อง</label
                   >
                   <input
-                    v-model="links"
+                    v-model="elinks"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
@@ -104,7 +85,7 @@
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
-                    <img v-if="imgUrl" :src="imgUrl" class="w-ful" />
+                    <img v-if="eimgUrl" :src="eimgUrl" class="w-ful" />
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"
@@ -120,18 +101,11 @@
               </div>
               <div class="py-6 text-center">
                 <button
-                  @click="onResetForm"
-                  class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
-                  type="button"
-                >
-                  ล้าง
-                </button>
-                <button
-                  @click="submitForm"
+                  @click="submitFormEdit(enewsId)"
                   class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
-                  ยืนยัน
+                  อัพเดทข้อมูล
                 </button>
               </div>
             </form>
@@ -153,95 +127,84 @@ export default {
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
 
-      // รับค่าเวลา 24
-      hour: new Date().getHours(),
-      minute: new Date().getMinutes(),
-      second: new Date().getSeconds(),
-
       v$: useValidate(),
 
-      Detail: "",
-      Dates: "",
-      Time: "",
-      Picture: "xxx",
-      Title: "",
-      links: "",
-      Type: "",
+      
+      enewsId: "",
+      eDetail: "",
+      eDates: "",
+      eTime: "",
+      ePicture: "xxx",
+      eTitle: "",
+      elinks: "",
+      eType: "",
+      eimgUrl: "",
 
       imgSrc: "",
       fileName: "",
-      imgUrl: "",
+
       file: null,
     };
   },
   methods: {
     /***********************************************************************
-     * ส่วนของการเพิ่มสินค้าใหม่
+     * ส่วนของการแก้ไขข้อมูลสินค้า
      ************************************************************************/
-    // สร้างฟังก์ชันเมื่อผู้ใช้มีการเลือกรูปภาพในช่องภาพสินค้า
-    onFileChange(e) {
-      const file = e.target.files[0];
-      this.file = e.target.files[0];
-      this.imgUrl = URL.createObjectURL(file);
+    // สร้างฟังก์ชันสำหรับเปิด popup แก้ไขสินค้า
+    EditProduct(newsId) {
+      http.get(`newsid/${newsId}`).then((response) => {
+        // console.log(response.data)
+        this.enewsId = response.data.newsId;
+        this.eTitle = response.data.News_Title;
+        this.eType = response.data.News_Type;
+        this.eDates = response.data.News_Date;
+        this.eDetail = response.data.News_Detail;
+        this.elinks = response.data.News_links;
+        this.eimgUrl = response.data.News_Picture;
+      });
     },
-    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลในฟอร์มเพิ่มสินค้า
-    onResetForm() {
-      // การเคลียร์ค่าทั้งหมดในฟอร์ม เราจะต้อง ref
-      // ล้างข้อมูลในฟอร์ม
-      this.$refs.addProductForm.reset();
-      (this.Detail = ""),
-        (this.Date = ""),
-        (this.Time = ""),
-        (this.Picture = "xxx"),
-        (this.Title = ""),
-        (this.File = ""),
-        (this.links = ""),
-        (this.Type = "");
 
-      this.fileName = "";
-      this.imgUrl = "";
-      this.file = "";
-      this.$refs.fileupload.value = null;
-    },
-    // สร้างฟังก์ชันสำหรับ submit form สินค้า
-    submitForm() {
-      this.v$.$validate();
-      if (!this.v$.$error) {
-        // ถ้าไม่มี error ในฟอร์ม
-        this.Dates = this.year + "-" + this.month + "-" + this.day;
-        this.Time = this.hour + ":" + this.minute + ":" + this.second;
-        // alert('succcess')
-        // ใช้ FormData ของ HTML 5 API ในการรับค่าจากฟอร์มที่มีการแนบไฟล์
-        let data = new FormData();
-        data.append("News_Detail", this.Detail);
-        data.append("News_Date", this.Dates);
-        data.append("News_Time", this.Time);
-        data.append("News_Picture", this.imgUrl);
-        data.append("News_Title", this.Title);
-        data.append("News_File", this.file);
-        data.append("News_links", this.links);
-        data.append("News_Type", this.Type);
-        // console.log(data)
-        // ส่งค่าไปยัง Laravel API Product Add
-        http.post("newsadd", data).then((response) => {
-          console.log(response);
+    // สร้างฟังก์ขันสำหรับอัพเดทข้อมูล
+    submitFormEdit(newsId) {
+      // console.log(id)
+      this.eDates = this.year + "-" + this.month + "-" + this.day;
+      let data = new FormData();
+      data.append("News_Title", this.eTitle);
+      data.append("News_Type", this.eType);
+      data.append("News_Date", this.eDates);
+      data.append("News_Detail", this.eDetail);
+      data.append("News_links", this.elinks);
+      data.append("News_Picture", this.eimgUrl);
+      data.append("News_File", this.file);
+
+      // Send Patch request to laravel
+      data.append("_method", "PUT");
+      http
+        .post(`newsedit/${newsId}`, data)
+        .then((response) => {
+          console.log(response.data);
           
+          // เรียกใช้งาน popup ของ sweetalert2
           const Toast = this.$swal.mixin({
             toast: true,
             position: "top-end",
             showConfirmButton: false,
             timer: 1500,
             timerProgressBar: true,
-            
+          
           });
           Toast.fire({
             icon: "success",
-            title: "เพิ่มข้อมูลใหม่เรียบร้อย",
+            title: "อัพเดทข้อมูลเรียบร้อย",
           }).then(() => {
             this.$router.push({ name: "Feed" });
           });
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
         });
-      }
     },
   },
   validations() {
@@ -264,7 +227,7 @@ export default {
   },
   components: {},
   mounted() {
-    // อ่านสินค้าจาก API
+    this.EditProduct(this.newsId);
   },
 };
 </script>
