@@ -235,12 +235,12 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 
-import team2 from "@/assets/img/team-2-800x800.jpg";
+
 
 export default {
   data() {
     return {
-      team2,
+     
       openTab: 1,
     };
   },

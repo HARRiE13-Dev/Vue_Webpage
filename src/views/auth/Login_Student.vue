@@ -91,13 +91,13 @@
 <script>
 import useValidate from "@vuelidate/core";
 import { required, email, minLength, helpers } from "@vuelidate/validators";
-import http from "@/services/AuthService";
+import http from "@/services/MJUService";
 
 export default {
   data() {
     return {
       v$: useValidate(),
-      email: "",
+      username: "",
       password: "",
     };
   },
@@ -106,8 +106,8 @@ export default {
       this.v$.$validate();
       if (!this.v$.$error) {
         http
-          .post("login", {
-            email: this.email,
+          .post("ad", {
+            username: this.email,
             password: this.password,
           })
           .then((response) => {

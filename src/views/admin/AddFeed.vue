@@ -145,6 +145,7 @@
 import http from "@/services/APIService";
 import useValidate from "@vuelidate/core";
 import { required, helpers } from "@vuelidate/validators";
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -223,6 +224,11 @@ export default {
         data.append("News_Type", this.Type);
         // console.log(data)
         // ส่งค่าไปยัง Laravel API Product Add
+
+        //Post in App
+        axios.post('https://wwwdev.csmju.com/api/newsapp',data);
+        
+        //Post in Web
         http.post("newsadd", data).then((response) => {
           console.log(response);
           
