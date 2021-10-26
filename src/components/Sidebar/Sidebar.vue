@@ -279,6 +279,29 @@
           </li>
           <li class="items-center">
             <router-link
+              to="/admin/complaining"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบร้องเรียน
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
               to="/admin/remaining"
               v-slot="{ href, navigate, isActive }"
             >

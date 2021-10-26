@@ -129,7 +129,7 @@ export default {
               title: "กำลังเข้าสู่ระบบ",
             }).then(() => {
               // Login  Success => Dashboard
-              this.$router.push({ name: "Dashboard" });
+              this.$router.push({ name: "ServiceStudent" });
             });
           })
           .catch((error) => {

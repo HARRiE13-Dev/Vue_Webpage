@@ -164,17 +164,7 @@ export default {
       })
         .then((response) => {
           this.personnel_array = response.data;
-          const Swal = this.$swal.mixin({
-            position: "center",
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-          
-          });
-          Swal.fire({
-            icon: "info",
-            title: "Loading...",
-          });
+
         })
         .catch((error) => {
           if (error.response) {

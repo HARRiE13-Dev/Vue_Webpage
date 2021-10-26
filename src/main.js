@@ -33,15 +33,19 @@ import Dashboard from "@/views/admin/Dashboard.vue";
 import Settings from "@/views/admin/Settings.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
+
 import EducationalObjects from "@/views/admin/EducationalObjects.vue";
 
 import Feed from "@/views/admin/Feed.vue";
 import AddFeed from "@/views/admin/AddFeed.vue";
 import EditFeed from "@/views/admin/EditFeed.vue";
 
+import Complaining from "@/views/admin/Complaining.vue";
+
 
 // views for Auth layout
 
+import Login_Admin from "@/views/auth/Login_Admin.vue";
 import Login from "@/views/auth/Login.vue";
 import Login_Student from "@/views/auth/Login_Student.vue";
 import Service_Student from "@/views/auth/Service_Student.vue";
@@ -65,6 +69,7 @@ import Document from "@/views/Document.vue";
 import Schedule from "@/views/Schedule.vue";
 
 import TestApi from "@/views/TestApi.vue";
+
 import store from './store'
 
 // Authentication Route Guards Function
@@ -136,6 +141,11 @@ const routes = [
         component: EducationalObjects,
         beforeEnter: authGuard
       },
+      {
+        path: "/admin/complaining",
+        component: Complaining,
+        beforeEnter: authGuard
+      },
     ],
   },
 
@@ -154,6 +164,11 @@ const routes = [
         name: 'Login for Student',
         component: Login_Student,
       },
+      {
+        path: "/auth/admin",
+        name: 'Login Admin',
+        component: Login_Admin,
+      },
      
     ],
   },
@@ -165,11 +180,13 @@ const routes = [
       
       {
         path: "/auth/service_student",
+        name: "ServiceStudent",
         component: Service_Student,
         beforeEnter: authGuard
       },
       {
         path: "/auth/service_teacher",
+        name: "ServiceTeacher",
         component: Service_Teacher,
         beforeEnter: authGuard
       },

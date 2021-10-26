@@ -8,7 +8,7 @@
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">
               <h4 class="font-bold text-blueGray-500">
-                เข้าสู่ระบบสำหรับบุคคลากร
+                เข้าสู่ระบบสำหรับผู้ดูแลระบบ
               </h4>
             </div>
 
@@ -129,7 +129,7 @@ export default {
               title: "กำลังเข้าสู่ระบบ",
             }).then(() => {
               // Login  Success => Dashboard
-              this.$router.push({ name: "ServiceTeacher" });
+              this.$router.push({ name: "Dashboard" });
             });
           })
           .catch((error) => {
