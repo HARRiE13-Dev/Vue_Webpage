@@ -48,12 +48,12 @@
             <div class="w-full px-4 text-center md:w-6/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
                  <img
                   alt="..."
-                  :src="bg2"
+                  :src="menu1"
                   class="relative mx-0 shadow-lg cropped-card1"
                 />
                    
@@ -65,12 +65,12 @@
                  <div class="w-full px-4 text-center md:w-6/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
                  <img
                   alt="..."
-                  :src="bg2"
+                  :src="menu2"
                   class="relative mx-0 shadow-lg cropped-card1"
                 />
                    
@@ -85,12 +85,12 @@
             <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
                      <img
                   alt="..."
-                  :src="bg2"
+                  :src="menu3"
                   class="relative mx-0 shadow-lg cropped-card2"
                 />
               
@@ -103,12 +103,12 @@
              <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
                   <div class="flex-auto p-1 ">
                      <img
                   alt="..."
-                  :src="bg2"
+                  :src="menu4"
                   class="relative mx-0 shadow-lg cropped-card2"
                 />
               
@@ -121,12 +121,12 @@
              <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
                      <img
                   alt="..."
-                  :src="bg2"
+                  :src="menu5"
                   class="relative mx-0 shadow-lg cropped-card2"
                 />
               
@@ -180,6 +180,13 @@ import "vue3-carousel/dist/carousel.css";
 
 import bg2 from "@/assets/img/bg-1.png";
 
+import menu1 from "@/assets/img/menu1.png";
+import menu2 from "@/assets/img/menu2.png";
+import menu3 from "@/assets/img/menu3.png";
+import menu4 from "@/assets/img/menu4.png";
+import menu5 from "@/assets/img/menu5.png";
+
+
 export default defineComponent({
   components: {
     MainNavbar,
@@ -191,6 +198,11 @@ export default defineComponent({
   data() {
     return {
       bg2,
+      menu1,
+      menu2,
+      menu3,
+      menu4,
+      menu5,
       day: new Date().getDate(),
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
