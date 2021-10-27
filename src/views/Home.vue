@@ -37,6 +37,11 @@
                   Maejo University
                 </h2>
               </div>
+              <div class="my-6 rectangle" id="section1"></div>
+              <div class="mt-2 text-blueGray-200 item-center">
+                <i class="px-2 far fa-play-circle fa-lg"></i>
+                <a href="#section2">รับชมวีดีโอแนะนำ</a>
+              </div>
             </div>
           </div>
         </div>
@@ -51,35 +56,31 @@
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
-                 <img
-                  alt="..."
-                  :src="menu1"
-                  class="relative mx-0 shadow-lg cropped-card1"
-                />
-                   
+                    <img
+                      alt="..."
+                      :src="menu1"
+                      class="relative mx-0 shadow-lg cropped-card1"
+                    />
                   </div>
                 </div>
               </router-link>
             </div>
 
-                 <div class="w-full px-4 text-center md:w-6/12">
+            <div class="w-full px-4 text-center md:w-6/12">
               <router-link to="program" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
-                 <img
-                  alt="..."
-                  :src="menu2"
-                  class="relative mx-0 shadow-lg cropped-card1"
-                />
-                   
+                    <img
+                      alt="..."
+                      :src="menu2"
+                      class="relative mx-0 shadow-lg cropped-card1"
+                    />
                   </div>
                 </div>
               </router-link>
             </div>
-
-          
           </div>
           <div class="flex flex-wrap">
             <div class="w-full px-4 text-center md:w-4/12">
@@ -88,79 +89,210 @@
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
-                     <img
-                  alt="..."
-                  :src="menu3"
-                  class="relative mx-0 shadow-lg cropped-card2"
-                />
-              
-
-                  
+                    <img
+                      alt="..."
+                      :src="menu3"
+                      class="relative mx-0 shadow-lg cropped-card2"
+                    />
                   </div>
                 </div>
               </router-link>
             </div>
-             <div class="w-full px-4 text-center md:w-4/12">
+            <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
                   <div class="flex-auto p-1 ">
-                     <img
-                  alt="..."
-                  :src="menu4"
-                  class="relative mx-0 shadow-lg cropped-card2"
-                />
-              
-
-                  
+                    <img
+                      alt="..."
+                      :src="menu4"
+                      class="relative mx-0 shadow-lg cropped-card2"
+                    />
                   </div>
                 </div>
               </router-link>
             </div>
-             <div class="w-full px-4 text-center md:w-4/12">
+            <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
-                     <img
-                  alt="..."
-                  :src="menu5"
-                  class="relative mx-0 shadow-lg cropped-card2"
-                />
-              
-
-                  
+                    <img
+                      alt="..."
+                      :src="menu5"
+                      class="relative mx-0 shadow-lg cropped-card2"
+                    />
                   </div>
                 </div>
               </router-link>
             </div>
-
           </div>
-          <br>
-          <h1 class="px-6 mb-4 text-3xl "><b>News Update</b> | ข่าวสารล่าสุด</h1>
-            <div class="flex flex-wrap">
+
+          <hr />
+
+          <h1 class="px-6 mt-4 mb-4 text-3xl ">
+            <b>News Update</b> | ข่าวสารล่าสุด
+          </h1>
+          <div class="flex flex-wrap my-6">
             <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white hover:bg-blueGray-700"
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom "
                 >
-                  <div class="flex-auto p-1 ">
-                     <img
-                  alt="..."
-                  :src="bg2"
-                  class="relative mx-0 shadow-lg cropped-card2"
-                />
-              
-
-                  
+                  <div class="flex-auto p-4 ">
+                    <img
+                      alt="..."
+                      :src="mockup"
+                      class="relative mx-0 shadow-lg cropped-card2"
+                    />
                   </div>
+                  <p class="px-4 pb-4 text-left text-justify rem2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Inventore asperiores amet delectus! Sit quas error quisquam
+                    consectetur, iure inventore natus perferendis, provident
+                    reprehenderit possimus assumenda optio repudiandae aliquam
+                    unde quam!
+                  </p>
                 </div>
               </router-link>
             </div>
-            
+            <div class="w-full px-4 text-center md:w-4/12">
+              <router-link to="program" target="_blank">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom "
+                >
+                  <div class="flex-auto p-4 ">
+                    <img
+                      alt="..."
+                      :src="mockup"
+                      class="relative mx-0 shadow-lg cropped-card2"
+                    />
+                  </div>
+                  <p class="px-4 pb-4 text-left text-justify rem2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Inventore asperiores amet delectus! Sit quas error quisquam
+                    consectetur, iure inventore natus perferendis, provident
+                    reprehenderit possimus assumenda optio repudiandae aliquam
+                    unde quam!
+                  </p>
+                </div>
+              </router-link>
+            </div>
+            <div class="w-full px-4 text-center md:w-4/12">
+              <router-link to="program" target="_blank">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom "
+                >
+                  <div class="flex-auto p-4 ">
+                    <img
+                      alt="..."
+                      :src="mockup"
+                      class="relative mx-0 shadow-lg cropped-card2"
+                    />
+                  </div>
+                  <p class="px-4 pb-4 text-left text-justify rem2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Inventore asperiores amet delectus! Sit quas error quisquam
+                    consectetur, iure inventore natus perferendis, provident
+                    reprehenderit possimus assumenda optio repudiandae aliquam
+                    unde quam!
+                  </p>
+                </div>
+              </router-link>
+            </div>
+          </div>
 
+          <div class="flex flex-wrap mt-12 mb-12">
+            <div class="w-full px-4 text-center md:w-3/12">
+              <div
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
+              >
+                <div class="flex-auto p-1 ">
+                  <h3
+                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom"
+                  >
+                    4
+                  </h3>
+                  <div class="text-2xl">
+                    องค์ความรู้แห่งศาสตร์วิทยาการคอมพิวเตอร์
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full px-4 text-center md:w-3/12">
+              <div
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
+              >
+                <div class="flex-auto p-1 ">
+                  <h3
+                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom"
+                  >
+                    8
+                  </h3>
+                  <div class="px-4 text-2xl text-left">
+                    โมดูลการเรียนรู้เชิงแนวคิดและปฎิบัติ
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full px-4 text-center md:w-3/12">
+              <div
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
+              >
+                <div class="flex-auto p-1 ">
+                  <h3
+                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom "
+                  >
+                    10+
+                  </h3>
+                  <div class="text-2xl text-left">
+                    บุคคลากรที่มีความเชี่ยวชาญในศาสตร์ต่าง ๆ
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full px-4 text-center md:w-3/12">
+              <div
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
+              >
+                <div class="flex-auto p-1 ">
+                  <h3
+                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom "
+                  >
+                    2,000+
+                  </h3>
+                  <div class="text-2xl text-left">
+                    นักศึกษาที่สำเร็จการศึกษาแล้วทั้งสิ้น
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h1 class="px-6 mt-12 mb-4 text-3xl " id="section2">
+            <b>Introduction </b> | วีดีโอแนะนำสาขา
+          </h1>
+
+          <div class="flex flex-wrap mt-6">
+            <div class="w-full px-4 text-center md:w-12/12">
+              <div
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
+              >
+                <div class="flex-auto p-1 shadow-lg ">
+                  <iframe
+                    width="1240"
+                    height="315"
+                    src="https://www.youtube.com/embed/88JeU0ShY60"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -186,6 +318,7 @@ import menu3 from "@/assets/img/menu3.png";
 import menu4 from "@/assets/img/menu4.png";
 import menu5 from "@/assets/img/menu5.png";
 
+import mockup from "@/assets/img/mockup.png";
 
 export default defineComponent({
   components: {
@@ -203,6 +336,7 @@ export default defineComponent({
       menu3,
       menu4,
       menu5,
+      mockup,
       day: new Date().getDate(),
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),

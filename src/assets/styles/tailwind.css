@@ -38,6 +38,7 @@ Use a more readable tab size (opinionated).
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  scroll-behavior: smooth;
 }
 
 /*
@@ -1488,6 +1489,12 @@ select {
 .active\:bg-blueGray-600:active {
   --tw-bg-opacity: 1;
   background-color: rgba(71, 85, 105, var(--tw-bg-opacity));
+}
+
+.rectangle {
+  height: 3px;
+  width: 100px;
+  background-color:white;
 }
 
 .bg-none {
@@ -4118,7 +4125,9 @@ select {
   .md\:w-2\/12 {
     width: 16.5%;
   }
-
+  .md\:w-3\/12 {
+    width: 25%;
+  }
 
   .md\:w-4\/12 {
     width: 33.333333%;
