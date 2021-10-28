@@ -22,7 +22,7 @@
           </Carousel>
         </div>
 
-        <div class="container relative mx-auto">
+        <div class="container absolute mx-auto">
           <div class="flex flex-wrap">
             <div class="w-full px-4 mt-32 ml-1 text-left lg:w-6/12">
               <div class="pr-12">
@@ -132,10 +132,10 @@
 
           <hr />
 
-          <h1 class="px-6 mt-4 mb-4 text-3xl ">
+          <h1 class="px-6 pt-20 mt-4 mb-4 text-3xl">
             <b>News Update</b> | ข่าวสารล่าสุด
           </h1>
-          <div class="flex flex-wrap my-6">
+          <div class="flex flex-wrap mt-12 mb-12">
             <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
@@ -203,6 +203,11 @@
               </router-link>
             </div>
           </div>
+
+          
+          <h1 class="px-6 pt-20 mt-12 mb-4 text-3xl" >
+            <b>Curriculum </b> | หลักสูตร
+          </h1>
 
           <div class="flex flex-wrap mt-12 mb-12">
             <div class="w-full px-4 text-center md:w-3/12">
@@ -271,29 +276,32 @@
             </div>
           </div>
 
-          <h1 class="px-6 mt-12 mb-4 text-3xl " id="section2">
+          <h1 class="px-6 pt-20 mt-12 mb-4 text-3xl" id="section2">
             <b>Introduction </b> | วีดีโอแนะนำสาขา
           </h1>
 
-          <div class="flex flex-wrap mt-6">
+          <div class="flex flex-wrap mt-12 mb-12">
             <div class="w-full px-4 text-center md:w-12/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
               >
-                <div class="flex-auto p-1 shadow-lg ">
-                  <iframe
-                    width="1240"
-                    height="315"
-                    src="https://www.youtube.com/embed/88JeU0ShY60"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
+                <div class="flex-auto px-0">
+                
+                  <div class="relative w-full max-w-full overflow-hidden pb-72">
+                    <iframe
+                      class="absolute top-0 left-0 w-full h-full rounded-b"
+                      src="https://www.youtube.com/embed/88JeU0ShY60"
+                      title="Presentation | Com-Sci MJU 2020"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
       </section>
     </main>
