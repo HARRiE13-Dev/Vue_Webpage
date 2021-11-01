@@ -167,7 +167,8 @@ export default {
       Title: "",
       links: "",
       Type: "",
-
+      File:"xxx",
+      
       imgSrc: "",
       fileName: "",
       imgUrl: "",
@@ -216,20 +217,16 @@ export default {
         data.append("News_Detail", this.Detail);
         data.append("News_Date", this.Dates);
         data.append("News_Time", this.Time);
-        data.append("News_Picture", this.imgUrl);
         data.append("News_Title", this.Title);
-        data.append("News_File", this.name);
+        data.append("News_File", this.File);
         data.append("News_links", this.links);
         data.append("News_Type", this.Type);
-        data.append("file", this.file);
-        // console.log(data)
-        // ส่งค่าไปยัง Laravel API Product Add
-
-        //Post in App
-        //axios.post('https://wwwdev.csmju.com/api/newsapp',data);
+        
+        data.append("News_Picture", this.file);
+        
         
         //Post in Web
-        http.post("newsadd", data).then((response) => {
+        http.post("upimage", data).then((response) => {
           console.log(response);
           
           const Toast = this.$swal.mixin({
