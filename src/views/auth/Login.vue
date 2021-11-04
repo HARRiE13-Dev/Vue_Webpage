@@ -115,7 +115,7 @@ export default {
 
             //Data User LocalStorage
             localStorage.setItem("user", JSON.stringify(response.data));
-
+            
             const Toast = this.$swal.mixin({
               toast: true,
               position: "top-end",

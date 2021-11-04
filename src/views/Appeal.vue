@@ -45,7 +45,7 @@
                 <h3
                   class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
-                  ร้องเรียน
+                  ร้องเรียนออนไลน์
                 </h3>
               </div>
 
@@ -184,12 +184,9 @@ export default {
           const Swal = this.$swal.mixin({
             position: "center",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1000,
             timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener("mouseenter", this.$swal.stopTimer);
-              toast.addEventListener("mouseleave", this.$swal.resumeTimer);
-            },
+           
           });
 
           Swal.fire({

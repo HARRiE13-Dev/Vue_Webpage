@@ -226,7 +226,7 @@ export default {
         
         
         //Post in Web
-        http.post("upimage", data).then((response) => {
+        http.post("newsadd", data).then((response) => {
           console.log(response);
           
           const Toast = this.$swal.mixin({

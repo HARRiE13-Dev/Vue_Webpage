@@ -199,6 +199,7 @@
 <script>
 import team2 from "@/assets/img/team-2-800x800.jpg";
 import http from "@/services/AuthService"
+import axios from "axios";
 export default {
   data() {
     return {
@@ -206,10 +207,41 @@ export default {
       personnels:[]
     };
   },
-  components: {
+  method: {
+    getData(user){
+      axios({
+        method: "GET",
+        url: "http://wwwdev.csmju.com/api/personnel/teacher",
+      })
+        .then((response) => {
+          this.personnel_array = response.data;
+          console.log(user);
+
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+               
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
+    },
     
   },
   mounted() {
+    this.getData();
     http.get("personnel")
     .then(response => {
             let responseProduct = response.data
