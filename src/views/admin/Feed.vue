@@ -312,6 +312,7 @@ export default {
                 cancelButtonText: `ปิดหน้าต่าง`,
             }).then((result) => {
                 if (result.isConfirmed) {
+                  
                     http.delete(`newsdelete/${id}`).then(() => {
                        this.$swal.fire('ลบรายการเรียบร้อย!', '', 'success') 
                         // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง

@@ -5,7 +5,7 @@
       <div
         class="relative flex items-center content-center justify-center pt-16 pb-32 custom min-h-screen-75"
       >
-        <div class="absolute top-0 w-full h-full bg-center bg-cover">
+        <div class=" top-0 w-full h-full bg-center bg-cover">
           <Carousel :autoplay="10000" :wrap-around="true">
             <Slide
               v-for="news = 1 in (news_array = 10)"
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <section class="pb-20 mt-32 bg-blueGray-200 custom">
+      <section class="pb-20 -mt-64 bg-blueGray-200 custom">
         <div class="container mx-auto">
           <div class="flex flex-wrap">
             <div class="w-full px-4 text-center md:w-6/12">
