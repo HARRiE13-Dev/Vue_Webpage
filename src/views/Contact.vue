@@ -5,7 +5,6 @@
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-         
           style="
             background-image: url('https://3l4jojspj4-flywheel.netdna-ssl.com/wp-content/uploads/iStock-655597202-1.jpg');
           "
@@ -14,9 +13,8 @@
             id="blackOverlay"
             class="absolute w-full h-full bg-black opacity-50"
           ></span>
-        
         </div>
-        
+
         <div
           class="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none h-70-px"
           style="transform: translateZ(0);"
@@ -53,7 +51,7 @@
               </div>
 
               <div class="py-5 mt-10 text-center border-t border-blueGray-200">
-                <div class="flex flex-wrap justify-center">
+                <div class="flex flex-wrap ">
                   <div class="w-full px-4 mb-4 lg:w-3/12">
                     <div
                       class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
@@ -89,6 +87,8 @@
                       <a href="mailto:csmju@gmail.com">csmju@gmail.com </a>
                     </h3>
                   </div>
+                </div>
+                <div class="flex flex-wrap ">
                   <div class="w-full px-4 mb-4 lg:w-3/12">
                     <div
                       class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
@@ -123,10 +123,9 @@
                     </h3>
                   </div>
                 </div>
-                  <hr class="py-2 ">
-                  
-                <div class="flex flex-wrap justify-center ">
-                  <div class="w-full px-0 mb-4 lg:w-12/12">
+
+                <div class="flex flex-wrap ">
+                  <div class="w-full px-0 mb-4 lg:w-6/12">
                     <div
                       class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
                     >
