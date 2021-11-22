@@ -44,10 +44,15 @@
             <div class="px-6">
               <div class="mt-6 text-center">
                 <h3
-                  class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
+                  class="text-4xl font-semibold leading-normal text-blueGray-700"
                 >
                   ติดต่อเรา
                 </h3>
+                <p
+                  class="font-semibold leading-normal text-md text-blueGray-500"
+                >
+                  Contact Us
+                </p>
               </div>
 
               <div class="py-5 mt-10 text-center border-t border-blueGray-200">
@@ -87,6 +92,33 @@
                       <a href="mailto:csmju@gmail.com">csmju@gmail.com </a>
                     </h3>
                   </div>
+                  <div class="w-full px-4 mb-4 lg:w-6/12">
+                    <h3 class="text-2xl leading-normal text-blueGray-700">
+                      แจ้งปัญหาของท่านให้เราทราบ
+                    </h3>
+                    <div class="flex">
+                    <div class="pt-0 mb-3">
+                      <p class="text-left">ชื่อ-นามสกุล</p>
+                      <input
+                        v-model="topic"
+                        type="text"
+                        placeholder="หัวข้อเรื่อง"
+                        class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                      />
+                    </div>
+                      <div class="pt-0 mb-3">
+                      <p class="text-left">ชื่อ-นามสกุล</p>
+                      <input
+                        v-model="topic"
+                        type="text"
+                        placeholder="หัวข้อเรื่อง"
+                        class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                      />
+                    </div>
+                    </div>
+                      
+    
+                  </div>
                 </div>
                 <div class="flex flex-wrap ">
                   <div class="w-full px-4 mb-4 lg:w-3/12">
@@ -121,6 +153,18 @@
                     >
                       <a href="https://line.me/R/ti/p/%40053vfccm">CSMJU </a>
                     </h3>
+                  </div>
+                  <div class="w-full px-4 mb-4 lg:w-6/12">
+                    <div class="pt-10 mb-3 ">
+                      <p>รายละเอียด</p>
+                      <textarea
+                        v-model="detail"
+                        cols="30"
+                        placeholder="เนื้อหา / รายละเอียด"
+                        rows="10"
+                        class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                      ></textarea>
+                    </div>
                   </div>
                 </div>
 
