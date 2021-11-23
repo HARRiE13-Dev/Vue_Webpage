@@ -56,7 +56,7 @@
               </div>
 
               <div class="py-5 mt-10 text-center border-t border-blueGray-200">
-                <div class="flex flex-wrap ">
+                <div class="flex flex-wrap">
                   <div class="w-full px-4 mb-4 lg:w-3/12">
                     <div
                       class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
@@ -92,35 +92,8 @@
                       <a href="mailto:csmju@gmail.com">csmju@gmail.com </a>
                     </h3>
                   </div>
-                  <div class="w-full px-4 mb-4 lg:w-6/12">
-                    <h3 class="text-2xl leading-normal text-blueGray-700">
-                      แจ้งปัญหาของท่านให้เราทราบ
-                    </h3>
-                    <div class="flex">
-                    <div class="pt-0 mb-3">
-                      <p class="text-left">ชื่อ-นามสกุล</p>
-                      <input
-                        v-model="topic"
-                        type="text"
-                        placeholder="หัวข้อเรื่อง"
-                        class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                      />
-                    </div>
-                      <div class="pt-0 mb-3">
-                      <p class="text-left">ชื่อ-นามสกุล</p>
-                      <input
-                        v-model="topic"
-                        type="text"
-                        placeholder="หัวข้อเรื่อง"
-                        class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                      />
-                    </div>
-                    </div>
-                      
-    
-                  </div>
                 </div>
-                <div class="flex flex-wrap ">
+                <div class="flex flex-wrap mt-10">
                   <div class="w-full px-4 mb-4 lg:w-3/12">
                     <div
                       class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
@@ -154,8 +127,21 @@
                       <a href="https://line.me/R/ti/p/%40053vfccm">CSMJU </a>
                     </h3>
                   </div>
-                  <div class="w-full px-4 mb-4 lg:w-6/12">
-                    <div class="pt-10 mb-3 ">
+                  <div class="w-full px-4 mb-4 text-left lg:-mt-48 lg:w-6/12">
+                    <h3 class="mb-6 text-2xl font-normal leading-normal text-center text-blueGray-700">
+                      แจ้งปัญหาของท่านให้เราทราบ
+                    </h3>
+                    <div class="pt-0 mb-3 text-lg text-blueGray-500">
+                      <p>หัวข้อเรื่อง</p>
+                      <input
+                        v-model="topic"
+                        type="text"
+                        placeholder="หัวข้อเรื่อง"
+                        class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                      />
+                    </div>
+
+                    <div class="pt-2 mb-3 text-lg text-blueGray-500">
                       <p>รายละเอียด</p>
                       <textarea
                         v-model="detail"
@@ -165,39 +151,55 @@
                         class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                       ></textarea>
                     </div>
-                  </div>
-                </div>
 
-                <div class="flex flex-wrap ">
-                  <div class="w-full px-0 mb-4 lg:w-6/12">
-                    <div
-                      class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
-                    >
-                      <i class="fas fa-map fa-2x"></i>
+                    <div class="mt-4 ">
+                      <img v-if="imgUrl" :src="imgUrl" class="w-full cropped-card1 round-lg" />
                     </div>
 
-                    <p class="text-lg text-blueGray-500">
-                      ที่ตั้ง / อาคารธุรการ
-                    </p>
-
-                    <h3
-                      class="mb-4 text-xl font-semibold leading-normal text-blueGray-700"
-                    >
-                      <a href="https://g.page/CSMJU?share"
-                        >อาคาร 60 ปี ชั้น 6 คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
-                        <br />
-                        63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</a
+                    <div class="mb-1 text-lg text-blueGray-500">
+                      <span>แนบไฟล์</span>
+                      <div
+                        class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 rounded-lg border-all"
                       >
-                    </h3>
+                        <div class="absolute">
+                          <div class="flex flex-col items-center py-10">
+                            <span
+                              class="block py-10 font-normal border-blueGray-300"
+                            ></span>
+                          </div>
+                        </div>
+                        <input
+                          type="file"
+                          @change="onFileSelected"
+                          class="w-full h-full opacity-0"
+                        />
+                      </div>
+                    </div>
 
-                    <div
-                      class="relative w-full max-w-full pb-64 overflow-hidden"
-                    >
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.8002840419385!2d99.010800714766!3d18.8959391871915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da234aca979f93%3A0xb01d3d9375066a7a!2z4Liq4Liy4LiC4Liy4Lin4Li04LiK4Liy4Lin4Li04LiX4Lii4Liy4LiB4Liy4Lij4LiE4Lit4Lih4Lie4Li04Lin4LmA4LiV4Lit4Lij4LmMIOC4oS7guYHguKHguYjguYLguIjguYk!5e0!3m2!1sen!2sth!4v1630916459077!5m2!1sen!2sth"
-                        class="absolute w-full h-full"
-                        loading="lazy"
-                      ></iframe>
+                    <div class="pt-10 mb-3 text-center">
+                      <!-- <vue-recaptcha
+                        v-if="showRecaptcha"
+                        siteKey="..."
+                        size="normal"
+                        theme="light"
+                        :tabindex="0"
+                        @verify="recaptchaVerified"
+                        @expire="recaptchaExpired"
+                        @fail="recaptchaFailed"
+                        ref="vueRecaptcha"
+                      >
+                      </vue-recaptcha> -->
+                    </div>
+
+                    <div class="pt-10 mb-3 text-center ">
+                     
+                      <button
+                        @click.prevent="commit"
+                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ยืนยัน
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -211,16 +213,105 @@
   </div>
 </template>
 <script>
+
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-
+// import vueRecaptcha from "vue3-recaptcha2";
+import axios from "axios";
 export default {
   data() {
-    return {};
+    return {
+      topic: "",
+      detail: "",
+
+      showRecaptcha: true,
+      date: new Date().toString(),
+
+      selectedFile: null,
+      imgUrl: "",
+    };
+  },
+  methods: {
+    onFileSelected(event) {
+      //console.log(event);
+      const file = event.target.files[0];
+      this.selectedFile = event.target.files[0];
+      this.imgUrl = URL.createObjectURL(file);
+    },
+    commit() {
+      //console.log(this.topic, this.detail, this.date);
+      const formData = new FormData();
+      formData.append("image", this.selectedFile, this.selectedFile.name);
+      axios({
+        method: "POST",
+        url: "http://wwwdev.csmju.com/api/complainadd",
+        data: {
+          Complain_Title: this.topic,
+          Complain_Detail: this.detail,
+          Complain_Picture: this.selectedFile.name,
+          Complain_Date: this.date,
+        },
+        formData,
+        onUploadProgress: (uploadEvent) => {
+          console.log(
+            "Upload Progress: " +
+              Math.round((uploadEvent.loaded / uploadEvent.tolal) * 100) +
+              "%"
+          );
+        },
+      })
+        .then((response) => {
+          //console.log(response);
+          localStorage.setItem("user", JSON.stringify(response.data));
+
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+           
+          });
+
+          Swal.fire({
+            icon: "success",
+            title: "บันทึกข้อมูลเรียบร้อย",
+          });
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener("mouseenter", this.$swal.stopTimer);
+                  toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+                },
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "ไม่สามารถบันทึกข้อมูลได้",
+              });
+            }
+          }
+        });
+    },
   },
   components: {
     Navbar,
     MainFooter,
+    // vueRecaptcha,
   },
+  // methods: {
+  // //   recaptchaVerified() {},
+  // //   recaptchaExpired() {
+  // //     this.$refs.vueRecaptcha.reset();
+  // //   },
+  // //   recaptchaFailed() {},
+  // // },
 };
 </script>

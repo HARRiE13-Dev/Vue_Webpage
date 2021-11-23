@@ -5,26 +5,19 @@
       <div
         class="relative flex items-center content-center justify-center pt-16 pb-32 custom min-h-screen-75"
       >
-        <div class=" top-0 w-full h-full bg-center bg-cover">
-          <Carousel :autoplay="10000" :wrap-around="true">
-            <Slide
-              v-for="news = 1 in (news_array = 10)"
-              v-bind:key="news.newsId"
-            >
-              <div class="carousel__item">
-                <img
-                  alt="..."
-                  :src="bg2"
-                  class="relative mx-0 shadow-lg cropped "
-                />
-              </div>
-            </Slide>
-          </Carousel>
+        <div class="top-0 w-full h-full bg-center bg-cover ">
+          <div class="">
+            <img
+              alt="..."
+              :src="bg2"
+              class="relative mx-0 shadow-lg cropped "
+            />
+          </div>
         </div>
 
-        <div class="container absolute mx-auto">
-          <div class="flex flex-wrap">
-            <div class="w-full px-4 mt-32 ml-1 text-left lg:w-6/12">
+        <div class="container absolute">
+          <div class="flex flex-wrap -mt-20">
+            <div class="w-full px-4 mt-32 text-left lg:w-6/12">
               <div class="pr-12">
                 <h1
                   class="text-5xl font-semibold text-white duration-150 ease-linear hover:text-emerald-600 hover:zoom"
@@ -41,6 +34,24 @@
               <div class="mt-2 text-blueGray-200 item-center">
                 <i class="px-2 far fa-play-circle fa-lg"></i>
                 <a href="#section2">รับชมวีดีโอแนะนำ</a>
+              </div>
+            </div>
+            <div class="w-full text-left lg:w-6/12">
+              <div class="top-0 w-full h-full bg-center bg-cover">
+                <Carousel :autoplay="10000" :wrap-around="true">
+                  <Slide
+                    v-for="news = 1 in (news_array = 10)"
+                    v-bind:key="news.newsId"
+                  >
+                    <div class="carousel__item">
+                      <img
+                        alt="..."
+                        :src="mockup"
+                        class="relative mx-0 shadow-lg cropped-bg round-lg"
+                      />
+                    </div>
+                  </Slide>
+                </Carousel>
               </div>
             </div>
           </div>
@@ -204,8 +215,7 @@
             </div>
           </div>
 
-          
-          <h1 class="px-6 pt-20 mt-12 mb-4 text-3xl" >
+          <h1 class="px-6 pt-20 mt-12 mb-4 text-3xl">
             <b>Curriculum </b> | หลักสูตร
           </h1>
 
@@ -286,7 +296,6 @@
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
               >
                 <div class="flex-auto px-0">
-                
                   <div class="relative w-full max-w-full overflow-hidden pb-72">
                     <iframe
                       class="absolute top-0 left-0 w-full h-full rounded-b"
@@ -301,7 +310,6 @@
               </div>
             </div>
           </div>
-          
         </div>
       </section>
     </main>

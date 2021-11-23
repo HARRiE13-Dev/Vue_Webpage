@@ -42,6 +42,15 @@
             <about-page  class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"/>
           </li>
 
+              <li class="flex items-center">
+            <router-link
+              to="/news"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
+            >
+                ข่าวสาร
+            </router-link>
+          </li>
+
 
           <li class="flex items-center">
             <router-link
@@ -54,21 +63,23 @@
 
         
 
-          <li class="flex items-center">
-            <router-link
-              to="/news"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
-            >
-                ข่าวสาร
-            </router-link>
-          </li>
+      
 
           <li class="flex items-center">
             <router-link
-              to="/appeal"
+              to="/alumnus"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
-                ร้องเรียน
+              ศิษย์เก่า
+            </router-link>
+          </li>
+          
+          <li class="flex items-center">
+            <router-link
+              to="/document"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
+            >
+              แบบฟอร์มเอกสาร
             </router-link>
           </li>
 

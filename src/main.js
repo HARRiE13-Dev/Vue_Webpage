@@ -57,7 +57,6 @@ import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 import Home from "@/views/Home.vue";
 import Page404 from "@/views/Page404.vue";
 import About from "@/views/About.vue";
-import Appeal from "@/views/Appeal.vue";
 import Program from "@/views/Program.vue";
 import News from "@/views/News.vue";
 import Staff from "@/views/Staff.vue";
@@ -67,6 +66,7 @@ import Classroom from "@/views/Classroom.vue";
 import Activity from "@/views/Activity.vue";
 import Document from "@/views/Document.vue";
 import Schedule from "@/views/Schedule.vue";
+import Alumnus from "@/views/Alumnus.vue";
 
 import TestApi from "@/views/TestApi.vue";
 
@@ -202,10 +202,6 @@ const routes = [
     component: About,
   },
   {
-    path: "/appeal",
-    component: Appeal,
-  }, 
-  {
     path: "/program",
     component: Program,
   },
@@ -241,6 +237,10 @@ const routes = [
   {
     path: "/schedule",
     component: Schedule,
+  },
+  {
+    path: "/alumnus",
+    component: Alumnus,
   },
  
   {

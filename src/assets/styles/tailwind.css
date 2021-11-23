@@ -1251,6 +1251,12 @@ select {
   object-fit: cover;
  
 }
+.cropped-bg {
+  width: 1200px; 
+  height: 400px; 
+  object-fit: cover;
+ 
+}
 
 .bg-fixed {
   background-attachment: fixed;
@@ -2542,6 +2548,7 @@ select {
 .-mt-64 {
   margin-top: -15.5rem;
 }
+
 
 .last\:mr-0:last-child {
   margin-right: 0px;
@@ -4235,6 +4242,9 @@ select {
 
   .lg\:-mt-64 {
     margin-top: -16rem;
+  }
+  .lg\:-mt-48 {
+    margin-top: -15rem;
   }
 
   .lg\:p-10 {
