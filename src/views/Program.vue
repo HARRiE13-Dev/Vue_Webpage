@@ -148,8 +148,7 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-import axios from "axios";
-
+import http from "@/services/APIService";
 export default {
   data() {
     return {
@@ -167,10 +166,7 @@ export default {
   },
   methods: {
     getSubjectData() {
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/subject",
-      })
+      http.get(`subject`)
         .then((response) => {
           this.subject_array = response.data;
         })

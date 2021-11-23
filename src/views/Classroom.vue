@@ -169,7 +169,7 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 
-import axios from "axios";
+import http from "@/services/APIService";
 
 export default {
   data() {
@@ -192,10 +192,7 @@ export default {
   },
   methods: {
     getRoomData() {
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/classroom/ห้องปฏิบัติการ",
-      })
+      http.get(`classroom/ห้องปฏิบัติการ`)
         .then((response) => {
           this.lab_array = response.data;
            console.log(response.data);
@@ -208,10 +205,7 @@ export default {
             console.log(error.response.headers);
           }
         });
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/classroom/ห้องบรรยาย",
-      })
+      http.get(`classroom/ห้องบรรยาย`)
         .then((response) => {
           this.lec_array = response.data;
           console.log(response.data);
