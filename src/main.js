@@ -42,6 +42,10 @@ import EditFeed from "@/views/admin/EditFeed.vue";
 
 import Complaining from "@/views/admin/Complaining.vue";
 
+import AlumnusShow from "@/views/admin/AlumnusShow.vue";
+import AlumnusAdd from "@/views/admin/AlumnusAdd.vue";
+import AlumnusEdit from "@/views/admin/AlumnusEdit.vue";
+
 
 // views for Auth layout
 
@@ -134,6 +138,24 @@ const routes = [
         path: "/admin/editfeed",
         name: 'EditFeed',
         component: EditFeed,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/admin/alumnusshow",
+        name: 'AlumnusShow',
+        component: AlumnusShow,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/admin/alumnusadd",
+        name: 'AlumnusAdd',
+        component: AlumnusAdd,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/admin/alumnusedit",
+        name: 'AlumnusEdit',
+        component: AlumnusEdit,
         beforeEnter: authGuard
       },
       {

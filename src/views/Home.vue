@@ -150,7 +150,7 @@
             <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom "
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom"
                 >
                   <div class="flex-auto p-4 ">
                     <img
