@@ -7,36 +7,64 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-4 text-right ">
-              <router-link to="feed">
+              <router-link to="AlumnusShow">
                 <i
                   class="relative duration-150 ease-linear shadow-lg hover:zoom fas fa-times fa-2x"
                 ></i>
               </router-link>
             </div>
             <div class="text-center ">
-              <h1 class="py-6 text-3xl font-bold ">แก้ไขข้อมูลข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">แก้ไขข้อมูลศิษย์เก่า</h1>
             </div>
 
             <br class="shadow-xl" />
+
             <form @submit.prevent="onSubmit" enctype="multipart/form-data">
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eTitle"
-                    >หัวข้อข่าว</label
+                  <label
+                    class="block my-3 text-gray-700 text-md"
+                    for="eFirstname"
+                    >ชื่อ</label
                   >
                   <input
-                    v-model="eTitle"
+                    v-model="eFirstname"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
                   />
+                  <div
+                    v-if="v$.Firstname.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Firstname.$errors[0].$message }}
+                  </div>
                 </div>
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eType"
-                    >ประเภทข่าว</label
+                  <label class="block my-3 text-gray-700 text-md" for="eLastname"
+                    >นามสกุล</label
                   >
                   <input
-                    v-model="eType"
+                    v-model="eLastname"
+                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    type="text"
+                    placeholder="Product name"
+                  />
+                  <div
+                    v-if="v$.Lastname.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Lastname.$errors[0].$message }}
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap mb-2">
+                <div class="w-full px-4 md:w-6/12">
+                  <label class="block my-3 text-gray-700 text-md" for="eCode"
+                    >รหัสนักศึกษา / รุ่น</label
+                  >
+                  <input
+                    v-model="eCode"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
@@ -45,24 +73,49 @@
               </div>
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eDates"
-                    >วันที่</label
+                  <label
+                    class="block my-3 text-gray-700 text-md"
+                    for="eWorkplace"
+                    >สังกัดหน่วยงาน / บริษัท</label
                   >
                   <input
-                    v-model="eDates"
+                    v-model="eWorkplace"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
                   />
+                  <div
+                    v-if="v$.Workplace.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Workplace.$errors[0].$message }}
+                  </div>
+                </div>
+                <div class="w-full px-4 md:w-6/12">
+                  <label class="block my-3 text-gray-700 text-md" for="ePosition"
+                    >ตำแหน่งงาน</label
+                  >
+                  <input
+                    v-model="ePosition"
+                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    type="text"
+                    placeholder="Product name"
+                  />
+                  <div
+                    v-if="v$.Position.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Position.$errors[0].$message }}
+                  </div>
                 </div>
               </div>
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eDetail"
-                    >รายละเอียด</label
+                  <label class="block my-3 text-gray-700 text-md" for="eCaption"
+                    >ประวัติส่วนตัว / คติประจำใจ</label
                   >
                   <textarea
-                    v-model="eDetail"
+                    v-model="eCaption"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     rows="5"
                     placeholder="Product description"
@@ -71,11 +124,11 @@
               </div>
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
-                  <label class="block my-3 text-gray-700 text-md" for="elinks"
-                    >ลิงค์ที่เกี่ยวข้อง</label
+                  <label class="block my-3 text-gray-700 text-md" for="eContact"
+                    >การติดต่อ</label
                   >
                   <input
-                    v-model="elinks"
+                    v-model="eContact"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
                     placeholder="Product name"
@@ -101,11 +154,18 @@
               </div>
               <div class="py-6 text-center">
                 <button
-                  @click="submitFormEdit(enewsId)"
+                  @click="onResetForm"
+                  class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
+                  type="button"
+                >
+                  ล้าง
+                </button>
+                <button
+                  @click="submitForm"
                   class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
-                  อัพเดทข้อมูล
+                  ยืนยัน
                 </button>
               </div>
             </form>
@@ -122,22 +182,16 @@ import { required, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
-      // รับค่าวัน-เดือน-ปี
-      day: new Date().getDate(),
-      month: new Date().getMonth() + 1,
-      year: new Date().getFullYear(),
-
       v$: useValidate(),
 
-      
-      enewsId: "",
-      eDetail: "",
-      eDates: "",
-      eTime: "",
-      ePicture: "xxx",
-      eTitle: "",
-      elinks: "",
-      eType: "",
+      eAlumniId: 0,
+      eFirstname: "",
+      eLastname: "",
+      eCode: "",
+      eWorkplace: "",
+      ePosition: "",
+      eCaption: "",
+      eContact: "",
       eimgUrl: "",
 
       imgSrc: "",
@@ -152,39 +206,44 @@ export default {
      ************************************************************************/
     // สร้างฟังก์ชันสำหรับเปิด popup แก้ไขสินค้า
     EditProduct() {
-        this.newsId = this.$store.state.newsEdit
-      http.get(`newsid/${this.newsId}`).then((response) => {
+      this.AlumniId = this.$store.state.alumnusEdit;
+      http.get(`alumni/${this.AlumniId}`).then((response) => {
         // console.log(response.data)
-        this.enewsId = response.data.newsId;
-        this.eTitle = response.data.News_Title;
-        this.eType = response.data.News_Type;
-        this.eDates = response.data.News_Date;
-        this.eDetail = response.data.News_Detail;
-        this.elinks = response.data.News_links;
-        this.eimgUrl = response.data.News_Picture;
+        this.eAlumniId = response.data.AlumniId;
+        this.eFirstname = response.data.Firstname_Alumni;
+        this.eLastname = response.data.Lastname_Alumni;
+        this.eCode = response.data.StudentCode_Alumni;
+        this.eWorkplace = response.data.Workplace;
+        this.ePosition = response.data.Job_Title;
+        this.eCaption = response.data.Caption;
+        this.eContact = response.data.Contact;
+
+        this.eimgUrl = response.data.Alumni_Picture;
       });
     },
 
     // สร้างฟังก์ขันสำหรับอัพเดทข้อมูล
-    submitFormEdit(newsId) {
+    submitFormEdit(AlumniId) {
       // console.log(id)
-      this.eDates = this.year + "-" + this.month + "-" + this.day;
+
       let data = new FormData();
-      data.append("News_Title", this.eTitle);
-      data.append("News_Type", this.eType);
-      data.append("News_Date", this.eDates);
-      data.append("News_Detail", this.eDetail);
-      data.append("News_links", this.elinks);
-      data.append("News_Picture", this.eimgUrl);
-      data.append("News_File", this.file);
+      data.append("Firstname_Alumni", this.eFirstname);
+      data.append("Lastname_Alumni", this.eLastname);
+      data.append("StudentCode_Alumni", this.eCode);
+      data.append("Workplace", this.eWorkplace);
+      data.append("Job_Title", this.ePosition);
+      data.append("Caption", this.eCaption);
+      data.append("Contact", this.eContact);
+
+      data.append("Alumni_Picture", this.eimgUrl);
 
       // Send Patch request to laravel
       data.append("_method", "PUT");
       http
-        .post(`newsedit/${newsId}`, data)
+        .post(`alumniedit/${AlumniId}`, data)
         .then((response) => {
           console.log(response.data);
-          
+
           // เรียกใช้งาน popup ของ sweetalert2
           const Toast = this.$swal.mixin({
             toast: true,
@@ -192,13 +251,12 @@ export default {
             showConfirmButton: false,
             timer: 1500,
             timerProgressBar: true,
-          
           });
           Toast.fire({
             icon: "success",
             title: "อัพเดทข้อมูลเรียบร้อย",
           }).then(() => {
-            this.$router.push({ name: "Feed" });
+            this.$router.push({ name: "AlumnusShow" });
           });
         })
         .catch((error) => {
@@ -210,25 +268,25 @@ export default {
   },
   validations() {
     return {
-      Detail: {
+      Firstname: {
         required: helpers.withMessage("ป้อนรายละเอียดข่าวก่อน", required),
       },
-      Dates: {
+      Lastname: {
         required: helpers.withMessage("ป้อนวันที่ก่อน", required),
       },
 
-      Title: {
+      Workplace: {
         required: helpers.withMessage("ป้อนหัวข้อข่าวก่อน", required),
       },
 
-      Type: {
+      Position: {
         required: helpers.withMessage("ป้อนประเภทข่าวก่อน", required),
       },
     };
   },
   components: {},
   mounted() {
-    this.EditProduct(this.newsId);
+    this.EditProduct(this.AlumniId);
   },
 };
 </script>

@@ -53,8 +53,7 @@
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-9/12">
                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                      ข่าวสาร ประกาศ และประชาสัมพันธ์ต่าง ๆ ที่เกี่ยวกับนักศึกษา
-                      บุคคลากร คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์
+                     ข่าวสาร ประกาศ และประชาสัมพันธ์ต่าง ๆ ที่เกี่ยวกับนักศึกษา บุคคลากร คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์ 
                     </p>
                   </div>
                 </div>
@@ -62,17 +61,17 @@
 
               <div class="flex flex-wrap">
                 <div
-                  v-for="alum in products"
-                  :key="alum.AlumniId"
-                  class="w-full p-2 duration-150 ease-linear shadow-lg lg:w-3/12 hover:zoom"
+                   v-for="news in products.data"
+                      :key="news.AlumniId"
+                  class="w-full px-2 lg:w-4/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 break-words rounded-sm shadow-lg bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
                   >
                     <img
                       alt="..."
-                      :src="alum.Alumni_Picture"
-                      class="w-full align-middle rounded-sm"
+                      :src="news.Alumni_Picture"
+                      class="w-full align-middle rounded-t-lg"
                     />
                     <blockquote class="relative p-8 mb-4">
                       <svg
@@ -80,17 +79,28 @@
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 583 95"
                         class="absolute left-0 block w-full h-95-px -top-94-px"
-                      ></svg>
+                      >
+                        <polygon
+                          points="-30,95 583,95 583,65"
+                          class="fill-current text-emerald-500"
+                        ></polygon>
+                      </svg>
                       <h4 class="text-xl font-bold text-white">
-                        {{ alum.Firstname_Alumni }} {{ alum.Lastname_Alumni }}
+                        {{ news.News_Title }}
                       </h4>
                       <p class="mt-2 font-light text-white text-md">
-                        {{ alum.News_Detail }}
+                        {{ news.News_Detail }}
                       </p>
                     </blockquote>
                   </div>
                 </div>
               </div>
+               <VueTailwindPagination
+        :current="currentPage"
+        :total="total"
+        :per-page="perPage"
+        @page-changed="onPageClick($event)"
+      />
             </div>
           </div>
         </div>
@@ -103,46 +113,55 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 import http from "@/services/APIService";
+//import "@ocrv/vue-tailwind-pagination/dist/style.css";
+import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 
 export default {
   data() {
     return {
-      products: [],
+     products: [],
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
     };
   },
   mounted() {
-    this.getAlumnus();
+    this.currentPage = 1;
+    // อ่านสินค้าจาก API
+    this.getProducts(this.currentPage);
   },
   methods: {
-    getAlumnus() {
-      http
-        .get(`alumni`)
-        .then((response) => {
-          this.products = response.data;
-        })
-        .catch((error) => {
-          if (error.response) {
-            if (error.response.status == 500) {
-              //Call Sweet Alert
-              const Toast = this.$swal.mixin({
-                position: "center",
-                showConfirmButton: false,
-                timer: 2000,
-                timerProgressBar: true,
-              });
-
-              Toast.fire({
-                icon: "error",
-                title: "Connection Error",
-              });
-            }
-          }
-        });
+       /***********************************************************************
+     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
+     ************************************************************************/
+    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
+    async getProducts(pageNumber) {
+      let response = await http.get(`alumni?page=${pageNumber}`);
+      let responseProduct = response.data;
+      this.products = response.data;
+      this.products.reverse();
+      this.currentPage = responseProduct.current_page;
+      this.perPage = responseProduct.per_page;
+      this.total = responseProduct.total;
+      
+    },
+   
+    // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
+    onPageClick(event) {
+      this.currentPage = event;
+      // เช็คว่ามีการค้นหาสินค้าอยู่หรือไม่
+      if (this.keyword == "") {
+        // ไม่ได้ค้นหา
+        this.getProducts(this.currentPage);
+      } else {
+        this.getProductsSearch(this.currentPage);
+      }
     },
   },
   components: {
     Navbar,
     MainFooter,
+     VueTailwindPagination,
   },
 };
 </script>

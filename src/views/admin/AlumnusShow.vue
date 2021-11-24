@@ -281,7 +281,7 @@ export default {
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
-      let response = await http.get(`news/${this.keyword}?page=${pageNumber}`);
+      let response = await http.get(`alumni/name/${this.keyword}?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = responseProduct;
       this.currentPage = responseProduct.current_page;
@@ -315,7 +315,7 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             http
-              .delete(`newsdelete/${id}`)
+              .delete(`alumnidelete/${id}`)
               .then(() => {
                 this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
                 // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
@@ -340,7 +340,7 @@ export default {
     submitSearchForm() {
       if (this.keyword != "") {
         // เรียกค้นไปยัง api ของ laravel
-        http.get(`news/${this.keyword}`).then((response) => {
+        http.get(`alumni/name/${this.keyword}`).then((response) => {
           let responseProduct = response.data;
           this.products = responseProduct;
           this.currentPage = responseProduct.current_page;

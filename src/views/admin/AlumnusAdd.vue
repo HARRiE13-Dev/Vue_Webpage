@@ -7,7 +7,7 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-4 text-right ">
-              <router-link to="feed">
+              <router-link to="alumnusshow">
                 <i
                   class="relative duration-150 ease-linear shadow-lg hover:zoom fas fa-times fa-2x"
                 ></i>
@@ -182,30 +182,19 @@
 import http from "@/services/APIService";
 import useValidate from "@vuelidate/core";
 import { required, helpers } from "@vuelidate/validators";
-//import axios from 'axios';
+
 export default {
   data() {
     return {
-      // รับค่าวัน-เดือน-ปี
-      day: new Date().getDate(),
-      month: new Date().getMonth() + 1,
-      year: new Date().getFullYear(),
-
-      // รับค่าเวลา 24
-      hour: new Date().getHours(),
-      minute: new Date().getMinutes(),
-      second: new Date().getSeconds(),
-
       v$: useValidate(),
 
       Firstname: "",
-      Lastnaem: "",
+      Lastname: "",
       Code: "",
       Workplace: "",
       Position: "",
       Caption: "",
       Contact: "",
-      File: "xxx",
 
       imgSrc: "",
       fileName: "",
@@ -228,14 +217,13 @@ export default {
       // การเคลียร์ค่าทั้งหมดในฟอร์ม เราจะต้อง ref
       // ล้างข้อมูลในฟอร์ม
       this.$refs.addProductForm.reset();
-      (this.Detail = ""),
-        (this.Date = ""),
-        (this.Time = ""),
-        (this.Picture = ""),
-        (this.Title = ""),
-        (this.File = ""),
-        (this.links = ""),
-        (this.Type = "");
+      (this.Firstname = ""),
+        (this.Lastname = ""),
+        (this.Code = ""),
+        (this.Workplace = ""),
+        (this.Position = ""),
+        (this.Caption = ""),
+        (this.Contact = "");
 
       this.fileName = "";
       this.imgUrl = "";
@@ -246,23 +234,20 @@ export default {
     submitForm() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        // ถ้าไม่มี error ในฟอร์ม
-       
-        // alert('succcess')
-        // ใช้ FormData ของ HTML 5 API ในการรับค่าจากฟอร์มที่มีการแนบไฟล์
-        let data = new FormData();
-        data.append("News_Detail", this.Detail);
-        data.append("News_Date", this.Dates);
-        data.append("News_Time", this.Time);
-        data.append("News_Title", this.Title);
-        data.append("News_File", this.File);
-        data.append("News_links", this.links);
-        data.append("News_Type", this.Type);
 
-        data.append("News_Picture", this.file);
+        let data = new FormData();
+        data.append("Firstname_Alumni", this.Firstname);
+        data.append("Lastname_Alumni", this.Lastname);
+        data.append("StudentCode_Alumni", this.Code);
+        data.append("Workplace", this.Workplace);
+        data.append("Contact", this.Contact);
+        data.append("Caption", this.Caption);
+        data.append("Job_Title", this.Position);
+
+        data.append("Alumni_Picture", this.file);
 
         //Post in Web
-        http.post("newsadd", data).then((response) => {
+        http.post("alumniadd", data).then((response) => {
           console.log(response);
 
           const Toast = this.$swal.mixin({
@@ -276,7 +261,7 @@ export default {
             icon: "success",
             title: "เพิ่มข้อมูลใหม่เรียบร้อย",
           }).then(() => {
-            this.$router.push({ name: "Feed" });
+            this.$router.push({ name: "AlumnusShow" });
           });
         });
       }
