@@ -2593,6 +2593,11 @@ select {
   max-width: 100px;
 }
 
+.word-break {
+  word-break: keep-all;
+  word-wrap: break-word
+}
+
 .max-w-120-px {
   max-width: 120px;
 }

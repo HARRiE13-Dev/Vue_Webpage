@@ -40,7 +40,7 @@
           <div
             class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
           >
-            <div class="px-6">
+            <div class="px-6 ">
               <div class="mt-6 text-center">
                 <h3
                   class="mb-6 text-4xl font-semibold leading-normal text-blueGray-700"
@@ -52,50 +52,51 @@
               <div class="block w-full mb-4 overflow-x-auto">
                 <!-- Projects table -->
                 <table
-                  class="items-center w-full bg-transparent border-collapse"
+                  class="items-center w-full bg-transparent border-collapse border-emerald-700"
                 >
                   <thead>
                     <tr>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid text-md whitespace-nowrap"
                         :class="[
                           color === 'light'
                             ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-white border-emerald-700',
+                            : 'bg-emerald-500 text-white ',
                         ]"
                       >
                         ลำดับ
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid text-md whitespace-nowrap"
                         :class="[
                           color === 'light'
                             ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-white border-emerald-700',
+                            : 'bg-emerald-500 text-white ',
                         ]"
                       >
                         รหัสรายวิชา
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid text-md whitespace-nowrap"
                         :class="[
                           color === 'light'
                             ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-white border-emerald-700',
+                            : 'bg-emerald-500 text-white ',
                         ]"
                       >
                         ชื่อวิชา
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid text-md whitespace-nowrap"
                         :class="[
                           color === 'light'
                             ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-white border-emerald-700',
+                            : 'bg-emerald-500 text-white ',
                         ]"
                       >
                         หน่วยกิต
                       </th>
+                     
                      
                     </tr>
                   </thead>
@@ -105,17 +106,17 @@
                   >
                     <tr>
                       <td
-                        class="items-center p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="items-center p-4 px-6 font-semibold text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
                       >
                         {{ subject.subjectId }}
                       </td>
                          <td
-                        class="items-center p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="items-center p-4 px-6 font-semibold text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
                       >
                         {{ subject.Subject_Code }}
                       </td>
                          <td
-                        class="p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 tems-center whitespace-nowrap"
+                        class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md tems-center whitespace-nowrap"
                       >
                         
                         <div class="font-semibold">
@@ -124,11 +125,11 @@
                         {{ subject.Subject_NameEn }}
                       </td>
                          <td
-                        class="items-center p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="items-center p-4 px-6 font-semibold text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
                       >
                         {{ subject.Subject_Credit }}
                       </td>
-                      
+                        
                       
                 
                     
@@ -165,6 +166,7 @@ export default {
     this.getSubjectData();
   },
   methods: {
+    
     getSubjectData() {
       http.get(`subject`)
         .then((response) => {

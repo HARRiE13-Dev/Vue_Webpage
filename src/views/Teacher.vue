@@ -159,7 +159,7 @@ export default {
   },
   methods: {
     getPersonnelData() {
-     http.get(`personnel`)
+     http.get(`personnel/teacher`)
         .then((response) => {
           this.personnel_array = response.data;
 

@@ -159,56 +159,8 @@
                       class="relative mx-0 shadow-lg cropped-card2"
                     />
                   </div>
-                  <p class="px-4 pb-4 text-left text-justify rem2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Inventore asperiores amet delectus! Sit quas error quisquam
-                    consectetur, iure inventore natus perferendis, provident
-                    reprehenderit possimus assumenda optio repudiandae aliquam
-                    unde quam!
-                  </p>
-                </div>
-              </router-link>
-            </div>
-            <div class="w-full px-4 text-center md:w-4/12">
-              <router-link to="program" target="_blank">
-                <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom "
-                >
-                  <div class="flex-auto p-4 ">
-                    <img
-                      alt="..."
-                      :src="mockup"
-                      class="relative mx-0 shadow-lg cropped-card2"
-                    />
-                  </div>
-                  <p class="px-4 pb-4 text-left text-justify rem2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Inventore asperiores amet delectus! Sit quas error quisquam
-                    consectetur, iure inventore natus perferendis, provident
-                    reprehenderit possimus assumenda optio repudiandae aliquam
-                    unde quam!
-                  </p>
-                </div>
-              </router-link>
-            </div>
-            <div class="w-full px-4 text-center md:w-4/12">
-              <router-link to="program" target="_blank">
-                <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom "
-                >
-                  <div class="flex-auto p-4 ">
-                    <img
-                      alt="..."
-                      :src="mockup"
-                      class="relative mx-0 shadow-lg cropped-card2"
-                    />
-                  </div>
-                  <p class="px-4 pb-4 text-left text-justify rem2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Inventore asperiores amet delectus! Sit quas error quisquam
-                    consectetur, iure inventore natus perferendis, provident
-                    reprehenderit possimus assumenda optio repudiandae aliquam
-                    unde quam!
+                  <p class="px-4 pb-4 text-left text-justify truncate rem2">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea debitis eos magnam blanditiis voluptate repudiandae, velit, et quibusdam, alias a corrupti recusandae maxime molestias architecto minima voluptatum ducimus non nihil.
                   </p>
                 </div>
               </router-link>
@@ -375,8 +327,10 @@ export default defineComponent({
   mounted() {
     this.getNewsData();
     this.getPersonnelData();
+   
   },
   methods: {
+    
     getNewsData() {
       axios({
         method: "GET",

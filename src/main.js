@@ -95,6 +95,7 @@ function authGuard(to, from, next){
 
 }
 
+
 const routes = [
 
   {
@@ -291,6 +292,9 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+
+
 
 // const component = {
 //   setup() {
