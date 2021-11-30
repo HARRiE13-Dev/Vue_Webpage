@@ -63,7 +63,7 @@
                 <div
                    v-for="news in products.data"
                       :key="news.newsId"
-                  class="w-full px-2 lg:w-4/12 "
+                  class="w-full px-4 duration-150 ease-linear shadow-lg lg:w-4/12 hover:zoom"
                 >
                   <div
                     class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
@@ -88,7 +88,7 @@
                       <h4 class="text-xl font-bold text-white">
                         {{ news.News_Title }}
                       </h4>
-                      <p class="mt-2 font-light text-white text-md">
+                      <p class="mt-2 font-light text-white truncate text-md">
                         {{ news.News_Detail }}
                       </p>
                     </blockquote>

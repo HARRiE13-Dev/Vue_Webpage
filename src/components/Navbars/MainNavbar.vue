@@ -9,12 +9,7 @@
         class="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start"
       >
         <router-link to="/">
-          <a
-            class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed uppercase text-blueGray-700 whitespace-nowrap"
-            href="#pablo"
-          >
-            Logo
-          </a>
+          <img src="@/assets/img/logo.png" alt="" class="h-12 reletive">
         </router-link>
         <button
           class="block px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"

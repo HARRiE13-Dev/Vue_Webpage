@@ -163,7 +163,13 @@
                       <td
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        {{ feed.News_Detail }}
+                      <div >
+                        <p >
+                           {{ feed.News_Detail }} 
+                        </p>
+                      </div>
+                        
+                        
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
@@ -217,6 +223,8 @@
                     </tr>
                   </tbody>
                 </table>
+
+                
                 <!-- แสดงผลตัวแบ่งหน้าเพจ-->
             <VueTailwindPagination
                 :current="currentPage"

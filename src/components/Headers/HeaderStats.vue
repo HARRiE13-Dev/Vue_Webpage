@@ -7,7 +7,7 @@
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
-              statSubtitle="จำนวนผู้ที่เข้าสู่ระบบต่อวัน"
+              statSubtitle="จำนวนผู้ที่เข้าสู่ระบบ"
               statTitle="xxx"
               statArrow="up"
               statPercent="3.48"

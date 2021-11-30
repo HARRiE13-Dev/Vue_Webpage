@@ -53,7 +53,8 @@
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-9/12">
                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                     ข่าวสาร ประกาศ และประชาสัมพันธ์ต่าง ๆ ที่เกี่ยวกับนักศึกษา บุคคลากร คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์ 
+                      ข่าวสาร ประกาศ และประชาสัมพันธ์ต่าง ๆ ที่เกี่ยวกับนักศึกษา
+                      บุคคลากร คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์ 
                     </p>
                   </div>
                 </div>
@@ -61,8 +62,8 @@
 
               <div class="flex flex-wrap">
                 <div
-                   v-for="news in products.data"
-                      :key="news.AlumniId"
+                  v-for="alum in products.data"
+                  :key="alum.AlumniId"
                   class="w-full px-2 lg:w-4/12 "
                 >
                   <div
@@ -70,7 +71,7 @@
                   >
                     <img
                       alt="..."
-                      :src="news.Alumni_Picture"
+                      :src="alum.Alumni_Picture"
                       class="w-full align-middle rounded-t-lg"
                     />
                     <blockquote class="relative p-8 mb-4">
@@ -85,22 +86,30 @@
                           class="fill-current text-emerald-500"
                         ></polygon>
                       </svg>
-                      <h4 class="text-xl font-bold text-white">
-                        {{ news.News_Title }}
+                      <h4 class="text-xl font-bold text-center text-white">
+                        {{ alum.Firstname_Alumni }} 
+                        {{ alum.Lastname_Alumni }} 
                       </h4>
-                      <p class="mt-2 font-light text-white text-md">
-                        {{ news.News_Detail }}
+                      <p class="mt-2 font-light text-center text-white text-md">
+                        {{ alum.StudentCode_Alumni }}
+                      </p>
+                      <br class="bg-white">
+                      <p class="mt-2 font-light text-center text-white text-md">
+                       ตำแหน่ง : {{ alum.Job_Title }}
+                      </p>
+                      <p class="mt-2 font-light text-center text-white text-md">
+                       สังกัด/หน่วยงาน : {{ alum.Workplace }}
                       </p>
                     </blockquote>
                   </div>
                 </div>
               </div>
-               <VueTailwindPagination
-        :current="currentPage"
-        :total="total"
-        :per-page="perPage"
-        @page-changed="onPageClick($event)"
-      />
+              <VueTailwindPagination
+                :current="currentPage"
+                :total="total"
+                :per-page="perPage"
+                @page-changed="onPageClick($event)"
+              />
             </div>
           </div>
         </div>
@@ -119,7 +128,7 @@ import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 export default {
   data() {
     return {
-     products: [],
+      products: [],
       currentPage: 0,
       perPage: 0,
       total: 0,
@@ -131,7 +140,7 @@ export default {
     this.getProducts(this.currentPage);
   },
   methods: {
-       /***********************************************************************
+    /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
      ************************************************************************/
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
@@ -143,9 +152,8 @@ export default {
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
-      
     },
-   
+
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
     onPageClick(event) {
       this.currentPage = event;
@@ -161,7 +169,7 @@ export default {
   components: {
     Navbar,
     MainFooter,
-     VueTailwindPagination,
+    VueTailwindPagination,
   },
 };
 </script>

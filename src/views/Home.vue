@@ -40,8 +40,8 @@
               <div class="top-0 w-full h-full bg-center bg-cover">
                 <Carousel :autoplay="10000" :wrap-around="true">
                   <Slide
-                    v-for="news = 1 in (news_array = 10)"
-                    v-bind:key="news.newsId"
+                     v-for="personnel=1 in personnel_array=10"
+                  v-bind:key="personnel.personnelId"
                   >
                     <div class="carousel__item">
                       <img
@@ -49,6 +49,7 @@
                         :src="mockup"
                         class="relative mx-0 shadow-lg cropped-bg round-lg"
                       />
+                      
                     </div>
                   </Slide>
                 </Carousel>
@@ -159,7 +160,7 @@
                       class="relative mx-0 shadow-lg cropped-card2"
                     />
                   </div>
-                  <p class="px-4 pb-4 text-left text-justify truncate rem2">
+                  <p class="px-4 pb-4 text-left text-justify rem2 ">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea debitis eos magnam blanditiis voluptate repudiandae, velit, et quibusdam, alias a corrupti recusandae maxime molestias architecto minima voluptatum ducimus non nihil.
                   </p>
                 </div>
@@ -273,6 +274,7 @@
 import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 import axios from "axios";
+import http from "@/services/APIService";
 
 import { defineComponent } from "vue";
 import { Carousel, Slide } from "vue3-carousel";
@@ -330,6 +332,32 @@ export default defineComponent({
    
   },
   methods: {
+      getPersonnelData() {
+     http.get(`personnel/teacher`)
+        .then((response) => {
+          this.personnel_array = response.data;
+
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+               
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
+    },
     
     getNewsData() {
       axios({
@@ -347,17 +375,17 @@ export default defineComponent({
           }
         });
     },
-    getPersonnelData() {
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/personnel/teacher",
-      }).then((response) => {
-        this.personnel_array = response.data;
-        for (let i = 0; i <= 7; i++) {
-          this.personnel_array.pop();
-        }
-      });
-    },
+    // getPersonnelData() {
+    //   axios({
+    //     method: "GET",
+    //     url: "http://wwwdev.csmju.com/api/personnel/teacher",
+    //   }).then((response) => {
+    //     this.personnel_array = response.data;
+    //     for (let i = 0; i <= 7; i++) {
+    //       this.personnel_array.pop();
+    //     }
+    //   });
+    // },
   },
 });
 </script>
