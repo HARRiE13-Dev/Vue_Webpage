@@ -6,7 +6,7 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://wwwdev.csmju.com/images/news/original/news_1636431338.png');
+            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1638264985.jpg');
           "
         >
           <span

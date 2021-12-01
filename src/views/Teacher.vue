@@ -6,7 +6,7 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://3l4jojspj4-flywheel.netdna-ssl.com/wp-content/uploads/iStock-655597202-1.jpg');
+            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1638264985.jpg');
           "
         >
           <span
@@ -157,12 +157,13 @@ export default {
   mounted() {
     this.getPersonnelData();
   },
+
   methods: {
     getPersonnelData() {
-     http.get(`personnel/teacher`)
+      http
+        .get(`personnel/teacher`)
         .then((response) => {
           this.personnel_array = response.data;
-
         })
         .catch((error) => {
           if (error.response) {
@@ -173,7 +174,6 @@ export default {
                 showConfirmButton: false,
                 timer: 2000,
                 timerProgressBar: true,
-               
               });
 
               Toast.fire({

@@ -367,13 +367,7 @@ export default defineComponent({
         .then((response) => {
           this.news_array = response.data;
         })
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          }
-        });
+        
     },
     // getPersonnelData() {
     //   axios({

@@ -13,7 +13,7 @@
           <img
             alt="..."
             class="w-full align-middle border-none rounded-full shadow-lg"
-            :src="image"
+            src="@/assets/img/logo.png"
           />
         </span>
       </div>
@@ -30,7 +30,7 @@
         href="javascript:void(0);"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
-        Menu 1 
+        โปรไฟล์
       </a>
       <a
         href="javascript:void(0);"
@@ -42,7 +42,7 @@
         href="javascript:void(0);"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
-        Menu 2
+        ตั้งค่า
       </a>
       <div class="h-0 my-2 border border-solid border-blueGray-100" />
       <a
@@ -50,7 +50,7 @@
         href="javascript:void(0);"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
-        log out
+        ออกจากระบบ
       </a>
     </div>
   </div>
@@ -59,7 +59,7 @@
 <script>
 import { createPopper } from "@popperjs/core";
 import image from "@/assets/img/team-1-800x800.jpg";
-//import http from '@/services/AuthService';
+import http from '@/services/AuthService';
 
 export default {
   data() {
@@ -68,7 +68,37 @@ export default {
       image: image,
     };
   },
+  mounted() {
+    this.getPersonnelData();
+  },
   methods: {
+    getPersonnelData() {
+     http.get(`personnel/teacher`)
+        .then((response) => {
+          this.personnel_array = response.data;
+
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+               
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
+    },
+    
     toggleDropdown: function (event) {
       event.preventDefault();
       if (this.dropdownPopoverShow) {

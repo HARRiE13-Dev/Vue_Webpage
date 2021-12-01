@@ -70,126 +70,19 @@
         </form>
 
         <!-- Divider -->
-        <hr class="my-4 md:min-w-full" />
-        <!-- Heading -->
-        <h6
-          class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"
-        >
-          การจัดการเว็บไซต์
-        </h6>
-        <!-- Navigation -->
 
-        <ul class="flex flex-col list-none md:flex-col md:min-w-full">
-          <li class="items-center">
-            <router-link
-              to="/admin/dashboard"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="block py-3 text-sm font-bold uppercase"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="mr-2 text-sm fas fa-tv"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                Dashboard
-              </a>
-            </router-link>
-          </li>
-
-          <li class="items-center">
-            <router-link
-              to="/admin/settings"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="block py-3 text-sm font-bold uppercase"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="mr-2 text-sm fas fa-tools"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                Account Users 
-              </a>
-            </router-link>
-          </li>
-
-          <li class="items-center">
-            <router-link
-              to="/admin/tables"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="block py-3 text-sm font-bold uppercase"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="mr-2 text-sm fas fa-table"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                Tables
-              </a>
-            </router-link>
-          </li>
-
-          <li class="items-center">
-            <router-link to="/admin/maps" v-slot="{ href, navigate, isActive }">
-              <a
-                :href="href"
-                @click="navigate"
-                class="block py-3 text-sm font-bold uppercase"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="mr-2 text-sm fas fa-map-marked"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                Maps
-              </a>
-            </router-link>
-          </li>
-        </ul>
-
-        
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
           class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"
         >
-          การจัดการระบบสารสนเทศ 
+          การจัดการระบบสารสนเทศ
         </h6>
         <!-- Navigation -->
         <ul class="flex flex-col list-none md:flex-col md:min-w-full md:mb-4">
           <li class="items-center">
-            <router-link
-              to="/admin/feed"
-              v-slot="{ href, navigate, isActive }"
-            >
+            <router-link to="/admin/feed" v-slot="{ href, navigate, isActive }">
               <a
                 :href="href"
                 @click="navigate"
@@ -231,7 +124,7 @@
               </a>
             </router-link>
           </li>
-          
+
           <li class="items-center">
             <router-link
               to="/admin/participation"
@@ -251,7 +144,8 @@
                   class="mr-2 text-sm fas fa-tools"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-                ระบบบันทึกกิจกรรม
+
+                <del>ระบบบันทึกกิจกรรม</del>
               </a>
             </router-link>
           </li>
@@ -274,7 +168,7 @@
                   class="mr-2 text-sm fas fa-tools"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-                ระบบจองห้องเรียน
+                <del>ระบบจองห้องเรียน</del>
               </a>
             </router-link>
           </li>
@@ -297,7 +191,9 @@
                   class="mr-2 text-sm fas fa-tools"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-                ระบบแจ้งซ่อม
+                <del>
+                  ระบบแจ้งซ่อม
+                </del>
               </a>
             </router-link>
           </li>
@@ -343,7 +239,9 @@
                   class="mr-2 text-sm fas fa-tools"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-                ระบบแจ้งตกค้างรายวิชา
+                <del>
+                  ระบบแจ้งตกค้างรายวิชา
+                </del>
               </a>
             </router-link>
           </li>
@@ -366,7 +264,9 @@
                   class="mr-2 text-sm fas fa-tools"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-                ระบบยืม-คืนอุปกรณ์
+                <del>
+                  ระบบยืม-คืนอุปกรณ์
+                </del>
               </a>
             </router-link>
           </li>
@@ -391,6 +291,64 @@
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 ระบบครุภัณฑ์
+              </a>
+            </router-link>
+          </li>
+        </ul>
+        <hr class="my-4 md:min-w-full" />
+        <!-- Heading -->
+        <h6
+          class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"
+        >
+          การจัดการเว็บไซต์
+        </h6>
+        <!-- Navigation -->
+
+        <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+          <li class="items-center">
+            <router-link
+              to="/admin/dashboard"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tv"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ศูนย์การแสดงผล
+              </a>
+            </router-link>
+          </li>
+
+          <li class="items-center">
+            <router-link
+              to="/admin/settings"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tools"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                การจัดการผู้ใช้
               </a>
             </router-link>
           </li>

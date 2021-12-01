@@ -7,7 +7,7 @@
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
           
-            background-image: url('https://3l4jojspj4-flywheel.netdna-ssl.com/wp-content/uploads/iStock-655597202-1.jpg');
+            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1638264985.jpg');
           "
         >
           <span
