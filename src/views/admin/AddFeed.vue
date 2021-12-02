@@ -9,7 +9,7 @@
             <div class="mt-4 text-right ">
               <router-link to="feed">
                 <i
-                  class="relative duration-150 ease-linear shadow-lg hover:zoom fas fa-times fa-2x"
+                  class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
                 ></i>
               </router-link>
             </div>
@@ -104,7 +104,7 @@
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
-                    <img v-if="imgUrl" :src="imgUrl" class="w-ful" />
+                    <img v-if="imgUrl" :src="imgUrl" class="w-full" />
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"

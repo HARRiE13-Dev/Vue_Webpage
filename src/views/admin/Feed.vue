@@ -7,12 +7,11 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร </h1>
+              <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร</h1>
             </div>
             <br class="shadow-xl" />
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 shadow-lg break-wordsrounded"
-              
             >
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
@@ -42,14 +41,14 @@
 
                   <div class="w-full px-4 text-center md:w-4/12">
                     <button
-                    @click="submitSearchForm"
+                      @click="submitSearchForm"
                       class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-lightBlue-500 active:bg-lightBlue-600 hover:shadow-md focus:outline-none"
                       type="button"
                     >
                       <i class="fas fa-search"></i> ค้นหา
                     </button>
                     <button
-                    @click="resetSearchForm"
+                      @click="resetSearchForm"
                       class="px-4 py-2 mb-1 mr-4 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none"
                       type="button"
                     >
@@ -78,43 +77,32 @@
                     <tr>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                       
                       >
                         ลำดับ
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                       
                       >
                         หัวข้อข่าว
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                       
                       >
                         รายละเอียด
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                      
                       >
                         ประเภท
                       </th>
+
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        
-                      >
-                        ผู้เขียน
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                     
                       >
                         การจัดการ
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                      
                       ></th>
                     </tr>
                   </thead>
@@ -126,52 +114,30 @@
                         {{ feed.newsId }}
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
                       >
-                        {{ feed.News_Title }}
+                        <h5 class="w-48 font-semibold truncate text-md">
+                          {{ feed.News_Title }}
+                        </h5>
+                        <p>
+                          เผยแพร่ : {{ feed.News_Date }} | {{ feed.News_Time }}
+                        </p>
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
                       >
-                      <div >
-                        <p >
-                           {{ feed.News_Detail }} 
-                        </p>
-                      </div>
-                        
-                        
+                        <div>
+                          <p class="font-normal :truncate w-96">
+                            {{ feed.News_Detail }}
+                          </p>
+                        </div>
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
                         {{ feed.News_Type }}
                       </td>
-                      <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        <div
-                          class="flex items-center text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                        >
-                          <img
-                            :src="team1"
-                            alt="..."
-                            class="w-10 h-10 border-2 rounded-full shadow border-blueGray-50"
-                          />
-                          <span
-                            class="ml-3 text-sm font-semiBold"
-                            :class="[
-                              color === 'light'
-                                ? 'text-blueGray-600'
-                                : 'text-white',
-                            ]"
-                          >
-                            ผู้เขียน : {user 1}
-                            <div class="text-xs font-normal">
-                              เผยแพร่ : {{ feed.News_Date }}
-                            </div>
-                          </span>
-                        </div>
-                      </td>
+
                       <td
                         class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
@@ -194,14 +160,13 @@
                   </tbody>
                 </table>
 
-                
                 <!-- แสดงผลตัวแบ่งหน้าเพจ-->
-            <VueTailwindPagination
-                :current="currentPage"
-                :total="total"
-                :per-page="perPage"
-                @page-changed="onPageClick($event)"
-             />
+                <VueTailwindPagination
+                  :current="currentPage"
+                  :total="total"
+                  :per-page="perPage"
+                  @page-changed="onPageClick($event)"
+                />
               </div>
             </div>
           </div>
@@ -214,14 +179,12 @@
 import http from "@/services/APIService";
 //import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
-import moment from 'moment'
+import moment from "moment";
 
 //import moment from "moment";
 export default {
   data() {
     return {
-      
-      
       /** ตัวแปรสำหรับเก็บข้อมูลสินค้าที่อ่านจาก API */
       products: [],
       currentPage: 0,
@@ -240,10 +203,9 @@ export default {
     };
   },
   methods: {
-    Edit(newsId){
-       this.$router.push({ name: "EditFeed" });
-       this.$store.state.newsEdit = newsId;
-       
+    Edit(newsId) {
+      this.$router.push({ name: "EditFeed" });
+      this.$store.state.newsEdit = newsId;
     },
     /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
@@ -277,74 +239,78 @@ export default {
         this.getProductsSearch(this.currentPage);
       }
     },
-     /***********************************************************************
-        * ส่วนของการลบสินค้า
-        ************************************************************************/
-       // สร้างฟังก์ชันสำหรับลบสินค้า
-        onclickDelete(id){
-            this.$swal.fire({
-                title: 'ยืนยันการลบรายการนี้',
-                showDenyButton: false,
-                showCancelButton: true,
-                confirmButtonText: `ยืนยัน`,
-                cancelButtonText: `ปิดหน้าต่าง`,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                  
-                    http.delete(`newsdelete/${id}`).then(() => {
-                       this.$swal.fire('ลบรายการเรียบร้อย!', '', 'success') 
-                        // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
-                        if(this.keyword == ""){
-                            this.getProducts(this.currentPage)
-                        }else{
-                            this.getProductsSearch(this.currentPage)
-                        }
-                    }).catch(error => {
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-                    })
+    /***********************************************************************
+     * ส่วนของการลบสินค้า
+     ************************************************************************/
+    // สร้างฟังก์ชันสำหรับลบสินค้า
+    onclickDelete(id) {
+      this.$swal
+        .fire({
+          title: "ยืนยันการลบรายการนี้",
+          showDenyButton: false,
+          showCancelButton: true,
+          confirmButtonText: `ยืนยัน`,
+          cancelButtonText: `ปิดหน้าต่าง`,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            http
+              .delete(`newsdelete/${id}`)
+              .then(() => {
+                this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
+                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
+                if (this.keyword == "") {
+                  this.getProducts(this.currentPage);
+                } else {
+                  this.getProductsSearch(this.currentPage);
                 }
-            });
-        },
-        /***********************************************************************
-        * ส่วนของการค้นหาสินค้า
-        ************************************************************************/
-       // สร้างฟังก์ชันค้นหาสินค้า
-       submitSearchForm(){
-           if(this.keyword != ""){
-               // เรียกค้นไปยัง api ของ laravel
-               http.get(`news/${this.keyword}`).then(response => {
-                    let responseProduct = response.data
-                    this.products = responseProduct
-                    this.currentPage = responseProduct.current_page
-                    this.perPage = responseProduct.per_page
-                    this.total = responseProduct.total
-               })
-           }else{
-               this.$swal.fire('ป้อนชื่อสินค้าที่ต้องการค้นหาก่อน')
-           }
-       },
-       // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลการค้นหา
-       resetSearchForm(){
-           this.currentPage = 1;
-           this.getProducts(this.currentPage)
-           this.keyword = ''
-       },
-       // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
-       format_date(value){
-           if(value){
-               return moment(String(value)).format('DD/MM/YYYY hh:mm:ss')
-           }
-       },
-       // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
-       formatPrice(value){
-           let val = (value/1).toFixed(2).replace(',', ',')
-           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-       }
+              })
+              .catch((error) => {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+              });
+          }
+        });
+    },
+    /***********************************************************************
+     * ส่วนของการค้นหาสินค้า
+     ************************************************************************/
+    // สร้างฟังก์ชันค้นหาสินค้า
+    submitSearchForm() {
+      if (this.keyword != "") {
+        // เรียกค้นไปยัง api ของ laravel
+        http.get(`news/${this.keyword}`).then((response) => {
+          let responseProduct = response.data;
+          this.products = responseProduct;
+          this.currentPage = responseProduct.current_page;
+          this.perPage = responseProduct.per_page;
+          this.total = responseProduct.total;
+        });
+      } else {
+        this.$swal.fire("ป้อนชื่อสินค้าที่ต้องการค้นหาก่อน");
+      }
+    },
+    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลการค้นหา
+    resetSearchForm() {
+      this.currentPage = 1;
+      this.getProducts(this.currentPage);
+      this.keyword = "";
+    },
+    // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("DD/MM/YYYY hh:mm:ss");
+      }
+    },
+    // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
+    formatPrice(value) {
+      let val = (value / 1).toFixed(2).replace(",", ",");
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
   },
 
-  components: {VueTailwindPagination},
+  components: { VueTailwindPagination },
   mounted() {
     this.currentPage = 1;
     // อ่านสินค้าจาก API

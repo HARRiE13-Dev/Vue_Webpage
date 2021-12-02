@@ -63,10 +63,10 @@
                 <div
                    v-for="news in products.data"
                       :key="news.newsId"
-                  class="w-full px-4 duration-150 ease-linear shadow-lg lg:w-4/12 hover:zoom"
+                  class="w-full px-4 lg:w-4/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom bg-emerald-500"
                   >
                     <img
                       alt="..."

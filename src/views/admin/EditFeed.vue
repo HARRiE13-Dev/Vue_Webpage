@@ -9,7 +9,7 @@
             <div class="mt-4 text-right ">
               <router-link to="feed">
                 <i
-                  class="relative duration-150 ease-linear shadow-lg hover:zoom fas fa-times fa-2x"
+                  class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
                 ></i>
               </router-link>
             </div>
@@ -85,7 +85,7 @@
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
-                    <img v-if="eimgUrl" :src="eimgUrl" class="w-ful" />
+                    <img v-if="eimgUrl" :src="eimgUrl" class="w-full" />
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"
@@ -151,6 +151,12 @@ export default {
      * ส่วนของการแก้ไขข้อมูลสินค้า
      ************************************************************************/
     // สร้างฟังก์ชันสำหรับเปิด popup แก้ไขสินค้า
+    onFileChange(e) {
+      const file = e.target.files[0];
+      this.file = e.target.files[0];
+      this.eimgUrl = URL.createObjectURL(file);
+    },
+    
     EditProduct() {
         this.newsId = this.$store.state.newsEdit
       http.get(`newsid/${this.newsId}`).then((response) => {
@@ -175,8 +181,8 @@ export default {
       data.append("News_Date", this.eDates);
       data.append("News_Detail", this.eDetail);
       data.append("News_links", this.elinks);
-      data.append("News_Picture", this.eimgUrl);
-      data.append("News_File", this.file);
+      data.append("News_Picture", this.file);
+      data.append("News_File", this.eimgUrl);
 
       // Send Patch request to laravel
       data.append("_method", "PUT");

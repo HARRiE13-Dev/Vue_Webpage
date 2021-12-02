@@ -14,14 +14,12 @@
             <br class="shadow-xl" />
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded shadow-lg"
-              :class="[
-                color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white',
-              ]"
+            
             >
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
-                  <div class="w-full px-4 text-sm md:w-2/12">
+                  <div class="w-full px-4 font-semibold text-md md:w-2/12">
                     จำนวน {{ products.total }} รายการ
                   </div>
 
@@ -81,72 +79,44 @@
                   <thead>
                     <tr>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        :class="[
-                          color === 'light'
-                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                        ]"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap "
+                       
                       >
                         ลำดับ
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        :class="[
-                          color === 'light'
-                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                        ]"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                      
                       >
                         ชื่อ - นามสกุล
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        :class="[
-                          color === 'light'
-                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                        ]"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                       
                       >
                         สถานะ
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        :class="[
-                          color === 'light'
-                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                        ]"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        
                       >
                         สังกัด
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        :class="[
-                          color === 'light'
-                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                        ]"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                    
                       >
                         ตำแหน่ง
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        :class="[
-                          color === 'light'
-                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                        ]"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                      
                       >
                         การจัดการ
                       </th>
                       <th
-                        class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        :class="[
-                          color === 'light'
-                            ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                            : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                        ]"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                    
                       ></th>
                     </tr>
                   </thead>
@@ -170,11 +140,7 @@
                           />
                           <span
                             class="ml-3 text-sm font-semiBold"
-                            :class="[
-                              color === 'light'
-                                ? 'text-blueGray-600'
-                                : 'text-white',
-                            ]"
+                            
                           >
                              {{ alum.Firstname_Alumni}}
                             <div class="text-xs font-normal">

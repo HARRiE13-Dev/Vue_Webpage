@@ -9,7 +9,7 @@
             <div class="mt-4 text-right ">
               <router-link to="alumnusshow">
                 <i
-                  class="relative duration-150 ease-linear shadow-lg hover:zoom fas fa-times fa-2x"
+                  class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
                 ></i>
               </router-link>
             </div>

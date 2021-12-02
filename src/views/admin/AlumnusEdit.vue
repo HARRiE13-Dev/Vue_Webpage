@@ -9,7 +9,7 @@
             <div class="mt-4 text-right ">
               <router-link to="AlumnusShow">
                 <i
-                  class="relative duration-150 ease-linear shadow-lg hover:zoom fas fa-times fa-2x"
+                  class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
                 ></i>
               </router-link>
             </div>
@@ -153,19 +153,13 @@
                 </div>
               </div>
               <div class="py-6 text-center">
+             
                 <button
-                  @click="onResetForm"
-                  class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
-                  type="button"
-                >
-                  ล้าง
-                </button>
-                <button
-                  @click="submitForm"
+                   @click="submitFormEdit(AlumniId)"
                   class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
-                  ยืนยัน
+                  อัพเดทข้อมูล
                 </button>
               </div>
             </form>
@@ -205,6 +199,12 @@ export default {
      * ส่วนของการแก้ไขข้อมูลสินค้า
      ************************************************************************/
     // สร้างฟังก์ชันสำหรับเปิด popup แก้ไขสินค้า
+    onFileChange(e) {
+      const file = e.target.files[0];
+      this.file = e.target.files[0];
+      this.eimgUrl = URL.createObjectURL(file);
+    },
+    
     EditProduct() {
       this.AlumniId = this.$store.state.alumnusEdit;
       http.get(`alumni/${this.AlumniId}`).then((response) => {
@@ -235,7 +235,7 @@ export default {
       data.append("Caption", this.eCaption);
       data.append("Contact", this.eContact);
 
-      data.append("Alumni_Picture", this.eimgUrl);
+      data.append("Alumni_Picture", this.file);
 
       // Send Patch request to laravel
       data.append("_method", "PUT");
