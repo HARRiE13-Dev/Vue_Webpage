@@ -38,18 +38,12 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="10000" :wrap-around="true">
-                  <Slide
-                     v-for="personnel=1 in personnel_array=10"
-                  v-bind:key="personnel.personnelId"
-                  >
-                    <div class="carousel__item">
-                      <img
-                        alt="..."
-                        :src="mockup"
-                        class="relative mx-0 shadow-lg cropped-bg round-lg"
-                      />
-                      
+                <Carousel :autoplay="2000" :wrap-around="true">
+                  <Slide v-for="slide in 10" v-bind:key="slide">
+                    <div
+                      class="relative mx-0 shadow-lg carousel__item cropped-bg round-lg"
+                    >
+                      {{ slide }}
                     </div>
                   </Slide>
                 </Carousel>
@@ -148,7 +142,11 @@
             <b>News Update</b> | ข่าวสารล่าสุด
           </h1>
           <div class="flex flex-wrap mt-12 mb-12">
-            <div class="w-full px-4 text-center md:w-4/12">
+            <div
+              v-for="news in news_array"
+              v-bind:key="news.newsId"
+              class="w-full px-4 text-center md:w-4/12"
+            >
               <router-link to="program" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom"
@@ -156,12 +154,15 @@
                   <div class="flex-auto p-4 ">
                     <img
                       alt="..."
-                      :src="mockup"
-                      class="relative mx-0 shadow-lg cropped-card2"
+                      :src="news.News_Picture"
+                      class="relative row-end-auto mx-0 shadow-lg cropped-card2"
                     />
                   </div>
-                  <p class="px-4 pb-4 text-left text-justify rem2 ">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea debitis eos magnam blanditiis voluptate repudiandae, velit, et quibusdam, alias a corrupti recusandae maxime molestias architecto minima voluptatum ducimus non nihil.
+                  <h3 class="px-4 mb-2 text-lg font-semibold truncate">
+                    หัวข้อข่าว : {{ news.News_Title }}
+                  </h3>
+                  <p class="px-4 pb-4 text-left truncate ">
+                    {{ news.News_Detail }}
                   </p>
                 </div>
               </router-link>
@@ -288,8 +289,6 @@ import menu3 from "@/assets/img/menu3.png";
 import menu4 from "@/assets/img/menu4.png";
 import menu5 from "@/assets/img/menu5.png";
 
-import mockup from "@/assets/img/mockup.png";
-
 export default defineComponent({
   components: {
     MainNavbar,
@@ -306,11 +305,17 @@ export default defineComponent({
       menu3,
       menu4,
       menu5,
-      mockup,
+
       day: new Date().getDate(),
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
 
+      wall:
+        "https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1638264985.jpg",
+      walls: [
+        "https://wwwdev.csmju.com/images/personnel/original/Attawit.png",
+        "https://wwwdev.csmju.com/images/personnel/original/Kongkarn.png",
+      ],
       news_array: [],
       news: {
         newsId: 0,
@@ -329,14 +334,13 @@ export default defineComponent({
   mounted() {
     this.getNewsData();
     this.getPersonnelData();
-   
   },
   methods: {
-      getPersonnelData() {
-     http.get(`personnel/teacher`)
+    getPersonnelData() {
+      http
+        .get(`newsapp`)
         .then((response) => {
-          this.personnel_array = response.data;
-
+          this.news_array = response.data;
         })
         .catch((error) => {
           if (error.response) {
@@ -347,7 +351,6 @@ export default defineComponent({
                 showConfirmButton: false,
                 timer: 2000,
                 timerProgressBar: true,
-               
               });
 
               Toast.fire({
@@ -358,16 +361,14 @@ export default defineComponent({
           }
         });
     },
-    
+
     getNewsData() {
       axios({
         method: "GET",
         url: "http://wwwdev.csmju.com/api/news",
-      })
-        .then((response) => {
-          this.news_array = response.data;
-        })
-        
+      }).then((response) => {
+        this.news_array = response.data;
+      });
     },
     // getPersonnelData() {
     //   axios({
