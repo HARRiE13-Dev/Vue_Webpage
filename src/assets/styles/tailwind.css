@@ -307,6 +307,8 @@ h6,
 hr,
 figure,
 p,
+
+
 pre {
   margin: 0;
 }
@@ -2540,6 +2542,9 @@ select {
 .-mt-32 {
   margin-top: -8rem;
 }
+.-mt-32 {
+  margin-top: -9.5rem;
+}
 
 .-mt-48 {
   margin-top: -12rem;
@@ -2547,6 +2552,9 @@ select {
 
 .-mt-64 {
   margin-top: -15.5rem;
+}
+.-mt-72 {
+  margin-top: -20rem;
 }
 
 
@@ -3046,6 +3054,17 @@ select {
 .static {
   position: static;
 }
+
+.contentshow {
+ 
+  display: none;
+  
+}
+  
+.showdisplay:hover+div{
+  display: block;
+}
+
 
 .fixed {
   position: fixed;
@@ -4140,6 +4159,7 @@ select {
   .md\:-mt-48 {
     margin-top:  -12rem;
   }
+ 
 
   .md\:w-2\/12 {
     width: 16.5%;
@@ -4328,6 +4348,10 @@ select {
 
   .lg\:w-auto {
     width: auto;
+  }
+
+  .lg\:w-2\/12 {
+    width: 20%;
   }
 
   .lg\:w-3\/12 {

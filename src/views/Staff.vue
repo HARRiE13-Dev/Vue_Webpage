@@ -76,32 +76,35 @@
                     {{ personnel.fistNameEn }} {{ personnel.lastNameEn }}
                   </p>
 
-                  <p class="mt-3 mb-0 text-blueGray-600">
-                    <i
-                      class="mr-2 text-lg fas fa-briefcase text-blueGray-400"
-                    ></i>
-                    {{ personnel.adminPosition }}
-                  </p>
-                  <p class="mb-0 text-blueGray-600">
-                    <i
-                      class="mr-2 text-lg fas fa-university text-blueGray-400"
-                    ></i>
-                    {{ personnel.education }} <br />
-                    {{ personnel.major }} <br />
-                    {{ personnel.university }}
-                  </p>
-                  <p class="mb-0 text-blueGray-600">
-                    <i
-                      class="mr-2 text-lg fas fa-phone-alt text-blueGray-400"
-                    ></i>
-                    {{ personnel.phoneNumber }}
-                  </p>
-                  <p class="mb-6 text-blueGray-600">
-                    <i
-                      class="mr-2 text-lg fas fa-envelope text-blueGray-400"
-                    ></i>
-                    {{ personnel.e_mail }}
-                  </p>
+                  <div class="mt-3 mb-0 text-blueGray-200">
+                    <div class="mb-2">
+                      <i class="mr-2 text-lg fas fa-briefcase "></i>
+                      ตำแหน่งการบริหาร
+                      <p class="text-blueGray-700">
+                        {{ personnel.adminPosition }}
+                      </p>
+                    </div>
+
+                    <div class="mb-2">
+                      <i class="mr-2 text-lg fas fa-university "></i>
+                      การศึกษา
+                      <p class="text-blueGray-700">
+                        {{ personnel.education }} {{ personnel.major }}
+                      </p>
+                      <p class="text-blueGray-700">
+                        {{ personnel.university }}
+                      </p>
+                    </div>
+
+                    <div class="mb-2">
+                      <i class="mr-2 text-lg fas fa-phone-alt "></i>
+                      การติดต่อ
+                      <p class="text-blueGray-700">
+                        {{ personnel.phoneNumber }}
+                      </p>
+                      <p class="text-blueGray-700">{{ personnel.e_mail }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,8 +161,8 @@ export default {
   },
   methods: {
     getPersonnelData() {
-  
-        http.get(`personnel/staff`)
+      http
+        .get(`personnel/staff`)
         .then((response) => {
           this.personnel_array = response.data;
         })
@@ -172,7 +175,6 @@ export default {
                 showConfirmButton: false,
                 timer: 2000,
                 timerProgressBar: true,
-              
               });
 
               Toast.fire({

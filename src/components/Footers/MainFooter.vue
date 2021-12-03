@@ -5,9 +5,9 @@
         <div class="w-full px-6 lg:w-6/12">
           <img src="@/assets/img/logo.png" alt="" class="h-20 reletive" />
 
-          <p class="mt-4">
+          <h3 class="mt-4 font-semibold text-md">
             สาขาวิชาวิทยาการคอมพิวเตอร์
-          </p>
+          </h3>
           <p>
             <a class="hover:text-blueGray-500" href="https://g.page/CSMJU?shar">
               อาคาร 60 ปี คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ <br />
@@ -65,7 +65,7 @@
 
         <div class="w-full px-6 lg:w-6/12">
           <div class="flex flex-wrap mb-6 items-top ">
-            <h3 class="mb-2 text-lg font-semibold text-justify test-left">
+            <h3 class="mb-2 font-semibold text-justify text-md test-left">
               ตำแหน่งที่ตั้ง :
             </h3>
             <iframe
@@ -75,7 +75,7 @@
               style="border:0;"
               allowfullscreen=""
               loading="lazy"
-              class="w-full"
+              class="w-full duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs"
             ></iframe>
           </div>
         </div>

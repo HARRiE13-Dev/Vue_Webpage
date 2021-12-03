@@ -54,51 +54,44 @@
                   <div class="w-full px-4 lg:w-9/12">
                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
                       ข่าวสาร ประกาศ และประชาสัมพันธ์ต่าง ๆ ที่เกี่ยวกับนักศึกษา
-                      บุคคลากร คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์ 
+                      บุคคลากร คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div class="flex flex-wrap">
+              <div class="flex flex-wrap ">
                 <div
                   v-for="alum in products.data"
                   :key="alum.AlumniId"
-                  class="w-full px-2 lg:w-4/12 "
+                  class="relative w-full h-full px-2 pb-4 lg:w-2/12"
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
+                    class="flex flex-col w-full min-w-0 break-words rounded-lg shadow-lg bg-emerald-500 showdisplay"
                   >
                     <img
                       alt="..."
                       :src="alum.Alumni_Picture"
-                      class="w-full align-middle rounded-t-lg"
+                      class="w-full align-middle rounded-t-lg "
                     />
-                    <blockquote class="relative p-8 mb-4">
-                      <svg
-                        preserveAspectRatio="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 583 95"
-                        class="absolute left-0 block w-full h-95-px -top-94-px"
-                      >
-                        <polygon
-                          points="-30,95 583,95 583,65"
-                          class="fill-current text-emerald-500"
-                        ></polygon>
-                      </svg>
+                  </div>
+                  <div
+                    class="relative duration-150 ease-linear rounded-b shadow-lg bg-emerald-500 contentshow"
+                  >
+                    <blockquote class="relative p-4">
                       <h4 class="text-xl font-bold text-center text-white">
-                        {{ alum.Firstname_Alumni }} 
-                        {{ alum.Lastname_Alumni }} 
+                        {{ alum.Firstname_Alumni }}
+                        {{ alum.Lastname_Alumni }}
                       </h4>
-                      <p class="mt-2 font-light text-center text-white text-md">
+                      <p class="mb-2 font-light text-center text-white text-md">
                         {{ alum.StudentCode_Alumni }}
                       </p>
-                      <br class="bg-white">
-                      <p class="mt-2 font-light text-center text-white text-md">
-                       ตำแหน่ง : {{ alum.Job_Title }}
+                       <p class="font-light text-center text-white text-md">
+                        {{ alum.Workplace }}
                       </p>
-                      <p class="mt-2 font-light text-center text-white text-md">
-                       สังกัด/หน่วยงาน : {{ alum.Workplace }}
+
+                      <p class="font-light text-center text-white text-md">
+                        {{ alum.Job_Title }}
                       </p>
                     </blockquote>
                   </div>
