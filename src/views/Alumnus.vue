@@ -47,15 +47,17 @@
                 >
                   ศิษย์เก่า
                 </h3>
+                <p
+                  class="font-semibold leading-normal text-md text-blueGray-500"
+                >
+                  Student Alumnus
+                </p>
               </div>
 
-              <div class="py-6 mt-2 text-center border-t border-blueGray-200">
+              <div class="py-6 mt-10 text-center border-t border-blueGray-200">
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-9/12">
-                    <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                      ข่าวสาร ประกาศ และประชาสัมพันธ์ต่าง ๆ ที่เกี่ยวกับนักศึกษา
-                      บุคคลากร คณาจารย์สาขาวิชาวิทยาการคอมพิวเตอร์
-                    </p>
+                   
                   </div>
                 </div>
               </div>

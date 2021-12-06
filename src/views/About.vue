@@ -48,9 +48,14 @@
                 >
                   เกี่ยวกับเรา
                 </h3>
+                 <p
+                  class="font-semibold leading-normal text-md text-blueGray-500"
+                >
+                  About Us
+                </p>
               </div>
 
-              <div class="py-6 mt-2 border-t border-blueGray-200">
+              <div class="py-6 mt-10 border-t border-blueGray-200">
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-12/12">
                     <ul
@@ -61,8 +66,8 @@
                           class="block px-5 py-3 font-bold leading-normal uppercase rounded shadow-lg"
                           v-on:click="toggleTabs(1)"
                           v-bind:class="{
-                            'text-teal-500 bg-white': openTab !== 1,
-                            'text-white bg-teal-500': openTab === 1,
+                            'text-emerald-500 bg-white': openTab !== 1,
+                            'text-white bg-emerald-500': openTab === 1,
                           }"
                         >
                           <i class="mr-1 text-base fas fa-history"></i>
@@ -74,8 +79,8 @@
                           class="block px-5 py-3 font-bold leading-normal uppercase rounded shadow-lg"
                           v-on:click="toggleTabs(2)"
                           v-bind:class="{
-                            'text-teal-500 bg-white': openTab !== 2,
-                            'text-white bg-teal-500': openTab === 2,
+                             'text-emerald-500 bg-white': openTab !== 2,
+                            'text-white bg-emerald-500': openTab === 2,
                           }"
                         >
                           <i class="mr-1 text-base fas fa-bullseye"></i> พันธกิจ
@@ -86,8 +91,8 @@
                           class="block px-5 py-3 font-bold leading-normal uppercase rounded shadow-lg"
                           v-on:click="toggleTabs(3)"
                           v-bind:class="{
-                            'text-teal-500 bg-white': openTab !== 3,
-                            'text-white bg-teal-500': openTab === 3,
+                            'text-emerald-500 bg-white': openTab !== 3,
+                            'text-white bg-emerald-500': openTab === 3,
                           }"
                         >
                           <i class="mr-1 text-base fas fa-globe"></i>

@@ -98,7 +98,7 @@
                     <div
                       class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
                     >
-                      <i class="fas fa-phone-alt fa-2x"></i>
+                      <i class="fab fa-facebook-f fa-2x"></i>
                     </div>
 
                     <p class="text-lg text-blueGray-500">
@@ -116,7 +116,7 @@
                     <div
                       class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
                     >
-                      <i class="fas fa-envelope fa-2x"></i>
+                      <i class="fab fa-line fa-3x"></i>
                     </div>
                     <p class="text-lg text-blueGray-500">
                       ติดต่อทาง Line Offical :

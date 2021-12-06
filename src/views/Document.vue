@@ -48,6 +48,11 @@
                 >
                   แบบฟอร์มเอกสาร
                 </h3>
+                <p
+                  class="font-semibold leading-normal text-md text-blueGray-500"
+                >
+                  Document Form
+                </p>
               </div>
 
               <div class="py-5 mt-10 text-center border-t border-blueGray-200">
@@ -56,61 +61,111 @@
                   <table
                     class="items-center w-full bg-transparent border-collapse"
                   >
-                    <thead>
+                    <thead class="text-white bg-emerald-500 text-md">
                       <tr>
                         <th
-                          class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                          :class="[
-                            color === 'light'
-                              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                              : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                          ]"
+                          class="px-6 py-3 font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                         >
                           ลำดับ
                         </th>
                         <th
-                          class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                          :class="[
-                            color === 'light'
-                              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                              : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                          ]"
+                          class="px-6 py-3 font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                         >
                           แบบฟอร์มเอกสาร
                         </th>
                         <th
-                          class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                          :class="[
-                            color === 'light'
-                              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                              : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-                          ]"
+                          class="px-6 py-3 font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                         >
                           ตัวอย่างการกรอกข้อมูล
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr
-                       
-                      >
+                      <tr>
                         <th
-                          class="flex items-center p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                          class="flex items-center p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
                         >
                           1
                         </th>
                         <td
-                          class="p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap hover:text-emerald-600"
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
                         >
                           <a href="http://">ใบลาสำหรับนักศึกษา</a>
                         </td>
                         <td
-                          class="p-4 px-6 text-sm text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap hover:text-emerald-600"
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
                         >
                           <a href="http://">ตัวอย่าง</a>
                         </td>
                       </tr>
-                     
+                      <tr>
+                        <th
+                          class="flex items-center p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
+                        >
+                          2
+                        </th>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">แบบแสดงความจำนงบริจาคเงิน</a>
+                        </td>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">ตัวอย่าง</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th
+                          class="flex items-center p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
+                        >
+                          3
+                        </th>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">แบบฟอร์มลาสำหรับนักศึกษา</a>
+                        </td>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">ตัวอย่าง</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th
+                          class="flex items-center p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
+                        >
+                          4
+                        </th>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">ใบรับรองเวลาปฏิบัติงาน</a>
+                        </td>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">ตัวอย่าง</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th
+                          class="flex items-center p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
+                        >
+                          5
+                        </th>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">แบบฟอร์มใบเบิกค่ารักษาพยาบาล</a>
+                        </td>
+                        <td
+                          class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap hover:text-emerald-600"
+                        >
+                          <a href="http://">ตัวอย่าง</a>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>

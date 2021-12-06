@@ -39,11 +39,11 @@
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
                 <Carousel :autoplay="2000" :wrap-around="true">
-                  <Slide v-for="slide in 10" v-bind:key="slide">
+                  <Slide v-for="image in images" v-bind:key="image.id">
                     <div
                       class="relative mx-0 shadow-lg carousel__item cropped-bg round-lg"
                     >
-                      {{ slide }}
+                      <img alt="..." :src="image.name" />
                     </div>
                   </Slide>
                 </Carousel>
@@ -73,7 +73,7 @@
             </div>
 
             <div class="w-full px-4 text-center md:w-6/12">
-              <router-link to="program" target="_blank">
+              <a href="http://www.admissions.mju.ac.th/www/" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
@@ -85,12 +85,12 @@
                     />
                   </div>
                 </div>
-              </router-link>
+              </a>
             </div>
           </div>
           <div class="flex flex-wrap">
             <div class="w-full px-4 text-center md:w-4/12">
-              <router-link to="program" target="_blank">
+              <router-link to="about" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
@@ -105,7 +105,7 @@
               </router-link>
             </div>
             <div class="w-full px-4 text-center md:w-4/12">
-              <router-link to="program" target="_blank">
+              <router-link to="activity" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
@@ -120,7 +120,7 @@
               </router-link>
             </div>
             <div class="w-full px-4 text-center md:w-4/12">
-              <router-link to="program" target="_blank">
+              <router-link to="contact" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
@@ -274,7 +274,6 @@
 <script>
 import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-import axios from "axios";
 import http from "@/services/APIService";
 
 import { defineComponent } from "vue";
@@ -290,6 +289,7 @@ import menu4 from "@/assets/img/menu4.png";
 import menu5 from "@/assets/img/menu5.png";
 
 export default defineComponent({
+  name: "Autoplay",
   components: {
     MainNavbar,
     MainFooter,
@@ -299,6 +299,12 @@ export default defineComponent({
   },
   data() {
     return {
+      images: [
+        { id: 1, name: menu3 },
+        { id: 2, name: menu4 },
+        { id: 3, name: menu5 },
+      ],
+
       bg2,
       menu1,
       menu2,
@@ -310,12 +316,6 @@ export default defineComponent({
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
 
-      wall:
-        "https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1638264985.jpg",
-      walls: [
-        "https://wwwdev.csmju.com/images/personnel/original/Attawit.png",
-        "https://wwwdev.csmju.com/images/personnel/original/Kongkarn.png",
-      ],
       news_array: [],
       news: {
         newsId: 0,
@@ -323,20 +323,13 @@ export default defineComponent({
         News_Detail: "",
         News_Picture: "",
       },
-
-      personnel_array: [],
-      q: 4,
-      personnel: {
-        personnelPhoto: "",
-      },
     };
   },
   mounted() {
     this.getNewsData();
-    this.getPersonnelData();
   },
   methods: {
-    getPersonnelData() {
+    getNewsData() {
       http
         .get(`newsapp`)
         .then((response) => {
@@ -362,14 +355,6 @@ export default defineComponent({
         });
     },
 
-    getNewsData() {
-      axios({
-        method: "GET",
-        url: "http://wwwdev.csmju.com/api/news",
-      }).then((response) => {
-        this.news_array = response.data;
-      });
-    },
     // getPersonnelData() {
     //   axios({
     //     method: "GET",

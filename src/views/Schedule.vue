@@ -43,13 +43,26 @@
             <section class="px-6 py-6">
               <div class="mt-0 text-center">
                 <h3
-                  class="mb-6 text-4xl font-semibold leading-normal text-blueGray-700"
+                  class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
                   ปฏิทินกิจกรรม
                 </h3>
+                <p
+                  class="font-semibold leading-normal text-md text-blueGray-500"
+                >
+                  Calendar of Activities
+                </p>
+              </div>
+
+               <div class="py-6 mt-10 text-center border-t border-blueGray-200">
+                <div class="flex flex-wrap justify-center">
+                  <div class="w-full px-4 lg:w-9/12">
+                    
+                  </div>
+                </div>
               </div>
               <v-calendar
-                class="max-w-full px-6 custom-calendar"
+                class="max-w-full px-6 custom-calendar "
                 :masks="masks"
                 :attributes="attributes"
                 disable-page-swipe
@@ -57,10 +70,10 @@
               >
                 <template v-slot:day-content="{ day, attributes }">
                   <div class="z-10 flex flex-col h-full overflow-hidden ">
-                    <span class="py-6 text-sm text-gray-900 day-label ">{{
+                    <span class="py-6 font-semibold text-gray-900 text-md day-label ">{{
                       day.day
                     }}</span>
-                    <div class="flex-grow overflow-x-auto overflow-y-auto">
+                    <div class="flex-grow overflow-x-auto overflow-y-auto ">
                       <p
                         v-for="attr in attributes"
                         :key="attr.key"

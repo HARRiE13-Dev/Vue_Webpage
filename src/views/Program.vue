@@ -43,13 +43,25 @@
             <div class="px-6 ">
               <div class="mt-6 text-center">
                 <h3
-                  class="mb-6 text-4xl font-semibold leading-normal text-blueGray-700"
+                  class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                 >
                   กระบวนวิชาของหลักสูตร
                 </h3>
+                <p
+                  class="font-semibold leading-normal text-md text-blueGray-500"
+                >
+                  Course Curriculum
+                </p>
               </div>
 
               <div class="block w-full mb-4 overflow-x-auto">
+                    <div class="py-6 mt-10 text-center border-t border-blueGray-200">
+                <div class="flex flex-wrap justify-center">
+                  <div class="w-full px-4 lg:w-9/12">
+                   
+                  </div>
+                </div>
+              </div>
                 <!-- Projects table -->
                 <table
                   class="items-center w-full bg-transparent border-collapse border-emerald-700"
