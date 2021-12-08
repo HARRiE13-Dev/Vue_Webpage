@@ -47,7 +47,7 @@
                 >
                   ข่าวสาร / ประชาสัมพันธ์
                 </h3>
-                 <p
+                <p
                   class="font-semibold leading-normal text-md text-blueGray-500"
                 >
                   News & Announcement
@@ -56,16 +56,14 @@
 
               <div class="py-6 mt-10 text-center border-t border-blueGray-200">
                 <div class="flex flex-wrap justify-center">
-                  <div class="w-full px-4 lg:w-9/12">
-                    
-                  </div>
+                  <div class="w-full px-4 lg:w-9/12"></div>
                 </div>
               </div>
 
               <div class="flex flex-wrap">
                 <div
-                   v-for="news in products.data"
-                      :key="news.newsId"
+                  v-for="news in products.data"
+                  :key="news.newsId"
                   class="w-full px-4 lg:w-4/12 "
                 >
                   <div
@@ -98,12 +96,12 @@
                   </div>
                 </div>
               </div>
-               <VueTailwindPagination
-        :current="currentPage"
-        :total="total"
-        :per-page="perPage"
-        @page-changed="onPageClick($event)"
-      />
+              <VueTailwindPagination
+                :current="currentPage"
+                :total="total"
+                :per-page="perPage"
+                @page-changed="onPageClick($event)"
+              />
             </div>
           </div>
         </div>
@@ -122,7 +120,7 @@ import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 export default {
   data() {
     return {
-     products: [],
+      products: [],
       currentPage: 0,
       perPage: 0,
       total: 0,
@@ -134,7 +132,7 @@ export default {
     this.getProducts(this.currentPage);
   },
   methods: {
-       /***********************************************************************
+    /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
      ************************************************************************/
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
@@ -146,9 +144,8 @@ export default {
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
-      
     },
-   
+
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
     onPageClick(event) {
       this.currentPage = event;
@@ -164,7 +161,7 @@ export default {
   components: {
     Navbar,
     MainFooter,
-     VueTailwindPagination,
+    VueTailwindPagination,
   },
 };
 </script>

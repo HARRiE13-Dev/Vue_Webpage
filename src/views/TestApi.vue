@@ -1,42 +1,39 @@
 <template>
   <div>
-    <section class="productOverview">
-      asdasdsad
-      <Carousel :itemsToShow="3" :wrapAround="true">
-        <Slide v-for="(image, index) in images" :key="image.id">
-          <img :src="getImage(image.url)" />
-          <button v-if="slidesCount > 1" @click="deleteImage(index)">x</button>
-        </Slide>
-      </Carousel>
-    </section>
+        <div class="mt-6 mb-6 text-center ">
+              <h3
+                class="text-2xl font-semibold leading-normal text-white border-t border-b border-blueGray-200 bg-emerald-500"
+              >
+                CSMJU | ระบบสารสนเทศสำหรับบุคคลากร
+              </h3>
+            </div>
+
+            <div class="flex flex-wrap px-4">
+              <div class="w-full px-4 lg:w-4/12 ">
+                <div
+                  class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear shadow-lg hover:zoom bg-emerald-500"
+                >
+                  <img
+                    alt="..."
+                    :src="team2"
+                    class="w-full align-middle cropped-card1"
+                  />
+                    <h4 class="text-xl font-semibold text-center text-white">
+                      ระบบสารสนเทศสำหรับบุคคลากร
+                    </h4>
+                </div>
+                 
+              </div>
+            </div>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { Carousel, Slide } from "vue3-carousel";
-import "vue3-carousel/dist/carousel.css";
-export default defineComponent({
-  name: "Autoplay",
-  components: {
-    Carousel,
-    Slide,
-  },
-  data() {
-    return {
-      images: [
-        { id: 1, url: "https://wwwdev.csmju.com/images/news/thumbnail/news_1637999077.jpg" },
-        { id: 2, url: "https://wwwdev.csmju.com/images/news/thumbnail/news_1637999347.jpg" },
-        { id: 3, url: "https://wwwdev.csmju.com/images/news/thumbnail/news_1637999347.jpg" },
-      ],
-    };
-  },
-  methods: {
-    getImage(imagePath) {
-      return require(imagePath);
-    },
-  },
-});
+export default {
+
+}
 </script>
 
-<style></style>
+<style>
+
+</style>
