@@ -39,11 +39,13 @@
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
                 <Carousel :autoplay="2000" :wrap-around="true">
-                  <Slide v-for="image in images" v-bind:key="image.id">
+                  <Slide v-for="image in news_array" v-bind:key="image.Banner_ID">
                     <div
                       class="relative mx-0 shadow-lg carousel__item cropped-bg round-lg"
                     >
-                      <img alt="..." :src="image.name" />
+                      <img
+                       class="cropped-bg"
+                      alt="..." :src="image.Banner_File" />
                     </div>
                   </Slide>
                 </Carousel>
@@ -305,6 +307,8 @@ export default defineComponent({
         { id: 3, name: menu5 },
       ],
 
+      
+
       bg2,
       menu1,
       menu2,
@@ -331,14 +335,17 @@ export default defineComponent({
   methods: {
     getNewsData() {
       http
-        .get(`newsapp`)
+        .get(`banner`)
         .then((response) => {
           this.news_array = response.data;
+          
+          console.log(this.news_array[0].Banner_File);
+          console.log(this.images[0].name);
         })
         .catch((error) => {
           if (error.response) {
             if (error.response.status == 500) {
-              //Call Sweet Alert
+              
               const Toast = this.$swal.mixin({
                 position: "center",
                 showConfirmButton: false,

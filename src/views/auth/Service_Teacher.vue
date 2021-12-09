@@ -35,8 +35,8 @@
       </section>
 
       <section class="relative py-16 bg-blueGray-200">
-        <div class="container px-4 mx-auto">
-          <div class="flex flex-wrap">
+        <div class="container mx-auto">
+          <div class="flex flex-wrap ">
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
             >
@@ -90,16 +90,70 @@
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-4/12"
             >
-              <div class="px-4">
-                dfdf
+              <div class="px-6 mt-6">
+                <h3 class="text-lg font-semibold">เลือกเมนูระบบสารสนเทศ</h3>
+                <div class="py-6 mt-2 text-left border-t border-blueGray-200">
+                  <ul class="flex flex-col list-none lg:ml-auto">
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                      <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบจองห้องเรียน
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 2
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 3
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 4
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 5
+                      </router-link>
+                    </li>
+
+             
+
+                    
+           
+                   
+                  </ul>
+                </div>
               </div>
             </div>
             <div
-              class="relative flex flex-col w-full min-w-0 mx-2 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-8/12"
+              class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-8/12"
             >
               <div class="px-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                
+             
               </div>
             </div>
           </div>
