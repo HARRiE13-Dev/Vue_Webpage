@@ -64,17 +64,17 @@
                 <div
                   v-for="news in products.data"
                   :key="news.newsId"
-                  class="w-full px-4 lg:w-4/12 "
+                  class="w-full px-2 lg:w-4/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom bg-emerald-500"
+                    class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom bg-blueGray-100"
                   >
                     <img
                       alt="..."
                       :src="news.News_Picture"
-                      class="w-full align-middle rounded-t-lg"
+                      class="w-full align-middle rounded-t-lg text-blueGray-500"
                     />
-                    <blockquote class="relative p-8 mb-4">
+                    <blockquote class="relative">
                       <svg
                         preserveAspectRatio="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -83,16 +83,27 @@
                       >
                         <polygon
                           points="-30,95 583,95 583,65"
-                          class="fill-current text-emerald-500"
+                          class="fill-current text-blueGray-100"
                         ></polygon>
                       </svg>
-                      <h4 class="text-xl font-bold text-white">
+                    </blockquote>
+                    <div class="relative p-4 ">
+                      <h4 class="text-xl font-bold ">
                         {{ news.News_Title }}
                       </h4>
-                      <p class="mt-2 font-light text-white text-md">
+                      <p class="mt-2 font-light  text-md truncate">
                         {{ news.News_Detail }}
                       </p>
-                    </blockquote>
+                      <div class="text-center mt-2 border-t border-blueGray-200">
+                           <button
+                        class="bg-emerald-500 mt-2  text-white active:bg-emerald-600 font-semibold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button"
+                      >
+                        อ่านต่อ...
+                      </button>
+                      </div>
+                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -140,10 +151,10 @@ export default {
       let response = await http.get(`news?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = response.data;
-      this.products.reverse();
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
+      this.products.data.reverse();
     },
 
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า

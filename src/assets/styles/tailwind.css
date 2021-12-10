@@ -2581,6 +2581,7 @@ select {
 }
 
 
+
 .max-w-md {
   max-width: 28rem;
 }
@@ -2599,6 +2600,10 @@ select {
 
 .max-w-100-px {
   max-width: 100px;
+}
+
+.max-w-alum {
+  max-width: 230px;
 }
 
 .word-break {
@@ -2684,7 +2689,10 @@ select {
 }
 
 .opacity-80 {
-  opacity: .8;
+  opacity: 0.8;
+}
+.opacity-90 {
+  opacity: 0.90;
 }
 
 .outline-none {

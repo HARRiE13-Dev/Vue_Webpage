@@ -66,36 +66,40 @@
                 <div
                   v-for="alum in products.data"
                   :key="alum.AlumniId"
-                  class="relative w-full h-full px-2 pb-4 lg:w-2/12"
+                  class=" w-full h-full px-2 pb-4 lg:w-2/12"
                 >
                   <div
-                    class="flex flex-col w-full min-w-0 break-words rounded-lg shadow-lg bg-emerald-500 showdisplay"
+                    class="flex flex-col w-full duration-150 ease-linear min-w-0 break-words rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom"
                   >
                     <img
                       alt="..."
                       :src="alum.Alumni_Picture"
-                      class="w-full align-middle rounded-t-lg "
+                      class="w-full align-middle  "
                     />
                   </div>
                   <div
-                    class="relative duration-150 ease-linear rounded-b shadow-lg bg-emerald-500 contentshow"
+                    class="max-w-alum absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 opacity-90 contentshow"
                   >
-                    <blockquote class="relative p-4">
-                      <h4 class="text-xl font-bold text-center text-white">
-                        {{ alum.Firstname_Alumni }}
-                        {{ alum.Lastname_Alumni }}
-                      </h4>
-                      <p class="mb-2 font-light text-center text-white text-md">
-                        {{ alum.StudentCode_Alumni }}
+                    <div class="relative py-4 ">
+                      <p class="font-bold mb-1 text-center text-blueGray-800 text-lg bg-emerald-400 rounded-lg">
+                        {{ alum.Job_Title }}
                       </p>
-                       <p class="font-light text-center text-white text-md">
+                         <p class="font-normal  text-white text-md border-b border-white mb-2">
+                         สังกัด :
                         {{ alum.Workplace }}
                       </p>
 
-                      <p class="font-light text-center text-white text-md">
-                        {{ alum.Job_Title }}
+
+                      <h4 class="text-md font-bold text-center text-blueGray-800">
+                        {{ alum.Firstname_Alumni }}
+                        {{ alum.Lastname_Alumni }}
+                      </h4>
+                      <p class="mb-2 font-semibold text-center text-blueGray-700 text-md">
+                        {{ alum.StudentCode_Alumni }}
                       </p>
-                    </blockquote>
+                       
+
+                    </div>
                   </div>
                 </div>
               </div>
@@ -148,6 +152,8 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
     },
+
+    
 
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
     onPageClick(event) {

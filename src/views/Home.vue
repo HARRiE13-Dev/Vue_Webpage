@@ -223,7 +223,7 @@
                   >
                     10+
                   </h3>
-                  <div class="text-2xl text-left">
+                  <div class="text-2xl ">
                     บุคคลากรที่มีความเชี่ยวชาญในศาสตร์ต่าง ๆ
                   </div>
                 </div>
@@ -239,7 +239,7 @@
                   >
                     2,000+
                   </h3>
-                  <div class="text-2xl text-left">
+                  <div class="text-2xl ">
                     นักศึกษาที่สำเร็จการศึกษาแล้วทั้งสิ้น
                   </div>
                 </div>
@@ -343,9 +343,12 @@ export default defineComponent({
         .get(`newsapp`)
         .then((response) => {
           this.news_array = response.data;
+          //for (let i = 0; i <= 7; i++) {
+            this.news_array.reverse();
+          
 
-          console.log(this.news_array[0].Banner_File);
-          console.log(this.images[0].name);
+          // console.log(this.news_array[0].Banner_File);
+          // console.log(this.images[0].name);
         })
         .catch((error) => {
           if (error.response) {

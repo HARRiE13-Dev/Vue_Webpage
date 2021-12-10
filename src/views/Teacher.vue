@@ -67,16 +67,15 @@
                   </div>
 
                   <h3
-                    class="mb-0 text-lg font-semibold leading-normal text-blueGray-700"
+                    class="mb-0 text-lg font-semibold leading-normal text-blueGray-700 "
                   >
-                    {{ personnel.titlePosition }} {{ personnel.firstName }}
-                    {{ personnel.lastName }}
+                    {{ personnel.titlePosition }} {{ personnel.firstName }} <br> {{ personnel.lastName }}
                   </h3>
                   <div class="mb-4 text-sm font-semibold text-blueGray-500">
                     {{ personnel.fistNameEn }} {{ personnel.lastNameEn }}
                   </div>
 
-                  <div class="mt-3 mb-0 text-blueGray-200">
+                  <div class="mt-3 mb-0 text-blueGray-400">
                     <div class="mb-2">
                       <i
                         class="mr-2 text-lg fas fa-briefcase "
