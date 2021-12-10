@@ -39,13 +39,18 @@
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
                 <Carousel :autoplay="2000" :wrap-around="true">
-                  <Slide v-for="image in news_array" v-bind:key="image.Banner_ID">
+                  <Slide
+                    v-for="image in banner_array"
+                    v-bind:key="image.Banner_ID"
+                  >
                     <div
                       class="relative mx-0 shadow-lg carousel__item cropped-bg round-lg"
                     >
                       <img
-                       class="cropped-bg"
-                      alt="..." :src="image.Banner_File" />
+                        class="cropped-bg"
+                        alt="..."
+                        :src="image.Banner_File"
+                      />
                     </div>
                   </Slide>
                 </Carousel>
@@ -307,8 +312,6 @@ export default defineComponent({
         { id: 3, name: menu5 },
       ],
 
-      
-
       bg2,
       menu1,
       menu2,
@@ -321,6 +324,7 @@ export default defineComponent({
       year: new Date().getFullYear(),
 
       news_array: [],
+      banner_array: [],
       news: {
         newsId: 0,
         News_Title: "",
@@ -331,21 +335,48 @@ export default defineComponent({
   },
   mounted() {
     this.getNewsData();
+    this.getBannerData();
   },
   methods: {
     getNewsData() {
       http
-        .get(`banner`)
+        .get(`newsapp`)
         .then((response) => {
           this.news_array = response.data;
-          
+
           console.log(this.news_array[0].Banner_File);
           console.log(this.images[0].name);
         })
         .catch((error) => {
           if (error.response) {
             if (error.response.status == 500) {
-              
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
+    },
+
+    getBannerData() {
+      http
+        .get(`banner`)
+        .then((response) => {
+          this.banner_array = response.data;
+
+          //console.log(this.banner_array[0].Banner_File);
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
               const Toast = this.$swal.mixin({
                 position: "center",
                 showConfirmButton: false,
