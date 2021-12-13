@@ -6,7 +6,7 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1638264985.jpg');
+            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
           "
         >
           <span
@@ -55,13 +55,13 @@
               </div>
 
               <div class="block w-full mb-4 overflow-x-auto">
-                    <div class="py-6 mt-10 text-center border-t border-blueGray-200">
-                <div class="flex flex-wrap justify-center">
-                  <div class="w-full px-4 lg:w-9/12">
-                   
+                <div
+                  class="py-6 mt-10 text-center border-t border-blueGray-200"
+                >
+                  <div class="flex flex-wrap justify-center">
+                    <div class="w-full px-4 lg:w-9/12"></div>
                   </div>
                 </div>
-              </div>
                 <!-- Projects table -->
                 <table
                   class="items-center w-full bg-transparent border-collapse border-emerald-700"
@@ -108,8 +108,6 @@
                       >
                         หน่วยกิต
                       </th>
-                     
-                     
                     </tr>
                   </thead>
                   <tbody
@@ -122,30 +120,24 @@
                       >
                         {{ subject.subjectId }}
                       </td>
-                         <td
+                      <td
                         class="items-center p-4 px-6 font-semibold text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
                       >
                         {{ subject.Subject_Code }}
                       </td>
-                         <td
+                      <td
                         class="p-4 px-6 text-left align-middle border-t-0 border-l-0 border-r-0 text-md tems-center whitespace-nowrap"
                       >
-                        
                         <div class="font-semibold">
-                          {{ subject.Subject_NameTh }} 
+                          {{ subject.Subject_NameTh }}
                         </div>
                         {{ subject.Subject_NameEn }}
                       </td>
-                         <td
+                      <td
                         class="items-center p-4 px-6 font-semibold text-left align-middle border-t-0 border-l-0 border-r-0 text-md whitespace-nowrap"
                       >
                         {{ subject.Subject_Credit }}
                       </td>
-                        
-                      
-                
-                    
-                      
                     </tr>
                   </tbody>
                 </table>
@@ -178,9 +170,9 @@ export default {
     this.getSubjectData();
   },
   methods: {
-    
     getSubjectData() {
-      http.get(`subject`)
+      http
+        .get(`subject`)
         .then((response) => {
           this.subject_array = response.data;
         })

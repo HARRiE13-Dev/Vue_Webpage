@@ -91,7 +91,7 @@
           </li>
 
           <li class="flex items-center">
-            <router-link to="/auth/admin">
+            <router-link to="/auth/login">
               <button
                 class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none"
                 type="button"

@@ -6,7 +6,7 @@
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1638264985.jpg');
+            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
           "
         >
           <span
@@ -94,7 +94,7 @@
                         {{ alum.Firstname_Alumni }}
                         {{ alum.Lastname_Alumni }}
                       </h4>
-                      <p class="mb-2 font-semibold text-center text-blueGray-700 text-md">
+                      <p class="mb-2 font-semibold text-center text-blueGray-00 text-md">
                         {{ alum.StudentCode_Alumni }}
                       </p>
                        

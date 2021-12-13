@@ -36,11 +36,11 @@ import Maps from "@/views/admin/Maps.vue";
 
 import EducationalObjects from "@/views/admin/EducationalObjects.vue";
 
-import Feed from "@/views/admin/Feed.vue";
-import AddFeed from "@/views/admin/AddFeed.vue";
-import EditFeed from "@/views/admin/EditFeed.vue";
+import Feed from "@/views/admin/FeedShow.vue";
+import AddFeed from "@/views/admin/FeedAdd.vue";
+import EditFeed from "@/views/admin/FeedEdit.vue";
 
-import Complaining from "@/views/admin/Complaining.vue";
+import Complaining from "@/views/admin/ComplainShow.vue";
 
 import AlumnusShow from "@/views/admin/AlumnusShow.vue";
 import AlumnusAdd from "@/views/admin/AlumnusAdd.vue";

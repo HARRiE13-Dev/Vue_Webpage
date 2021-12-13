@@ -1,90 +1,50 @@
 <template>
-  <div>
-  <h2>Popup</h2>
-
-<div class="popup" @click="myFunction()">Click me to toggle the popup!
-  <span class="popuptext" id="myPopup">A Simple Popup!</span>
-</div>
+  <div class="flex flex-wrap">
+    <div class="w-full sm:w-6/12 md:w-4/12 px-4">
+      <div class="relative inline-flex align-middle w-full">
+        <button class="text-white font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 bg-emerald-500 active:bg-emerald-600 ease-linear transition-all duration-150" type="button" ref="btnDropdownRef" v-on:click="toggleDropdown()">
+          emerald Dropdown
+        </button>
+        <div ref="popoverDropdownRef" class="bg-emerald-500 text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48" v-bind:class="{hidden: !dropdownPopoverShow,block: dropdownPopoverShow,}">
+          <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white">
+            Action
+          </a>
+          <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white">
+            Another action
+          </a>
+          <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white">
+            Something else here
+          </a>
+          <div class="h-0 my-2 border border-solid border-t-0 border-blueGray-800 opacity-25"></div>
+          <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white">
+            Seprated link
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-
 <script>
+import { createPopper } from "@popperjs/core";
 
 export default {
   data() {
     return {
-      id:0
-    }
+      dropdownPopoverShow: false,
+    };
   },
   methods: {
-    myFunction() {
-      let popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-      console.log();
+    toggleDropdown: function () {
+      console.log("muie");
+      if (this.dropdownPopoverShow) {
+        this.dropdownPopoverShow = false;
+      } else {
+        this.dropdownPopoverShow = true;
+        createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
+          placement: "bottom-start",
+        });
+      }
     },
   },
-  mounted() {
-    this.myFunction();
-  }
 };
 </script>
-
-<style>
-
-/* Popup container - can be anything you want */
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-</style>
