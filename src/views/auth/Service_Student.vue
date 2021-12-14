@@ -1,14 +1,11 @@
 <template>
   <div>
- 
     <main class="profile-page custom">
-      
-        
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
           style="
-            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80');
+            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
           "
         >
           <span
@@ -38,155 +35,135 @@
       </section>
 
       <section class="relative py-16 bg-blueGray-200">
-          
-        <div class="container px-4 mx-auto">
-          <div
-            class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
-          >
-            <div class="px-6">
-                
-              <div class="mt-6 text-center">
-                <h3
-                  class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
-                >
-                ระบบสารสนเทศสำหรับนักศึกษา
-                </h3>
-                
-              </div>
-
-              <div class="py-6 mt-2 text-center border-t border-blueGray-200">
+        <div class="container mx-auto">
+          <div class="flex flex-wrap ">
+            <div
+              class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
+            >
+              <div class="px-6">
                 <div class="flex flex-wrap justify-center">
-                  <div class="w-full px-4 lg:w-9/12">
-                    <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                    
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium iste optio animi id accusantium quasi reiciendis? Cupiditate veniam temporibus itaque reprehenderit ipsam quam molestiae corrupti sapiente. Hic saepe omnis architecto?
-                    </p>
+                  <div
+                    class="flex justify-center w-full px-4 text-center lg:w-3/12 lg:order-1"
+                  >
+                    <div class="relative">
+                      <img
+                        alt="..."
+                        :src="team2"
+                        class="absolute h-auto -m-16 -ml-20 align-middle border-none rounded-full shadow-xl lg:-ml-16 max-w-200-px"
+                      />
+                    </div>
+                  </div>
+
+                  <div
+                    class="w-full px-4 lg:w-3/12 lg:order-3 lg:text-right lg:self-center"
+                  >
+                    <div class="px-3 py-6 mt-32 sm:mt-0">
+                      <button
+                        class="px-4 py-2 mb-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none sm:mr-2"
+                        type="button"
+                      >
+                        แก้ไขโปรไฟล์
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="w-full px-4 lg:w-6/12 lg:order-2">
+                    <div class="flex justify-center py-4 pt-8 lg:pt-4">
+                      <div class="p-3 mr-4 text-center">
+                        <h3
+                          class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
+                        >
+                          {Firstname} {Lastname}
+                        </h3>
+                        <p
+                          class="mb-2 text-xl font-semibold leading-normal text-blueGray-700"
+                        >
+                          ตำแหน่ง : {Position}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div class="w-full px-4 mt-10 lg:w-12/12">
-            <div class="flex flex-wrap">
-              
-              <div class="w-full px-4 lg:w-4/12">
-                <h5 class="pb-4 text-xl font-semibold text-center">
-                   ระบบ...
-                </h5>
-                <router-link to="/auth/login">
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-                  >
-                    <img src="@/assets/img/login.jpg" 
-                    class="h-auto max-w-full align-middle border-none rounded-lg"
-                     >
-                  </div>
-                </router-link>
-                
-              </div>
-
-              <div class="w-full px-4 lg:w-4/12">
-                <h5 class="pb-4 text-xl font-semibold text-center">
-                   ระบบ...
-                </h5>
-                <router-link to="/profile">
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-                  >
-                    <img src="@/assets/img/login.jpg" 
-                    class="h-auto max-w-full align-middle border-none rounded-lg"
-                     >
-                  </div>
-                </router-link>
-              </div>
-
-              <div class="w-full px-4 lg:w-4/12">
-                <h5 class="pb-4 text-xl font-semibold text-center">
-                   ระบบ...
-                </h5>
-                <router-link to="/landing">
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-                  >
-                    <img src="@/assets/img/login.jpg" 
-                    class="h-auto max-w-full align-middle border-none rounded-lg"
-                     >
-                  </div>
-                </router-link>
-              </div>
-              
             </div>
-          </div>
 
-          <div class="w-full px-4 mt-10 lg:w-12/12">
-            <div class="flex flex-wrap">
-              
-              <div class="w-full px-4 lg:w-4/12">
-                <h5 class="pb-4 text-xl font-semibold text-center">
-                  ระบบ...
-                </h5>
-                <router-link to="/auth/login">
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-                  >
-                    <img src="@/assets/img/login.jpg" 
-                    class="h-auto max-w-full align-middle border-none rounded-lg"
-                     >
-                  </div>
-                </router-link>
-                
-              </div>
+            <div
+              class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-4/12"
+            >
+              <div class="px-6 mt-6">
+                <h3 class="text-lg font-semibold">เลือกเมนูระบบสารสนเทศ</h3>
+                <div class="py-6 mt-2 text-left border-t border-blueGray-200">
+                  <ul class="flex flex-col list-none lg:ml-auto">
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                      <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบจองห้องเรียน
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 2
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 3
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 4
+                      </router-link>
+                    </li>
+                    <li class="flex items-center">
+                      <router-link
+                        to="/"
+                        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+                      >
+                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        ระบบสารสนเทศ 5
+                      </router-link>
+                    </li>
 
-              <div class="w-full px-4 lg:w-4/12">
-                <h5 class="pb-4 text-xl font-semibold text-center">
-                 ระบบ...
-                </h5>
-                <router-link to="/profile">
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-                  >
-                    <img src="@/assets/img/login.jpg" 
-                    class="h-auto max-w-full align-middle border-none rounded-lg"
-                     >
-                  </div>
-                </router-link>
-              </div>
+             
 
-              <div class="w-full px-4 lg:w-4/12">
-                <h5 class="pb-4 text-xl font-semibold text-center">
-                   ระบบ...
-                </h5>
-                <router-link to="/landing">
-                  <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words transition-all duration-150 ease-linear bg-white rounded-lg shadow-lg hover:-mt-4"
-                  >
-                    <img src="@/assets/img/login.jpg" 
-                    class="h-auto max-w-full align-middle border-none rounded-lg"
-                     >
-                  </div>
-                </router-link>
+                    
+           
+                   
+                  </ul>
+                </div>
               </div>
-              
             </div>
-          </div>
-
+            <div
+              class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-8/12"
+            >
+              <div class="px-6">
+             
+              </div>
             </div>
           </div>
         </div>
-        
       </section>
-
-      
-      
     </main>
-    
   </div>
 </template>
 <script>
-
-
-
-import team2 from "@/assets/img/team-2-800x800.jpg";
-
+import team2 from "@/assets/img/no-img.png";
 
 export default {
   data() {
@@ -194,10 +171,7 @@ export default {
       team2,
     };
   },
-  components: {
-   
-    
-    
-  },
+  method: {},
+  mounted() {},
 };
 </script>

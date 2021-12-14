@@ -38,19 +38,12 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="2000" :wrap-around="true">
-                  <Slide
-                    v-for="image in banner_array"
-                    v-bind:key="image.Banner_ID"
-                  >
+                <Carousel :autoplay="2000">
+                  <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
                       class="relative mx-0 shadow-lg carousel__item cropped-bg round-lg"
                     >
-                      <img
-                        class="cropped-bg"
-                        alt="..."
-                        :src="image.Banner_File"
-                      />
+                      <img class="cropped-bg" :src="image.Banner_File" />
                     </div>
                   </Slide>
                 </Carousel>
@@ -344,8 +337,7 @@ export default defineComponent({
         .then((response) => {
           this.news_array = response.data;
           //for (let i = 0; i <= 7; i++) {
-            this.news_array.reverse();
-          
+          this.news_array.reverse();
 
           // console.log(this.news_array[0].Banner_File);
           // console.log(this.images[0].name);
@@ -374,6 +366,7 @@ export default defineComponent({
         .get(`banner`)
         .then((response) => {
           this.banner_array = response.data;
+          this.banner_array.reverse();
 
           //console.log(this.banner_array[0].Banner_File);
         })

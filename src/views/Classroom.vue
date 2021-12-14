@@ -47,21 +47,28 @@
                 >
                   อาคาร / ห้องเรียน
                 </h3>
+                <p
+                  class="font-semibold leading-normal text-md text-blueGray-500"
+                >
+                  Classroom Building
+                </p>
               </div>
 
               <div class="py-6 mt-2 text-center border-t border-blueGray-200">
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-4 lg:w-9/12">
                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                      อาคารเรียนในปัจจุบันมีอยู่ด้วยกัน 2 อาคารเรียน ได้แก่ อาคารแม่โจ้ 60 ปี และอาคารจุฬาภรณ์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ แบ่งห้องเรียนออกเป็น 2 รูปแบบได้แก่ ห้องบรรยายคอมพิวเตอร์ และปฏิบัติการคอมพิวเตอร์ <br>
+                      อาคารเรียนในปัจจุบันมีอยู่ด้วยกัน 2 อาคารเรียน ได้แก่
+                      อาคารแม่โจ้ 60 ปี และอาคารจุฬาภรณ์ คณะวิทยาศาสตร์
+                      มหาวิทยาลัยแม่โจ้ แบ่งห้องเรียนออกเป็น 2 รูปแบบได้แก่
+                      ห้องบรรยายคอมพิวเตอร์ และปฏิบัติการคอมพิวเตอร์ <br />
                       โดยมีห้องสำนักงานตั้งอยู่ที่ ชั้น 6 อาหารแม่โจ้ 60 ปี
-                      
                     </p>
                   </div>
                 </div>
               </div>
 
-              <hr />
+              <hr>
 
               <div class="px-6 mt-6">
                 <h3
@@ -75,10 +82,10 @@
                 <div
                   v-for="classroom in lab_array"
                   v-bind:key="classroom.ClassroomId"
-                  class="w-full px-4 lg:w-4/12 "
+                  class="w-full px-2 lg:w-4/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-200"
                   >
                     <img
                       alt="..."
@@ -94,24 +101,30 @@
                       >
                         <polygon
                           points="-30,95 583,95 583,65"
-                          class="fill-current text-emerald-500"
+                          class="fill-current text-blueGray-200"
                         ></polygon>
                       </svg>
-                      <h4 class="text-xl font-bold text-white">
+                      <h4 class="text-xl font-bold text-emerald-600">
                         {{ classroom.Classroom_Name }}
                       </h4>
-                      <p class="mt-2 font-light text-white text-md">
-                        จำนวนที่นั่ง : {{ classroom.Classroom_sit }} <br />
-                        หมายเลขห้อง {{ classroom.Classroom_Number }} <br />
-                        สถานที่ : {{ classroom.Classroom_Detail }}
-                      </p>
+                      <div class="mt-2 font-light text-blueGray-700 text-md">
+                        <p class="mt-1">
+                          จำนวนที่นั่ง : {{ classroom.Classroom_sit }}
+                        </p>
+                        <p class="mt-1">
+                          หมายเลขห้อง {{ classroom.Classroom_Number }}
+                        </p>
+                        <p class="mt-1">
+                          สถานที่ : {{ classroom.Classroom_Detail }}
+                        </p>
+                      </div>
                     </blockquote>
                   </div>
                 </div>
               </div>
 
-              <br />
-              <div class="px-6">
+              <div class="my-6 border-t border-blueGray-200"></div>
+              <div class="px-6 mt-10">
                 <h3
                   class="mt-6 mb-6 text-2xl font-semibold leading-normal text-blueGray-700"
                 >
@@ -123,10 +136,10 @@
                 <div
                   v-for="classroom in lec_array"
                   v-bind:key="classroom.ClassrooomId"
-                  class="w-full px-4 lg:w-3/12 "
+                  class="w-full px-2 lg:w-3/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-200"
                   >
                     <img
                       alt="..."
@@ -142,17 +155,23 @@
                       >
                         <polygon
                           points="-30,95 583,95 583,65"
-                          class="fill-current text-emerald-500"
+                          class="fill-current text-blueGray-200"
                         ></polygon>
                       </svg>
-                      <h4 class="text-xl font-bold text-white">
+                      <h4 class="text-xl font-bold text-emerald-600">
                         {{ classroom.Classroom_Name }}
                       </h4>
-                      <p class="mt-2 font-light text-white text-md">
-                        จำนวนที่นั่ง : {{ classroom.Classroom_sit }} <br />
-                        หมายเลขห้อง {{ classroom.Classroom_Number }} <br />
-                        สถานที่ : {{ classroom.Classroom_Detail }}
-                      </p>
+                      <div class="mt-2 font-light text-blueGray-700 text-md">
+                        <p class="mt-1">
+                          จำนวนที่นั่ง : {{ classroom.Classroom_sit }}
+                        </p>
+                        <p class="mt-1">
+                          หมายเลขห้อง {{ classroom.Classroom_Number }}
+                        </p>
+                        <p class="mt-1">
+                          สถานที่ : {{ classroom.Classroom_Detail }}
+                        </p>
+                      </div>
                     </blockquote>
                   </div>
                 </div>
@@ -192,11 +211,11 @@ export default {
   },
   methods: {
     getRoomData() {
-      http.get(`classroom/ห้องปฏิบัติการ`)
+      http
+        .get(`classroom/ห้องปฏิบัติการ`)
         .then((response) => {
           this.lab_array = response.data;
-           console.log(response.data);
-           
+          console.log(response.data);
         })
         .catch((error) => {
           if (error.response) {
@@ -205,11 +224,11 @@ export default {
             console.log(error.response.headers);
           }
         });
-      http.get(`classroom/ห้องบรรยาย`)
+      http
+        .get(`classroom/ห้องบรรยาย`)
         .then((response) => {
           this.lec_array = response.data;
           console.log(response.data);
-          
         })
         .catch((error) => {
           if (error.response) {
@@ -217,8 +236,8 @@ export default {
             console.log(error.response.status);
             console.log(error.response.headers);
           }
-        });    
-        },
+        });
+    },
   },
   components: {
     Navbar,

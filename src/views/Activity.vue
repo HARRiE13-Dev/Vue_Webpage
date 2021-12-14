@@ -67,7 +67,7 @@
                   class="w-full px-4 lg:w-4/12 "
                 >
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom bg-emerald-500"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom bg-blueGray-200"
                   >
                     <img
                       alt="..."
@@ -81,10 +81,10 @@
                         viewBox="0 0 583 95"
                         class="absolute left-0 block w-full h-95-px -top-94-px"
                       ></svg>
-                      <h4 class="text-xl font-bold text-white">
+                      <h4 class="text-xl font-bold text-emerald-600">
                         {{ act.Activity_Title }}
                       </h4>
-                      <p class="mt-2 font-light text-white text-md">
+                      <p class="mt-2 font-light text-blueGray-500 text-md">
                         {{ act.Activity_Location }}
                       </p>
                     </blockquote>

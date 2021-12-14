@@ -84,6 +84,7 @@
           <li class="flex items-center">
             <router-link to="/auth/login">
               <button
+                @click="onClickLogout"
                 class="px-4 py-2 mb-3 ml-3 text-xs font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none text-blueGray-700 active:bg-blueGray-50 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
                 type="button"
               >
@@ -110,6 +111,10 @@ export default {
     setNavbarOpen: function () {
       this.navbarOpen = !this.navbarOpen;
     },
+    onClickLogout(){
+      localStorage.removeItem("user");
+      this.$router.push({ name: "Login for Student" });
+    }
   },
   components: {
    AboutPage,

@@ -3,7 +3,11 @@
     <div class="container px-0 mx-auto">
       <div class="flex flex-wrap text-center lg:text-left">
         <div class="w-full px-6 lg:w-6/12">
-          <img src="@/assets/img/logo.png" alt="" class="h-20 reletive" />
+          <img
+            src="@/assets/img/logo.png"
+            alt=""
+            class="h-20 center-img lg:left-img"
+          />
 
           <h3 class="mt-4 font-semibold text-md">
             สาขาวิชาวิทยาการคอมพิวเตอร์

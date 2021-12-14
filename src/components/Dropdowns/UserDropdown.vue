@@ -27,19 +27,19 @@
       }"
     >
       <a
-        href="javascript:void(0);"
+        
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         โปรไฟล์
       </a>
       <a
-        href="javascript:void(0);"
+        
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         
       </a>
       <a
-        href="javascript:void(0);"
+        
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         ตั้งค่า
@@ -47,7 +47,7 @@
       <div class="h-0 my-2 border border-solid border-blueGray-100" />
       <a
       @click="onClickLogout"
-        href="javascript:void(0);"
+        
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         ออกจากระบบ
@@ -113,7 +113,7 @@ export default {
     onClickLogout() {
  
      localStorage.removeItem("user");
-      this.$router.push({ name: "Login" });
+      this.$router.push({ name: "Login Admin" });
       
     },
   },

@@ -62,7 +62,7 @@
                   <div class="relative px-12 py-12 ">
                     <img
                       :src="personnel.personnelPhoto"
-                      class="h-auto max-w-full align-middle bg-teal-500 border-none rounded-full shadow-xl"
+                      class="h-auto center-img max-w-full align-middle bg-teal-500 border-none rounded-full shadow-xl"
                     />
                   </div>
 

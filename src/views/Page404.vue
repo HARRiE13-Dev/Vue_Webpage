@@ -1,15 +1,16 @@
 <template>
   <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
     <div
-      class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+      class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg  dark:bg-gray-800"
     >
       <div class="flex flex-col items-center py-10 overflow-y-auto custom md:flex-col">
-        <img class="" src="@/assets/img/404.gif" alt="404 not found" />
-        <p class="text-xl text-gray-700 dark:text-gray-300">
-          อุ๊ปส์...เหมือนเราจะไม่พบหน้าที่คุณต้องการนะ!
+        <img class="h-48" src="@/assets/img/logo.png" alt="404 not found" />
+        <!-- <img class="" src="@/assets/img/404.gif" alt="404 not found" /> -->
+        <p class="text-2xl mt-10 text-blueGray-700 dark:text-gray-300">
+          ไม่พบหน้าที่คุณต้องการ!
           <router-link
             to="/"
-            class="text-red-500 hover:underline dark:text-purple-300"
+            class="text-teal-500"
             href="#"
             >
             กลับหน้าหลัก
