@@ -159,9 +159,9 @@
                     />
                   </div>
                   <h3 class="px-4 mb-2 text-lg font-semibold truncate">
-                    หัวข้อข่าว : {{ news.News_Title }}
+                     {{ news.News_Title }}
                   </h3>
-                  <p class="px-4 pb-4 text-left truncate ">
+                  <p class="px-4 pb-4 text-left :truncate ">
                     {{ news.News_Detail }}
                   </p>
                 </div>

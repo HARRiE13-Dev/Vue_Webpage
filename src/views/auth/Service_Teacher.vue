@@ -48,14 +48,14 @@
                     <div class="relative">
                       <img
                         alt="..."
-                        :src="team2"
-                        class="absolute h-auto -m-16 -ml-20 align-middle border-none rounded-full shadow-xl lg:-ml-16 max-w-200-px"
+                        :src="this.image"
+                        class="absolute h-auto -m-16 -ml-20 align-middle border-none rounded-full shadow-xl lg:-ml-16 max-w-200-px bg-emerald-500"
                       />
                     </div>
                   </div>
 
                   <div
-                    class="w-full px-4 lg:w-3/12 lg:order-3 lg:text-right lg:self-center"
+                    class="w-full px-4 lg:w-2/12 lg:order-3 lg:text-right lg:self-center"
                   >
                     <div class="px-3 py-6 mt-32 sm:mt-0">
                       <button
@@ -71,14 +71,19 @@
                     <div class="flex justify-center py-4 pt-8 lg:pt-4">
                       <div class="p-3 mr-4 text-center">
                         <h3
-                          class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
+                          class=" text-3xl font-semibold leading-normal text-blueGray-700"
                         >
-                          {Firstname} {Lastname}
+                         {{this.introduction}} {{ this.firstname }} {{ this.lastname }}
                         </h3>
+                        <h4
+                          class="mb-2 text-2xl font-normal leading-normal text-blueGray-700"
+                        >
+                         {{this.titleEn}} {{ this.firstnameEn }} {{ this.lastnameEn }}
+                        </h4>
                         <p
                           class="mb-2 text-xl font-semibold leading-normal text-blueGray-700"
                         >
-                          ตำแหน่ง : {Position}
+                          ตำแหน่ง : {{ this.position }}
                         </p>
                       </div>
                     </div>
@@ -99,7 +104,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                      <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบจองห้องเรียน
                       </router-link>
                     </li>
@@ -108,7 +113,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 2
                       </router-link>
                     </li>
@@ -117,7 +122,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 3
                       </router-link>
                     </li>
@@ -126,7 +131,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 4
                       </router-link>
                     </li>
@@ -135,16 +140,10 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 5
                       </router-link>
                     </li>
-
-             
-
-                    
-           
-                   
                   </ul>
                 </div>
               </div>
@@ -152,9 +151,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-8/12"
             >
-              <div class="px-6">
-             
-              </div>
+              <div class="px-6"></div>
             </div>
           </div>
         </div>
@@ -163,15 +160,78 @@
   </div>
 </template>
 <script>
-import team2 from "@/assets/img/no-img.png";
+import http from "@/services/APIService";
 
 export default {
   data() {
     return {
-      team2,
+      //team2,
+      personnel_array: [],
+
+      introduction: "",
+      firstname: "",
+      lastname: "",
+
+      titleEn: "",
+      firstnameEn: "",
+      lastnameEn: "",
+
+      position: "",
+      image: "",
+
+
     };
   },
-  method: {},
-  mounted() {},
+  mounted() {
+    this.getPersonnelData();
+  },
+
+  methods: {
+    getPersonnelData() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let userData = local_user.user;
+      let idUserData = userData.id;
+      idUserData = idUserData - 1;
+      http
+        .get(`personnelid/${idUserData}`)
+        .then((response) => {
+          this.personnel_array = response.data;
+          //Get data from API
+          this.introduction = this.personnel_array.titlePosition;
+          this.firstname = this.personnel_array.firstName;
+          this.lastname = this.personnel_array.lastName;
+
+
+          this.titleEn = this.personnel_array.titleNameEn;
+          this.firstnameEn = this.personnel_array.fistNameEn;
+          this.lastnameEn = this.personnel_array.lastNameEn;
+
+          this.position = this.personnel_array.adminPosition;
+          this.image = this.personnel_array.personnelPhoto;
+          
+
+          console.log(this.personnel_array.citizenId);
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
+    },
+  },
+  components: {},
 };
 </script>

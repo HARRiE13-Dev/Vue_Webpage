@@ -67,7 +67,7 @@
                   class="w-full px-2 lg:w-4/12 "
                 >
                   <div
-                    class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom bg-blueGray-100"
+                    class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-100"
                   >
                     <img
                       alt="..."
@@ -155,6 +155,7 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
       this.products.data.reverse();
+     
     },
 
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า

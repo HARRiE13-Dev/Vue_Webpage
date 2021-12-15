@@ -7,7 +7,7 @@
         >
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">
-              <h4 class="font-bold text-blueGray-500">
+              <h4 class="font-bold text-xl text-blueGray-500">
                 เข้าสู่ระบบสำหรับนักศึกษา
               </h4>
             </div>
@@ -18,7 +18,7 @@
             <form @submit.prevent="onSubmit">
               <div class="relative w-full mb-3">
                 <label
-                  class="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                  class="block mb-2 text-sm font-bold uppercase text-blueGray-600"
                   htmlFor="grid-password"
                 >
                   Username
@@ -27,7 +27,7 @@
                   v-model="username"
                   type="username"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="mju650xxx"
+                  placeholder="รหัสนักศึกษา เช่น 6104101301"
                 />
               </div>
               <div
@@ -39,7 +39,7 @@
 
               <div class="relative w-full mb-3">
                 <label
-                  class="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                  class="block mb-2 text-sm font-bold uppercase text-blueGray-600"
                   htmlFor="grid-password"
                 >
                   Password
@@ -48,7 +48,7 @@
                   v-model="password"
                   type="password"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="mju@ddmmyyyy"
+                  placeholder="วันที่เกิด เช่น 12081998"
                 />
                 <button @click="submit" type="submit" class="hidden">
                   Submit
@@ -106,11 +106,13 @@ export default {
   methods: {
     submit() {
       this.v$.$validate();
+
       if (!this.v$.$error) {
+        
         http
           .post("login/mju/ad", {
-            username: this.username,
-            password: this.password,
+            username: "mju"+this.username,
+            password: "mju@"+this.password,
           })
           .then((response) => {
             if (response.data.status == "success") {
@@ -188,7 +190,7 @@ export default {
         required: helpers.withMessage("ป้อนรหัสผ่านก่อน", required),
         minLength: helpers.withMessage(
           ({ $params }) => `รหัสผ่านต้องไม่น้อยกว่า ${$params.min} ตัวอักษร`,
-          minLength(5)
+          minLength(6)
         ),
       },
       username: {
@@ -196,7 +198,7 @@ export default {
         minLength: helpers.withMessage(
           ({ $params }) =>
             `ชื่อผู้ใช้ต้องไม่น้อยกว่า ${$params.min} ตัวอักษรและตัวเลข`,
-          minLength(13)
+          minLength(10)
         ),
       },
     };

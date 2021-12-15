@@ -73,13 +73,21 @@
                         <h3
                           class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
                         >
-                          {Firstname} {Lastname}
+                          {{this.local_name}} {{this.local_surname}}
                         </h3>
                         <p
                           class="mb-2 text-xl font-semibold leading-normal text-blueGray-700"
                         >
-                          ตำแหน่ง : {Position}
+                          เบอร์โทร : {{this.local_mobile}} 
+                      
                         </p>
+                        <p
+                          class="mb-2 text-xl font-semibold leading-normal text-blueGray-700"
+                        >
+                          E-mail : {{this.local_email}} 
+                      
+                        </p>
+                     
                       </div>
                     </div>
                   </div>
@@ -99,7 +107,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                      <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบจองห้องเรียน
                       </router-link>
                     </li>
@@ -108,7 +116,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 2
                       </router-link>
                     </li>
@@ -117,7 +125,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 3
                       </router-link>
                     </li>
@@ -126,7 +134,7 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 4
                       </router-link>
                     </li>
@@ -135,16 +143,10 @@
                         to="/"
                         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
                       >
-                       <i class="mr-2 far fa-circle fa-sm"></i>
+                        <i class="mr-2 far fa-circle fa-sm"></i>
                         ระบบสารสนเทศ 5
                       </router-link>
                     </li>
-
-             
-
-                    
-           
-                   
                   </ul>
                 </div>
               </div>
@@ -152,9 +154,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-8/12"
             >
-              <div class="px-6">
-             
-              </div>
+              <div class="px-6"></div>
             </div>
           </div>
         </div>
@@ -169,9 +169,28 @@ export default {
   data() {
     return {
       team2,
+      local_user: [],
+      local_name:"",
+      local_surname:"",
+      local_card_id:"",
+      local_email:"",
+      local_mobile:"",
+      
     };
   },
   method: {},
-  mounted() {},
+  mounted() {
+    this.local_user = JSON.parse(window.localStorage.getItem("user"));
+   // console.log(this.local_user);
+   //-------------Save Profiling---------------
+   
+    this.local_name = this.local_user.name
+    this.local_surname = this.local_user.surname
+    this.local_card_id = this.local_user.card_id
+    this.local_email = this.local_user.email
+    this.local_mobile = this.local_user.mobile
+   // console.log(this.local_name);
+
+  },
 };
 </script>
