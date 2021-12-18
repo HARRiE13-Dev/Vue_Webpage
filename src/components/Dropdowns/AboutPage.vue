@@ -1,12 +1,7 @@
 <template>
   <div>
-    <a
-      
-      href="#pablo"
-      ref="btnDropdownRef"
-      v-on:click="toggleDropdown($event)"
-    >
-       เกี่ยวกับ
+    <a href="#pablo" ref="btnDropdownRef" v-on:click="toggleDropdown($event)">
+      เกี่ยวกับ
     </a>
     <div
       ref="popoverDropdownRef"
@@ -19,15 +14,15 @@
       <span
         class="block w-full px-4 pt-2 pb-0 text-sm font-bold bg-transparent whitespace-nowrap text-blueGray-400"
       >
-         รู้จักกับเรา
+        รู้จักกับเรา
       </span>
       <router-link
         to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
-          ประวัติความเป็นมา
+        ประวัติความเป็นมา
       </router-link>
-        <router-link
+      <router-link
         to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
@@ -39,18 +34,24 @@
       >
         วิสัยทัศน์
       </router-link>
-      <router-link
-        to="/classroom"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-      >
-        อาคาร/ห้องเรียน
-      </router-link>
-      
       <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
       <span
         class="block w-full px-4 pt-2 pb-0 text-sm font-bold bg-transparent whitespace-nowrap text-blueGray-400"
       >
-       บุคคลากร
+        อาคารเรียน
+      </span>
+      <router-link
+        to="/classroom"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+      >
+        อาคาร/ห้องเรียน
+      </router-link>
+
+      <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
+      <span
+        class="block w-full px-4 pt-2 pb-0 text-sm font-bold bg-transparent whitespace-nowrap text-blueGray-400"
+      >
+        บุคคลากร
       </span>
       <router-link
         to="/teacher"
@@ -74,15 +75,14 @@
         to="/activity"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
-         กิจกรรม
+        กิจกรรม
       </router-link>
-       <router-link
+      <router-link
         to="/schedule"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
         ปฏิทิน
       </router-link>
-     
     </div>
   </div>
 </template>
@@ -96,7 +96,7 @@ export default {
     };
   },
   methods: {
-    toggleDropdown: function (event) {
+    toggleDropdown: function(event) {
       event.preventDefault();
       if (this.dropdownPopoverShow) {
         this.dropdownPopoverShow = false;

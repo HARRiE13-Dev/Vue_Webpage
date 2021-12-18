@@ -50,8 +50,8 @@ import AlumnusEdit from "@/views/admin/AlumnusEdit.vue";
 // views for Auth layout
 
 import Login_Admin from "@/views/auth/Login_Admin.vue";
-import Login from "@/views/auth/Login.vue";
-import Login_Student from "@/views/auth/Login_Student.vue";
+
+import Login_User from "@/views/auth/Login_User.vue";
 import Service_Student from "@/views/auth/Service_Student.vue";
 import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 
@@ -177,15 +177,11 @@ const routes = [
     redirect: "/auth/login",
     component: Auth,
     children: [
+    
       {
         path: "/auth/login",
         name: 'Login',
-        component: Login,
-      },
-      {
-        path: "/auth/login_student",
-        name: 'Login for Student',
-        component: Login_Student,
+        component: Login_User,
       },
       {
         path: "/auth/admin",

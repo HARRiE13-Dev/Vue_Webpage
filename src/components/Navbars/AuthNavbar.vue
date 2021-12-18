@@ -12,7 +12,7 @@
           class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed text-white uppercase whitespace-nowrap"
           to="/"
         >
-           Computer Science | MJU
+          Computer Science | MJU
         </router-link>
         <button
           class="block px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
@@ -27,9 +27,8 @@
         :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']"
         id="example-navbar-warning"
       >
-        
         <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
-         <li class="flex items-center">
+          <li class="flex items-center">
             <router-link
               to="/"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
@@ -39,18 +38,19 @@
           </li>
 
             <li class="flex items-center">
-            <about-page  class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"/>
+            <about-page
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
+            />
           </li>
 
-              <li class="flex items-center">
+           <li class="flex items-center">
             <router-link
               to="/news"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
-                ข่าวสาร
+              ข่าวสาร
             </router-link>
           </li>
-
 
           <li class="flex items-center">
             <router-link
@@ -61,10 +61,6 @@
             </router-link>
           </li>
 
-        
-
-      
-
           <li class="flex items-center">
             <router-link
               to="/alumnus"
@@ -73,22 +69,17 @@
               ศิษย์เก่า
             </router-link>
           </li>
-          
-          <li class="flex items-center">
-            <router-link
-              to="/document"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
-            >
-              แบบฟอร์มเอกสาร
-            </router-link>
-          </li>
 
-           <li class="flex items-center">
+          
+
+        
+
+          <li class="flex items-center">
             <router-link
               to="/contact"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
-               ติดต่อเรา
+              ติดต่อเรา
             </router-link>
           </li>
 
@@ -101,8 +92,7 @@
                 เข้าสู่ระบบ
               </button>
             </router-link>
-          </li>       
-          
+          </li>
         </ul>
       </div>
     </div>
@@ -114,16 +104,16 @@ export default {
   data() {
     return {
       navbarOpen: false,
-       dropdownPopoverShow: false,
+      dropdownPopoverShow: false,
     };
   },
   methods: {
-    setNavbarOpen: function () {
+    setNavbarOpen: function() {
       this.navbarOpen = !this.navbarOpen;
     },
   },
   components: {
-   AboutPage,
+    AboutPage,
   },
 };
 </script>

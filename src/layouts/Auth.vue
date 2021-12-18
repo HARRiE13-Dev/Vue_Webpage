@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import Navbar from "@/components/Navbars/Navbar.vue";
+import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import Foot from "@/components/Footers/Foot.vue";
 
 //import backgroundLogin from "@/assets/img/bg-1.png";

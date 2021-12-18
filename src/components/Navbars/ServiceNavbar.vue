@@ -113,7 +113,7 @@ export default {
     },
     onClickLogout(){
       localStorage.removeItem("user");
-      this.$router.push({ name: "Login for Student" });
+      this.$router.push({ name: "Login" });
     }
   },
   components: {

@@ -159,7 +159,7 @@
                     />
                   </div>
                   <h3 class="px-4 mb-2 text-lg font-semibold truncate">
-                     {{ news.News_Title }}
+                    {{ news.News_Title }}
                   </h3>
                   <p class="px-4 pb-4 text-left :truncate ">
                     {{ news.News_Detail }}
@@ -172,72 +172,8 @@
           <h1 class="px-6 pt-20 mt-12 mb-4 text-3xl">
             <b>Curriculum </b> | หลักสูตร
           </h1>
-
-          <div class="flex flex-wrap mt-12 mb-12">
-            <div class="w-full px-4 text-center md:w-3/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
-              >
-                <div class="flex-auto p-1 ">
-                  <h3
-                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom"
-                  >
-                    4
-                  </h3>
-                  <div class="text-2xl">
-                    องค์ความรู้แห่งศาสตร์วิทยาการคอมพิวเตอร์
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-4 text-center md:w-3/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
-              >
-                <div class="flex-auto p-1 ">
-                  <h3
-                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom"
-                  >
-                    8
-                  </h3>
-                  <div class="px-4 text-2xl text-left">
-                    โมดูลการเรียนรู้เชิงแนวคิดและปฎิบัติ
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-4 text-center md:w-3/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
-              >
-                <div class="flex-auto p-1 ">
-                  <h3
-                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom "
-                  >
-                    10+
-                  </h3>
-                  <div class="text-2xl ">
-                    บุคคลากรที่มีความเชี่ยวชาญในศาสตร์ต่าง ๆ
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-4 text-center md:w-3/12">
-              <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words "
-              >
-                <div class="flex-auto p-1 ">
-                  <h3
-                    class="font-bold text-orange-500 duration-150 ease-linear text-55 hover:zoom "
-                  >
-                    2,000+
-                  </h3>
-                  <div class="text-2xl ">
-                    นักศึกษาที่สำเร็จการศึกษาแล้วทั้งสิ้น
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="mt-12 mb-12">
+            <card-home-edu />
           </div>
 
           <h1 class="px-6 pt-20 mt-12 mb-4 text-3xl" id="section2">
@@ -250,7 +186,9 @@
                 class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
               >
                 <div class="flex-auto px-0">
-                  <div class="relative w-full max-w-full overflow-hidden pb-72">
+                  <div
+                    class="relative h-500-px w-full max-w-full overflow-hidden pb-72"
+                  >
                     <iframe
                       class="absolute top-0 left-0 w-full h-full rounded-b"
                       src="https://www.youtube.com/embed/88JeU0ShY60"
@@ -273,7 +211,9 @@
 
 <script>
 import MainNavbar from "@/components/Navbars/MainNavbar.vue";
-import MainFooter from "@/components/Footers/MainFooter.vue";
+import MainFooter from "@/components/Footers/HomeFooter.vue";
+import CardHomeEdu from "@/components/Cards/CardHomeEdu.vue";
+
 import http from "@/services/APIService";
 
 import { defineComponent } from "vue";
@@ -293,6 +233,7 @@ export default defineComponent({
   components: {
     MainNavbar,
     MainFooter,
+    CardHomeEdu,
 
     Carousel,
     Slide,
