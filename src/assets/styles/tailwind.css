@@ -2256,6 +2256,10 @@ select {
 .text-55 {
   font-size: 5rem;
 }
+.text-shadow{
+  text-shadow: 1px 1px 0px rgba(0,0,0, 0.4);
+}
+
 
 .text-xs {
   font-size: 0.75rem;
@@ -2535,6 +2539,10 @@ select {
   margin-left: -1rem;
 }
 
+
+.-mt-5 {
+  margin-top: -1rem;
+}
 .-mt-20 {
   margin-top: -5rem;
 }
@@ -2560,6 +2568,9 @@ select {
 
 .-mt-64 {
   margin-top: -15.5rem;
+}
+.-mt-70 {
+  margin-top: -16.5rem;
 }
 .-mt-72 {
   margin-top: -20rem;
@@ -3512,10 +3523,7 @@ select {
   --tw-text-opacity: 1;
   color: rgba(30, 41, 59, var(--tw-text-opacity));
 }
-.hover\:text-blueGray-800:hover {
-  --tw-text-opacity: 1;
-  color: rgba(30, 41, 59, var(--tw-text-opacity));
-}
+
 
 .truncate {
   overflow: hidden;

@@ -209,8 +209,6 @@ export default {
           this.position = this.personnel_array.adminPosition;
           this.image = this.personnel_array.personnelPhoto;
           
-
-          console.log(this.personnel_array.citizenId);
         })
         .catch((error) => {
           if (error.response) {

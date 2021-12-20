@@ -69,7 +69,9 @@
                   <h3
                     class="mb-0 text-lg font-semibold leading-normal text-blueGray-700 "
                   >
-                    {{ personnel.titlePosition }} {{ personnel.firstName }} <br> {{ personnel.lastName }}
+                    {{ personnel.titlePosition }} {{ personnel.firstName }}
+                    <br />
+                    {{ personnel.lastName }}
                   </h3>
                   <div class="mb-4 text-sm font-semibold text-blueGray-500">
                     {{ personnel.fistNameEn }} {{ personnel.lastNameEn }}
@@ -77,36 +79,32 @@
 
                   <div class="mt-3 mb-0 text-blueGray-400">
                     <div class="mb-2">
-                      <i
-                        class="mr-2 text-lg fas fa-briefcase "
-                      ></i>
+                      <i class="mr-2 text-lg fas fa-briefcase "></i>
                       ตำแหน่งการบริหาร
-                      <p class="text-blueGray-700">{{ personnel.adminPosition }}</p>
+                      <p class="text-blueGray-700">
+                        {{ personnel.adminPosition }}
+                      </p>
                     </div>
 
                     <div class="mb-2">
-                      <i
-                        class="mr-2 text-lg fas fa-university "
-                      ></i>
+                      <i class="mr-2 text-lg fas fa-university "></i>
                       การศึกษา
-                      <p class="text-blueGray-700">{{ personnel.education }} {{ personnel.major }}</p>
-                      <p class="text-blueGray-700">{{ personnel.university }}</p>
-                      
-                    
+                      <p class="text-blueGray-700">
+                        {{ personnel.education }} {{ personnel.major }}
+                      </p>
+                      <p class="text-blueGray-700">
+                        {{ personnel.university }}
+                      </p>
                     </div>
 
                     <div class="mb-2">
-                      <i
-                        class="mr-2 text-lg fas fa-phone-alt "
-                      ></i>
+                      <i class="mr-2 text-lg fas fa-phone-alt "></i>
                       การติดต่อ
-                      <p class="text-blueGray-700">{{ personnel.phoneNumber }}</p>
+                      <p class="text-blueGray-700">
+                        {{ personnel.phoneNumber }}
+                      </p>
                       <p class="text-blueGray-700">{{ personnel.e_mail }}</p>
-                      
                     </div>
-
-                
-                    
                   </div>
                 </div>
               </div>
