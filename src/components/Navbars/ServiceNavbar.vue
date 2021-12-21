@@ -12,10 +12,17 @@
           class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed text-white uppercase whitespace-nowrap"
           to="/"
         >
-           CSMJU | Management Information Systems
+        <div class="flex">
+          <div class="w-auto text-xl">
+            CSMJU 
+          </div>
+          <div class="invisible w-auto mt-1 ml-3 whitespace-normal lg:visible">
+           | Management Information Systems
+          </div>
+          </div> 
         </router-link>
         <button
-          class="block px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
+          class="block h-10 px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
           type="button"
           v-on:click="setNavbarOpen"
         >

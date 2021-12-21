@@ -127,7 +127,7 @@
                       <a href="https://line.me/R/ti/p/%40053vfccm">CSMJU </a>
                     </h3>
                   </div>
-                  <div class="w-full  px-6 mb-4 text-left lg:-mt-48 lg:w-6/12">
+                  <div class="w-full px-6 mb-4 text-left lg:-mt-48 lg:w-6/12">
                     <h3
                       class="mb-6 text-2xl font-normal leading-normal text-center text-blueGray-700"
                     >
@@ -200,14 +200,14 @@
                     <div class="pt-10 mb-3 text-center ">
                       <button
                         @click.prevent="commit"
-                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-lg focus:outline-none"
+                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
                         ล้าง
                       </button>
                       <button
                         @click.prevent="commit"
-                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow outline-none active:bg-teal-600 hover:shadow-lg focus:outline-none"
+                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
                         ยืนยัน
@@ -218,10 +218,10 @@
 
                 <div class="flex flex-wrap mt-10">
                   <div
-                    class="w-full px-4 border-t border-blueGray-200 mb-0 text-left lg:w-12/12"
+                    class="w-full px-4 mb-0 text-left border-t border-blueGray-200 lg:w-12/12"
                   >
                     <h3
-                      class="mb-6 mt-2 text-2xl font-normal leading-normal text-left text-blueGray-700"
+                      class="mt-2 mb-6 text-2xl font-normal leading-normal text-left text-blueGray-700"
                     >
                       ดาวน์โหลดแบบฟอร์มเอกสารราชการ
                     </h3>
@@ -229,7 +229,7 @@
                   <div class="flex flex-wrap mt-4">
                     <div class="w-full px-2 lg:w-2/12 ">
                       <div
-                        class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-100"
+                        class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
                         <img
                           alt="..."
@@ -255,10 +255,10 @@
                           </h4>
 
                           <div
-                            class="text-center mt-2 border-t border-blueGray-200"
+                            class="mt-2 text-center border-t border-blueGray-200"
                           >
                             <button
-                              class="bg-emerald-500 mt-2  text-white active:bg-emerald-600 font-semibold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                               type="button"
                             >
                               ดาวน์โหลด
@@ -269,7 +269,7 @@
                     </div>
                     <div class="w-full px-2 lg:w-2/12 ">
                       <div
-                        class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-100"
+                        class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
                         <img
                           alt="..."
@@ -295,10 +295,10 @@
                           </h4>
 
                           <div
-                            class="text-center mt-2 border-t border-blueGray-200"
+                            class="mt-2 text-center border-t border-blueGray-200"
                           >
                             <button
-                              class="bg-emerald-500 mt-2  text-white active:bg-emerald-600 font-semibold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                               type="button"
                             >
                               ดาวน์โหลด
@@ -309,7 +309,7 @@
                     </div>
                     <div class="w-full px-2 lg:w-2/12 ">
                       <div
-                        class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-100"
+                        class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
                         <img
                           alt="..."
@@ -335,10 +335,10 @@
                           </h4>
 
                           <div
-                            class="text-center mt-2 border-t border-blueGray-200"
+                            class="mt-2 text-center border-t border-blueGray-200"
                           >
                             <button
-                              class="bg-emerald-500 mt-2  text-white active:bg-emerald-600 font-semibold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                               type="button"
                             >
                               ดาวน์โหลด
@@ -349,7 +349,7 @@
                     </div>
                     <div class="w-full px-2 lg:w-2/12 ">
                       <div
-                        class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-100"
+                        class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
                         <img
                           alt="..."
@@ -375,10 +375,10 @@
                           </h4>
 
                           <div
-                            class="text-center mt-2 border-t border-blueGray-200"
+                            class="mt-2 text-center border-t border-blueGray-200"
                           >
                             <button
-                              class="bg-emerald-500 mt-2  text-white active:bg-emerald-600 font-semibold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                               type="button"
                             >
                               ดาวน์โหลด
@@ -389,7 +389,7 @@
                     </div>
                     <div class="w-full px-2 lg:w-2/12 ">
                       <div
-                        class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-100"
+                        class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
                         <img
                           alt="..."
@@ -415,10 +415,10 @@
                           </h4>
 
                           <div
-                            class="text-center mt-2 border-t border-blueGray-200"
+                            class="mt-2 text-center border-t border-blueGray-200"
                           >
                             <button
-                              class="bg-emerald-500 mt-2  text-white active:bg-emerald-600 font-semibold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                               type="button"
                             >
                               ดาวน์โหลด

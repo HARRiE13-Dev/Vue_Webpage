@@ -56,19 +56,19 @@
 
               <div class="block w-full mb-4 overflow-x-auto">
                 <div
-                  class="pt-6  mt-10 text-center border-t border-blueGray-200"
+                  class="pt-6 mt-10 text-center border-t border-blueGray-200"
                 ></div>
               </div>
 
               <div class="flex flex-wrap">
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           1.
                         </h5>
@@ -76,11 +76,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           Fundamentals Computer Science
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาความรู้พื้นฐานทางวิทยาการคอมพิวเตอร์
                         </p>
                       </div>
@@ -92,45 +92,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -139,14 +139,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           2.
                         </h5>
@@ -154,11 +154,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           System Analysis
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาแนวคิดการวิเคราะห์และออกแบบ
                         </p>
                       </div>
@@ -170,45 +170,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -217,14 +217,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           3.
                         </h5>
@@ -232,11 +232,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           Application Development
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาการพัฒนาระบบแอปพลิเคชัน
                         </p>
                       </div>
@@ -248,45 +248,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -295,14 +295,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           4.
                         </h5>
@@ -310,11 +310,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           Network System
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาระบบเครือข่าย 
                         </p>
                       </div>
@@ -326,45 +326,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -373,14 +373,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           5.
                         </h5>
@@ -388,11 +388,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           Data Science
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาวิทยาการข้อมูล
                         </p>
                       </div>
@@ -404,45 +404,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -451,14 +451,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           6.
                         </h5>
@@ -466,11 +466,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           Internet of Things
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาอินเตอร์เน็ตในทุกสิ่ง
                         </p>
                       </div>
@@ -482,45 +482,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -529,14 +529,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           7.
                         </h5>
@@ -544,11 +544,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           Artificial Intelligence 
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาปัญญาประดิษฐ์ 
                         </p>
                       </div>
@@ -560,45 +560,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -607,14 +607,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           8.
                         </h5>
@@ -622,11 +622,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                          Computer Science for Business
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาการประยุกต์งานด้านธุรกิจ
                         </p>
                       </div>
@@ -638,45 +638,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>
@@ -685,14 +685,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full lg:w-12/12 px-2">
+                <div class="w-full px-2 lg:w-12/12">
                   <div
-                    class="relative px-4 pt-6 max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
                         <h5
-                          class="-mt-5 text-55 font-bold text-blueGray-700 text-shadow"
+                          class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                         >
                           9.
                         </h5>
@@ -700,11 +700,11 @@
                       <div
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
-                        <h5 class=" text-3xl font-semibold leading-normal ">
+                        <h5 class="text-3xl font-semibold leading-normal ">
                           Special Topics
                         </h5>
 
-                        <p class=" text-xl font-semibold leading-normal ">
+                        <p class="text-xl font-semibold leading-normal ">
                           กลุ่มวิชาหัวข้อพิเศษ
                         </p>
                       </div>
@@ -716,45 +716,45 @@
                         class="w-full px-2 lg:w-4/12 "
                       >
                         <div
-                          class=" flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom-xs "
+                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
-                            class="py-4 px-2 hover:text-blueGray-800 text-white"
+                            class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="text-md font-semibold leading-normal top-auto bottom-auto "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="-mt-70 :-mt-5 -ml-20 absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-400 contentshow opacity-90"
+                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
-                              class="bg-blueGray-100 rounded-lg py-2 text-emerald-600"
+                              class="py-2 rounded-lg bg-blueGray-100 text-emerald-600"
                             >
                               <p
-                                class="font-bold mb-1 text-xl  text-shadow text-center"
+                                class="mb-1 text-xl font-bold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameTh }}
                               </p>
                               <p
-                                class="font-semibold   text-lg   text-shadow text-center"
+                                class="text-lg font-semibold text-center text-shadow"
                               >
                                 {{ subject.Subject_NameEn }}
                               </p>
                             </div>
                             <div
-                              class="border-b border-blueGray-100 text-shadow my-2"
+                              class="my-2 border-b border-blueGray-100 text-shadow"
                             ></div>
 
-                            <h4 class="text-md font-bold text-left ">
+                            <h4 class="font-bold text-left text-md ">
                               รหัสวิชา : {{ subject.Subject_Code }}
                               {{ subject.Subject_Credit }}
                             </h4>
-                            <h4 class="text-md font-bold text-left  ">
+                            <h4 class="font-bold text-left text-md ">
                               หน่วยกิต : {{ subject.Subject_Credit }}
                             </h4>
                           </div>

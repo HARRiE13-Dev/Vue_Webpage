@@ -2305,6 +2305,10 @@ select {
   font-size: 3rem;
   line-height: 1;
 }
+.text-6xl {
+  font-size: 3.2rem;
+  line-height: 1;
+}
 
 .leading-none {
   line-height: 1;
@@ -4403,6 +4407,9 @@ select {
 
   .lg\:w-9\/12 {
     width: 75%;
+  }
+  .lg\:visible {
+    visibility: visible;
   }
 }
 

@@ -67,7 +67,7 @@
                   class="w-full px-2 lg:w-4/12 "
                 >
                   <div
-                    class="relative max-h-news flex border flex-col border-blueGray-300 w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                   >
                     <img
                       alt="..."
@@ -91,15 +91,15 @@
                       <h4 class="text-xl font-bold ">
                         {{ news.News_Title }}
                       </h4>
-                      <p class="mt-2 font-light  text-md truncate">
+                      <p class="mt-2 font-light truncate text-md">
                         {{ news.News_Detail }}
                       </p>
-                      <div class="text-center mt-2 border-t border-blueGray-200">
+                      <div class="mt-2 text-center border-t border-blueGray-200">
                            <button
-                        class="bg-emerald-500 mt-2  text-white active:bg-emerald-600 font-semibold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                         type="button"
                       >
-                        อ่านต่อ...
+                        อ่านต่อ
                       </button>
                       </div>
                     </div>

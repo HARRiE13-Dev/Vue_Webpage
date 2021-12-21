@@ -4,7 +4,7 @@
 
     <main>
       <section class="relative w-full h-full min-h-screen py-40">
-         
+        
         <div
           class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
           :style="`background-image: url('${backgroundLogin}');`"
