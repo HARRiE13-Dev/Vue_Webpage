@@ -1,20 +1,20 @@
 <template>
   <div
-    class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-700"
+    class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded shadow-lg bg-blueGray-700"
   >
-    <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+    <div class="px-4 py-3 mb-0 bg-transparent rounded-t">
       <div class="flex flex-wrap items-center">
-        <div class="relative w-full max-w-full flex-grow flex-1">
-          <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
-            Overview
+        <div class="relative flex-1 flex-grow w-full max-w-full">
+          <h6 class="mb-1 text-xs font-semibold uppercase text-blueGray-100">
+            ภาพรวม
           </h6>
-          <h2 class="text-white text-xl font-semibold">
-            Sales value
+          <h2 class="text-xl font-semibold text-white">
+            การใช้งาน API ต่อ ยอดผู้ใช้ในระบบ
           </h2>
         </div>
       </div>
     </div>
-    <div class="p-4 flex-auto">
+    <div class="flex-auto p-4">
       <!-- Chart -->
       <div class="relative h-350-px">
         <canvas id="line-chart"></canvas>
@@ -26,34 +26,36 @@
 import Chart from "chart.js";
 
 export default {
-  mounted: function () {
-    this.$nextTick(function () {
+  mounted: function() {
+    this.$nextTick(function() {
       var config = {
         type: "line",
         data: {
           labels: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
+            "วันอาทิตย์",
+            "วันจันทร์",
+            "วันอังคาร",
+            "วันพุธ",
+            "วันพฤหัสบดี",
+            "วันศุกร์",
+            "วันเสาร์"
+            
+           
           ],
           datasets: [
             {
-              label: new Date().getFullYear(),
+              label: "บัญชีผู้ใช้งาน",
               backgroundColor: "#4c51bf",
               borderColor: "#4c51bf",
-              data: [65, 78, 66, 44, 56, 67, 75],
+              data: [65, 78, 66, 44, 24, 12, 40],
               fill: false,
             },
             {
-              label: new Date().getFullYear() - 1,
+              label: "การใช้งาน API",
               fill: false,
               backgroundColor: "#fff",
               borderColor: "#fff",
-              data: [40, 68, 86, 74, 56, 60, 87],
+              data: [40, 68, 86, 74,56,34,12],
             },
           ],
         },
@@ -120,7 +122,7 @@ export default {
                   drawBorder: false,
                   color: "rgba(255, 255, 255, 0.15)",
                   zeroLineColor: "rgba(33, 37, 41, 0)",
-                  zeroLineBorderDash: [2],
+                  zeroLineBorderDash: [],
                   zeroLineBorderDashOffset: [2],
                 },
               },

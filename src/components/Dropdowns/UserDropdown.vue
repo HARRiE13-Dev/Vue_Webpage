@@ -1,5 +1,15 @@
 <template>
-  <div>
+  <div class="flex">
+    <div class="flex">
+      <div class="p-2 mx-4 rounded-full shadow-lg bg-blueGray-100">
+        <h4 class="px-4 font-semibold leading-normal text-md text-blueGray-500">
+          ผู้ดูแลระบบ |
+          <span class="text-lg text-blueGray-700">
+            {{ this.introduction }} {{ this.firstname }} {{ this.lastname }}
+          </span>
+        </h4>
+      </div>
+    </div>
     <a
       class="block text-blueGray-500"
       href="#pablo"
@@ -13,11 +23,12 @@
           <img
             alt="..."
             class="w-full align-middle border-none rounded-full shadow-lg"
-            src="@/assets/img/logo.png"
+            :src="image"
           />
         </span>
       </div>
     </a>
+    
     <div
       ref="popoverDropdownRef"
       class="z-50 float-left py-2 text-base text-left list-none bg-white rounded shadow-lg min-w-48"
@@ -26,28 +37,9 @@
         block: dropdownPopoverShow,
       }"
     >
-      <a
-        
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-      >
-        โปรไฟล์
-      </a>
-      <a
-        
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-      >
-        
-      </a>
-      <a
-        
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-      >
-        ตั้งค่า
-      </a>
       <div class="h-0 my-2 border border-solid border-blueGray-100" />
       <a
-      @click="onClickLogout"
-        
+        @click="onClickLogout"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         ออกจากระบบ
@@ -58,14 +50,19 @@
 
 <script>
 import { createPopper } from "@popperjs/core";
-import image from "@/assets/img/team-1-800x800.jpg";
-import http from '@/services/AuthService';
+//import image from "@/assets/img/team-1-800x800.jpg";
+import http from "@/services/AuthService";
 
 export default {
   data() {
     return {
       dropdownPopoverShow: false,
-      image: image,
+
+      personnel_array: [],
+      image: "",
+      introduction: "",
+      firstname: "",
+      lastname: "",
     };
   },
   mounted() {
@@ -73,10 +70,28 @@ export default {
   },
   methods: {
     getPersonnelData() {
-     http.get(`personnel/teacher`)
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let userData = local_user.user;
+      let idUserData = userData.id;
+      idUserData = idUserData - 1;
+      http
+        .get(`personnelid/${idUserData}`)
         .then((response) => {
           this.personnel_array = response.data;
+          //Get data from API
+          this.introduction = this.personnel_array.titlePosition;
+          this.firstname = this.personnel_array.firstName;
+          this.lastname = this.personnel_array.lastName;
 
+          // this.titleEn = this.personnel_array.titleNameEn;
+          // this.firstnameEn = this.personnel_array.fistNameEn;
+          // this.lastnameEn = this.personnel_array.lastNameEn;
+
+          // this.email = this.personnel_array.e_mail;
+          // this.tel = this.personnel_array.phoneNumber;
+
+          // this.position = this.personnel_array.adminPosition;
+          this.image = this.personnel_array.personnelPhoto;
         })
         .catch((error) => {
           if (error.response) {
@@ -87,7 +102,6 @@ export default {
                 showConfirmButton: false,
                 timer: 2000,
                 timerProgressBar: true,
-               
               });
 
               Toast.fire({
@@ -98,8 +112,8 @@ export default {
           }
         });
     },
-    
-    toggleDropdown: function (event) {
+
+    toggleDropdown: function(event) {
       event.preventDefault();
       if (this.dropdownPopoverShow) {
         this.dropdownPopoverShow = false;
@@ -111,10 +125,8 @@ export default {
       }
     },
     onClickLogout() {
- 
-     localStorage.removeItem("user");
+      localStorage.removeItem("user");
       this.$router.push({ name: "Login Admin" });
-      
     },
   },
 };

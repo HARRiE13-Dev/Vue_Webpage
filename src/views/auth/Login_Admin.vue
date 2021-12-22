@@ -59,18 +59,7 @@
                 {{ v$.password.$errors[0].$message }}
               </div>
 
-              <div>
-                <label class="inline-flex items-center cursor-pointer">
-                  <input
-                    id="customCheckLogin"
-                    type="checkbox"
-                    class="w-5 h-5 ml-1 transition-all duration-150 ease-linear border-0 rounded form-checkbox text-blueGray-700"
-                  />
-                  <span class="ml-2 text-sm text-blueGray-600">
-                    Remember me
-                  </span>
-                </label>
-              </div>
+            
 
               <div class="mt-6 text-center">
                 <button
@@ -120,7 +109,7 @@ export default {
               toast: true,
               position: "top-end",
               showConfirmButton: false,
-              timer: 2000,
+              timer: 1000,
               timerProgressBar: true,
             });
 

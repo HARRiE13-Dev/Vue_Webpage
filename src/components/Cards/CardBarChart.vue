@@ -1,20 +1,20 @@
 <template>
   <div
-    class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+    class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
   >
-    <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+    <div class="px-4 py-3 mb-0 bg-transparent rounded-t">
       <div class="flex flex-wrap items-center">
-        <div class="relative w-full max-w-full flex-grow flex-1">
-          <h6 class="uppercase text-blueGray-400 mb-1 text-xs font-semibold">
-            Performance
+        <div class="relative flex-1 flex-grow w-full max-w-full">
+          <h6 class="mb-1 text-xs font-semibold uppercase text-blueGray-400">
+            ภาพรวม
           </h6>
-          <h2 class="text-blueGray-700 text-xl font-semibold">
-            Total orders
+          <h2 class="text-xl font-semibold text-blueGray-700">
+            จำนวนผู้ใช้งานระบบ / เดือน
           </h2>
         </div>
       </div>
     </div>
-    <div class="p-4 flex-auto">
+    <div class="flex-auto p-4">
       <div class="relative h-350-px">
         <canvas id="bar-chart"></canvas>
       </div>
@@ -37,24 +37,22 @@ export default {
             "May",
             "June",
             "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
           ],
           datasets: [
             {
-              label: new Date().getFullYear(),
+              label: "ผู้ใช้งาน",
               backgroundColor: "#ed64a6",
               borderColor: "#ed64a6",
-              data: [30, 78, 56, 34, 100, 45, 13],
+              data: [30, 78, 56, 34, 100, 45, 13 ,20,57,30,40,50],
               fill: false,
               barThickness: 8,
             },
-            {
-              label: new Date().getFullYear() - 1,
-              fill: false,
-              backgroundColor: "#4c51bf",
-              borderColor: "#4c51bf",
-              data: [27, 68, 86, 74, 10, 4, 87],
-              barThickness: 8,
-            },
+           
           ],
         },
         options: {

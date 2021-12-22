@@ -41,7 +41,7 @@
                 <Carousel :autoplay="2000" >
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
-                      class="relative mx-0 bg-emerald-500 shadow-lg carousel__item cropped-bg round-lg"
+                      class="relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
                     >
                       <img class="cropped-bg" :src="image.Banner_File" />
                     </div>
@@ -176,6 +176,9 @@
           <div class="mt-12 mb-12">
             <card-home-edu />
           </div>
+          <div>
+            <h1></h1>
+          </div>
 
           <h1 class="px-6 pt-20 mt-12 mb-4 text-3xl" id="section2">
             <b>Introduction </b> | วีดีโอแนะนำสาขา
@@ -188,7 +191,7 @@
               >
                 <div class="flex-auto px-0">
                   <div
-                    class="relative h-500-px w-full max-w-full overflow-hidden pb-72"
+                    class="relative w-full max-w-full overflow-hidden h-500-px pb-72"
                   >
                     <iframe
                       class="absolute top-0 left-0 w-full h-full rounded-b"
@@ -273,6 +276,7 @@ export default defineComponent({
     this.getBannerData();
   },
   methods: {
+    
     getNewsData() {
       http
         .get(`newsapp`)

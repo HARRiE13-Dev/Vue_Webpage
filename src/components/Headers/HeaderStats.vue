@@ -8,24 +8,16 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="จำนวนผู้ที่เข้าสู่ระบบ"
-              statTitle="xxx"
-              statArrow="up"
-              statPercent="3.48"
-              statPercentColor="text-emerald-500"
-              statDescripiron="Since last month"
+              statTitle="10"
               statIconName="far fa-chart-bar"
               statIconColor="bg-red-500"
             />
           </div>
-          
+
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
-              statSubtitle="ประสิทธิภาพ"
-              statTitle="xx.xx%"
-              statArrow="up"
-              statPercent="12"
-              statPercentColor="text-emerald-500"
-              statDescripiron="Since last month"
+              statSubtitle="API Request"
+              statTitle="100 / วินาที"
               statIconName="fas fa-percent"
               statIconColor="bg-emerald-500"
             />
@@ -34,11 +26,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-6/12">
             <card-stats
               statSubtitle="ระบบแจ้งตกค้างรายวิชา"
-              statTitle="ผู้ติดต่อ xx คน"
-              statArrow="up"
-              statPercent="12"
-              statPercentColor="text-emerald-500"
-              statDescripiron="Since last month"
+              statTitle="24 รายการ"
               statIconName="fas fa-percent"
               statIconColor="bg-emerald-500"
             />
@@ -48,7 +36,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบจองห้องเรียน"
-              statTitle="ผู้ติดต่อ xx คน"
+              statTitle="0 รายการ"
               statArrow="up"
               statPercent="3.48"
               statPercentColor="text-emerald-500"
@@ -60,7 +48,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบแจ้งซ่อม"
-              statTitle="ผู้ติดต่อ xx คน"
+              statTitle="3 รายการ"
               statArrow="down"
               statPercent="3.48"
               statPercentColor="text-red-500"
@@ -72,7 +60,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบร้องเรียน"
-              statTitle="ผู้ติดต่อ xx คน"
+              statTitle="15 รายการ"
               statArrow="down"
               statPercent="1.10"
               statPercentColor="text-orange-500"
@@ -84,7 +72,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบยืม-คืน"
-              statTitle="ผู้ติดต่อ xx คน"
+              statTitle="1 รายการ"
               statArrow="up"
               statPercent="12"
               statPercentColor="text-emerald-500"
