@@ -26,6 +26,7 @@ import App from "@/App.vue";
 import Admin from "@/layouts/Admin.vue";
 import Auth from "@/layouts/Auth.vue";
 import Service from "@/layouts/Service.vue";
+import Service_forPersonnel from "@/layouts/Service_forPersonnel.vue";
 
 // views for Admin layout
 
@@ -55,6 +56,12 @@ import Login_User from "@/views/auth/Login_User.vue";
 import Service_Student from "@/views/auth/Service_Student.vue";
 import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 
+//Service For Student
+import Maintenance from "@/views/auth/forStudent/Maintenance_System.vue";
+
+
+//Service For Student
+import Maintenance_Personnel from "@/views/auth/forPersonnel/Maintenance_System_forPersonnel.vue";
 
 // views without layouts
 
@@ -193,22 +200,43 @@ const routes = [
   },
   {
     path: "/service",
-    redirect: "/auth/service_student",
+    redirect: "/service/service_student",
     component: Service,
     children: [
       
       {
-        path: "/auth/service_student",
+        path: "/service/service_student",
         name: "ServiceStudent",
         component: Service_Student,
         beforeEnter: authGuard
       },
       {
-        path: "/auth/service_teacher",
+        path: "/service/service_student/maintenance",
+        name: "Maintenance",
+        component: Maintenance,
+        beforeEnter: authGuard
+      },
+    ],
+  },
+  {
+    path: "/service_forpersonnel",
+    redirect: "/service/service_personnel",
+    component: Service_forPersonnel,
+    children: [
+      
+      {
+        path: "/service/service_teacher",
         name: "ServiceTeacher",
         component: Service_Teacher,
         beforeEnter: authGuard
       },
+      {
+        path: "/service/service_teacher/maintenance_forpersonnel",
+        name: "Maintenance_Personnel",
+        component: Maintenance_Personnel,
+        beforeEnter: authGuard
+      },
+      
     ],
   },
  

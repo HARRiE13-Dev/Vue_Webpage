@@ -57,7 +57,7 @@
                 <div
                   v-for="personnel in personnel_array"
                   v-bind:key="personnel.personnelId"
-                  class="w-full px-4 text-center lg:w-3/12"
+                  class="w-full px-4 text-center lg:w-3/12 bg-blueGray-100 border rounded-md shadow-sm"
                 >
                   <div class="relative px-12 py-12 ">
                     <img

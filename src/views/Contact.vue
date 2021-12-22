@@ -197,17 +197,17 @@
                       </vue-recaptcha> -->
                     </div>
 
-                    <div class="pt-10 mb-3 text-center ">
+                    <div class="pt-2 mb-3 text-center ">
                       <button
                         @click.prevent="commit"
-                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
+                        class="px-6 py-3 mb-1 mr-1 font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
                         ล้าง
                       </button>
                       <button
                         @click.prevent="commit"
-                        class="px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
+                        class="px-6 py-3 mb-1 mr-1 font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
                         ยืนยัน
@@ -234,7 +234,7 @@
                         <img
                           alt="..."
                            :src="icon"
-                          class="w-full p-4 align-middle rounded-t-lg text-blueGray-500"
+                          class="w-full  align-middle rounded-t-lg text-blueGray-500"
                         />
                         <blockquote class="relative">
                           <svg
@@ -274,7 +274,7 @@
                         <img
                           alt="..."
                           :src="icon"
-                          class="w-full p-4 align-middle rounded-t-lg text-blueGray-500"
+                          class="w-full  align-middle rounded-t-lg text-blueGray-500"
                         />
                         <blockquote class="relative">
                           <svg
@@ -314,7 +314,7 @@
                         <img
                           alt="..."
                            :src="icon"
-                          class="w-full p-4 align-middle rounded-t-lg text-blueGray-500"
+                          class="w-full  align-middle rounded-t-lg text-blueGray-500"
                         />
                         <blockquote class="relative">
                           <svg
@@ -354,7 +354,7 @@
                         <img
                           alt="..."
                           :src="icon"
-                          class="w-full p-4 align-middle rounded-t-lg text-blueGray-500"
+                          class="w-full  align-middle rounded-t-lg text-blueGray-500"
                         />
                         <blockquote class="relative">
                           <svg
@@ -394,7 +394,7 @@
                         <img
                           alt="..."
                           :src="icon"
-                          class="w-full p-4 align-middle rounded-t-lg text-blueGray-500"
+                          class="w-full  align-middle rounded-t-lg text-blueGray-500"
                         />
                         <blockquote class="relative">
                           <svg
@@ -442,7 +442,7 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 // import vueRecaptcha from "vue3-recaptcha2";
-import icon from "@/assets/img/iconDoc.webp"
+import icon from "@/assets/img/paper.png";
 import axios from "axios";
 export default {
   data() {

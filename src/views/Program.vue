@@ -89,7 +89,7 @@
                       <div
                         v-for="subject in group_1"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -167,7 +167,7 @@
                       <div
                         v-for="subject in group_2"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -245,7 +245,7 @@
                       <div
                         v-for="subject in group_3"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -315,7 +315,7 @@
                         </h5>
 
                         <p class="text-xl font-semibold leading-normal ">
-                          กลุ่มวิชาระบบเครือข่าย 
+                          กลุ่มวิชาระบบเครือข่าย
                         </p>
                       </div>
                     </div>
@@ -323,7 +323,7 @@
                       <div
                         v-for="subject in group_4"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -401,7 +401,7 @@
                       <div
                         v-for="subject in group_5"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -410,7 +410,7 @@
                             class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="top-auto bottom-auto font-semibold leading-normal text-md "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md truncate"
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
@@ -479,7 +479,7 @@
                       <div
                         v-for="subject in group_6"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -545,11 +545,11 @@
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
                         <h5 class="text-3xl font-semibold leading-normal ">
-                          Artificial Intelligence 
+                          Artificial Intelligence
                         </h5>
 
                         <p class="text-xl font-semibold leading-normal ">
-                          กลุ่มวิชาปัญญาประดิษฐ์ 
+                          กลุ่มวิชาปัญญาประดิษฐ์
                         </p>
                       </div>
                     </div>
@@ -557,7 +557,7 @@
                       <div
                         v-for="subject in group_7"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -623,7 +623,7 @@
                         class="relative w-auto ml-3 text-blueGray-700 text-shadow"
                       >
                         <h5 class="text-3xl font-semibold leading-normal ">
-                         Computer Science for Business
+                          Computer Science for Business
                         </h5>
 
                         <p class="text-xl font-semibold leading-normal ">
@@ -635,7 +635,7 @@
                       <div
                         v-for="subject in group_8"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -644,7 +644,7 @@
                             class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="top-auto bottom-auto font-semibold leading-normal text-md "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md truncate"
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
@@ -713,7 +713,7 @@
                       <div
                         v-for="subject in group_9"
                         v-bind:key="subject.subjectId"
-                        class="w-full px-2 lg:w-4/12 "
+                        class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
                           class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
@@ -722,7 +722,7 @@
                             class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="top-auto bottom-auto font-semibold leading-normal text-md "
+                              class="top-auto bottom-auto font-semibold leading-normal text-md truncate"
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
@@ -763,10 +763,6 @@
                     </div>
                   </div>
                 </div>
-                
-
-
-                
               </div>
             </div>
           </div>
@@ -798,8 +794,6 @@ export default {
       group_7: [],
       group_8: [],
       group_9: [],
-
-      
     };
   },
   mounted() {

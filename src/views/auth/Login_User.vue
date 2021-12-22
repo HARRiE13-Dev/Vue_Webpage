@@ -48,7 +48,7 @@
                   v-model="password"
                   :type="type"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="วันที่เกิด เช่น 12081998"
+                  placeholder="วันเกิด เช่น 12081998"
                 />
                 <button @click="submit" type="submit" class="hidden">
                   Submit
@@ -135,7 +135,7 @@ export default {
                 toast: true,
                 position: "top-end",
                 showConfirmButton: false,
-                timer: 2000,
+                timer: 1000,
                 timerProgressBar: true,
               });
 
@@ -197,7 +197,7 @@ export default {
                   toast: true,
                   position: "top-end",
                   showConfirmButton: false,
-                  timer: 2000,
+                  timer: 1000,
                   timerProgressBar: true,
                 });
 

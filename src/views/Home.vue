@@ -37,11 +37,11 @@
               </div>
             </div>
             <div class="w-full text-left lg:w-6/12">
-              <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="2000">
+              <div class="top-0 w-full h-full bg-center bg-cover ">
+                <Carousel :autoplay="2000" >
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
-                      class="relative mx-0 shadow-lg carousel__item cropped-bg round-lg"
+                      class="relative mx-0 bg-emerald-500 shadow-lg carousel__item cropped-bg round-lg"
                     >
                       <img class="cropped-bg" :src="image.Banner_File" />
                     </div>
@@ -161,9 +161,10 @@
                   <h3 class="px-4 mb-2 text-lg font-semibold truncate">
                     {{ news.News_Title }}
                   </h3>
-                  <p class="px-4 pb-4 text-left :truncate ">
+                  <p class="px-4 pb-4 text-left truncate-3 ">
                     {{ news.News_Detail }}
                   </p>
+                  
                 </div>
               </router-link>
             </div>

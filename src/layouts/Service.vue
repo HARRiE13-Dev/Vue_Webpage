@@ -8,7 +8,7 @@
           class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
           :style="`background-image: url('${backgroundLogin}');`"
         ></div>
-        <div >
+        <div>
           <main class="profile-page custom">
             <section class="relative block h-500-px">
               <div
@@ -70,14 +70,16 @@
                         </div>
                         <div class="relative w-full lg:w-4/12 ">
                           <div class="flex py-4 pt-6">
-                            <div class="py-3 text-center lg:text-left">
+                            <div
+                              class="py-3 border-l-2 text-center lg:text-left"
+                            >
                               <h3
-                                class="mb-2 text-4xl font-semibold leading-normal text-blueGray-100"
+                                class="ml-3 mb-2 text-4xl font-semibold leading-normal text-blueGray-100"
                               >
                                 {{ this.local_name }} {{ this.local_surname }}
                               </h3>
                               <h3
-                                class="mb-2 text-2xl font-semibold leading-normal text-blueGray-100"
+                                class="ml-3 mb-2 text-2xl font-semibold leading-normal text-blueGray-100"
                               >
                                 Firstname Lastname
                               </h3>
@@ -145,16 +147,20 @@ export default {
     ServiceNavbar,
   },
   mounted() {
-    this.local_user = JSON.parse(window.localStorage.getItem("user"));
-    // console.log(this.local_user);
-    //-------------Save Profiling---------------
+    this.getStudentData();
+  },
+  methods: {
+    getStudentData() {
+      this.local_user = JSON.parse(window.localStorage.getItem("user"));
+      // console.log(this.local_user);
+      //-------------Save Profiling---------------
 
-    this.local_name = this.local_user.name;
-    this.local_surname = this.local_user.surname;
-    this.local_card_id = this.local_user.card_id;
-    this.local_email = this.local_user.email;
-    this.local_mobile = this.local_user.mobile;
-    // console.log(this.local_name);
+      this.local_name = this.local_user.name;
+      this.local_surname = this.local_user.surname;
+      this.local_card_id = this.local_user.card_id;
+      this.local_email = this.local_user.email;
+      this.local_mobile = this.local_user.mobile;
+    },
   },
 };
 </script>

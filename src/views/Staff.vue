@@ -57,7 +57,7 @@
                 <div
                   v-for="personnel in personnel_array"
                   v-bind:key="personnel.personnelId"
-                  class="w-full px-4 text-center lg:w-3/12"
+                  class="w-full px-4 text-center lg:w-3/12 bg-blueGray-100 border rounded-md shadow-sm"
                 >
                   <div class="relative px-12 py-12 ">
                     <img
@@ -76,7 +76,7 @@
                     {{ personnel.fistNameEn }} {{ personnel.lastNameEn }}
                   </p>
 
-                  <div class="mt-3 mb-0 text-blueGray-200">
+                  <div class="mt-3 mb-0 text-blueGray-400">
                     <div class="mb-2">
                       <i class="mr-2 text-lg fas fa-briefcase "></i>
                       ตำแหน่งการบริหาร

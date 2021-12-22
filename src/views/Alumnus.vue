@@ -56,9 +56,7 @@
 
               <div class="py-6 mt-10 text-center border-t border-blueGray-200">
                 <div class="flex flex-wrap justify-center">
-                  <div class="w-full px-4 lg:w-9/12">
-                   
-                  </div>
+                  <div class="w-full px-4 lg:w-9/12"></div>
                 </div>
               </div>
 
@@ -66,39 +64,49 @@
                 <div
                   v-for="alum in products.data"
                   :key="alum.AlumniId"
-                  class=" w-full h-full px-2 pb-4 lg:w-2/12"
+                  class=" w-1/2 h-full px-2 pb-4 lg:w-3/12 mb-8"
                 >
                   <div
-                    class="flex flex-col w-full duration-150 ease-linear min-w-0 break-words rounded-lg shadow-lg bg-emerald-500 showdisplay hover:zoom"
+                    class="flex flex-col w-full duration-150 ease-linear min-w-0 break-words rounded-lg shadow-lg   hover:zoom-xs border-2"
                   >
                     <img
                       alt="..."
                       :src="alum.Alumni_Picture"
                       class="w-full align-middle  "
                     />
-                  </div>
-                  <div
-                    class="max-w-alum absolute px-4 w-96 duration-150 ease-linear rounded-lg shadow-lg bg-emerald-500 opacity-90 contentshow"
-                  >
-                    <div class="relative py-4 ">
-                      <p class="font-bold mb-1 text-center text-blueGray-800 text-lg bg-emerald-400 rounded-lg">
-                        {{ alum.Job_Title }}
-                      </p>
-                         <p class="font-semibold  text-white text-md border-b border-white mb-2">
-                         สังกัด :
-                        {{ alum.Workplace }}
-                      </p>
-
-
-                      <h4 class="text-md font-bold text-center text-blueGray-700">
-                        {{ alum.Firstname_Alumni }}
-                        {{ alum.Lastname_Alumni }}
-                      </h4>
-                      <p class="mb-2 font-semibold text-center text-blueGray-700 text-md">
-                        {{ alum.StudentCode_Alumni }}
-                      </p>
-                       
-
+                    <div
+                      class="relative w-full   px-4  duration-150 ease-linear rounded-b shadow-lg bg-blueGray-100"
+                    >
+                      <div class="relative py-4 ">
+                        <div calss="">
+                          <p
+                            class="font-bold text-shadow mb-1 shadow-lg h-70-px pt-2 px-2 text-center text-white text-lg bg-emerald-500 rounded-lg border-2 border-blueGray-300"
+                          >
+                            {{ alum.Job_Title }}
+                          </p>
+                        </div>
+                        <div class="mt-2">
+                          <p
+                            class="font-normal px-2 h-50-px text-blueGray-700 text-md border-b border-white mb-2"
+                          >
+                            <i class="fas fa-briefcase"></i> |
+                            {{ alum.Workplace }}
+                          </p>
+                        </div>
+                        <div>
+                          <h4
+                            class="text-lg font-normal text-center text-blueGray-700"
+                          >
+                            {{ alum.Firstname_Alumni }}
+                            {{ alum.Lastname_Alumni }}
+                          </h4>
+                          <p
+                            class="mb-2 font-normal text-center text-blueGray-700 text-md"
+                          >
+                            {{ alum.StudentCode_Alumni }}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -152,8 +160,6 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
     },
-
-    
 
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
     onPageClick(event) {

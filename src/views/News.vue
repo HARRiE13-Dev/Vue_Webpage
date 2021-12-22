@@ -88,10 +88,10 @@
                       </svg>
                     </blockquote>
                     <div class="relative p-4 ">
-                      <h4 class="text-xl font-bold ">
+                      <h4 class="text-xl font-bold truncate-3">
                         {{ news.News_Title }}
                       </h4>
-                      <p class="mt-2 font-light truncate text-md">
+                      <p class="mt-2 font-light truncate-3 text-md">
                         {{ news.News_Detail }}
                       </p>
                       <div class="mt-2 text-center border-t border-blueGray-200">
