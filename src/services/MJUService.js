@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const MJUService = axios.create({
-  baseURL: "https://www.digital.mju.ac.th/api/",
+  baseURL: process.env.VUE_APP_MJU_API,
   
   headers: {
     "Content-type": "application/json",

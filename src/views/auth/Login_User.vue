@@ -7,7 +7,7 @@
         >
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">
-              <h4 class="font-bold text-xl text-blueGray-500">
+              <h4 class="text-xl font-bold text-blueGray-500">
                 เข้าสู่ระบบ
               </h4>
             </div>
@@ -126,8 +126,6 @@ export default {
               password: this.password,
             })
             .then((response) => {
-             // console.log(response.data.token);
-
               //Data User LocalStorage
               localStorage.setItem("user", JSON.stringify(response.data));
 
@@ -149,19 +147,23 @@ export default {
             })
             .catch((error) => {
               if (error.response) {
-                if (error.response.status == 500) {
+                if (error.response.status == 401) {
                   //Call Sweet Alert
                   const Toast = this.$swal.mixin({
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
-                    timer: 2000,
+                    timer: 1000,
                     timerProgressBar: true,
                   });
 
                   Toast.fire({
                     icon: "error",
-                    title: "ข้อมูลไม่ถูกต้อง",
+                    title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
+                  }).then(() => {
+                    // Login  Success => Dashboard
+
+                    this.password = "";
                   });
                 }
               }
@@ -171,13 +173,13 @@ export default {
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 2000,
+            timer: 1000,
             timerProgressBar: true,
           });
 
           Toast.fire({
             icon: "error",
-            title: "ข้อมูลไม่ถูกต้อง",
+            title: "ไม่สามารถเชื่อมต่อกับระบบได้",
           });
         }
       } else {
@@ -213,13 +215,17 @@ export default {
                   toast: true,
                   position: "top-end",
                   showConfirmButton: false,
-                  timer: 2000,
+                  timer: 1000,
                   timerProgressBar: true,
                 });
 
                 Toast.fire({
                   icon: "error",
-                  title: "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง",
+                  title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
+                }).then(() => {
+                  // Login  Success => Dashboard
+
+                  this.password = "";
                 });
               }
             })
@@ -231,13 +237,13 @@ export default {
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
-                    timer: 2000,
+                    timer: 1000,
                     timerProgressBar: true,
                   });
 
                   Toast.fire({
                     icon: "error",
-                    title: "ข้อมูลไม่ถูกต้อง",
+                    title: "ไม่สามารถเชื่อมต่อกับระบบได้",
                   });
                 }
               }

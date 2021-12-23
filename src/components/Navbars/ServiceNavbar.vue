@@ -72,10 +72,10 @@
 
           <li class="flex items-center">
             <router-link
-              to="/appeal"
+              to="/alumnus"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
             >
-                ร้องเรียน
+               ศิษย์เก่า
             </router-link>
           </li>
 

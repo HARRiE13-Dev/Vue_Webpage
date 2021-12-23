@@ -38,7 +38,7 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover ">
-                <Carousel :autoplay="2000" >
+                <Carousel :autoplay="2000">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
                       class="relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
@@ -164,7 +164,6 @@
                   <p class="px-4 pb-4 text-left truncate-3 ">
                     {{ news.News_Detail }}
                   </p>
-                  
                 </div>
               </router-link>
             </div>
@@ -274,9 +273,26 @@ export default defineComponent({
   mounted() {
     this.getNewsData();
     this.getBannerData();
+    console.log(process.env.VUE_APP_URL);
+
+    //this.welcomeHome();
   },
   methods: {
-    
+    // welcomeHome() {
+    //   const Swal = this.$swal.mixin({
+    //     position: "center",
+        
+    //   });
+
+    //   Swal.fire({
+    //     title: "Computer Science MJU",
+    //     text: "ยินดีต้อนรับสู่เว็บไซต์ของสาขาวิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้",
+    //     imageUrl: "https://unsplash.it/400/200",
+    //     imageWidth: 400,
+    //     imageHeight: 200,
+       
+    //   });
+    // },
     getNewsData() {
       http
         .get(`newsapp`)

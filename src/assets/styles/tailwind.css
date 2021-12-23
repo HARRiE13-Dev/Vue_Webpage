@@ -1265,6 +1265,12 @@ select {
   object-fit: cover;
  
 }
+.cropped-news {
+  width: 400px; 
+  height: 300px; 
+  object-fit: cover;
+ 
+}
 
 .bg-fixed {
   background-attachment: fixed;

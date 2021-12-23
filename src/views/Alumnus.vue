@@ -64,30 +64,30 @@
                 <div
                   v-for="alum in products.data"
                   :key="alum.AlumniId"
-                  class=" w-1/2 h-full px-2 pb-4 lg:w-3/12 mb-8"
+                  class="w-full h-full px-2 pb-4 mb-8  lg:w-3/12"
                 >
                   <div
-                    class="flex flex-col w-full duration-150 ease-linear min-w-0 break-words rounded-lg shadow-lg   hover:zoom-xs border-2"
+                    class="flex flex-col w-full min-w-0 break-words duration-150 ease-linear border-2 rounded-lg shadow-lg hover:zoom-xs"
                   >
                     <img
                       alt="..."
                       :src="alum.Alumni_Picture"
-                      class="w-full align-middle  "
+                      class="w-full align-middle "
                     />
                     <div
-                      class="relative w-full   px-4  duration-150 ease-linear rounded-b shadow-lg bg-blueGray-100"
+                      class="relative w-full px-4 duration-150 ease-linear rounded-b shadow-lg bg-blueGray-100"
                     >
                       <div class="relative py-4 ">
                         <div calss="">
                           <p
-                            class="font-bold text-shadow mb-1 shadow-lg h-70-px pt-2 px-2 text-center text-white text-lg bg-emerald-500 rounded-lg border-2 border-blueGray-300"
+                            class="px-2 pt-2 mb-1 text-lg font-bold text-center text-white border-2 rounded-lg shadow-lg text-shadow h-70-px bg-emerald-500 border-blueGray-300"
                           >
                             {{ alum.Job_Title }}
                           </p>
                         </div>
                         <div class="mt-2">
                           <p
-                            class="font-normal px-2 h-50-px text-blueGray-700 text-md border-b border-white mb-2"
+                            class="px-2 mb-2 font-normal border-b border-white h-50-px text-blueGray-700 text-md"
                           >
                             <i class="fas fa-briefcase"></i> |
                             {{ alum.Workplace }}

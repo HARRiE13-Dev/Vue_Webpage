@@ -72,7 +72,7 @@
                     <img
                       alt="..."
                       :src="news.News_Picture"
-                      class="w-full align-middle rounded-t-lg text-blueGray-500"
+                      class="w-full align-middle rounded-t-lg cropped-news text-blueGray-500"
                     />
                     <blockquote class="relative">
                       <svg
@@ -88,7 +88,7 @@
                       </svg>
                     </blockquote>
                     <div class="relative p-4 ">
-                      <h4 class="text-xl font-bold truncate-3">
+                      <h4 class="h-24 text-xl font-bold truncate-3">
                         {{ news.News_Title }}
                       </h4>
                       <p class="mt-2 font-light truncate-3 text-md">

@@ -37,19 +37,10 @@
             </router-link>
           </li>
 
-            <li class="flex items-center">
+          <li class="flex items-center">
             <about-page
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             />
-          </li>
-
-           <li class="flex items-center">
-            <router-link
-              to="/news"
-              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
-            >
-              ข่าวสาร
-            </router-link>
           </li>
 
           <li class="flex items-center">
@@ -63,16 +54,23 @@
 
           <li class="flex items-center">
             <router-link
+              to="/news"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
+            >
+              ข่าวสาร
+            </router-link>
+          </li>
+
+          
+
+          <li class="flex items-center">
+            <router-link
               to="/alumnus"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
               ศิษย์เก่า
             </router-link>
           </li>
-
-          
-
-        
 
           <li class="flex items-center">
             <router-link
@@ -86,6 +84,7 @@
           <li class="flex items-center">
             <router-link to="/auth/login">
               <button
+                @click="checkLogin()"
                 class="px-4 py-2 mb-3 ml-3 text-xs font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none text-blueGray-700 active:bg-blueGray-50 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
                 type="button"
               >
@@ -105,11 +104,62 @@ export default {
     return {
       navbarOpen: false,
       dropdownPopoverShow: false,
+
+      local_user: [],
+      local_token: "",
+
+      local_teacher: [],
+      token: "",
     };
   },
   methods: {
     setNavbarOpen: function() {
       this.navbarOpen = !this.navbarOpen;
+    },
+    checkLogin() {
+      this.local_user = JSON.parse(window.localStorage.getItem("user"));
+      this.local_token = this.local_user.access_token;
+
+      this.local_teacher = JSON.parse(window.localStorage.getItem("user"));
+      this.token = this.local_teacher.token;
+
+      if (this.token == null) {
+        //history.go(-1)
+        //this.$router.push({ name: "ServiceStudent" });
+        const Toast = this.$swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1000,
+          timerProgressBar: true,
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "กำลังเข้าสู่ระบบ",
+        }).then(() => {
+          // Login  Success => Dashboard
+          window.location.href = "/service/service_student";
+        });
+      } else if (this.local_token == null) {
+        const Toast = this.$swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1000,
+          timerProgressBar: true,
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "กำลังเข้าสู่ระบบ",
+        }).then(() => {
+          // Login  Success => Dashboard
+          window.location.href = "/service/service_teacher";
+        });
+      } else {
+        this.$router.push({ name: "Login" });
+      }
     },
   },
   components: {
