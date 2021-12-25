@@ -1396,6 +1396,11 @@ select {
   background-color: rgba(6, 78, 59, var(--tw-bg-opacity));
 }
 
+.bg-gradient {
+  --tw-bg-opacity: 1;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgba(234, 179, 8, var(--tw-bg-opacity));
@@ -2271,6 +2276,7 @@ select {
 .h-500-px {
   height: 500px;
 }
+
 
 .h-600-px {
   height: 600px;
@@ -4053,6 +4059,7 @@ select {
   .sm\:w-6\/12 {
     width: 50%;
   }
+  
 }
 
 @media (min-width: 768px) {

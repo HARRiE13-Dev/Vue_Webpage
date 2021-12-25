@@ -64,18 +64,20 @@
                 <div
                   v-for="alum in products.data"
                   :key="alum.AlumniId"
-                  class="w-full h-full px-2 pb-4 mb-8  lg:w-3/12"
+                  class="w-full h-full lg:w-3/12"
                 >
                   <div
-                    class="flex flex-col w-full min-w-0 break-words duration-150 ease-linear border-2 rounded-lg shadow-lg hover:zoom-xs"
+                    class="flex flex-col w-full min-w-0 break-words  border rounded-lg bg-blueGray-100"
                   >
-                    <img
-                      alt="..."
-                      :src="alum.Alumni_Picture"
-                      class="w-full align-middle "
-                    />
+                    <div class="p-4">
+                      <img
+                        alt="..."
+                        :src="alum.Alumni_Picture"
+                        class="w-full align-middle p-2 rounded-full bg-gradient shadow-md"
+                      />
+                    </div>
                     <div
-                      class="relative w-full px-4 duration-150 ease-linear rounded-b shadow-lg bg-blueGray-100"
+                      class="relative w-full px-4  rounded-b  bg-blueGray-100"
                     >
                       <div class="relative py-4 ">
                         <div calss="">
@@ -95,7 +97,7 @@
                         </div>
                         <div>
                           <h4
-                            class="text-lg font-normal text-center text-blueGray-700"
+                            class="text-lg font-semibold text-center text-blueGray-700"
                           >
                             {{ alum.Firstname_Alumni }}
                             {{ alum.Lastname_Alumni }}

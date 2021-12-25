@@ -61,9 +61,9 @@
               </div>
 
               <div class="flex flex-wrap">
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full  p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -92,20 +92,20 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="top-auto bottom-auto font-semibold leading-normal text-md "
+                              class=" top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -139,9 +139,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full "
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -170,7 +170,7 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px  flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
@@ -183,7 +183,7 @@
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -217,9 +217,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 h-full bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -248,7 +248,7 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
@@ -261,7 +261,7 @@
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -295,9 +295,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -326,7 +326,7 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
@@ -339,7 +339,7 @@
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -373,9 +373,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -404,20 +404,20 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="top-auto bottom-auto font-semibold leading-normal text-md truncate"
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -451,9 +451,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -482,7 +482,7 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
@@ -495,7 +495,7 @@
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -529,9 +529,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news h-full border-blueGray-300 bg-blueGray-100"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -560,7 +560,7 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
@@ -573,7 +573,7 @@
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -607,9 +607,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -638,20 +638,20 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="top-auto bottom-auto font-semibold leading-normal text-md truncate"
+                              class="top-auto bottom-auto font-semibold leading-normal text-md "
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div
@@ -685,9 +685,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full px-2 lg:w-12/12">
+                <div class="w-full p-2 lg:w-6/12">
                   <div
-                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100"
+                    class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
                   >
                     <div class="relative flex mb-4">
                       <div class="relative w-auto">
@@ -716,20 +716,20 @@
                         class="w-full px-2 lg:w-4/12 text-shadow text-center"
                       >
                         <div
-                          class="flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                          class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
                         >
                           <div
                             class="px-2 py-4 text-white hover:text-blueGray-800"
                           >
                             <h5
-                              class="top-auto bottom-auto font-semibold leading-normal text-md truncate"
+                              class="top-auto bottom-auto font-semibold leading-normal text-md"
                             >
                               {{ subject.Subject_NameTh }}
                             </h5>
                           </div>
                         </div>
                         <div
-                          class="absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-70 :-mt-5 w-96 bg-emerald-400 contentshow opacity-90"
+                          class="z-2 absolute px-4 -ml-20 duration-150 ease-linear rounded-lg shadow-lg -mt-72  w-96 bg-emerald-400 contentshow opacity-90"
                         >
                           <div class="relative py-4 text-blueGray-800">
                             <div

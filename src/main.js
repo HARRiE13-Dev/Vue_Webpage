@@ -74,8 +74,6 @@ import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
 import Classroom from "@/views/Classroom.vue";
-import Activity from "@/views/Activity.vue";
-import Document from "@/views/Document.vue";
 import Schedule from "@/views/Schedule.vue";
 import Alumnus from "@/views/Alumnus.vue";
 
@@ -272,14 +270,6 @@ const routes = [
   {
     path: "/classroom",
     component: Classroom,
-  },
-  {
-    path: "/activity",
-    component: Activity,
-  },
-  {
-    path: "/document",
-    component: Document,
   },
   {
     path: "/schedule",

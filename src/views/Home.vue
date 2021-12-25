@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="w-full text-left lg:w-6/12">
-              <div class="top-0 w-full h-full bg-center bg-cover ">
+              <div class="top-0 w-full h-full bg-center bg-cover">
                 <Carousel :autoplay="2000">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <section class="pb-20 -mt-64 bg-blueGray-200 custom">
+      <section class="pb-20 lg:-mt-64 bg-blueGray-200 custom">
         <div class="container mx-auto">
           <div class="flex flex-wrap">
             <div class="w-full px-4 text-center md:w-6/12">
@@ -147,7 +147,7 @@
               v-bind:key="news.newsId"
               class="w-full px-4 text-center md:w-4/12"
             >
-              <router-link to="program" target="_blank">
+              <router-link to="news" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom"
                 >
