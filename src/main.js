@@ -31,11 +31,9 @@ import Service_forPersonnel from "@/layouts/Service_forPersonnel.vue";
 // views for Admin layout
 
 import Dashboard from "@/views/admin/Dashboard.vue";
-import Settings from "@/views/admin/Settings.vue";
-import Tables from "@/views/admin/Tables.vue";
-import Maps from "@/views/admin/Maps.vue";
 
-import EducationalObjects from "@/views/admin/EducationalObjects.vue";
+
+import EquipmentShow from "@/views/admin/EquipmentShow.vue";
 
 import Feed from "@/views/admin/FeedShow.vue";
 import AddFeed from "@/views/admin/FeedAdd.vue";
@@ -115,21 +113,6 @@ const routes = [
         beforeEnter: authGuard
       },
       {
-        path: "/admin/settings",
-        component: Settings,
-        beforeEnter: authGuard
-      },
-      {
-        path: "/admin/tables",
-        component: Tables,
-        beforeEnter: authGuard
-      },
-      {
-        path: "/admin/maps",
-        component: Maps,
-        beforeEnter: authGuard
-      },
-      {
         path: "/admin/feed",
         name: 'Feed',
         component: Feed,
@@ -165,8 +148,8 @@ const routes = [
         beforeEnter: authGuard
       },
       {
-        path: "/admin/educational_objects",
-        component: EducationalObjects,
+        path: "/admin/equipmentshow",
+        component: EquipmentShow,
         beforeEnter: authGuard
       },
       {

@@ -9,8 +9,8 @@
             >
               <div class="px-6 mt-6">
                 <div class="flex flex-wrap rounded-lg bg-blueGray-100">
-                  <div class="w-full  lg:w-3/12">
-                    <div class="bg-emerald-500 rounded-lg text-center mr-4">
+                  <div class="w-full lg:w-3/12">
+                    <div class="mr-4 text-center rounded-lg bg-emerald-500">
                       <h3
                         class="text-6xl font-semibold leading-normal text-white"
                       >
@@ -18,7 +18,7 @@
                       </h3>
                     </div>
                   </div>
-                  <div class="w-full  lg:w-6/12">
+                  <div class="w-full lg:w-6/12">
                     <h3 class="mt-1 text-2xl font-semibold ">
                       ระบบแจ้งซ่อมอุปกรณ์ / บำรุงรักษา
                     </h3>
@@ -27,8 +27,8 @@
                       | Maintenance System
                     </h3>
                   </div>
-                  <div class="w-full  lg:w-3/12">
-                    <div class="text-right mt-4">
+                  <div class="w-full lg:w-3/12">
+                    <div class="mt-4 text-right">
                       <a href="javascript:history.go(-1)">
                         <button
                           class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
@@ -43,7 +43,7 @@
 
                 <div class="py-6 mt-2 text-left border-t border-blueGray-200">
                   <div class="flex flex-wrap">
-                    <div class="w-full lg:w-12/12 ">
+                    <div class="w-full lg:w-6/12 ">
                       <form ref="addProductForm">
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
@@ -156,13 +156,18 @@
                             ล้าง
                           </button>
                           <button
-                            class="px-6 py-3 mb-1  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                            class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
                             ยืนยัน
                           </button>
                         </div>
                       </form>
+                    </div>
+                    <div class="w-full lg:w-6/12 ">
+                      <div class="p-4">
+                        <img :src="cover" class="shadow-none" alt="" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -175,17 +180,12 @@
   </div>
 </template>
 <script>
-import cover1 from "@/assets/img/enroll_class.png";
-import cover2 from "@/assets/img/repair.png";
-import cover3 from "@/assets/img/room_rent.png";
-import cover4 from "@/assets/img/activity.png";
+import cover from "@/assets/img/repair.png";
+
 export default {
   data() {
     return {
-      cover1,
-      cover2,
-      cover3,
-      cover4,
+      cover,
     };
   },
 };

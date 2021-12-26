@@ -44,7 +44,7 @@
 
                 <div class="py-6 mt-2 text-left border-t border-blueGray-200">
                   <div class="flex flex-wrap">
-                    <div class="w-full lg:w-12/12 ">
+                    <div class="w-full lg:w-6/12 ">
                       <form ref="addProductForm">
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
@@ -165,6 +165,11 @@
                         </div>
                       </form>
                     </div>
+                    <div class="w-full lg:w-6/12 ">
+                     <div class="p-4">
+                       <img :src="cover" class="shadow-none" alt="">
+                     </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -176,17 +181,13 @@
   </div>
 </template>
 <script>
-import cover1 from "@/assets/img/enroll_class.png";
-import cover2 from "@/assets/img/repair.png";
-import cover3 from "@/assets/img/room_rent.png";
-import cover4 from "@/assets/img/activity.png";
+
+import cover from "@/assets/img/repair.png";
+
 export default {
   data() {
     return {
-      cover1,
-      cover2,
-      cover3,
-      cover4,
+      cover
     };
   },
 };

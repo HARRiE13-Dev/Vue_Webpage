@@ -34,7 +34,7 @@
                     v-model="Firstname"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Firstname"
                   />
                   <div
                     v-if="v$.Firstname.$error"
@@ -51,7 +51,7 @@
                     v-model="Lastname"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Lastname"
                   />
                   <div
                     v-if="v$.Lastname.$error"
@@ -70,7 +70,7 @@
                     v-model="Code"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Student Code / Generation"
                   />
                 </div>
               </div>
@@ -85,7 +85,7 @@
                     v-model="Workplace"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Workplace"
                   />
                   <div
                     v-if="v$.Workplace.$error"
@@ -102,7 +102,7 @@
                     v-model="Position"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Position"
                   />
                   <div
                     v-if="v$.Position.$error"
@@ -121,7 +121,7 @@
                     v-model="Caption"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     rows="5"
-                    placeholder="Product description"
+                    placeholder="Caption"
                   ></textarea>
                 </div>
               </div>
@@ -134,7 +134,7 @@
                     v-model="Contact"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Contact"
                   />
                 </div>
               </div>

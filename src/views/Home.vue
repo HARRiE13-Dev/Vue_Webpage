@@ -141,6 +141,7 @@
           <h1 class="px-6 pt-20 mt-4 mb-4 text-3xl">
             <b>News Update</b> | ข่าวสารล่าสุด
           </h1>
+
           <div class="flex flex-wrap mt-12 mb-12">
             <div
               v-for="news in news_array"
@@ -281,7 +282,7 @@ export default defineComponent({
     // welcomeHome() {
     //   const Swal = this.$swal.mixin({
     //     position: "center",
-        
+
     //   });
 
     //   Swal.fire({
@@ -290,7 +291,7 @@ export default defineComponent({
     //     imageUrl: "https://unsplash.it/400/200",
     //     imageWidth: 400,
     //     imageHeight: 200,
-       
+
     //   });
     // },
     getNewsData() {
@@ -298,11 +299,13 @@ export default defineComponent({
         .get(`newsapp`)
         .then((response) => {
           this.news_array = response.data;
-          //for (let i = 0; i <= 7; i++) {
           this.news_array.reverse();
 
-          // console.log(this.news_array[0].Banner_File);
-          // console.log(this.images[0].name);
+          if (this.news_array.length > 3) {
+            for (let i = 1; i <= this.news_array.length; i++) {
+              this.news_array.pop();
+            }
+          }
         })
         .catch((error) => {
           if (error.response) {
@@ -350,18 +353,6 @@ export default defineComponent({
           }
         });
     },
-
-    // getPersonnelData() {
-    //   axios({
-    //     method: "GET",
-    //     url: "http://wwwdev.csmju.com/api/personnel/teacher",
-    //   }).then((response) => {
-    //     this.personnel_array = response.data;
-    //     for (let i = 0; i <= 7; i++) {
-    //       this.personnel_array.pop();
-    //     }
-    //   });
-    // },
   },
 });
 </script>

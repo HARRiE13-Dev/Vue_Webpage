@@ -32,7 +32,7 @@
                     v-model="Title"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Title"
                   />
                   <div v-if="v$.Title.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.Title.$errors[0].$message }}
@@ -46,7 +46,7 @@
                     v-model="Type"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Type"
                   />
                   <div v-if="v$.Type.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.Type.$errors[0].$message }}
@@ -62,7 +62,7 @@
                     v-model="Dates"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Date"
                   />
                   <div v-if="v$.Dates.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.Dates.$errors[0].$message }}
@@ -78,7 +78,7 @@
                     v-model="Detail"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     rows="5"
-                    placeholder="Product description"
+                    placeholder="Description"
                   ></textarea>
                   <div
                     v-if="v$.Detail.$error"
@@ -97,7 +97,7 @@
                     v-model="links"
                     class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="URL"
                   />
                 </div>
               </div>
@@ -108,7 +108,7 @@
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"
-                    >ภาพสินค้า</label
+                    >รูปภาพ</label
                   >
                   <input
                     ref="fileupload"

@@ -7,7 +7,7 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">CSMJU | แจ้งติดต่อกลับ</h1>
             </div>
             <br class="shadow-xl" />
             <div
@@ -17,7 +17,7 @@
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
                   <div class="w-full px-4 font-bold text-md md:w-2/12">
-                    จำนวน {{ products.total }} รายการ
+                    จำนวน {{ this.total }} รายการ
                   </div>
 
                   <div class="w-full px-4 py-4 md:w-6/12">
@@ -54,7 +54,7 @@
                     >
                       <i class="fas fa-broom"></i> ล้าง
                     </button>
-                    <router-link to="addfeed">
+                    <router-link to="">
                       <button
                         @click="openModalAddProduct"
                         class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
@@ -119,7 +119,7 @@
                         <h5 class="w-48 font-semibold truncate text-md">
                           {{ feed.Complain_Title }}
                         </h5>
-                        <p class="font-normal  w-48">
+                        <p class="w-48 font-normal">
                           วันที่ : {{ feed.Complain_Date }}
                         </p>
                       </td>
@@ -127,7 +127,7 @@
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
                       >
                         <div>
-                          <p class="font-normal :truncate w-48">
+                          <p class="w-48 font-normal :truncate">
                             {{ feed.Complain_Detail }}
                           </p>
                         </div>
@@ -150,12 +150,12 @@
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
-                          <i class="fas fa-tools mr-1"></i>
+                          <i class="mr-1 fas fa-tools"></i>
                           <span>รอดำเนินการ</span>
                         </button>
                         <div
                           ref="popoverDropdownRef"
-                          class="bg-yellow-500 text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+                          class="z-50 float-left py-2 mt-1 text-base text-left list-none bg-yellow-500 rounded shadow-lg min-w-48"
                           v-bind:class="{
                             hidden: !dropdownPopoverShow,
                             block: dropdownPopoverShow,
@@ -163,19 +163,19 @@
                         >
                           <a
                             href="#pablo"
-                            class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white"
+                            class="block w-full px-4 py-2 text-sm font-normal text-white whitespace-no-wrap bg-transparent"
                           >
                             รอดำเนินการ
                           </a>
                           <a
                             href="#pablo"
-                            class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white"
+                            class="block w-full px-4 py-2 text-sm font-normal text-white whitespace-no-wrap bg-transparent"
                           >
                             ดำเนินการแล้ว
                           </a>
                           <a
                             href="#pablo"
-                            class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white"
+                            class="block w-full px-4 py-2 text-sm font-normal text-white whitespace-no-wrap bg-transparent"
                           >
                             ปฏิเสธการแจ้ง
                           </a>
@@ -260,9 +260,9 @@ export default {
       let response = await http.get(`complain`);
       let responseProduct = response.data;
       this.products = responseProduct;
-      this.currentPage = responseProduct.current_page;
-      this.perPage = responseProduct.per_page;
-      this.total = responseProduct.total;
+      
+      this.total = this.products.length;
+      console.log(this.total);
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {

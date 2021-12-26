@@ -23,9 +23,6 @@
       <!-- User -->
       <ul class="flex flex-wrap items-center list-none md:hidden">
         <li class="relative inline-block">
-          <notification-dropdown />
-        </li>
-        <li class="relative inline-block">
           <user-dropdown />
         </li>
       </ul>
@@ -127,7 +124,7 @@
           </li>
           <li class="items-center">
             <router-link
-              to="/admin/educational_objects"
+              to="/admin/equipmentshow"
               v-slot="{ href, navigate, isActive }"
             >
               <a
@@ -148,7 +145,7 @@
               </a>
             </router-link>
           </li>
-           <li class="items-center">
+          <li class="items-center">
             <router-link
               to="/admin/complaining"
               v-slot="{ href, navigate, isActive }"
@@ -242,7 +239,7 @@
               </a>
             </router-link>
           </li>
-         
+
           <li class="items-center">
             <router-link
               to="/admin/remaining"
@@ -325,8 +322,6 @@
               </a>
             </router-link>
           </li>
-
-          
         </ul>
       </div>
     </div>
@@ -335,7 +330,6 @@
 ); }
 
 <script>
-import NotificationDropdown from "@/components/Dropdowns/NotificationDropdown.vue";
 import UserDropdown from "@/components/Dropdowns/UserDropdown.vue";
 
 export default {
@@ -350,7 +344,6 @@ export default {
     },
   },
   components: {
-    NotificationDropdown,
     UserDropdown,
   },
 };

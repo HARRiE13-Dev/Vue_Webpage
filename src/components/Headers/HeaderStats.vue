@@ -8,7 +8,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="จำนวนผู้ที่เข้าสู่ระบบ"
-              statTitle="10"
+              statTitle="0"
               statIconName="far fa-chart-bar"
               statIconColor="bg-red-500"
             />
@@ -16,17 +16,18 @@
 
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
-              statSubtitle="API Request"
-              statTitle="100 / วินาที"
+              statSubtitle="ครุภัณฑ์ในระบบทั้งหมด"
+              :statTitle="this.total" 
               statIconName="fas fa-percent"
               statIconColor="bg-emerald-500"
             />
+            
           </div>
 
           <div class="w-full px-4 lg:w-6/12 xl:w-6/12">
             <card-stats
               statSubtitle="ระบบแจ้งตกค้างรายวิชา"
-              statTitle="24 รายการ"
+              statTitle="0"
               statIconName="fas fa-percent"
               statIconColor="bg-emerald-500"
             />
@@ -36,7 +37,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบจองห้องเรียน"
-              statTitle="0 รายการ"
+              statTitle="0"
               statArrow="up"
               statPercent="3.48"
               statPercentColor="text-emerald-500"
@@ -48,7 +49,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบแจ้งซ่อม"
-              statTitle="3 รายการ"
+              statTitle="0"
               statArrow="down"
               statPercent="3.48"
               statPercentColor="text-red-500"
@@ -60,7 +61,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบร้องเรียน"
-              statTitle="15 รายการ"
+              statTitle="0"
               statArrow="down"
               statPercent="1.10"
               statPercentColor="text-orange-500"
@@ -72,7 +73,7 @@
           <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
             <card-stats
               statSubtitle="ระบบยืม-คืน"
-              statTitle="1 รายการ"
+              statTitle="0"
               statArrow="up"
               statPercent="12"
               statPercentColor="text-emerald-500"
@@ -89,8 +90,27 @@
 
 <script>
 import CardStats from "@/components/Cards/CardStats.vue";
-
+import http from "@/services/APIService";
 export default {
+  data() {
+    return {
+      products: [],
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
+    };
+  },
+  methods: {
+    async getEquipment(pageNumber) {
+      let response = await http.get(`equipment?page=${pageNumber}`);
+      let responseProduct = response.data;
+      this.total = responseProduct.total;
+    },
+  },
+  mounted() {
+    this.getEquipment();
+  },
+
   components: {
     CardStats,
   },

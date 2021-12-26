@@ -124,10 +124,10 @@
                         </p>
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
+                        class="p-4 px-2 text-sm align-middle border-t-0 border-l-0 border-r-0 "
                       >
                         <div>
-                          <p class="font-normal :truncate w-96">
+                          <p class="w-64 font-normal truncate-3">
                             {{ feed.News_Detail }}
                           </p>
                         </div>
