@@ -91,7 +91,7 @@
                           <p
                             class="px-2 mb-2 font-normal border-b border-white h-50-px text-blueGray-700 text-md"
                           >
-                            <i class="fas fa-briefcase"></i> |
+                            <i class="fas fa-briefcase"></i> 
                             {{ alum.Workplace }}
                           </p>
                         </div>

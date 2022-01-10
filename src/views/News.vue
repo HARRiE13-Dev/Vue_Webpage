@@ -94,16 +94,18 @@
                       <p class="mt-2 font-light truncate-3 text-md">
                         {{ news.News_Detail }}
                       </p>
-                      <div class="mt-2 text-center border-t border-blueGray-200">
-                           <button
-                        class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                        type="button"
+                      <div
+                        class="mt-2 text-center border-t border-blueGray-200"
                       >
-                        อ่านต่อ
-                      </button>
+                        <button
+                         @click="ShowAll(news.newsId)"
+                          class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          อ่านต่อ
+                        </button>
                       </div>
                     </div>
-                   
                   </div>
                 </div>
               </div>
@@ -147,6 +149,11 @@ export default {
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
      ************************************************************************/
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
+    ShowAll(newsId) {
+      this.$router.push({ name: "NewsExplain" });
+      this.$store.state.newsShowAll = newsId;
+    },
+
     async getProducts(pageNumber) {
       let response = await http.get(`news?page=${pageNumber}`);
       let responseProduct = response.data;
@@ -155,7 +162,6 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
       this.products.data.reverse();
-     
     },
 
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า

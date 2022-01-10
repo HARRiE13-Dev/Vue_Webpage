@@ -16,6 +16,7 @@
             <br />
             by HOP Team | All Rights Reserved.
           </div>
+          
         </div>
       </div>
     </div>

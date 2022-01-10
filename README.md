@@ -21,6 +21,7 @@
 6. VueX 
 
 ## Versions
+ComSci MJU Website 1.0
 
 ## Directory Files
 

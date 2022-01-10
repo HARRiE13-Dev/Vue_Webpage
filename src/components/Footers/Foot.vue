@@ -14,9 +14,8 @@
           <div
             class="py-1 text-sm font-semibold text-center text-blueGray-500 md:text-left"
           >
-            Copyright © 2021 
+            Copyright © 2021
             <a
-              
               class="py-1 text-sm font-semibold text-white hover:text-blueGray-300"
             >
               Computer Science MJU
@@ -29,12 +28,9 @@
               <p
                 class="block px-3 py-1 text-sm font-semibold text-white hover:text-blueGray-300"
               >
-              | Development & Design by HOP Team
+                | Development & Design by HOP Team
               </p>
             </li>
-            
-            
-            
           </ul>
         </div>
       </div>

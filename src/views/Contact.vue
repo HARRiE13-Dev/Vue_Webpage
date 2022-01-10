@@ -127,7 +127,7 @@
                       <a href="https://line.me/R/ti/p/%40053vfccm">CSMJU </a>
                     </h3>
                   </div>
-                  <div class="w-full px-6 mb-4 text-left lg:-mt-48 lg:w-6/12">
+                  <div class="w-full border-blueGray-300 px-6 border-l mb-4 text-left lg:-mt-48 lg:w-6/12">
                     <h3
                       class="mb-6 text-2xl font-normal leading-normal text-center text-blueGray-700"
                     >
@@ -233,7 +233,7 @@
                       >
                         <img
                           alt="..."
-                           :src="icon"
+                          :src="icon"
                           class="w-full  align-middle rounded-t-lg text-blueGray-500"
                         />
                         <blockquote class="relative">
@@ -313,7 +313,7 @@
                       >
                         <img
                           alt="..."
-                           :src="icon"
+                          :src="icon"
                           class="w-full  align-middle rounded-t-lg text-blueGray-500"
                         />
                         <blockquote class="relative">

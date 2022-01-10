@@ -3,20 +3,20 @@
     <div
       class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg  dark:bg-gray-800"
     >
-      <div class="flex flex-col items-center py-10 overflow-y-auto custom md:flex-col">
+      <div
+        class="flex flex-col items-center py-10 overflow-y-auto custom md:flex-col"
+      >
         <img class="h-48" src="@/assets/img/logo.png" alt="404 not found" />
         <!-- <img class="" src="@/assets/img/404.gif" alt="404 not found" /> -->
-        <p class="text-2xl mt-10 text-blueGray-700 dark:text-gray-300">
+
+        <p
+          class="text-shadow text-2xl mt-10 text-blueGray-700 dark:text-gray-300"
+        >
           ไม่พบหน้าที่คุณต้องการ!
-          <router-link
-            to="/"
-            class="text-teal-500"
-            href="#"
-            >
+
+          <router-link to="/" class="text-teal-500" href="#">
             กลับหน้าหลัก
-            
-            </router-link
-          >
+          </router-link>
         </p>
       </div>
     </div>

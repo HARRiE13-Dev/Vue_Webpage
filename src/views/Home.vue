@@ -65,7 +65,7 @@
                     <img
                       alt="..."
                       :src="menu1"
-                      class="relative mx-0 shadow-lg cropped-card1"
+                      class="relative mx-0 shadow-lg lg:cropped-card1"
                     />
                   </div>
                 </div>
@@ -81,7 +81,7 @@
                     <img
                       alt="..."
                       :src="menu2"
-                      class="relative mx-0 shadow-lg cropped-card1"
+                      class="relative mx-0 shadow-lg lg:cropped-card1"
                     />
                   </div>
                 </div>
@@ -98,7 +98,7 @@
                     <img
                       alt="..."
                       :src="menu3"
-                      class="relative mx-0 shadow-lg cropped-card2"
+                      class="relative mx-0 shadow-lg lg:cropped-card2"
                     />
                   </div>
                 </div>
@@ -113,7 +113,7 @@
                     <img
                       alt="..."
                       :src="menu4"
-                      class="relative mx-0 shadow-lg cropped-card2"
+                      class="relative mx-0 shadow-lg lg:cropped-card2"
                     />
                   </div>
                 </div>
@@ -128,7 +128,7 @@
                     <img
                       alt="..."
                       :src="menu5"
-                      class="relative mx-0 shadow-lg cropped-card2"
+                      class="relative mx-0 shadow-lg lg:cropped-card2"
                     />
                   </div>
                 </div>
@@ -206,6 +206,7 @@
               </div>
             </div>
           </div>
+          
         </div>
       </section>
     </main>

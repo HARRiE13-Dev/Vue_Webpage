@@ -58,8 +58,10 @@ import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 import Maintenance from "@/views/auth/forStudent/Maintenance_System.vue";
 
 
-//Service For Student
+//Service For Personnel
 import Maintenance_Personnel from "@/views/auth/forPersonnel/Maintenance_System_forPersonnel.vue";
+import CV from "@/views/auth/forPersonnel/CV.vue";
+import CVPrint from "@/views/auth/forPersonnel/CVPrint.vue";
 
 // views without layouts
 
@@ -68,6 +70,7 @@ import Page404 from "@/views/Page404.vue";
 import About from "@/views/About.vue";
 import Program from "@/views/Program.vue";
 import News from "@/views/News.vue";
+import NewsExplain from "@/views/NewsExplain.vue";
 import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
@@ -217,8 +220,21 @@ const routes = [
         component: Maintenance_Personnel,
         beforeEnter: authGuard
       },
+      {
+        path: "/service/service_teacher/cv",
+        name: "CV",
+        component: CV,
+        beforeEnter: authGuard
+      },
+     
       
     ],
+  },
+  {
+    path: "/service/service_teacher/cvprint",
+    name: "CVPrint",
+    component: CVPrint,
+    beforeEnter: authGuard
   },
  
   {
@@ -236,7 +252,13 @@ const routes = [
   
   {
     path: "/news",
+    name: "News",
     component: News,
+  },
+  {
+    path: "/newsexplain",
+    name : "NewsExplain",
+    component: NewsExplain,
   },
   {
     path: "/staff",
