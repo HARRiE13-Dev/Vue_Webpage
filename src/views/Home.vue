@@ -6,13 +6,11 @@
         class="relative flex items-center content-center justify-center pt-16 pb-32 custom min-h-screen-75"
       >
         <div class="top-0 w-full h-full bg-center bg-cover ">
-          <div class="">
-            <img
-              alt="..."
-              :src="bg2"
-              class="relative mx-0 shadow-lg cropped "
-            />
-          </div>
+          <img
+            alt="..."
+            :src="bg2"
+            class="relative mx-0 shadow-lg cropped center-img "
+          />
         </div>
 
         <div class="container absolute">
@@ -206,7 +204,6 @@
               </div>
             </div>
           </div>
-          
         </div>
       </section>
     </main>

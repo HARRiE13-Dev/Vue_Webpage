@@ -43,6 +43,7 @@
 
                 <div class="py-6 mt-2 text-left border-t border-blueGray-200">
                   <div class="flex flex-wrap">
+                    <!-- from input -->
                     <div class="w-full lg:w-6/12 pr-4">
                       <form ref="addProductForm">
                         <div class="flex flex-wrap mb-4">
@@ -63,17 +64,45 @@
                               type="file"
                             />
                           </div>
-                          <div class="w-full px-2 md:w-4/12">
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-2/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >คำนำหน้าชื่อ</label
+                              >ตำแหน่ง</label
                             >
                             <input
-                              v-model="Title"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              v-model="position"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Position"
+                            />
+                          </div>
+                          <div class="w-full px-2 md:w-5/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ชื่อ</label
+                            >
+                            <input
+                              v-model="first_name"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Firstname"
+                            />
+                          </div>
+                          <div class="w-full px-2 md:w-5/12">
+                            <label
+                              class="block my-3  text-gray-700 text-md"
+                              for="Title"
+                              >นามสกุล</label
+                            >
+                            <input
+                              v-model="last_name"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Lastname"
                             />
                           </div>
                         </div>
@@ -82,26 +111,26 @@
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >ชื่อ</label
+                              >ชื่อ (ภาษาอังกฤษ)</label
                             >
                             <input
-                              v-model="Title"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              v-model="first_nameEn"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Firstname"
                             />
                           </div>
                           <div class="w-full px-2 md:w-6/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >นามสกุล</label
+                              >นามสกุล (ภาษาอังกฤษ)</label
                             >
                             <input
-                              v-model="Title"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              v-model="last_nameEn"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Lastname"
                             />
                           </div>
                         </div>
@@ -113,10 +142,10 @@
                               >ที่อยู่ / สถานที่ติดต่อ</label
                             >
                             <input
-                              v-model="Title"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              v-model="address"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Address"
                             />
                           </div>
                           <div class="w-full px-2 mb-2 md:w-6/12">
@@ -126,10 +155,10 @@
                               >โทรศัพท์</label
                             >
                             <input
-                              v-model="Title"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              v-model="phone"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Phone Number"
                             />
                           </div>
                           <div class="w-full px-2 mb-2 md:w-6/12">
@@ -139,24 +168,105 @@
                               >อีเมล</label
                             >
                             <input
-                              v-model="Title"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              v-model="email"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="email"
                             />
                           </div>
-                          <div class="w-full px-2 mb-2 md:w-6/12">
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >โซเชียล</label
+                              >ประวัติโดยย่อ</label
                             >
-                            <input
-                              v-model="Title"
+                            <textarea
+                              v-model="bio"
+                              cols="30"
+                              placeholder="Bio"
+                              rows="5"
+                              class="relative w-full px-3 py-1 border rounded shadow text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                            ></textarea>
+                          </div>
+                        </div>
+                        <label
+                          class="block my-3 text-gray-700 text-md"
+                          for="Title"
+                          >การศึกษา / Education
+                        </label>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-2/12">
+                            <select
+                              v-model="year"
+                              id="date-dropdown"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              placeholder="Degree"
+                            >
+                            </select>
+                          </div>
+                          <div class="w-full px-2 md:w-2/12">
+                            <input
+                              v-model="graduate"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Degree"
                             />
+                          </div>
+                          <div class="w-full px-2 md:w-8/12">
+                            <input
+                              v-model="major"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Major"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-6/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ประสบการณ์การทำงาน</label
+                            >
+                            <textarea
+                              v-model="experience"
+                              cols="30"
+                              placeholder="Experience"
+                              rows="5"
+                              class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                            ></textarea>
+                          </div>
+                          <div class="w-full px-2 md:w-6/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ทักษะ</label
+                            >
+                            <textarea
+                              v-model="skills"
+                              cols="30"
+                              placeholder="Skills"
+                              rows="5"
+                              class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                            ></textarea>
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ผลงาน</label
+                            >
+                            <textarea
+                              v-model="portfolio"
+                              cols="30"
+                              placeholder="Portfolio"
+                              rows="5"
+                              class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                            ></textarea>
                           </div>
                         </div>
 
@@ -176,54 +286,52 @@
                         </div>
                       </form>
                     </div>
-                    <div class="w-full lg:w-6/12 ">
+                    <!-- Simulator  -->
+                    <div class="w-full lg:w-6/12">
                       <div class="p-4 bg-emerald-300 rounded-lg">
                         <div
                           class="bg-white border border-blueGray-300 shadow-lg "
                         >
-                          <div class="bg-blueGray-100 px-4 pt-4 pb-4">
+                          <div class="bg-blueGray-100 px-0 pt-2 pb-4">
                             <div class=" flex flex-warp">
-                              <div class="ml-3 px-12 w-full lg:w-3/12 ">
+                              <div class="ml-0 px-0 w-full lg:w-3/12 ">
                                 <img
                                   alt="..."
                                   :src="image"
-                                  class="mt-2 rounded-full shadow-lg h-100-px center-img bg-emerald-500"
+                                  class="mt-2 rounded-full shadow-lg max-w-100-px h-100-px center-img bg-emerald-500"
                                 />
                               </div>
-                              <div class="ml-3 px-12 w-full lg:w-6/12 ">
+                              <div class="ml-3 px-0 w-full lg:w-6/12 ">
                                 <h1
-                                  class="mt-4 font-normal text-4xl text-blueGray-800"
+                                  class="mt-4 font-normal text-xl text-blueGray-800"
                                 >
-                                  สุรชาติ
+                                  {{ this.position }}{{ this.first_name }}
+                                  {{ this.last_name }}
                                 </h1>
                                 <h1
-                                  class="mt-2 font-semibold text-2xl text-blueGray-800"
+                                  class="mt-2 font-semibold text-lg text-blueGray-800"
                                 >
-                                  คงกำเหนิด
+                                  {{ this.first_nameEn }} {{ this.last_nameEn }}
                                 </h1>
                               </div>
                               <div
                                 class="text-right mt-4 mr-4 w-full lg:w-3/12 "
                               >
                                 <div class="text-sm text-blueGray-400">
-                                  <span>address </span>
+                                  <span>{{ this.address }}&nbsp; </span>
                                   <i class="fas fa-home text-emerald-500"></i>
                                 </div>
                                 <div class="text-sm text-blueGray-400">
-                                  <span>address </span>
+                                  <span>{{ this.phone }}&nbsp; </span>
                                   <i
                                     class="fas fa-phone-alt text-emerald-500"
                                   ></i>
                                 </div>
                                 <div class="text-sm text-blueGray-400">
-                                  <span>address </span>
+                                  <span>{{ this.email }}&nbsp; </span>
                                   <i
                                     class="fas fa-envelope text-emerald-500"
                                   ></i>
-                                </div>
-                                <div class="text-sm text-blueGray-400">
-                                  <span>address </span>
-                                  <i class="fas fa-globe text-emerald-500"></i>
                                 </div>
                               </div>
                             </div>
@@ -235,21 +343,14 @@
                                   <h1
                                     class="mt-6 font-semibold text-lg text-blueGray-700"
                                   >
-                                    <i
-                                      class="fas fa-user-circle text-emerald-500"
-                                    ></i>
-                                    ประวัติโดยย่อ
+                                    <i class="fas fa-user text-emerald-500"></i>
+                                    ประวัติโดยย่อ / Biological
                                   </h1>
                                   <div class="pt-1 border-t"></div>
                                   <p
-                                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                    class="ml-5 font-normal text-sm  leading-normal break-words text-blueGray-500"
                                   >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum consequuntur iste
-                                    obcaecati error quisquam, cupiditate
-                                    provident magni sed voluptatem dolore
-                                    facere? Quod obcaecati maxime ducimus, quo
-                                    suscipit deleniti atque exercitationem.
+                                    {{ this.bio }}
                                   </p>
                                 </div>
                                 <div class="px-0">
@@ -257,20 +358,15 @@
                                     class="mt-6 font-semibold text-lg text-blueGray-700"
                                   >
                                     <i
-                                      class="fas fa-user-circle text-emerald-500"
+                                      class="fas fa-user-graduate text-emerald-500"
                                     ></i>
-                                    การศึกษา
+                                    การศึกษา / Education
                                   </h1>
                                   <div class="pt-1 border-t"></div>
                                   <p
                                     class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
                                   >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum consequuntur iste
-                                    obcaecati error quisquam, cupiditate
-                                    provident magni sed voluptatem dolore
-                                    facere? Quod obcaecati maxime ducimus, quo
-                                    suscipit deleniti atque exercitationem.
+                                    {{ this.education }}
                                   </p>
                                 </div>
                                 <div class="px-0">
@@ -278,20 +374,15 @@
                                     class="mt-6 font-semibold text-lg text-blueGray-700"
                                   >
                                     <i
-                                      class="fas fa-user-circle text-emerald-500"
+                                      class="fas fa-briefcase text-emerald-500"
                                     ></i>
-                                    ประสบการณ์การทำงาน
+                                    ประสบการณ์การทำงาน / Experience
                                   </h1>
                                   <div class="pt-1 border-t"></div>
                                   <p
                                     class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
                                   >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum consequuntur iste
-                                    obcaecati error quisquam, cupiditate
-                                    provident magni sed voluptatem dolore
-                                    facere? Quod obcaecati maxime ducimus, quo
-                                    suscipit deleniti atque exercitationem.
+                                    {{ this.experience }}
                                   </p>
                                 </div>
                                 <div class="px-0">
@@ -299,20 +390,15 @@
                                     class="mt-6 font-semibold text-lg text-blueGray-700"
                                   >
                                     <i
-                                      class="fas fa-user-circle text-emerald-500"
+                                      class="fas fa-tools text-emerald-500"
                                     ></i>
-                                    ทักษะ
+                                    ทักษะ / Skills
                                   </h1>
                                   <div class="pt-1 border-t"></div>
                                   <p
                                     class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
                                   >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum consequuntur iste
-                                    obcaecati error quisquam, cupiditate
-                                    provident magni sed voluptatem dolore
-                                    facere? Quod obcaecati maxime ducimus, quo
-                                    suscipit deleniti atque exercitationem.
+                                    {{ this.skills }}
                                   </p>
                                 </div>
                                 <div class="px-0">
@@ -320,20 +406,15 @@
                                     class="mt-6 font-semibold text-lg text-blueGray-700"
                                   >
                                     <i
-                                      class="fas fa-user-circle text-emerald-500"
+                                      class="fas fa-award text-emerald-500"
                                     ></i>
-                                    ผลงาน
+                                    ผลงาน / Portfolio
                                   </h1>
                                   <div class="pt-1 border-t"></div>
                                   <p
                                     class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
                                   >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum consequuntur iste
-                                    obcaecati error quisquam, cupiditate
-                                    provident magni sed voluptatem dolore
-                                    facere? Quod obcaecati maxime ducimus, quo
-                                    suscipit deleniti atque exercitationem.
+                                    {{ this.portfolio }}
                                   </p>
                                 </div>
                               </div>
@@ -353,13 +434,86 @@
   </div>
 </template>
 <script>
-import cover from "@/assets/img/repair.png";
-
+import http from "@/services/APIService";
 export default {
   data() {
     return {
-      cover,
+      position: "",
+      first_name: "",
+      last_name: "",
+      first_nameEn: "",
+      last_nameEn: "",
+      address: "",
+      phone: "",
+      email: "",
+
+      bio: "",
+      education: "",
+      experience: "",
+      skills: "",
+      portfolio: "",
     };
+  },
+  mounted() {
+    this.getPersonnelData();
+    this.dateDropdown();
+  },
+
+  methods: {
+    dateDropdown() {
+      let dateDropdown = document.getElementById("date-dropdown");
+
+      let currentYear = new Date().getFullYear();
+      let earliestYear = 1970;
+      while (currentYear >= earliestYear) {
+        let dateOption = document.createElement("option");
+        dateOption.text = currentYear;
+        dateOption.value = currentYear;
+        dateDropdown.add(dateOption);
+        currentYear -= 1;
+      }
+    },
+    getPersonnelData() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let userData = local_user.user;
+      let idUserData = userData.id;
+      idUserData = idUserData - 1;
+      http
+        .get(`personnelid/${idUserData}`)
+        .then((response) => {
+          this.personnel_array = response.data;
+          //Get data from API
+          this.position = this.personnel_array.titlePosition;
+          this.first_name = this.personnel_array.firstName;
+          this.last_name = this.personnel_array.lastName;
+
+          this.first_nameEn = this.personnel_array.fistNameEn;
+          this.last_nameEn = this.personnel_array.lastNameEn;
+
+          this.email = this.personnel_array.e_mail;
+          this.phone = this.personnel_array.phoneNumber;
+
+          this.image = this.personnel_array.personnelPhoto;
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
+    },
   },
 };
 </script>
