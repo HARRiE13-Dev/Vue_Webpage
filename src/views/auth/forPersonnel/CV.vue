@@ -192,65 +192,174 @@
                           </div>
                         </div>
                         <label
-                          class="block my-3 text-gray-700 text-md"
+                          class="block px-2 my-3 text-gray-700 text-md"
                           for="Title"
                           >การศึกษา / Education
                         </label>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-2 md:w-2/12">
                             <select
-                              v-model="year"
-                              id="date-dropdown"
+                              v-model="year1"
+                              id="date-dropdown1"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              placeholder="Degree"
                             >
                             </select>
                           </div>
+
                           <div class="w-full px-2 md:w-2/12">
                             <input
-                              v-model="graduate"
+                              v-model="graduate1"
                               class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Degree"
+                              placeholder="Graduate"
                             />
                           </div>
                           <div class="w-full px-2 md:w-8/12">
                             <input
-                              v-model="major"
+                              v-model="institution1"
                               class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Major"
+                              placeholder="Institution"
                             />
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-6/12">
+                          <div class="w-full px-2 md:w-2/12">
+                            <select
+                              v-model="year2"
+                              id="date-dropdown2"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                            >
+                            </select>
+                          </div>
+
+                          <div class="w-full px-2 md:w-2/12">
+                            <input
+                              v-model="graduate2"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Graduate"
+                            />
+                          </div>
+                          <div class="w-full px-2 md:w-8/12">
+                            <input
+                              v-model="institution2"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Institution"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-2/12">
+                            <select
+                              v-model="year3"
+                              id="date-dropdown3"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                            >
+                            </select>
+                          </div>
+
+                          <div class="w-full px-2 md:w-2/12">
+                            <input
+                              v-model="graduate3"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Graduate"
+                            />
+                          </div>
+                          <div class="w-full px-2 md:w-8/12">
+                            <input
+                              v-model="institution3"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Institution"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
                               >ประสบการณ์การทำงาน</label
                             >
-                            <textarea
-                              v-model="experience"
-                              cols="30"
-                              placeholder="Experience"
-                              rows="5"
-                              class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                            ></textarea>
+                            <div
+                              v-for="(input, index) in experience_array"
+                              :key="`expInput-${index}`"
+                              class="flex text-center mt-2"
+                            >
+                              <div class="w-full md:w-8/12">
+                                <input
+                                  v-model="input.exp"
+                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                                  type="text"
+                                  placeholder="Exeperience"
+                                />
+                              </div>
+                              <div class="text-right md:w-4/12">
+                                <button
+                                  @click="addField_exp(input, experience_array)"
+                                  class=" mr-2 px-6 py-3  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  เพิ่ม
+                                </button>
+
+                                <button
+                                  v-show="experience_array.length > 1"
+                                  @click="
+                                    removeField_exp(index, experience_array)
+                                  "
+                                  class=" px-6 py-3   text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  ลบ
+                                </button>
+                              </div>
+                            </div>
                           </div>
-                          <div class="w-full px-2 md:w-6/12">
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
                               >ทักษะ</label
                             >
-                            <textarea
-                              v-model="skills"
-                              cols="30"
-                              placeholder="Skills"
-                              rows="5"
-                              class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                            ></textarea>
+                            <div
+                              v-for="(input, index) in skill_array"
+                              :key="`skillInput-${index}`"
+                              class="flex text-center mt-2"
+                            >
+                              <div class="w-full md:w-8/12">
+                                <input
+                                  v-model="input.skill"
+                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                                  type="text"
+                                  placeholder="Skills"
+                                />
+                              </div>
+                              <div class="text-right md:w-4/12">
+                                <button
+                                  @click="addField_skill(input, skill_array)"
+                                  class=" mr-2 px-6 py-3  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  เพิ่ม
+                                </button>
+
+                                <button
+                                  v-show="skill_array.length > 1"
+                                  @click="removeField_skill(index, skill_array)"
+                                  class=" px-6 py-3   text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  ลบ
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
@@ -260,28 +369,50 @@
                               for="Title"
                               >ผลงาน</label
                             >
-                            <textarea
-                              v-model="portfolio"
-                              cols="30"
-                              placeholder="Portfolio"
-                              rows="5"
-                              class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                            ></textarea>
+                            <div
+                              v-for="(input, index) in portfolio_array"
+                              :key="`portInput-${index}`"
+                              class="flex text-center mt-2"
+                            >
+                              <div class="w-full md:w-8/12">
+                                <input
+                                  v-model="input.port"
+                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                                  type="text"
+                                  placeholder="Portfolio"
+                                />
+                              </div>
+                              <div class="text-right md:w-4/12">
+                                <button
+                                  @click="addField_port(input, portfolio_array)"
+                                  class=" mr-2 px-6 py-3  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  เพิ่ม
+                                </button>
+
+                                <button
+                                  v-show="portfolio_array.length > 1"
+                                  @click="
+                                    removeField_port(index, portfolio_array)
+                                  "
+                                  class=" px-6 py-3   text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  ลบ
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
 
                         <div class="py-6 text-center">
                           <button
-                            class="px-6 py-3 mb-1 mr-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                            type="button"
-                          >
-                            ล้าง
-                          </button>
-                          <button
+                            @click="print"
                             class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
-                            นำไปใช้
+                            นำออกเอกสาร
                           </button>
                         </div>
                       </form>
@@ -290,6 +421,7 @@
                     <div class="w-full lg:w-6/12">
                       <div class="p-4 bg-emerald-300 rounded-lg">
                         <div
+                          id="printMe"
                           class="bg-white border border-blueGray-300 shadow-lg "
                         >
                           <div class="bg-blueGray-100 px-0 pt-2 pb-4">
@@ -311,7 +443,8 @@
                                 <h1
                                   class="mt-2 font-semibold text-lg text-blueGray-800"
                                 >
-                                  {{ this.first_nameEn }} {{ this.last_nameEn }}
+                                  {{ this.titleEn }} {{ this.first_nameEn }}
+                                  {{ this.last_nameEn }}
                                 </h1>
                               </div>
                               <div
@@ -366,7 +499,23 @@
                                   <p
                                     class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
                                   >
-                                    {{ this.education }}
+                                    <b>{{ this.year1 }} </b>
+                                    {{ this.graduate1 }}
+                                    {{ this.institution1 }}
+                                  </p>
+                                  <p
+                                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                  >
+                                    <b>{{ this.year2 }} </b>
+                                    {{ this.graduate2 }}
+                                    {{ this.institution2 }}
+                                  </p>
+                                  <p
+                                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                  >
+                                    <b>{{ this.year3 }} </b>
+                                    {{ this.graduate3 }}
+                                    {{ this.institution3 }}
                                   </p>
                                 </div>
                                 <div class="px-0">
@@ -379,11 +528,16 @@
                                     ประสบการณ์การทำงาน / Experience
                                   </h1>
                                   <div class="pt-1 border-t"></div>
-                                  <p
-                                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                  <div
+                                    v-for="exp_loop in experience_array"
+                                    :key="exp_loop.exp"
                                   >
-                                    {{ this.experience }}
-                                  </p>
+                                    <p
+                                      class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                    >
+                                      {{ exp_loop.exp }}
+                                    </p>
+                                  </div>
                                 </div>
                                 <div class="px-0">
                                   <h1
@@ -395,11 +549,16 @@
                                     ทักษะ / Skills
                                   </h1>
                                   <div class="pt-1 border-t"></div>
-                                  <p
-                                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                  <div
+                                    v-for="skill_loop in skill_array"
+                                    :key="skill_loop.skill"
                                   >
-                                    {{ this.skills }}
-                                  </p>
+                                    <p
+                                      class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                    >
+                                      {{ skill_loop.skill }}
+                                    </p>
+                                  </div>
                                 </div>
                                 <div class="px-0">
                                   <h1
@@ -411,11 +570,16 @@
                                     ผลงาน / Portfolio
                                   </h1>
                                   <div class="pt-1 border-t"></div>
-                                  <p
-                                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                  <div
+                                    v-for="port_loop in portfolio_array"
+                                    :key="port_loop.port"
                                   >
-                                    {{ this.portfolio }}
-                                  </p>
+                                    <p
+                                      class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                    >
+                                      {{ port_loop.port }}
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -441,6 +605,7 @@ export default {
       position: "",
       first_name: "",
       last_name: "",
+      titleEn: "",
       first_nameEn: "",
       last_nameEn: "",
       address: "",
@@ -448,20 +613,71 @@ export default {
       email: "",
 
       bio: "",
-      education: "",
-      experience: "",
-      skills: "",
-      portfolio: "",
+
+      experience_array: [{ exp: "" }],
+      skill_array: [{ skill: "" }],
+      portfolio_array: [{ port: "" }],
+
+      year1: "",
+      graduate1: "",
+      institution1: "",
+      year2: "",
+      graduate2: "",
+      institution2: "",
+      year3: "",
+      graduate3: "",
+      institution3: "",
     };
   },
   mounted() {
     this.getPersonnelData();
-    this.dateDropdown();
+    this.dateDropdown1();
+    this.dateDropdown2();
+    this.dateDropdown3();
   },
 
   methods: {
-    dateDropdown() {
-      let dateDropdown = document.getElementById("date-dropdown");
+    print() {
+      const swalWithBootstrapButtons = this.$swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger",
+        },
+        buttonsStyling: false,
+      });
+
+      swalWithBootstrapButtons
+        .fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, delete it!",
+          cancelButtonText: "No, cancel!",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+              "Deleted!",
+              "Your file has been deleted.",
+              "success"
+            );
+          } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === this.$swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons.fire(
+              "Cancelled",
+              "Your imaginary file is safe :)",
+              "error"
+            );
+          }
+        });
+      //this.$router.push({ name: "CVPrint" });
+    },
+    dateDropdown1() {
+      let dateDropdown = document.getElementById("date-dropdown1");
 
       let currentYear = new Date().getFullYear();
       let earliestYear = 1970;
@@ -473,6 +689,33 @@ export default {
         currentYear -= 1;
       }
     },
+    dateDropdown2() {
+      let dateDropdown = document.getElementById("date-dropdown2");
+
+      let currentYear = new Date().getFullYear();
+      let earliestYear = 1970;
+      while (currentYear >= earliestYear) {
+        let dateOption = document.createElement("option");
+        dateOption.text = currentYear;
+        dateOption.value = currentYear;
+        dateDropdown.add(dateOption);
+        currentYear -= 1;
+      }
+    },
+    dateDropdown3() {
+      let dateDropdown = document.getElementById("date-dropdown3");
+
+      let currentYear = new Date().getFullYear();
+      let earliestYear = 1970;
+      while (currentYear >= earliestYear) {
+        let dateOption = document.createElement("option");
+        dateOption.text = currentYear;
+        dateOption.value = currentYear;
+        dateDropdown.add(dateOption);
+        currentYear -= 1;
+      }
+    },
+
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
       let userData = local_user.user;
@@ -487,6 +730,7 @@ export default {
           this.first_name = this.personnel_array.firstName;
           this.last_name = this.personnel_array.lastName;
 
+          this.titleEn = this.personnel_array.titleNameEn;
           this.first_nameEn = this.personnel_array.fistNameEn;
           this.last_nameEn = this.personnel_array.lastNameEn;
 
@@ -513,6 +757,39 @@ export default {
             }
           }
         });
+    },
+
+    addField_exp(object, fieldType) {
+      let newObject = {};
+      for (const [key] of Object.entries(object)) {
+        newObject[key] = "";
+      }
+      fieldType.push(newObject);
+    },
+    removeField_exp(index, fieldType) {
+      fieldType.splice(index, 1);
+    },
+
+    addField_skill(object, fieldType) {
+      let newObject = {};
+      for (const [key] of Object.entries(object)) {
+        newObject[key] = "";
+      }
+      fieldType.push(newObject);
+    },
+    removeField_skill(index, fieldType) {
+      fieldType.splice(index, 1);
+    },
+
+    addField_port(object, fieldType) {
+      let newObject = {};
+      for (const [key] of Object.entries(object)) {
+        newObject[key] = "";
+      }
+      fieldType.push(newObject);
+    },
+    removeField_port(index, fieldType) {
+      fieldType.splice(index, 1);
     },
   },
 };

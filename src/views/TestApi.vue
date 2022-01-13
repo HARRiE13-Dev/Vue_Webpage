@@ -3,6 +3,7 @@
     <section class="w-full flex justify-center items-center my-10">
       <form class="">
         <div class="form-group">
+
           <label class="text-gray-600 font-semibold text-lg"
             >Phone Number</label
           >
@@ -17,8 +18,6 @@
               class="h-10 rounded-lg outline-none p-2"
               placeholder=" Enter Phone Number"
             />
-            <!--          Add Svg Icon-->
-            <!--          Add Svg Icon-->
 
             <button
               @click="addField(input, phoneNumbers)"
@@ -40,8 +39,13 @@
         </div>
       </form>
     </section>
-    <div  class="text-2xl">
-      {{ this.phoneNumbers[0] }}
+
+    <div
+      v-for="i in phoneNumbers"
+      :key="i.phone"
+      class="flex text-center text-2xl"
+    >
+      {{ i.phone }}
     </div>
   </div>
 </template>
@@ -51,6 +55,7 @@ export default {
   data() {
     return {
       phoneNumbers: [{ phone: "" }],
+      
     };
   },
   methods: {

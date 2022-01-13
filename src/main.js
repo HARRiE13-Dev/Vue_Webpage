@@ -8,6 +8,8 @@ import VCalendar from 'v-calendar';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+import  VueHtmlToPaper from '@/services/VueHtmlToPaper'
+
 // import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 // styles--------------------------------------------------
@@ -337,6 +339,7 @@ const router = createRouter({
 // }
 
 //Create Constant Var--------------------------------------------------------------------
+
 const app = createApp(App)
 
 app.use(router)
@@ -345,4 +348,5 @@ app.use(store)
 app.use(VCalendar, {})
 
 app.use(VueSweetalert2);
+app.use(VueHtmlToPaper);
 //app.use(VueReCaptcha, { siteKey: '<site key>' })

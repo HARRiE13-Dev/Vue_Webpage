@@ -301,7 +301,7 @@ export default defineComponent({
 
           if (this.news_array.length > 3) {
             for (let i = 1; i <= this.news_array.length; i++) {
-              this.news_array.pop();
+              this.news_array.pop(i);
             }
           }
         })
