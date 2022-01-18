@@ -409,6 +409,7 @@
                         <div class="py-6 text-center">
                           <button
                             @click="print"
+                            id="download"
                             class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
@@ -421,7 +422,7 @@
                     <div class="w-full lg:w-6/12">
                       <div class="p-4 bg-emerald-300 rounded-lg">
                         <div
-                          id="printMe"
+                          id="invoice"
                           class="bg-white border border-blueGray-300 shadow-lg "
                         >
                           <div class="bg-blueGray-100 px-0 pt-2 pb-4">
@@ -433,11 +434,11 @@
                                   class="mt-2 rounded-full shadow-lg max-w-100-px h-100-px center-img bg-emerald-500"
                                 />
                               </div>
-                              <div class="ml-3 px-0 w-full lg:w-6/12 ">
+                              <div class="ml-0 px-0 w-full lg:w-6/12 ">
                                 <h1
                                   class="mt-4 font-normal text-xl text-blueGray-800"
                                 >
-                                  {{ this.position }}{{ this.first_name }}
+                                  {{ this.position }} {{ this.first_name }}
                                   {{ this.last_name }}
                                 </h1>
                                 <h1
@@ -448,20 +449,20 @@
                                 </h1>
                               </div>
                               <div
-                                class="text-right mt-4 mr-4 w-full lg:w-3/12 "
+                                class="text-right mt-5 mr-2 w-full lg:w-4/12 border-l border-blueGray-300"
                               >
-                                <div class="text-sm text-blueGray-400">
-                                  <span>{{ this.address }}&nbsp; </span>
+                                <div class="text-sm  text-blueGray-400">
+                                  <span>{{ this.address }}&nbsp;</span>
                                   <i class="fas fa-home text-emerald-500"></i>
                                 </div>
-                                <div class="text-sm text-blueGray-400">
-                                  <span>{{ this.phone }}&nbsp; </span>
+                                <div class="text-sm mt-2  text-blueGray-400">
+                                  <span>{{ this.phone }}&nbsp;</span>
                                   <i
                                     class="fas fa-phone-alt text-emerald-500"
                                   ></i>
                                 </div>
-                                <div class="text-sm text-blueGray-400">
-                                  <span>{{ this.email }}&nbsp; </span>
+                                <div class="text-sm  mt-2 text-blueGray-400">
+                                  <span>{{ this.email }}&nbsp;</span>
                                   <i
                                     class="fas fa-envelope text-emerald-500"
                                   ></i>
@@ -599,6 +600,7 @@
 </template>
 <script>
 import http from "@/services/APIService";
+//import html2pdf from "html2pdf.js";
 export default {
   data() {
     return {
@@ -608,7 +610,7 @@ export default {
       titleEn: "",
       first_nameEn: "",
       last_nameEn: "",
-      address: "",
+      address: "มหาวิทยาลัยแม่โจ้",
       phone: "",
       email: "",
 
@@ -637,39 +639,82 @@ export default {
   },
 
   methods: {
+    // exportToPDF() {
+    //   html2pdf(this.$refs.document, {
+    //     margin: 1,
+    //     filename: "document.pdf",
+    //     image: { type: "jpeg", quality: 0.98 },
+    //     html2canvas: { dpi: 192, letterRendering: true },
+    //     jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+    //   });
+    // },
+
+    onclickDelete(equipmentId) {
+      this.$swal
+        .fire({
+          title: "ยืนยันการลบรายการนี้",
+          showDenyButton: false,
+          showCacelButton: true,
+          confirmButtonText: `ยืนยัน`,
+          cancelButtonText: `ยกเลิก`,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            http
+              .delete(`equipmentdelete/${equipmentId}`)
+              .then(() => {
+                this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
+                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
+                if (this.keyword == "") {
+                  this.getProducts(this.currentPage);
+                } else {
+                  this.getProductsSearch(this.currentPage);
+                }
+              })
+              .catch((error) => {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+              });
+          }
+        });
+    },
     print() {
       const swalWithBootstrapButtons = this.$swal.mixin({
         customClass: {
-          confirmButton: "btn btn-success",
-          cancelButton: "btn btn-danger",
+          title: "font-weight-bold",
+          confirmButton:
+            "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          cancelButton:
+            "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
         },
         buttonsStyling: false,
       });
 
       swalWithBootstrapButtons
         .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
+          title: "ยืนยันการนำออกเอกสาร",
           icon: "warning",
           showCancelButton: true,
-          confirmButtonText: "Yes, delete it!",
-          cancelButtonText: "No, cancel!",
+          confirmButtonText: "ยืนยัน",
+          cancelButtonText: "ยกเลิก",
           reverseButtons: true,
         })
         .then((result) => {
           if (result.isConfirmed) {
             swalWithBootstrapButtons.fire(
-              "Deleted!",
-              "Your file has been deleted.",
+              "นำออกเอกสารเรียบร้อย!",
+              "ระบบกำลังพิมพ์เอกสาร",
               "success"
             );
+            this.$router.push({ name: "CVPrint" });
           } else if (
             /* Read more about handling dismissals below */
             result.dismiss === this.$swal.DismissReason.cancel
           ) {
             swalWithBootstrapButtons.fire(
-              "Cancelled",
-              "Your imaginary file is safe :)",
+              "ยกเลิกเรียบร้อย!",
+              "คุณได้ยกเลิกการนำออกเอกสาร",
               "error"
             );
           }

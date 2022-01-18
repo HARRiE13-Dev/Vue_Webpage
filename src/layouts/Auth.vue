@@ -7,7 +7,7 @@
         
         <div
           class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
-          :style="`background-image: url('${backgroundLogin}');`"
+          :style="`background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639377482.jpg');`"
         ></div>
         <router-view />
         <foot absolute />

@@ -91,12 +91,20 @@
                       <div class="mt-10 text-center">
                         <a href="javascript:history.go(-1)">
                           <button
-                            class=" px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                            class=" px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
                             ย้อนกลับ
                           </button>
                         </a>
+                        <button
+                          @click="topFunction()"
+                          id="myBtn"
+                          class=" px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                          type="button"
+                        >
+                          ขึ้นด้านบน
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -105,6 +113,7 @@
             </div>
           </div>
         </div>
+        
       </section>
     </main>
     <main-footer />
@@ -125,12 +134,27 @@ export default {
       eDetail: "",
       elinks: "",
       eimgUrl: "",
+      mybutton: false,
     };
   },
   mounted() {
     this.getPersonnelData();
+    this.mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+      this.scrollFunction();
+    };
   },
   methods: {
+   
+
+    // When the user clicks on the button, scroll to the top of the document
+    topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
+
     getPersonnelData() {
       http;
       this.newsId = this.$store.state.newsShowAll;

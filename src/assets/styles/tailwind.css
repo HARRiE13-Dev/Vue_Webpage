@@ -2752,6 +2752,9 @@ select {
 .opacity-90 {
   opacity: 0.90;
 }
+.opacity-97 {
+  opacity: 0.97;
+}
 
 .outline-none {
   outline: 2px solid transparent;
