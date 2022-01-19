@@ -1,7 +1,10 @@
 <template>
   <div>
     <page size="A4">
-      <div id="printMe" class="bg-white border custom border-blueGray-300 shadow-lg ">
+      <div
+        id="printMe"
+        class="bg-white border custom border-blueGray-300 shadow-lg "
+      >
         <div class="bg-blueGray-100 px-0 pt-2 pb-4">
           <div class=" flex flex-warp">
             <div class="ml-0 px-0 w-full lg:w-3/12 ">
@@ -164,10 +167,14 @@ export default {
   },
   mounted() {
     this.getPersonnelData();
+    this.printCV();
   },
 
   methods: {
-    
+    async printCV() {
+      document.title = `${this.last_nameEn}_CV.pdf`;
+      window.print();
+    },
 
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));

@@ -408,8 +408,7 @@
 
                         <div class="py-6 text-center">
                           <button
-                            @click="print"
-                            id="download"
+                            @click="printCV"
                             class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
@@ -422,8 +421,8 @@
                     <div class="w-full lg:w-6/12">
                       <div class="p-4 bg-emerald-300 rounded-lg">
                         <div
-                          id="invoice"
-                          class="bg-white border border-blueGray-300 shadow-lg "
+                          id="GFG"
+                          class="bg-white  border border-blueGray-300 shadow-lg "
                         >
                           <div class="bg-blueGray-100 px-0 pt-2 pb-4">
                             <div class=" flex flex-warp">
@@ -601,6 +600,8 @@
 <script>
 import http from "@/services/APIService";
 //import html2pdf from "html2pdf.js";
+// import html2canvas from "html2canvas";
+// import jsPDF from "jspdf";
 export default {
   data() {
     return {
@@ -639,47 +640,18 @@ export default {
   },
 
   methods: {
-    // exportToPDF() {
-    //   html2pdf(this.$refs.document, {
-    //     margin: 1,
-    //     filename: "document.pdf",
-    //     image: { type: "jpeg", quality: 0.98 },
-    //     html2canvas: { dpi: 192, letterRendering: true },
-    //     jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-    //   });
-    // },
+    test() {
+      var divContents = document.getElementById("GFG").innerHTML;
+      var a = window.open("", "", "height=620, width=437");
 
-    onclickDelete(equipmentId) {
-      this.$swal
-        .fire({
-          title: "ยืนยันการลบรายการนี้",
-          showDenyButton: false,
-          showCacelButton: true,
-          confirmButtonText: `ยืนยัน`,
-          cancelButtonText: `ยกเลิก`,
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            http
-              .delete(`equipmentdelete/${equipmentId}`)
-              .then(() => {
-                this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
-                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
-                if (this.keyword == "") {
-                  this.getProducts(this.currentPage);
-                } else {
-                  this.getProductsSearch(this.currentPage);
-                }
-              })
-              .catch((error) => {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-              });
-          }
-        });
+      a.document.write(divContents);
+
+      // a.document.close();
+      a.print();
+      return true;
     },
-    print() {
+
+    printCV() {
       const swalWithBootstrapButtons = this.$swal.mixin({
         customClass: {
           title: "font-weight-bold",
@@ -707,11 +679,12 @@ export default {
               "ระบบกำลังพิมพ์เอกสาร",
               "success"
             );
-            this.$router.push({ name: "CVPrint" });
-          } else if (
-            /* Read more about handling dismissals below */
-            result.dismiss === this.$swal.DismissReason.cancel
-          ) {
+          
+            let routeData = this.$router.resolve({
+              name: "CVPrint",
+            });
+            window.open(routeData.href, "_blank");
+          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               "ยกเลิกเรียบร้อย!",
               "คุณได้ยกเลิกการนำออกเอกสาร",
@@ -719,7 +692,6 @@ export default {
             );
           }
         });
-      //this.$router.push({ name: "CVPrint" });
     },
     dateDropdown1() {
       let dateDropdown = document.getElementById("date-dropdown1");
@@ -729,7 +701,7 @@ export default {
       while (currentYear >= earliestYear) {
         let dateOption = document.createElement("option");
         dateOption.text = currentYear;
-        dateOption.value = currentYear;
+        dateOption.value = `• ${currentYear}`;
         dateDropdown.add(dateOption);
         currentYear -= 1;
       }
@@ -742,7 +714,7 @@ export default {
       while (currentYear >= earliestYear) {
         let dateOption = document.createElement("option");
         dateOption.text = currentYear;
-        dateOption.value = currentYear;
+        dateOption.value = `• ${currentYear}`;
         dateDropdown.add(dateOption);
         currentYear -= 1;
       }
@@ -755,7 +727,7 @@ export default {
       while (currentYear >= earliestYear) {
         let dateOption = document.createElement("option");
         dateOption.text = currentYear;
-        dateOption.value = currentYear;
+        dateOption.value = `• ${currentYear}`;
         dateDropdown.add(dateOption);
         currentYear -= 1;
       }

@@ -64,6 +64,7 @@ import Maintenance from "@/views/auth/forStudent/Maintenance_System.vue";
 import Maintenance_Personnel from "@/views/auth/forPersonnel/Maintenance_System_forPersonnel.vue";
 import CV from "@/views/auth/forPersonnel/CV.vue";
 import CVPrint from "@/views/auth/forPersonnel/CVPrint.vue";
+import RoomReserve from "@/views/auth/forPersonnel/RoomReserve.vue";
 
 // views without layouts
 
@@ -226,6 +227,12 @@ const routes = [
         path: "/service/service_teacher/cv",
         name: "CV",
         component: CV,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/service/service_teacher/roomreserve",
+        name: "RoomReserve",
+        component: RoomReserve,
         beforeEnter: authGuard
       },
      
