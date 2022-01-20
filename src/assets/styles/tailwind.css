@@ -2700,6 +2700,9 @@ select {
 .min-h-screen-75 {
   min-height: 75vh;
 }
+.min-h-50-px {
+  min-height: 50px;
+}
 
 .min-w-0 {
   min-width: 0px;
@@ -4072,6 +4075,7 @@ select {
   .sm\:w-6\/12 {
     width: 50%;
   }
+  
   
 }
 

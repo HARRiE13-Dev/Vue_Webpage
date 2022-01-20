@@ -481,9 +481,10 @@
                                   </h1>
                                   <div class="pt-1 border-t"></div>
                                   <p
-                                    class="ml-5 font-normal text-sm  leading-normal break-words text-blueGray-500"
+                                    class="ml-5 font-normal text-sm min-h-50-px leading-normal break-words text-blueGray-500"
                                   >
                                     {{ this.bio }}
+                                    
                                   </p>
                                 </div>
                                 <div class="px-0">

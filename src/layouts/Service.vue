@@ -61,6 +61,7 @@
                           </div>
                           <div class="relative px-3 py-6 mt-2 text-center">
                             <button
+                              @click="profile"
                               class="px-4 py-2 mb-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                               type="button"
                             >
@@ -150,6 +151,11 @@ export default {
     this.getStudentData();
   },
   methods: {
+    profile() {
+      this.$router.push({
+        name: "ProfileStudent",
+      });
+    },
     getStudentData() {
       this.local_user = JSON.parse(window.localStorage.getItem("user"));
       // console.log(this.local_user);

@@ -10,7 +10,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 import  VueHtmlToPaper from '@/services/VueHtmlToPaper'
 
-// import { VueReCaptcha } from 'vue-recaptcha-v3'
+//import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 // styles--------------------------------------------------
 
@@ -58,6 +58,7 @@ import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 
 //Service For Student
 import Maintenance from "@/views/auth/forStudent/Maintenance_System.vue";
+import ProfileStudent from "@/views/auth/forStudent/ProfileStudent.vue";
 
 
 //Service For Personnel
@@ -65,6 +66,7 @@ import Maintenance_Personnel from "@/views/auth/forPersonnel/Maintenance_System_
 import CV from "@/views/auth/forPersonnel/CV.vue";
 import CVPrint from "@/views/auth/forPersonnel/CVPrint.vue";
 import RoomReserve from "@/views/auth/forPersonnel/RoomReserve.vue";
+import Profile from "@/views/auth/forPersonnel/Profile.vue";
 
 // views without layouts
 
@@ -203,6 +205,12 @@ const routes = [
         component: Maintenance,
         beforeEnter: authGuard
       },
+      {
+        path: "/service/service_student/profilestudent",
+        name: "ProfileStudent",
+        component: ProfileStudent,
+        beforeEnter: authGuard
+      },
     ],
   },
   {
@@ -233,6 +241,12 @@ const routes = [
         path: "/service/service_teacher/roomreserve",
         name: "RoomReserve",
         component: RoomReserve,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/service/service_teacher/profile",
+        name: "Profile",
+        component: Profile,
         beforeEnter: authGuard
       },
      
@@ -350,10 +364,11 @@ const router = createRouter({
 const app = createApp(App)
 
 app.use(router)
-app.mount('#app')
 app.use(store)
 app.use(VCalendar, {})
 
 app.use(VueSweetalert2);
 app.use(VueHtmlToPaper);
-//app.use(VueReCaptcha, { siteKey: '<site key>' })
+//app.use(VueReCaptcha, { siteKey: '6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u' })
+
+app.mount('#app') 

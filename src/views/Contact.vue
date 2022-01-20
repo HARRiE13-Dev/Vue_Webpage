@@ -199,14 +199,14 @@
 
                     <div class="pt-2 mb-3 text-center ">
                       <button
-                        @click.prevent="commit"
+                        @click.prevent="clear"
                         class="px-6 py-3 mb-1 mr-1 font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
                         ล้าง
                       </button>
                       <button
-                        @click.prevent="commit"
+                        @click.prevent="sd"
                         class="px-6 py-3 mb-1 mr-1 font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >

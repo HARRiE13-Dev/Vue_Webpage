@@ -112,6 +112,58 @@
                         </router-link>
                       </div>
                     </div>
+                    <div class="w-full px-2 lg:w-3/12 ">
+                      <div
+                        class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
+                      >
+                        <router-link to="service_teacher/roomreserve">
+                          <img
+                            :src="cover4"
+                            class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
+                          />
+
+                          <div class="relative p-4 ">
+                            <h4 class="text-xl font-bold text-left ">
+                              ระบบยืม-คืนครุภัณฑ์
+                            </h4>
+
+                            <div
+                              class="mt-2 text-center border-t border-blueGray-200"
+                            >
+                              <h4 class="mt-2 font-normal text-left text-md ">
+                                Equipment Inventory System
+                              </h4>
+                            </div>
+                          </div>
+                        </router-link>
+                      </div>
+                    </div>
+                    <div class="w-full px-2 lg:w-3/12 ">
+                      <div
+                        class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
+                      >
+                        <router-link to="service_teacher/roomreserve">
+                          <img
+                            :src="cover5"
+                            class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
+                          />
+
+                          <div class="relative p-4 ">
+                            <h4 class="text-xl font-bold text-left ">
+                              ระบบจองเบิกจ่ายอุปกรณ์
+                            </h4>
+
+                            <div
+                              class="mt-2 text-center border-t border-blueGray-200"
+                            >
+                              <h4 class="mt-2 font-normal text-left text-md ">
+                                Material Disbursement System
+                              </h4>
+                            </div>
+                          </div>
+                        </router-link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -126,6 +178,8 @@
 import cover1 from "@/assets/img/cv.png";
 import cover2 from "@/assets/img/repair.png";
 import cover3 from "@/assets/img/room_rent.png";
+import cover4 from "@/assets/img/equipment.png";
+import cover5 from "@/assets/img/material.png";
 
 export default {
   data() {
@@ -133,6 +187,8 @@ export default {
       cover1,
       cover2,
       cover3,
+      cover4,
+      cover5
     };
   },
 };
