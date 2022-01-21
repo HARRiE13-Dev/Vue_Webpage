@@ -136,8 +136,8 @@
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
                         <img
-                          class="w-24 h-24"
-                          src="@\assets\img\no-img.png"
+                          class="w-24 h-24 bg-gray-200 shadow-lg border"
+                          :src="feed.Complain_Picture"
                           alt=""
                         />
                       </td>
@@ -179,9 +179,7 @@
                           >
                             ปฏิเสธการแจ้ง
                           </a>
-                         
                         </div>
-                       
                       </td>
                     </tr>
                   </tbody>
@@ -220,37 +218,12 @@ export default {
       currentPage: 0,
       perPage: 0,
       total: 0,
-
-      newsId: 0,
-      News_Detail: "",
-      News_Date: "",
-      News_Time: "",
-      News_Picture: "",
-      News_Title: "",
-      News_File: "",
-      News_links: "",
-      News_Type: "",
     };
   },
   methods: {
-    Edit(newsId) {
-      this.$router.push({ name: "EditFeed" });
-      this.$store.state.newsEdit = newsId;
-    },
-
     toggleDropdown: function(complainId) {
-
-     this.dropdownPopoverShow = !this.dropdownPopoverShow;
-     console.log(complainId);
-    
-      // if (this.dropdownPopoverShow) {
-      //   this.dropdownPopoverShow = false;
-      // } else {
-      //   this.dropdownPopoverShow = true;
-      //   createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
-      //     placement: "bottom-start",
-      //   });
-      // }
+      this.dropdownPopoverShow = !this.dropdownPopoverShow;
+      console.log(complainId);
     },
     /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
@@ -260,7 +233,7 @@ export default {
       let response = await http.get(`complain`);
       let responseProduct = response.data;
       this.products = responseProduct;
-      
+
       this.total = this.products.length;
       console.log(this.total);
     },
@@ -284,44 +257,7 @@ export default {
         this.getProductsSearch(this.currentPage);
       }
     },
-    /***********************************************************************
-     * ส่วนของการลบสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันสำหรับลบสินค้า
-    onclickDelete(id) {
-      this.$swal
-        .fire({
-          title: "ยืนยันการลบรายการนี้",
-          showDenyButton: false,
-          showCancelButton: true,
-          confirmButtonText: `ยืนยัน`,
-          cancelButtonText: `ปิดหน้าต่าง`,
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            http
-              .delete(`newsdelete/${id}`)
-              .then(() => {
-                this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
-                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
-                if (this.keyword == "") {
-                  this.getProducts(this.currentPage);
-                } else {
-                  this.getProductsSearch(this.currentPage);
-                }
-              })
-              .catch((error) => {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-              });
-          }
-        });
-    },
-    /***********************************************************************
-     * ส่วนของการค้นหาสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันค้นหาสินค้า
+
     submitSearchForm() {
       if (this.keyword != "") {
         // เรียกค้นไปยัง api ของ laravel

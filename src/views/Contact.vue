@@ -127,7 +127,9 @@
                       <a href="https://line.me/R/ti/p/%40053vfccm">CSMJU </a>
                     </h3>
                   </div>
-                  <div class="w-full border-blueGray-300 px-6 border-l mb-4 text-left lg:-mt-48 lg:w-6/12">
+                  <div
+                    class="w-full border-blueGray-300 px-6 border-l mb-4 text-left lg:-mt-48 lg:w-6/12"
+                  >
                     <h3
                       class="mb-6 text-2xl font-normal leading-normal text-center text-blueGray-700"
                     >
@@ -163,54 +165,26 @@
                     </div>
 
                     <div class="mb-1 text-lg text-blueGray-500">
-                      <span>แนบไฟล์</span>
+                      <span>แนบรูปภาพ</span>
                       <div
                         class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 rounded-lg border-all"
                       >
-                        <div class="absolute">
-                          <div class="flex flex-col items-center py-10">
-                            <span
-                              class="block py-10 font-normal border-blueGray-300"
-                            ></span>
-                          </div>
-                        </div>
                         <input
+                          ref="fileupload"
                           type="file"
                           @change="onFileSelected"
-                          class="w-full h-full opacity-0"
+                          class="w-full h-full opacity-0 p-3 bg-white"
                         />
                       </div>
                     </div>
 
-                    <div class="pt-10 mb-3 text-center">
-                      <!-- <vue-recaptcha
-                        v-if="showRecaptcha"
-                        siteKey="..."
-                        size="normal"
-                        theme="light"
-                        :tabindex="0"
-                        @verify="recaptchaVerified"
-                        @expire="recaptchaExpired"
-                        @fail="recaptchaFailed"
-                        ref="vueRecaptcha"
-                      >
-                      </vue-recaptcha> -->
-                    </div>
-
                     <div class="pt-2 mb-3 text-center ">
                       <button
-                        @click.prevent="clear"
-                        class="px-6 py-3 mb-1 mr-1 font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-teal-600 hover:shadow-lg focus:outline-none"
+                        @click="submit"
+                        class="px-6 py-3 mt-3 mb-1 mr-1 shadow-lg font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
-                        ล้าง
-                      </button>
-                      <button
-                        @click.prevent="sd"
-                        class="px-6 py-3 mb-1 mr-1 font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
-                        type="button"
-                      >
-                        ยืนยัน
+                        บันทึก
                       </button>
                     </div>
                   </div>
@@ -441,9 +415,9 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-// import vueRecaptcha from "vue3-recaptcha2";
+import http from "@/services/APIService";
 import icon from "@/assets/img/paper.png";
-import axios from "axios";
+
 export default {
   data() {
     return {
@@ -454,75 +428,108 @@ export default {
       showRecaptcha: true,
       date: new Date().toString(),
 
-      selectedFile: null,
       imgUrl: "",
+
+      file: null,
     };
   },
   methods: {
     onFileSelected(event) {
-      //console.log(event);
       const file = event.target.files[0];
-      this.selectedFile = event.target.files[0];
+      this.file = event.target.files[0];
       this.imgUrl = URL.createObjectURL(file);
     },
-    commit() {
-      //console.log(this.topic, this.detail, this.date);
-      const formData = new FormData();
-      formData.append("image", this.selectedFile, this.selectedFile.name);
-      axios({
-        method: "POST",
-        url: "http://wwwdev.csmju.com/api/complainadd",
-        data: {
-          Complain_Title: this.topic,
-          Complain_Detail: this.detail,
-          Complain_Picture: this.selectedFile.name,
-          Complain_Date: this.date,
-        },
-        formData,
-        onUploadProgress: (uploadEvent) => {
-          console.log(
-            "Upload Progress: " +
-              Math.round((uploadEvent.loaded / uploadEvent.tolal) * 100) +
-              "%"
-          );
-        },
-      })
-        .then((response) => {
-          //console.log(response);
-          localStorage.setItem("user", JSON.stringify(response.data));
+    submitForm() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        let data = new FormData();
+        data.append("Firstname_Alumni", this.Firstname);
+        data.append("Lastname_Alumni", this.Lastname);
+        data.append("StudentCode_Alumni", this.Code);
+        data.append("Workplace", this.Workplace);
+        data.append("Contact", this.Contact);
+        data.append("Caption", this.Caption);
+        data.append("Job_Title", this.Position);
+        data.append("Alumni_Picture", this.file);
 
-          const Swal = this.$swal.mixin({
-            position: "center",
+        //Post in Web
+        http.post("alumniadd", data).then((response) => {
+          console.log(response);
+
+          const Toast = this.$swal.mixin({
+            toast: true,
+            position: "top-end",
             showConfirmButton: false,
-            timer: 1000,
+            timer: 1500,
             timerProgressBar: true,
           });
-
-          Swal.fire({
+          Toast.fire({
             icon: "success",
-            title: "บันทึกข้อมูลเรียบร้อย",
+            title: "เพิ่มข้อมูลใหม่เรียบร้อย",
+          }).then(() => {
+            this.$router.push({ name: "AlumnusShow" });
           });
-        })
-        .catch((error) => {
-          if (error.response) {
-            if (error.response.status == 500) {
-              //Call Sweet Alert
-              const Toast = this.$swal.mixin({
-                position: "center",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener("mouseenter", this.$swal.stopTimer);
-                  toast.addEventListener("mouseleave", this.$swal.resumeTimer);
-                },
-              });
+        });
+      }
+    },
 
-              Toast.fire({
-                icon: "error",
-                title: "ไม่สามารถบันทึกข้อมูลได้",
-              });
-            }
+    submit() {
+      const swalWithBootstrapButtons = this.$swal.mixin({
+        customClass: {
+          title: "font-weight-bold",
+          confirmButton:
+            "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          cancelButton:
+            "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+        },
+        buttonsStyling: false,
+      });
+
+      swalWithBootstrapButtons
+        .fire({
+          title: "ยืนยันการส่งข้อมูล",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "ยืนยัน",
+          cancelButtonText: "ยกเลิก",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            let data = new FormData();
+            data.append("Complain_Title", this.topic);
+            data.append("Complain_Detail", this.detail);
+            data.append("Complain_Picture", this.file);
+            data.append("Complain_Date", this.date);
+
+            http.post("complainadd", data).then(() => {
+              this.topic = null;
+              this.detail = null;
+              this.file = null;
+              this.date = null;
+              this.imgUrl = null;
+              this.file = "";
+              this.$refs.fileupload.value = null;
+
+              swalWithBootstrapButtons.fire(
+                "บันทึกข้อมูลเรียบร้อย!",
+                "",
+                "success"
+              );
+            });
+          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+            this.topic = null;
+            this.detail = null;
+            this.file = null;
+            this.date = null;
+            this.imgUrl = null;
+            this.file = "";
+            this.$refs.fileupload.value = null;
+            swalWithBootstrapButtons.fire(
+              "ยกเลิกการส่งข้อมูลเรียบร้อย!",
+              "",
+              "error"
+            );
           }
         });
     },
@@ -530,14 +537,6 @@ export default {
   components: {
     Navbar,
     MainFooter,
-    // vueRecaptcha,
   },
-  // methods: {
-  // //   recaptchaVerified() {},
-  // //   recaptchaExpired() {
-  // //     this.$refs.vueRecaptcha.reset();
-  // //   },
-  // //   recaptchaFailed() {},
-  // // },
 };
 </script>

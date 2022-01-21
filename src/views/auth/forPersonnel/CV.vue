@@ -641,16 +641,16 @@ export default {
   },
 
   methods: {
-    test() {
-      var divContents = document.getElementById("GFG").innerHTML;
-      var a = window.open("", "", "height=620, width=437");
+    // test() {
+    //   var divContents = document.getElementById("GFG").innerHTML;
+    //   var a = window.open("", "", "height=620, width=437");
 
-      a.document.write(divContents);
+    //   a.document.write(divContents);
 
-      // a.document.close();
-      a.print();
-      return true;
-    },
+    //   // a.document.close();
+    //   a.print();
+    //   return true;
+    // },
 
     printCV() {
       const swalWithBootstrapButtons = this.$swal.mixin({
