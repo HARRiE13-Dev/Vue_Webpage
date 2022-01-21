@@ -178,9 +178,24 @@
                       </div>
                     </div>
 
+                    <div class="pt-2 mb-3">
+                      <vue-recaptcha
+                        v-if="showRecaptcha"
+                        siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
+                        size="normal"
+                        theme="light"
+                        :tabindex="0"
+                        @verify="recaptchaVerified"
+                        @expire="recaptchaExpired"
+                        @fail="recaptchaFailed"
+                        ref="vueRecaptcha"
+                      >
+                      </vue-recaptcha>
+                    </div>
+
                     <div class="pt-2 mb-3 text-center ">
                       <button
-                        @click="submit"
+                        @click="test"
                         class="px-6 py-3 mt-3 mb-1 mr-1 shadow-lg font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
@@ -417,7 +432,7 @@ import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 import http from "@/services/APIService";
 import icon from "@/assets/img/paper.png";
-
+import vueRecaptcha from "vue3-recaptcha2";
 export default {
   data() {
     return {
@@ -429,6 +444,8 @@ export default {
       date: new Date().toString(),
 
       imgUrl: "",
+
+      vueRecaptcha: false,
 
       file: null,
     };
@@ -533,10 +550,29 @@ export default {
           }
         });
     },
+
+    test() {
+      if (this.vueRecaptcha == false) {
+        alert("กรุณายืนยันการเข้าใช้งานระบบ");
+      } else {
+        alert("ยืนยันการเข้าใช้งานระบบแล้ว");
+      }
+    },
+
+    recaptchaVerified(response) {
+      console.log(response);
+    },
+    recaptchaExpired() {
+      this.$refs.vueRecaptcha.reset();
+    },
+    recaptchaFailed(response) {
+      console.log(response);
+    },
   },
   components: {
     Navbar,
     MainFooter,
+    vueRecaptcha,
   },
 };
 </script>
