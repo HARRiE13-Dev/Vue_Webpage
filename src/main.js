@@ -10,8 +10,6 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 import  VueHtmlToPaper from '@/services/VueHtmlToPaper'
 
-//import { VueReCaptcha } from 'vue-recaptcha-v3'
-
 // styles--------------------------------------------------
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -335,11 +333,6 @@ const router = createRouter({
   routes,
 });
 
-
-
-
-
-
 //Create Constant Var--------------------------------------------------------------------
 
 const app = createApp(App)
@@ -350,6 +343,5 @@ app.use(VCalendar, {})
 
 app.use(VueSweetalert2);
 app.use(VueHtmlToPaper);
-//app.use(VueReCaptcha, { siteKey: '6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u' })
 
 app.mount('#app') 

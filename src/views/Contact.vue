@@ -164,7 +164,7 @@
                       />
                     </div>
 
-                    <div class="mb-1 text-lg text-blueGray-500">
+                    <div class="mb-6 text-lg text-blueGray-500">
                       <span>แนบรูปภาพ</span>
                       <div
                         class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 rounded-lg border-all"
@@ -178,7 +178,7 @@
                       </div>
                     </div>
 
-                    <div class="pt-2 mb-3">
+                    <div class="mb-3 ">
                       <vue-recaptcha
                         v-if="showRecaptcha"
                         siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
@@ -195,7 +195,7 @@
 
                     <div class="pt-2 mb-3 text-center ">
                       <button
-                        @click="test"
+                        @click="submit"
                         class="px-6 py-3 mt-3 mb-1 mr-1 shadow-lg font-semibold text-sm text-white uppercase transition-all duration-150 ease-linear rounded-lg outline-none bg-emerald-500 active:bg-teal-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
@@ -439,15 +439,12 @@ export default {
       topic: "",
       detail: "",
       icon,
-
       showRecaptcha: true,
       date: new Date().toString(),
-
       imgUrl: "",
-
-      vueRecaptcha: false,
-
       file: null,
+
+      verify: null,
     };
   },
   methods: {
@@ -456,70 +453,53 @@ export default {
       this.file = event.target.files[0];
       this.imgUrl = URL.createObjectURL(file);
     },
-    submitForm() {
-      this.v$.$validate();
-      if (!this.v$.$error) {
-        let data = new FormData();
-        data.append("Firstname_Alumni", this.Firstname);
-        data.append("Lastname_Alumni", this.Lastname);
-        data.append("StudentCode_Alumni", this.Code);
-        data.append("Workplace", this.Workplace);
-        data.append("Contact", this.Contact);
-        data.append("Caption", this.Caption);
-        data.append("Job_Title", this.Position);
-        data.append("Alumni_Picture", this.file);
-
-        //Post in Web
-        http.post("alumniadd", data).then((response) => {
-          console.log(response);
-
-          const Toast = this.$swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-          });
-          Toast.fire({
-            icon: "success",
-            title: "เพิ่มข้อมูลใหม่เรียบร้อย",
-          }).then(() => {
-            this.$router.push({ name: "AlumnusShow" });
-          });
-        });
-      }
-    },
 
     submit() {
-      const swalWithBootstrapButtons = this.$swal.mixin({
-        customClass: {
-          title: "font-weight-bold",
-          confirmButton:
-            "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-          cancelButton:
-            "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-        },
-        buttonsStyling: false,
-      });
+      if (this.verify !== null) {
+        const swalWithBootstrapButtons = this.$swal.mixin({
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
 
-      swalWithBootstrapButtons
-        .fire({
-          title: "ยืนยันการส่งข้อมูล",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonText: "ยืนยัน",
-          cancelButtonText: "ยกเลิก",
-          reverseButtons: true,
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            let data = new FormData();
-            data.append("Complain_Title", this.topic);
-            data.append("Complain_Detail", this.detail);
-            data.append("Complain_Picture", this.file);
-            data.append("Complain_Date", this.date);
+        swalWithBootstrapButtons
+          .fire({
+            title: "ยืนยันการส่งข้อมูล",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "ยืนยัน",
+            cancelButtonText: "ยกเลิก",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              let data = new FormData();
+              data.append("Complain_Title", this.topic);
+              data.append("Complain_Detail", this.detail);
+              data.append("Complain_Picture", this.file);
+              data.append("Complain_Date", this.date);
 
-            http.post("complainadd", data).then(() => {
+              http.post("complainadd", data).then(() => {
+                this.topic = null;
+                this.detail = null;
+                this.file = null;
+                this.date = null;
+                this.imgUrl = null;
+                this.file = "";
+                this.$refs.fileupload.value = null;
+
+                swalWithBootstrapButtons.fire(
+                  "บันทึกข้อมูลเรียบร้อย!",
+                  "",
+                  "success"
+                );
+              });
+            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
               this.topic = null;
               this.detail = null;
               this.file = null;
@@ -527,41 +507,31 @@ export default {
               this.imgUrl = null;
               this.file = "";
               this.$refs.fileupload.value = null;
-
               swalWithBootstrapButtons.fire(
-                "บันทึกข้อมูลเรียบร้อย!",
+                "ยกเลิกการส่งข้อมูลเรียบร้อย!",
                 "",
-                "success"
+                "error"
               );
-            });
-          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
-            this.topic = null;
-            this.detail = null;
-            this.file = null;
-            this.date = null;
-            this.imgUrl = null;
-            this.file = "";
-            this.$refs.fileupload.value = null;
-            swalWithBootstrapButtons.fire(
-              "ยกเลิกการส่งข้อมูลเรียบร้อย!",
-              "",
-              "error"
-            );
-          }
-        });
-    },
-
-    test() {
-      if (this.vueRecaptcha == false) {
-        alert("กรุณายืนยันการเข้าใช้งานระบบ");
+            }
+          });
       } else {
-        alert("ยืนยันการเข้าใช้งานระบบแล้ว");
+        const Swal = this.$swal.mixin({
+          position: "center",
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+        });
+
+        Swal.fire({
+          icon: "warning",
+          title: `กดยืนยัน "reCAPTCHA" ก่อน`,
+        });
       }
     },
-
     recaptchaVerified(response) {
-      console.log(response);
+      this.verify = response;
     },
+
     recaptchaExpired() {
       this.$refs.vueRecaptcha.reset();
     },
