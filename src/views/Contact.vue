@@ -143,6 +143,12 @@
                         placeholder="หัวข้อเรื่อง"
                         class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                       />
+                      <div
+                        v-if="v$.Topic.$error"
+                        class="mt-2 text-sm text-red-500"
+                      >
+                        {{ v$.Topic.$errors[0].$message }}
+                      </div>
                     </div>
 
                     <div class="pt-2 mb-3 text-lg text-blueGray-500">
@@ -154,6 +160,12 @@
                         rows="5"
                         class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                       ></textarea>
+                      <div
+                        v-if="v$.Detail.$error"
+                        class="mt-0 text-sm text-red-500"
+                      >
+                        {{ v$.Detail.$errors[0].$message }}
+                      </div>
                     </div>
 
                     <div class="mt-4 ">
@@ -433,9 +445,12 @@ import MainFooter from "@/components/Footers/MainFooter.vue";
 import http from "@/services/APIService";
 import icon from "@/assets/img/paper.png";
 import vueRecaptcha from "vue3-recaptcha2";
+import useValidate from "@vuelidate/core";
+import { required, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
+      v$: useValidate(),
       topic: "",
       detail: "",
       icon,
@@ -455,36 +470,53 @@ export default {
     },
 
     submit() {
-      if (this.verify !== null) {
-        const swalWithBootstrapButtons = this.$swal.mixin({
-          customClass: {
-            title: "font-weight-bold",
-            confirmButton:
-              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-            cancelButton:
-              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-          },
-          buttonsStyling: false,
-        });
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        if (this.verify !== null) {
+          const swalWithBootstrapButtons = this.$swal.mixin({
+            customClass: {
+              title: "font-weight-bold",
+              confirmButton:
+                "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+              cancelButton:
+                "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            },
+            buttonsStyling: false,
+          });
 
-        swalWithBootstrapButtons
-          .fire({
-            title: "ยืนยันการส่งข้อมูล",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "ยืนยัน",
-            cancelButtonText: "ยกเลิก",
-            reverseButtons: true,
-          })
-          .then((result) => {
-            if (result.isConfirmed) {
-              let data = new FormData();
-              data.append("Complain_Title", this.topic);
-              data.append("Complain_Detail", this.detail);
-              data.append("Complain_Picture", this.file);
-              data.append("Complain_Date", this.date);
+          swalWithBootstrapButtons
+            .fire({
+              title: "ยืนยันการส่งข้อมูล",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "ยืนยัน",
+              cancelButtonText: "ยกเลิก",
+              reverseButtons: true,
+            })
+            .then((result) => {
+              if (result.isConfirmed) {
+                let data = new FormData();
+                data.append("Complain_Title", this.topic);
+                data.append("Complain_Detail", this.detail);
+                data.append("Complain_Picture", this.file);
+                data.append("Complain_Date", this.date);
 
-              http.post("complainadd", data).then(() => {
+                http.post("complainadd", data).then(() => {
+                  this.topic = null;
+                  this.detail = null;
+                  this.file = null;
+                  this.date = null;
+                  this.imgUrl = null;
+                  this.file = "";
+                  this.$refs.fileupload.value = null;
+
+                  swalWithBootstrapButtons.fire(
+                    "บันทึกข้อมูลเรียบร้อย!",
+                    "",
+                    "success"
+                  );
+                });
+              } else if (result.dismiss === this.$swal.DismissReason.cancel) {
                 this.topic = null;
                 this.detail = null;
                 this.file = null;
@@ -492,40 +524,26 @@ export default {
                 this.imgUrl = null;
                 this.file = "";
                 this.$refs.fileupload.value = null;
-
                 swalWithBootstrapButtons.fire(
-                  "บันทึกข้อมูลเรียบร้อย!",
+                  "ยกเลิกการส่งข้อมูลเรียบร้อย!",
                   "",
-                  "success"
+                  "error"
                 );
-              });
-            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
-              this.topic = null;
-              this.detail = null;
-              this.file = null;
-              this.date = null;
-              this.imgUrl = null;
-              this.file = "";
-              this.$refs.fileupload.value = null;
-              swalWithBootstrapButtons.fire(
-                "ยกเลิกการส่งข้อมูลเรียบร้อย!",
-                "",
-                "error"
-              );
-            }
+              }
+            });
+        } else {
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
           });
-      } else {
-        const Swal = this.$swal.mixin({
-          position: "center",
-          showConfirmButton: false,
-          timer: 1500,
-          timerProgressBar: true,
-        });
 
-        Swal.fire({
-          icon: "warning",
-          title: `กดยืนยัน "reCAPTCHA" ก่อน`,
-        });
+          Swal.fire({
+            icon: "warning",
+            title: `กดยืนยัน "reCAPTCHA" ก่อน`,
+          });
+        }
       }
     },
     recaptchaVerified(response) {
@@ -538,6 +556,16 @@ export default {
     recaptchaFailed(response) {
       console.log(response);
     },
+  },
+  validations() {
+    return {
+      Topic: {
+        required: helpers.withMessage("ป้อนหัวข้อก่อน", required),
+      },
+      Detail: {
+        required: helpers.withMessage("ป้อนรายละเอียดก่อน", required),
+      },
+    };
   },
   components: {
     Navbar,

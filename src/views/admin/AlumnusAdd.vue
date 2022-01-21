@@ -234,7 +234,6 @@ export default {
     submitForm() {
       this.v$.$validate();
       if (!this.v$.$error) {
-
         let data = new FormData();
         data.append("Firstname_Alumni", this.Firstname);
         data.append("Lastname_Alumni", this.Lastname);
@@ -264,7 +263,7 @@ export default {
             this.$router.push({ name: "AlumnusShow" });
           });
         });
-      }
+      } 
     },
   },
   validations() {
