@@ -7,7 +7,7 @@
         >
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">
-              <h4 class="font-bold text-blueGray-500">
+              <h4 class="font-bold text-blueGray-500 text-xl">
                 เข้าสู่ระบบสำหรับผู้ดูแลระบบ
               </h4>
             </div>
@@ -21,13 +21,13 @@
                   class="block mb-2 text-xs font-bold uppercase text-blueGray-600"
                   htmlFor="grid-password"
                 >
-                  Email
+                  Username
                 </label>
                 <input
                   v-model="email"
                   type="email"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="@mju.ac.th"
+                  placeholder="Username"
                 />
               </div>
               <div
@@ -48,7 +48,7 @@
                   v-model="password"
                   type="password"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="รหัสผ่าน"
+                  placeholder="password"
                 />
                 <button @click="submit" type="submit" class="hidden">Submit</button>
               </div>

@@ -3,7 +3,7 @@
     <div class="flex items-center content-center justify-center h-full">
       <div class="w-full px-4 lg:w-4/12">
         <div
-          class="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 opacity-97"
+          class="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 "
         >
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">

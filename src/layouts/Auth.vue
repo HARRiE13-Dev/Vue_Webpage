@@ -6,8 +6,8 @@
       <section class="relative w-full h-full min-h-screen py-40">
         
         <div
-          class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
-          :style="`background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639377482.jpg');`"
+          class="absolute top-0 w-full h-full  bg-no-repeat bg-blueGray-800 bg-full"
+          :style="`background-image: url('${backgroundLogin}');`"
         ></div>
         <router-view />
         <foot absolute />
@@ -19,12 +19,12 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import Foot from "@/components/Footers/Foot.vue";
 
-//import backgroundLogin from "@/assets/img/bg-1.png";
+import backgroundLogin from "@/assets/img/bg-login.png";
 
 export default {
   data() {
     return {
-     // backgroundLogin,
+      backgroundLogin,
     };
   },
   components: {

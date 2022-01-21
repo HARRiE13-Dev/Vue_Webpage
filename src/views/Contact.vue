@@ -225,7 +225,7 @@
                         </blockquote>
                         <div class="relative p-4 ">
                           <h4 class="text-xl font-bold ">
-                            ใบลาสำหรับนักศึกษา / บุคคลากร
+                            ใบลาสำหรับนักศึกษา / บุคลากร
                           </h4>
 
                           <div
