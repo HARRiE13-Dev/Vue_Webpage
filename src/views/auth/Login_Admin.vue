@@ -128,7 +128,7 @@ export default {
     submit() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        if (this.verify !== null) {
+        if (this.verify == null) {
           http
             .post("login", {
               email: this.email,
