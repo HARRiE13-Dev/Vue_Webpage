@@ -2459,6 +2459,7 @@ select {
 .mr-2 {
   margin-right: 0.5rem;
 }
+.g-recaptcha {transform: scale(0.85); transform-origin: left top;}
 
 .mb-2 {
   margin-bottom: 0.5rem;

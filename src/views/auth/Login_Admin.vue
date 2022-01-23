@@ -50,7 +50,9 @@
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                   placeholder="password"
                 />
-                <button @click="submit" type="submit" class="hidden">Submit</button>
+                <button @click="submit" type="submit" class="hidden">
+                  Submit
+                </button>
               </div>
               <div
                 v-if="v$.password.$error"
@@ -59,7 +61,21 @@
                 {{ v$.password.$errors[0].$message }}
               </div>
 
-            
+              <div class="mb-3 mt-6 ">
+                <vue-recaptcha
+                  v-if="showRecaptcha"
+                  siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
+                  size="normal"
+                  theme="light"
+                  data-size="compact"
+                  :tabindex="0"
+                  @verify="recaptchaVerified"
+                  @expire="recaptchaExpired"
+                  @fail="recaptchaFailed"
+                  ref="vueRecaptcha"
+                >
+                </vue-recaptcha>
+              </div>
 
               <div class="mt-6 text-center">
                 <button
@@ -78,6 +94,7 @@
   </div>
 </template>
 <script>
+import vueRecaptcha from "vue3-recaptcha2";
 import useValidate from "@vuelidate/core";
 import { required, email, minLength, helpers } from "@vuelidate/validators";
 import http from "@/services/AuthService";
@@ -88,59 +105,89 @@ export default {
       v$: useValidate(),
       email: "",
       password: "",
+      showRecaptcha: true,
+
+      verify: null,
     };
   },
+  components: {
+    vueRecaptcha,
+  },
   methods: {
+    recaptchaVerified(response) {
+      this.verify = response;
+    },
+
+    recaptchaExpired() {
+      this.$refs.vueRecaptcha.reset();
+    },
+    recaptchaFailed(response) {
+      console.log(response);
+    },
+
     submit() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        http
-          .post("login", {
-            email: this.email,
-            password: this.password,
-          })
-          .then((response) => {
-            console.log(response.data.token);
+        if (this.verify !== null) {
+          http
+            .post("login", {
+              email: this.email,
+              password: this.password,
+            })
+            .then((response) => {
+              console.log(response.data.token);
 
-            //Data User LocalStorage
-            localStorage.setItem("user", JSON.stringify(response.data));
+              //Data User LocalStorage
+              localStorage.setItem("user", JSON.stringify(response.data));
 
-            const Toast = this.$swal.mixin({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 1000,
-              timerProgressBar: true,
-            });
+              const Toast = this.$swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+              });
 
-            Toast.fire({
-              icon: "success",
-              title: "กำลังเข้าสู่ระบบ",
-            }).then(() => {
-              // Login  Success => Dashboard
-              this.$router.push({ name: "Dashboard" });
-            });
-          })
-          .catch((error) => {
-            if (error.response) {
-              if (error.response.status == 500) {
-                //Call Sweet Alert
-                const Toast = this.$swal.mixin({
-                  toast: true,
-                  position: "top-end",
-                  showConfirmButton: false,
-                  timer: 2000,
-                  timerProgressBar: true,
-                });
+              Toast.fire({
+                icon: "success",
+                title: "กำลังเข้าสู่ระบบ",
+              }).then(() => {
+                // Login  Success => Dashboard
+                this.$router.push({ name: "Dashboard" });
+              });
+            })
+            .catch((error) => {
+              if (error.response) {
+                if (error.response.status == 500) {
+                  //Call Sweet Alert
+                  const Toast = this.$swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                  });
 
-                Toast.fire({
-                  icon: "error",
-                  title: "ข้อมูลไม่ถูกต้อง",
-                });
+                  Toast.fire({
+                    icon: "error",
+                    title: "ข้อมูลไม่ถูกต้อง",
+                  });
+                }
               }
-            }
+            });
+        } else {
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
           });
-      
+
+          Swal.fire({
+            icon: "warning",
+            title: `กดยืนยัน "reCAPTCHA" ก่อน`,
+          });
+        }
       } else {
         const Toast = this.$swal.mixin({
           toast: true,

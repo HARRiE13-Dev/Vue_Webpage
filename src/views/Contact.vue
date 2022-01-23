@@ -138,7 +138,7 @@
                     <div class="pt-0 mb-3 text-lg text-blueGray-500">
                       <p>หัวข้อเรื่อง</p>
                       <input
-                        v-model="topic"
+                        v-model="Topic"
                         type="text"
                         placeholder="หัวข้อเรื่อง"
                         class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
@@ -154,7 +154,7 @@
                     <div class="pt-2 mb-3 text-lg text-blueGray-500">
                       <p>รายละเอียด</p>
                       <textarea
-                        v-model="detail"
+                        v-model="Detail"
                         cols="30"
                         placeholder="เนื้อหา / รายละเอียด"
                         rows="5"
@@ -190,12 +190,14 @@
                       </div>
                     </div>
 
-                    <div class="mb-3 ">
+                    <div class="mb-3 w-full relative text-center items-center">
                       <vue-recaptcha
+                        
                         v-if="showRecaptcha"
                         siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
                         size="normal"
                         theme="light"
+                        data-size="compact"
                         :tabindex="0"
                         @verify="recaptchaVerified"
                         @expire="recaptchaExpired"
@@ -451,8 +453,8 @@ export default {
   data() {
     return {
       v$: useValidate(),
-      topic: "",
-      detail: "",
+      Topic: "",
+      Detail: "",
       icon,
       showRecaptcha: true,
       date: new Date().toString(),
@@ -574,3 +576,7 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+</style>
+
