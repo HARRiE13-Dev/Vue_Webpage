@@ -57,6 +57,7 @@
             <div class="w-full px-4 text-center md:w-6/12">
               <router-link to="program" target="_blank">
                 <div
+               
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">

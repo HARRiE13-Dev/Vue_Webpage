@@ -23,7 +23,6 @@
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
     "html2canvas": "^1.4.0",
-    "jspdf": "^2.5.0",
     "moment": "^2.29.1",
     "tailwindcss": "2.0.4",
     "v-calendar": "^3.0.0-alpha.5",

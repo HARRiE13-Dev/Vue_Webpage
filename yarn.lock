@@ -909,13 +909,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.14.0":
-  version "7.16.7"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
-  integrity sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
 "@babel/template@^7.0.0", "@babel/template@^7.12.13", "@babel/template@^7.14.5":
   version "7.14.5"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.14.5.tgz"
@@ -1209,11 +1202,6 @@
   version "6.9.7"
   resolved "https://registry.npmjs.org/@types/qs/-/qs-6.9.7.tgz"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
-
-"@types/raf@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@types/raf/-/raf-3.4.0.tgz#2b72cbd55405e071f1c4d29992638e022b20acc2"
-  integrity sha512-taW5/WYqo36N7V39oYyHP9Ipfd5pNFvGTIQsNGj86xV88YQ7GnI30/yMfKDF7Zgin0m3e+ikX88FvImnK4RjGw==
 
 "@types/range-parser@*":
   version "1.2.4"
@@ -2379,11 +2367,6 @@ browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.0, browserslist@^4
     escalade "^3.1.1"
     node-releases "^1.1.75"
 
-btoa@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/btoa/-/btoa-1.2.1.tgz#01a9909f8b2c93f6bf680ba26131eb30f7fa3d73"
-  integrity sha512-SB4/MIGlsiVkMcHmT+pSmIPoNDoHg+7cMzmt3Uxt628MTz2487DKSqK/fuhFBrkuqrYv5UCEnACpF4dTFNKc/g==
-
 buffer-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/buffer-equal/-/buffer-equal-1.0.0.tgz"
@@ -2546,20 +2529,6 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001196, caniuse-lite@^1.0.30001251:
   version "1.0.30001251"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001251.tgz"
   integrity sha512-HOe1r+9VkU4TFmnU70z+r7OLmtR+/chB1rdcJUeQlAinjEeb0cKL20tlAtOagNZhbrtLnCvV19B4FmF1rgzl6A==
-
-canvg@^3.0.6:
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/canvg/-/canvg-3.0.9.tgz#9ba095f158b94b97ca2c9c1c40785b11dc08df6d"
-  integrity sha512-rDXcnRPuz4QHoCilMeoTxql+fvGqNAxp+qV/KHD8rOiJSAfVjFclbdUNHD2Uqfthr+VMg17bD2bVuk6F07oLGw==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    "@types/raf" "^3.4.0"
-    core-js "^3.8.3"
-    raf "^3.4.1"
-    regenerator-runtime "^0.13.7"
-    rgbcolor "^1.0.1"
-    stackblur-canvas "^2.0.0"
-    svg-pathdata "^6.0.3"
 
 case-sensitive-paths-webpack-plugin@^2.3.0:
   version "2.4.0"
@@ -3008,11 +2977,6 @@ core-js@3.9.1, core-js@^3.7.0:
   version "3.9.1"
   resolved "https://registry.npmjs.org/core-js/-/core-js-3.9.1.tgz"
   integrity sha512-gSjRvzkxQc1zjM/5paAmL4idJBFzuJoo+jDjF1tStYFMV2ERfD02HhahhCGXUyHxQRG4yFKVSdO6g62eoRMcDg==
-
-core-js@^3.6.0:
-  version "3.20.3"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.20.3.tgz#c710d0a676e684522f3db4ee84e5e18a9d11d69a"
-  integrity sha512-vVl8j8ph6tRS3B8qir40H7yw7voy17xL0piAjlbBUsH7WIfzoedL/ZOr1OV9FyZQLWXsayOJyV4tnRyXR85/ag==
 
 core-js@^3.8.3:
   version "3.16.3"
@@ -3599,11 +3563,6 @@ domhandler@^4.0.0, domhandler@^4.2.0:
   integrity sha512-zk7sgt970kzPks2Bf+dwT/PLzghLnsivb9CcxkvR8Mzr66Olr0Ofd8neSbglHJHaHa2MadfoSdNlKYAaafmWfA==
   dependencies:
     domelementtype "^2.2.0"
-
-dompurify@^2.2.0:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.4.tgz#1cf5cf0105ccb4debdf6db162525bd41e6ddacc6"
-  integrity sha512-6BVcgOAVFXjI0JTjEvZy901Rghm+7fDQOrNIcxB4+gdhj6Kwp6T9VBhBY/AbagKHJocRkDYGd6wvI+p4/10xtQ==
 
 domutils@^1.7.0:
   version "1.7.0"
@@ -4223,11 +4182,6 @@ faye-websocket@^0.11.3:
   integrity sha512-CzbClwlXAuiRQAlUyfqPgvPoNKTckTPGfwZV4ZdAhVcP2lh9KUxJg2b5GkE7XbjKQ3YJnQ9z6D9ntLAlB+tP8g==
   dependencies:
     websocket-driver ">=0.5.1"
-
-fflate@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.4.8.tgz#f90b82aefbd8ac174213abb338bd7ef848f0f5ae"
-  integrity sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==
 
 figures@^3.0.0:
   version "3.2.0"
@@ -4866,7 +4820,7 @@ html-webpack-plugin@^5.1.0:
     pretty-error "^3.0.4"
     tapable "^2.0.0"
 
-html2canvas@^1.0.0-rc.5, html2canvas@^1.4.0:
+html2canvas@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/html2canvas/-/html2canvas-1.4.0.tgz#e9db68a47486f2e884fea46b28a3a10f6c17b66f"
   integrity sha512-vQMssxs2HvLuy7T0JrQqirRQxnhfB7KaHRSsQVV2WaNlXMqqhwv0gH+JUkkaWCednbDWZtRF7Msb/pbTkbcrpA==
@@ -5632,21 +5586,6 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
-
-jspdf@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/jspdf/-/jspdf-2.5.0.tgz#d0a1a2a9a73f0e7bc00599315ab5a9c825cbbcc2"
-  integrity sha512-XT0E2m8A9P1xl7ItA2OUbmhokzbDQEyZEdWQZD2olADiTiBEZGDRiK1J1zWxBRUG2KezQJOZq//GYZTkvEZuJg==
-  dependencies:
-    "@babel/runtime" "^7.14.0"
-    atob "^2.1.2"
-    btoa "^1.2.1"
-    fflate "^0.4.8"
-  optionalDependencies:
-    canvg "^3.0.6"
-    core-js "^3.6.0"
-    dompurify "^2.2.0"
-    html2canvas "^1.0.0-rc.5"
 
 just-debounce@^1.0.0:
   version "1.1.0"
@@ -6817,11 +6756,6 @@ path-type@^4.0.0:
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-performance-now@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
-  integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
-
 picomatch@^2.0.4, picomatch@^2.2.3:
   version "2.3.0"
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.0.tgz"
@@ -7606,13 +7540,6 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-raf@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
-  integrity sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==
-  dependencies:
-    performance-now "^2.1.0"
-
 randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz"
@@ -7725,7 +7652,7 @@ regenerate@^1.4.0:
   resolved "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
 
-regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.7:
+regenerator-runtime@^0.13.4:
   version "0.13.9"
   resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz"
   integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
@@ -7946,11 +7873,6 @@ rgba-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/rgba-regex/-/rgba-regex-1.0.0.tgz"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
-
-rgbcolor@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/rgbcolor/-/rgbcolor-1.0.1.tgz#d6505ecdb304a6595da26fa4b43307306775945d"
-  integrity sha1-1lBezbMEplldom+ktDMHMGd1lF0=
 
 rimraf@^2.6.3:
   version "2.7.1"
@@ -8429,11 +8351,6 @@ stack-trace@0.0.10:
   resolved "https://registry.npmjs.org/stack-trace/-/stack-trace-0.0.10.tgz"
   integrity sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=
 
-stackblur-canvas@^2.0.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/stackblur-canvas/-/stackblur-canvas-2.5.0.tgz#aa87bbed1560fdcd3138fff344fc6a1c413ebac4"
-  integrity sha512-EeNzTVfj+1In7aSLPKDD03F/ly4RxEuF/EX0YcOG0cKoPXs+SLZxDawQbexQDBzwROs4VKLWTOaZQlZkGBFEIQ==
-
 stackframe@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npmjs.org/stackframe/-/stackframe-1.2.0.tgz"
@@ -8639,11 +8556,6 @@ sver-compat@^1.5.0:
   dependencies:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
-
-svg-pathdata@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/svg-pathdata/-/svg-pathdata-6.0.3.tgz#80b0e0283b652ccbafb69ad4f8f73e8d3fbf2cac"
-  integrity sha512-qsjeeq5YjBZ5eMdFuUa4ZosMLxgr5RZ+F+Y1OrDhuOCEInRMA3x74XdBtggJcj9kOeInz0WE+LgCPDkZFlBYJw==
 
 svg-tags@^1.0.0:
   version "1.0.0"

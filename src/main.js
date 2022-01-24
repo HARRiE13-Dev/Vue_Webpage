@@ -344,4 +344,5 @@ app.use(VCalendar, {})
 app.use(VueSweetalert2);
 app.use(VueHtmlToPaper);
 
+
 app.mount('#app') 
