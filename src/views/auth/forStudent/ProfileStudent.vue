@@ -62,9 +62,9 @@
 
                             <input
                               ref="fileupload"
-                              @change="onFileChange"
-                              class="px-3 py-2 leading-tight text-gray-700 border rounded shadow w-full"
                               type="file"
+                              @change="onFileSelected"
+                              class="px-3 py-2 leading-tight text-gray-700 border rounded shadow w-full"
                             />
                           </div>
                         </div>
@@ -74,17 +74,17 @@
                     <div class="w-full mt-2 lg:w-6/12">
                       <div class="border-l pr-2 pl-4">
                         <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-12/12">
+                          <div class="w-full  px-2 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
                               >รหัสนักศึกษา</label
                             >
                             <input
-                              v-model="code"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              v-model="studentID"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
                               type="text"
-                              placeholder="Firstname"
+                              placeholder="Student ID"
                               readonly
                             />
                           </div>
@@ -98,7 +98,7 @@
                             >
                             <input
                               v-model="first_name"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 bg-blueGray-200 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Firstname"
                               readonly
@@ -112,7 +112,7 @@
                             >
                             <input
                               v-model="last_name"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 bg-blueGray-200 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Lastname"
                               readonly
@@ -131,7 +131,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Firstname (English)"
-                              
                             />
                           </div>
                           <div class="w-full px-2 md:w-6/12">
@@ -145,7 +144,6 @@
                               class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Lastname (English)"
-                              
                             />
                           </div>
                         </div>
@@ -161,7 +159,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Email"
-                              
                             />
                           </div>
                         </div>
@@ -177,7 +174,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Phone"
-                              
                             />
                           </div>
                         </div>
@@ -204,14 +200,14 @@
                     <div class="w-full lg:w-12/12  pr-4">
                       <div class="mt-4 p-4 text-center">
                         <button
-                          @click="printCV"
+                          @click="Clearform"
                           class="px-6 py-3 mb-1  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
                         >
                           ล้าง
                         </button>
                         <button
-                          @click="printCV"
+                          @click="CreateProfile"
                           class="px-6 py-3 mb-1 mx-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
                         >
@@ -230,19 +226,79 @@
   </div>
 </template>
 <script>
-import imgUrl from "@/assets/img/upload_img.png";
+import http from "@/services/APIService";
 export default {
   data() {
     return {
-      imgUrl,
+      studentID: "",
+      first_name: "",
+      last_name: "",
+      first_nameEn: "",
+      last_nameEn: "",
+      email: "",
+      phone: "",
+      address: "",
+
+      imgUrl: "",
+      file: null,
+
+      profile: [],
     };
   },
-  methods: {},
-  computed: {},
-  components: {},
-  watch: {},
-  created() {},
-  mounted() {},
-  destroyed() {},
+  methods: {
+    onFileSelected(event) {
+      const file = event.target.files[0];
+      this.file = event.target.files[0];
+      this.imgUrl = URL.createObjectURL(file);
+    },
+    ShowProfile() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let email_cut = local_user.email;
+      let studentID = email_cut.slice(3, 13);
+
+      http.get(`student/${studentID}`).then((response) => {
+        this.profile = response.data.data[0];
+        let fromCheck = response.data.from;
+        if (fromCheck !== null) {
+          this.studentID = this.profile.studentCode;
+          this.first_name = this.profile.nameTh;
+          this.last_name = this.profile.surnameTh;
+          this.first_nameEn = this.profile.nameEn;
+          this.last_nameEn = this.profile.surnameEn;
+          this.email = this.profile.EmailStudent;
+          this.phone = this.profile.mobile;
+          this.address = this.profile.Address;
+          this.imgUrl = this.profile.PictureProfile;
+        } else {
+          this.first_name = local_user.name;
+          this.last_name = local_user.surname;
+          this.phone = local_user.mobile;
+          let email_cut = local_user.email;
+          this.studentID = email_cut.slice(3, 13);
+        }
+      });
+    },
+    CreateProfile() {
+      let formData = new FormData();
+      formData.append("studentCode", this.studentID);
+      formData.append("nameTh", this.first_name);
+      formData.append("surnameTh", this.last_name);
+      formData.append("nameEn", this.first_nameEn);
+      formData.append("surnameEn", this.last_nameEn);
+      formData.append("EmailStudent", this.email);
+      formData.append("mobile", this.phone);
+      formData.append("Address", this.address);
+      formData.append("PictureProfile", this.file);
+      http.post("student/create", formData).then((response) => {
+        console.log(response);
+      });
+    },
+    EditProfile() {},
+    ClearForm() {},
+  },
+
+  mounted() {
+    this.ShowProfile();
+  },
 };
 </script>

@@ -74,6 +74,21 @@
                 </label>
               </div>
 
+              <div class="mb-3 mt-6 ">
+                <vue-recaptcha
+                  v-if="showRecaptcha"
+                  siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
+                  size="normal"
+                  theme="light"
+                  data-size="compact"
+                  :tabindex="0"
+                  @verify="recaptchaVerified"
+                  @expire="recaptchaExpired"
+                  @fail="recaptchaFailed"
+                  ref="vueRecaptcha"
+                >
+                </vue-recaptcha>
+              </div>
               <div class="mt-6 text-center">
                 <button
                   @click="submit"
@@ -91,6 +106,7 @@
   </div>
 </template>
 <script>
+import vueRecaptcha from "vue3-recaptcha2";
 import useValidate from "@vuelidate/core";
 import { required, minLength, helpers } from "@vuelidate/validators";
 import http from "@/services/MJUService";
@@ -103,9 +119,22 @@ export default {
       username: "",
       password: "",
       type: "password",
+
+      showRecaptcha: true,
+      verify: null,
     };
   },
   methods: {
+    recaptchaVerified(response) {
+      this.verify = response;
+    },
+
+    recaptchaExpired() {
+      this.$refs.vueRecaptcha.reset();
+    },
+    recaptchaFailed(response) {
+      console.log(response);
+    },
     showPassword() {
       if (this.type === "password") {
         this.type = "text";
@@ -115,40 +144,118 @@ export default {
     },
     submit() {
       this.v$.$validate();
+      if (this.verify == null) {
+        if (
+          // eslint-disable-next-line no-useless-escape
+          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username)
+        ) {
+          //Login Personnel Service - Check Form Email
+          if (!this.v$.$error) {
+            httpPersonnel
+              .post("login", {
+                email: this.username,
+                password: this.password,
+              })
+              .then((response) => {
+                //Data User LocalStorage
+                localStorage.setItem("user", JSON.stringify(response.data));
+                if (response.data.user.role == 1) {
+                  const Toast = this.$swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                  });
+                  Toast.fire({
+                    icon: "success",
+                    title: "กำลังเข้าสู่ระบบ",
+                  }).then(() => {
+                    this.$router.push({ name: "ServiceTeacher" });
+                  });
+                } else if (response.data.user.role == 0) {
+                  const Toast = this.$swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                  });
+                  Toast.fire({
+                    icon: "success",
+                    title: "กำลังเข้าสู่ระบบ",
+                  }).then(() => {
+                    this.$router.push({ name: "Dashboard" });
+                  });
+                }
+              })
+              .catch((error) => {
+                if (error.response) {
+                  if (error.response.status == 401) {
+                    //Call Sweet Alert
+                    const Toast = this.$swal.mixin({
+                      toast: true,
+                      position: "top-end",
+                      showConfirmButton: false,
+                      timer: 1000,
+                      timerProgressBar: true,
+                    });
 
-      // eslint-disable-next-line no-useless-escape
-      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username)) {
-        //Login Personnel Service - Check Form Email
-        if (!this.v$.$error) {
-          httpPersonnel
-            .post("login", {
-              email: this.username,
-              password: this.password,
-            })
-            .then((response) => {
-              //Data User LocalStorage
-              localStorage.setItem("user", JSON.stringify(response.data));
+                    Toast.fire({
+                      icon: "error",
+                      title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
+                    }).then(() => {
+                      // Login  Success => Dashboard
 
-              const Toast = this.$swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 1000,
-                timerProgressBar: true,
+                      this.password = "";
+                    });
+                  }
+                }
               });
+          } else {
+            const Toast = this.$swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 1000,
+              timerProgressBar: true,
+            });
 
-              Toast.fire({
-                icon: "success",
-                title: "กำลังเข้าสู่ระบบ",
-              }).then(() => {
-                // Login  Success => Dashboard
-                this.$router.push({ name: "ServiceTeacher" });
-              });
-            })
-            .catch((error) => {
-              if (error.response) {
-                if (error.response.status == 401) {
-                  //Call Sweet Alert
+            Toast.fire({
+              icon: "error",
+              title: "ไม่สามารถเชื่อมต่อกับระบบได้",
+            });
+          }
+        } else {
+          //Login Student Service - Check Form Not Email
+
+          if (!this.v$.$error) {
+            http
+              .post("login/mju/ad", {
+                username: "mju" + this.username,
+                password: "mju@" + this.password,
+              })
+              .then((response) => {
+                if (response.data.status == "success") {
+                  //Data User LocalStorage
+                  localStorage.setItem("user", JSON.stringify(response.data));
+
+                  const Toast = this.$swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                  });
+
+                  Toast.fire({
+                    icon: "success",
+                    title: "กำลังเข้าสู่ระบบ",
+                  }).then(() => {
+                    // Login  Success => Dashboard
+                    this.$router.push({ name: "ServiceStudent" });
+                  });
+                } else {
                   const Toast = this.$swal.mixin({
                     toast: true,
                     position: "top-end",
@@ -166,104 +273,58 @@ export default {
                     this.password = "";
                   });
                 }
-              }
-            });
-        } else {
-          const Toast = this.$swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 1000,
-            timerProgressBar: true,
-          });
+              })
+              .catch((error) => {
+                if (error.response) {
+                  if (error.response.status == 500) {
+                    //Call Sweet Alert
+                    const Toast = this.$swal.mixin({
+                      toast: true,
+                      position: "top-end",
+                      showConfirmButton: false,
+                      timer: 1000,
+                      timerProgressBar: true,
+                    });
 
-          Toast.fire({
-            icon: "error",
-            title: "ไม่สามารถเชื่อมต่อกับระบบได้",
-          });
+                    Toast.fire({
+                      icon: "error",
+                      title: "ไม่สามารถเชื่อมต่อกับระบบได้",
+                    });
+                  }
+                }
+              });
+          } else {
+            const Toast = this.$swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+            });
+
+            Toast.fire({
+              icon: "error",
+              title: "ข้อมูลไม่ถูกต้อง",
+            });
+          }
         }
       } else {
-        //Login Student Service - Check Form Not Email
-        if (!this.v$.$error) {
-          http
-            .post("login/mju/ad", {
-              username: "mju" + this.username,
-              password: "mju@" + this.password,
-            })
-            .then((response) => {
-              if (response.data.status == "success") {
-                //Data User LocalStorage
-                localStorage.setItem("user", JSON.stringify(response.data));
+        const Swal = this.$swal.mixin({
+          position: "center",
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+        });
 
-                const Toast = this.$swal.mixin({
-                  toast: true,
-                  position: "top-end",
-                  showConfirmButton: false,
-                  timer: 1000,
-                  timerProgressBar: true,
-                });
-
-                Toast.fire({
-                  icon: "success",
-                  title: "กำลังเข้าสู่ระบบ",
-                }).then(() => {
-                  // Login  Success => Dashboard
-                  this.$router.push({ name: "ServiceStudent" });
-                });
-              } else {
-                const Toast = this.$swal.mixin({
-                  toast: true,
-                  position: "top-end",
-                  showConfirmButton: false,
-                  timer: 1000,
-                  timerProgressBar: true,
-                });
-
-                Toast.fire({
-                  icon: "error",
-                  title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
-                }).then(() => {
-                  // Login  Success => Dashboard
-
-                  this.password = "";
-                });
-              }
-            })
-            .catch((error) => {
-              if (error.response) {
-                if (error.response.status == 500) {
-                  //Call Sweet Alert
-                  const Toast = this.$swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 1000,
-                    timerProgressBar: true,
-                  });
-
-                  Toast.fire({
-                    icon: "error",
-                    title: "ไม่สามารถเชื่อมต่อกับระบบได้",
-                  });
-                }
-              }
-            });
-        } else {
-          const Toast = this.$swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-          });
-
-          Toast.fire({
-            icon: "error",
-            title: "ข้อมูลไม่ถูกต้อง",
-          });
-        }
+        Swal.fire({
+          icon: "warning",
+          title: `กดยืนยัน "reCAPTCHA" ก่อน`,
+        });
       }
     },
+  },
+  components: {
+    vueRecaptcha,
   },
   validations() {
     return {

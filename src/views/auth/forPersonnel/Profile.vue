@@ -20,7 +20,7 @@
                   </div>
                   <div class="w-full lg:w-6/12">
                     <h3 class="mt-1 text-2xl font-semibold ">
-                     แก้ไขข้อมูลส่วนตัวผู้ใช้งาน
+                      แก้ไขข้อมูลส่วนตัวผู้ใช้งาน
                     </h3>
 
                     <h3 class="text-xl font-normal ">
@@ -45,11 +45,175 @@
                   <div class="flex flex-wrap">
                     <!-- from input -->
                     <div class="w-full lg:w-6/12 pr-4">
-                    
+                      <div class="px-2">
+                        <div class="relative text-center">
+                          <img
+                            alt="..."
+                            v-if="imgUrl"
+                            :src="imgUrl"
+                            class="mt-0 rounded-full shadow-lg h-200-px center-img max-w-200-px cropped bg-emerald-500"
+                          />
+                          <div class="text-left">
+                            <label
+                              class="block mt-4   my-3 text-gray-700 text-md"
+                              for="image"
+                              >อัพโหลดรูปโปรไฟล์</label
+                            >
+
+                            <input
+                              ref="fileupload"
+                              type="file"
+                              @change="onFileSelected"
+                              class="px-3 py-2 leading-tight text-gray-700 border rounded shadow w-full"
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <!-- Simulator  -->
-                    <div class="w-full lg:w-6/12">
-                   
+                    <div class="w-full mt-2 lg:w-6/12">
+                      <div class="border-l pr-2 pl-4">
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full  px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >รหัสนักศึกษา</label
+                            >
+                            <input
+                              v-model="studentID"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
+                              type="text"
+                              placeholder="Student ID"
+                              
+                            />
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-6/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ชื่อ (ภาษาไทย)</label
+                            >
+                            <input
+                              v-model="first_name"
+                              class="w-full px-3 placeholder-blueGray-300 bg-blueGray-200 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Firstname"
+                              
+                            />
+                          </div>
+                          <div class="w-full px-2 md:w-6/12">
+                            <label
+                              class="block my-3  text-gray-700 text-md"
+                              for="Title"
+                              >นามสกุล (ภาษาไทย)</label
+                            >
+                            <input
+                              v-model="last_name"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 bg-blueGray-200 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Lastname"
+                              
+                            />
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-6/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ชื่อ (ภาษาอังกฤษ)</label
+                            >
+                            <input
+                              v-model="first_nameEn"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Firstname (English)"
+                            />
+                          </div>
+                          <div class="w-full px-2 md:w-6/12">
+                            <label
+                              class="block my-3  text-gray-700 text-md"
+                              for="Title"
+                              >นามสกุล (ภาษาอังกฤษ)</label
+                            >
+                            <input
+                              v-model="last_nameEn"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Lastname (English)"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >อีเมล</label
+                            >
+                            <input
+                              v-model="email"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Email"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >มือถือ</label
+                            >
+                            <input
+                              v-model="phone"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Phone"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ที่อยู่ (ปัจจุบัน)</label
+                            >
+                            <textarea
+                              v-model="address"
+                              cols="30"
+                              placeholder="address"
+                              rows="5"
+                              class="relative w-full px-3 py-1 border rounded shadow text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap">
+                    <div class="w-full lg:w-12/12  pr-4">
+                      <div class="mt-4 p-4 text-center">
+                        <button
+                          @click="Clearform"
+                          class="px-6 py-3 mb-1  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                          type="button"
+                        >
+                          ล้าง
+                        </button>
+                        <button
+                          @click="CreateProfile"
+                          class="px-6 py-3 mb-1 mx-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                          type="button"
+                        >
+                          บันทึก
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -61,3 +225,71 @@
     </main>
   </div>
 </template>
+<script>
+import http from "@/services/APIService";
+export default {
+  data() {
+    return {
+      studentID: "",
+      first_name: "",
+      last_name: "",
+      first_nameEn: "",
+      last_nameEn: "",
+      email: "",
+      phone: "",
+      address: "",
+
+      base64: "",
+
+      imgUrl: "",
+      file: null,
+    };
+  },
+  methods: {
+    onFileSelected(event) {
+      const file = event.target.files[0];
+      this.file = event.target.files[0];
+      this.imgUrl = URL.createObjectURL(file);
+    },
+
+    ShowProfile() {
+      http.get("student").then((response) => {
+        console.log(response);
+      });
+      // if(){
+        //Created Profile - No Data in DB
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      this.first_name = local_user.name;
+      this.last_name = local_user.surname;
+      this.phone = local_user.mobile;
+      let email_cut = local_user.email;
+      this.studentID = email_cut.slice(3, 13);
+      // }else{
+      //   //Edit Profile - Have Data in DB
+
+      // }
+    },
+    CreateProfile() {
+      let formData = new FormData();
+      formData.append("studentCode", this.studentID);
+      formData.append("nameTh", this.first_name);
+      formData.append("surnameTh", this.last_name);
+      formData.append("nameEn", this.first_nameEn);
+      formData.append("surnameEn", this.last_nameEn);
+      formData.append("EmailStudent", this.email);
+      formData.append("mobile", this.phone);
+      formData.append("Address", this.address);
+      formData.append("PictureProfile", this.file);
+      http.post("student/create", formData).then((response) => {
+        console.log(response);
+      });
+    },
+    EditProfile() {},
+    ClearForm() {},
+  },
+
+  mounted() {
+    this.ShowProfile();
+  },
+};
+</script>

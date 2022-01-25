@@ -176,7 +176,7 @@ export default {
       let idUserData = userData.id;
       idUserData = idUserData - 1;
       http
-        .get(`personnelid/${idUserData}`)
+        .get(`personnel/id/${idUserData}`)
         .then((response) => {
           this.personnel_array = response.data;
           //Get data from API

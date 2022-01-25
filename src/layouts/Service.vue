@@ -55,13 +55,14 @@
                           <div class="relative text-center">
                             <img
                               alt="..."
-                              :src="team2"
-                              class="-mt-20 rounded-full shadow-lg h-200-px center-img max-w-200-px"
+                              v-if="imgUrl"
+                              :src="imgUrl"
+                              class="-mt-20 cropped-profile rounded-full shadow-lg h-200-px center-img max-w-200-px"
                             />
                           </div>
                           <div class="relative px-3 py-6 mt-2 text-center">
                             <button
-                              @click="profile"
+                              @click="Profile"
                               class="px-4 py-2 mb-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                               type="button"
                             >
@@ -77,12 +78,12 @@
                               <h3
                                 class="ml-3 mb-2 text-4xl font-semibold leading-normal text-blueGray-100"
                               >
-                                {{ this.local_name }} {{ this.local_surname }}
+                                {{ this.first_name }} {{ this.last_name }}
                               </h3>
                               <h3
                                 class="ml-3 mb-2 text-2xl font-semibold leading-normal text-blueGray-100"
                               >
-                                Firstname Lastname
+                                 {{ this.first_nameEn }} {{ this.last_nameEn }}
                               </h3>
                             </div>
                           </div>
@@ -103,12 +104,12 @@
                               <p
                                 class="mb-2 font-normal leading-normal text-md text-blueGray-700"
                               >
-                                เบอร์โทร : {{ this.local_mobile }}
+                                เบอร์โทร : {{ this.phone }}
                               </p>
                               <p
                                 class="mb-2 font-normal leading-normal text-md text-blueGray-700"
                               >
-                                E-mail : {{ this.local_email }}
+                                E-mail : {{ this.email }}
                               </p>
                             </div>
                           </div>
@@ -130,17 +131,25 @@
 <script>
 import Foot from "@/components/Footers/Foot.vue";
 import ServiceNavbar from "@/components/Navbars/ServiceNavbar.vue";
-import team2 from "@/assets/img/no-img.png";
+import team from "@/assets/img/no-img.png";
+import http from "@/services/APIService";
 export default {
   data() {
     return {
-      team2,
-      local_user: [],
-      local_name: "",
-      local_surname: "",
-      local_card_id: "",
-      local_email: "",
-      local_mobile: "",
+      team,
+      studentID: "",
+      first_name: "",
+      last_name: "",
+      first_nameEn: "",
+      last_nameEn: "",
+      email: "",
+      phone: "",
+      address: "",
+
+      imgUrl: "",
+      file: null,
+
+      profile: [],
     };
   },
   components: {
@@ -148,24 +157,44 @@ export default {
     ServiceNavbar,
   },
   mounted() {
-    this.getStudentData();
+    this.ShowProfile();
   },
   methods: {
-    profile() {
+    Profile() {
       this.$router.push({
         name: "ProfileStudent",
       });
     },
-    getStudentData() {
-      this.local_user = JSON.parse(window.localStorage.getItem("user"));
-      // console.log(this.local_user);
-      //-------------Save Profiling---------------
+    ShowProfile() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let email_cut = local_user.email;
+      let studentID = email_cut.slice(3, 13);
 
-      this.local_name = this.local_user.name;
-      this.local_surname = this.local_user.surname;
-      this.local_card_id = this.local_user.card_id;
-      this.local_email = this.local_user.email;
-      this.local_mobile = this.local_user.mobile;
+      http.get(`student/${studentID}`).then((response) => {
+        this.profile = response.data.data[0];
+        let fromCheck = response.data.from;
+        if (fromCheck !== null) {
+          
+          this.studentID = this.profile.studentCode;
+          this.first_name = this.profile.nameTh;
+          this.last_name = this.profile.surnameTh;
+          this.first_nameEn = this.profile.nameEn;
+          this.last_nameEn = this.profile.surnameEn;
+          this.email = this.profile.EmailStudent;
+          this.phone = this.profile.mobile;
+          this.address = this.profile.Address;
+          this.imgUrl = this.profile.PictureProfile;
+        } else {
+          
+          this.first_name = local_user.name;
+          this.last_name = local_user.surname;
+          this.phone = local_user.mobile;
+          this.email = local_user.email;
+          this.imgUrl = this.team;
+          let email_cut = local_user.email;
+          this.studentID = email_cut.slice(3, 13);
+        }
+      });
     },
   },
 };

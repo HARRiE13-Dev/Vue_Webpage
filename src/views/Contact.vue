@@ -5,9 +5,7 @@
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style="
-            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
-          "
+           :style="`background-image: url('${bgupdate}');`"
         >
           <span
             id="blackOverlay"
@@ -444,6 +442,7 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
+import bgupdate from "@/assets/img/bg-update.jpg";
 import http from "@/services/APIService";
 import icon from "@/assets/img/paper.png";
 import vueRecaptcha from "vue3-recaptcha2";
@@ -458,10 +457,12 @@ export default {
       icon,
       showRecaptcha: true,
       date: new Date().toString(),
+      
       imgUrl: "",
       file: null,
 
       verify: null,
+      bgupdate,
     };
   },
   methods: {
@@ -503,7 +504,7 @@ export default {
                 data.append("Complain_Picture", this.file);
                 data.append("Complain_Date", this.date);
 
-                http.post("complainadd", data).then(() => {
+                http.post("classroom/create", data).then(() => {
                   this.topic = null;
                   this.detail = null;
                   this.file = null;

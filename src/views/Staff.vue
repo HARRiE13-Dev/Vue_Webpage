@@ -5,9 +5,7 @@
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style="
-            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
-          "
+         :style="`background-image: url('${bgupdate}');`"
         >
           <span
             id="blackOverlay"
@@ -119,11 +117,12 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 import http from "@/services/APIService";
-
+import bgupdate from "@/assets/img/bg-update.jpg";
 export default {
   data() {
     return {
       //team2,
+      bgupdate,
       personnel_array: [],
       personnel: {
         personnelId: 0,

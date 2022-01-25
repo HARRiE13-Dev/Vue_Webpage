@@ -5,9 +5,7 @@
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style="
-            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
-          "
+         :style="`background-image: url('${bgupdate}');`"
         >
           <span
             id="blackOverlay"
@@ -82,7 +80,7 @@
                 <div
                   v-for="classroom in lab_array"
                   v-bind:key="classroom.ClassroomId"
-                  class="w-full px-2 lg:w-4/12 "
+                  class="w-full px-2 lg:w-3/12 "
                 >
                   <div
                     class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-200"
@@ -90,9 +88,9 @@
                     <img
                       alt="..."
                       :src="classroom.Classroom_Images"
-                      class="w-full align-middle rounded-t-lg"
+                      class="w-full align-middle rounded-t-lg cropped-card1"
                     />
-                    <blockquote class="relative p-8 mb-4">
+                    <blockquote class="relative py-8 px-4 mb-4">
                       <svg
                         preserveAspectRatio="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -104,10 +102,10 @@
                           class="fill-current text-blueGray-200"
                         ></polygon>
                       </svg>
-                      <h4 class="text-xl font-bold text-emerald-600">
+                      <h4 class="text-xl h-12 font-bold text-emerald-600">
                         {{ classroom.Classroom_Name }}
                       </h4>
-                      <div class="mt-2 font-light text-blueGray-700 text-md">
+                      <div class="mt-2 px-2 py-1 font-normal rounded-md bg-blueGray-100 text-blueGray-700 text-md">
                         <p class="mt-1">
                           จำนวนที่นั่ง : {{ classroom.Classroom_sit }}
                         </p>
@@ -144,7 +142,7 @@
                     <img
                       alt="..."
                       :src="classroom.Classroom_Images"
-                      class="w-full align-middle rounded-t-lg"
+                      class="w-full align-middle rounded-t-lg cropped-card1"
                     />
                     <blockquote class="relative p-5 mb-4">
                       <svg
@@ -158,10 +156,10 @@
                           class="fill-current text-blueGray-200"
                         ></polygon>
                       </svg>
-                      <h4 class="text-xl font-bold text-emerald-600">
+                      <h4 class="text-xl h-16 font-bold text-emerald-600">
                         {{ classroom.Classroom_Name }}
                       </h4>
-                      <div class="mt-2 font-light text-blueGray-700 text-md">
+                     <div class="mt-2 px-2 py-1 font-normal rounded-md bg-blueGray-100 text-blueGray-700 text-md">
                         <p class="mt-1">
                           จำนวนที่นั่ง : {{ classroom.Classroom_sit }}
                         </p>
@@ -187,12 +185,13 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-
+import bgupdate from "@/assets/img/bg-update.jpg";
 import http from "@/services/APIService";
 
 export default {
   data() {
     return {
+      bgupdate,
       lec_array: [],
       lab_array: [],
       classroom: {

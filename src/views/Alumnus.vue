@@ -5,9 +5,7 @@
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style="
-            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
-          "
+         :style="`background-image: url('${bgupdate}');`"
         >
           <span
             id="blackOverlay"
@@ -73,7 +71,7 @@
                       <img
                         alt="..."
                         :src="alum.Alumni_Picture"
-                        class="w-full align-middle p-2 rounded-full bg-gradient shadow-md"
+                        class="w-full align-middle p-2 rounded-full bg-white shadow-md"
                       />
                     </div>
                     <div
@@ -133,10 +131,12 @@ import MainFooter from "@/components/Footers/MainFooter.vue";
 import http from "@/services/APIService";
 //import "@ocrv/vue-tailwind-pagination/dist/style.css";
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
+import bgupdate from "@/assets/img/bg-update.jpg";
 
 export default {
   data() {
     return {
+      bgupdate,
       products: [],
       currentPage: 0,
       perPage: 0,

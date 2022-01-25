@@ -1271,6 +1271,12 @@ select {
   object-fit: cover;
  
 }
+.cropped-profile {
+  width: 500px; 
+  height: 500px; 
+  object-fit: cover;
+ 
+}
 
 .bg-fixed {
   background-attachment: fixed;

@@ -5,9 +5,7 @@
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style="
-           background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
-          "
+         :style="`background-image: url('${bgupdate}');`"
         >
           <span
             id="blackOverlay"
@@ -207,7 +205,7 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 import http from "@/services/APIService";
-
+import bgupdate from "@/assets/img/bg-update.jpg";
 export default {
   data() {
     const month = new Date().getMonth();
@@ -216,6 +214,7 @@ export default {
     // const y = 2021;
 
     return {
+      bgupdate,
       activity: [],
       masks: {
         weekdays: "WWW",
