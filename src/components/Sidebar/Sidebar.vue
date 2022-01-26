@@ -66,7 +66,63 @@
           </div>
         </form>
 
-        <!-- Divider -->
+        <hr class="my-4 md:min-w-full" />
+        <!-- Heading -->
+        <h6
+          class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"
+        >
+          ข้อมูลผู้ใช้งานระบบ
+        </h6>
+        <!-- Navigation -->
+
+        <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+          <li class="items-center">
+            <router-link
+              to="/admin/StudentShow"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tv"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ข้อมูลนักศึกษา
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/personnelShow"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-tv"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ข้อมูลบุคลากร
+              </a>
+            </router-link>
+          </li>
+        </ul>
 
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />

@@ -5,7 +5,7 @@
       <section class="relative block h-500-px">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-         :style="`background-image: url('${bgupdate}');`"
+          :style="`background-image: url('${bgupdate}');`"
         >
           <span
             id="blackOverlay"
@@ -96,7 +96,7 @@
                         class="mt-2 text-center border-t border-blueGray-200"
                       >
                         <button
-                         @click="ShowAll(news.newsId)"
+                          @click="ShowAll(news.newsId)"
                           class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
@@ -124,7 +124,7 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 //import "@ocrv/vue-tailwind-pagination/dist/style.css";
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 import bgupdate from "@/assets/img/bg-update.jpg";

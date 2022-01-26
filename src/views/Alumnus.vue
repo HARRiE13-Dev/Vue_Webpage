@@ -128,7 +128,7 @@
 <script>
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 //import "@ocrv/vue-tailwind-pagination/dist/style.css";
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 import bgupdate from "@/assets/img/bg-update.jpg";

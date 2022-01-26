@@ -186,7 +186,7 @@
 import Navbar from "@/components/Navbars/AuthNavbar.vue";
 import MainFooter from "@/components/Footers/MainFooter.vue";
 import bgupdate from "@/assets/img/bg-update.jpg";
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 
 export default {
   data() {

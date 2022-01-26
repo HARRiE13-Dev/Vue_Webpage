@@ -28,7 +28,7 @@
         </span>
       </div>
     </a>
-    
+
     <div
       ref="popoverDropdownRef"
       class="z-50 float-left py-2 text-base text-left list-none bg-white rounded shadow-lg min-w-48"
@@ -37,13 +37,26 @@
         block: dropdownPopoverShow,
       }"
     >
-      <div class="h-0 my-2 border border-solid border-blueGray-100" />
       <a
+        href="https://wwwdev.csmju.com/"
+        target="_blank"
+        class="block w-full px-4 py-2 text-sm font-normal text-blueGray-700 bg-transparent hover:text-emerald-600 whitespace-nowrap"
+      >
+        ข้อมูล API
+      </a>
+      <router-link
+        to="/contact"
+        class="block w-full px-4 py-2 text-sm font-normal text-blueGray-700 bg-transparent hover:text-emerald-600 whitespace-nowrap"
+      >
+        เปลี่ยนรหัสผ่าน
+      </router-link>
+      <div class="h-0 my-2 border border-solid border-blueGray-100" />
+      <button
         @click="onClickLogout"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+        class="block w-full px-4 py-2 text-sm font-semibold hover:text-emerald-600 bg-transparent whitespace-nowrap text-blueGray-700"
       >
         ออกจากระบบ
-      </a>
+      </button>
     </div>
   </div>
 </template>
@@ -126,7 +139,7 @@ export default {
     },
     onClickLogout() {
       localStorage.removeItem("user");
-      this.$router.push({ name: "Login Admin" });
+      this.$router.push({ name: "Login" });
     },
   },
 };

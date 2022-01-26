@@ -31,7 +31,6 @@
                     <div class="mt-4 text-right">
                       <a href="javascript:history.go(-1)">
                         <button
-                        
                           class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
                         >
@@ -44,7 +43,12 @@
 
                 <div class="py-6 mt-2 text-left border-t border-blueGray-200">
                   <div class="flex flex-wrap">
-                    <div class="w-full lg:w-6/12 ">
+                    <div class="w-full lg:w-6/12 lg:order-2">
+                      <div class="p-4">
+                        <img :src="cover" class="shadow-none" alt="" />
+                      </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 lg:order-1">
                       <form ref="addProductForm">
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
@@ -165,11 +169,6 @@
                         </div>
                       </form>
                     </div>
-                    <div class="w-full lg:w-6/12 ">
-                     <div class="p-4">
-                       <img :src="cover" class="shadow-none" alt="">
-                     </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -181,13 +180,12 @@
   </div>
 </template>
 <script>
-
 import cover from "@/assets/img/repair.png";
 
 export default {
   data() {
     return {
-      cover
+      cover,
     };
   },
 };

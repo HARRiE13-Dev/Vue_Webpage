@@ -217,7 +217,7 @@ import MainNavbar from "@/components/Navbars/MainNavbar.vue";
 import MainFooter from "@/components/Footers/HomeFooter.vue";
 import CardHomeEdu from "@/components/Cards/CardHomeEdu.vue";
 
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 
 import { defineComponent } from "vue";
 import { Carousel, Slide } from "vue3-carousel";

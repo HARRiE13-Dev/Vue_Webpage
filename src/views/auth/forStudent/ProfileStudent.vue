@@ -132,6 +132,12 @@
                               type="text"
                               placeholder="Firstname (English)"
                             />
+                            <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div>
                           </div>
                           <div class="w-full px-2 md:w-6/12">
                             <label
@@ -145,6 +151,12 @@
                               type="text"
                               placeholder="Lastname (English)"
                             />
+                            <div
+                              v-if="v$.last_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.last_nameEn.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
@@ -160,6 +172,12 @@
                               type="text"
                               placeholder="Email"
                             />
+                            <div
+                              v-if="v$.email.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.email.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
@@ -175,6 +193,12 @@
                               type="text"
                               placeholder="Phone"
                             />
+                            <div
+                              v-if="v$.phone.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.phone.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
@@ -182,7 +206,7 @@
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >ที่อยู่ (ปัจจุบัน)</label
+                              >ที่อยู่ (สามารถติดต่อได้)</label
                             >
                             <textarea
                               v-model="address"
@@ -191,6 +215,12 @@
                               rows="5"
                               class="relative w-full px-3 py-1 border rounded shadow text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                             ></textarea>
+                            <div
+                              v-if="v$.address.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.address.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -199,13 +229,6 @@
                   <div class="flex flex-wrap">
                     <div class="w-full lg:w-12/12  pr-4">
                       <div class="mt-4 p-4 text-center">
-                        <button
-                          @click="Clearform"
-                          class="px-6 py-3 mb-1  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ล้าง
-                        </button>
                         <button
                           @click="CreateProfile"
                           class="px-6 py-3 mb-1 mx-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
@@ -227,9 +250,12 @@
 </template>
 <script>
 import http from "@/services/APIService";
+import useValidate from "@vuelidate/core";
+import { required, email, minLength, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
+      v$: useValidate(),
       studentID: "",
       first_name: "",
       last_name: "",
@@ -243,6 +269,10 @@ export default {
       file: null,
 
       profile: [],
+
+      ID: "",
+
+      fromCheck: null,
     };
   },
   methods: {
@@ -258,8 +288,9 @@ export default {
 
       http.get(`student/${studentID}`).then((response) => {
         this.profile = response.data.data[0];
-        let fromCheck = response.data.from;
-        if (fromCheck !== null) {
+        this.fromCheck = response.data.from;
+        if (this.fromCheck !== null) {
+          this.ID = this.profile.studentId;
           this.studentID = this.profile.studentCode;
           this.first_name = this.profile.nameTh;
           this.last_name = this.profile.surnameTh;
@@ -279,22 +310,137 @@ export default {
       });
     },
     CreateProfile() {
-      let formData = new FormData();
-      formData.append("studentCode", this.studentID);
-      formData.append("nameTh", this.first_name);
-      formData.append("surnameTh", this.last_name);
-      formData.append("nameEn", this.first_nameEn);
-      formData.append("surnameEn", this.last_nameEn);
-      formData.append("EmailStudent", this.email);
-      formData.append("mobile", this.phone);
-      formData.append("Address", this.address);
-      formData.append("PictureProfile", this.file);
-      http.post("student/create", formData).then((response) => {
-        console.log(response);
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        const swalWithBootstrapButtons = this.$swal.mixin({
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons
+          .fire({
+            title: "ยืนยันการบันทึกข้อมูล",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "ยืนยัน",
+            cancelButtonText: "ยกเลิก",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              if (this.fromCheck !== null) {
+                //Update Profile
+                this.EditProfile(this.ID);
+              } else {
+                //Create Profile
+                let formDataCreate = new FormData();
+                formDataCreate.append("studentCode", this.studentID);
+                formDataCreate.append("nameTh", this.first_name);
+                formDataCreate.append("surnameTh", this.last_name);
+                formDataCreate.append("nameEn", this.first_nameEn);
+                formDataCreate.append("surnameEn", this.last_nameEn);
+                formDataCreate.append("EmailStudent", this.email);
+                formDataCreate.append("mobile", this.phone);
+                formDataCreate.append("Address", this.address);
+                formDataCreate.append("PictureProfile", this.file);
+                http.post("student/create", formDataCreate).then(() => {
+                  swalWithBootstrapButtons
+                    .fire("บันทึกข้อมูลเรียบร้อย!", "", "success")
+                    .then(() => {
+                      this.$router.push({ name: "ServiceStudent" });
+                      window.location.reload();
+                    });
+                });
+              }
+            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+              this.topic = null;
+              this.detail = null;
+              this.file = null;
+              this.date = null;
+              this.imgUrl = null;
+              this.file = "";
+              this.$refs.fileupload.value = null;
+              swalWithBootstrapButtons.fire(
+                "ยกเลิกการส่งข้อมูลเรียบร้อย!",
+                "",
+                "error"
+              );
+            }
+          });
+      }
+    },
+    EditProfile(id) {
+      let formDataUpdate = new FormData();
+      formDataUpdate.append("studentCode", this.studentID);
+      formDataUpdate.append("nameTh", this.first_name);
+      formDataUpdate.append("surnameTh", this.last_name);
+      formDataUpdate.append("nameEn", this.first_nameEn);
+      formDataUpdate.append("surnameEn", this.last_nameEn);
+      formDataUpdate.append("EmailStudent", this.email);
+      formDataUpdate.append("mobile", this.phone);
+      formDataUpdate.append("Address", this.address);
+      formDataUpdate.append("PictureProfile", this.file);
+      formDataUpdate.append("_method", "PUT");
+      http.post(`student/update/${id}`, formDataUpdate).then(() => {
+        const Swal = this.$swal.mixin({
+          position: "center",
+          showConfirmButton: true,
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
+
+        Swal.fire({
+          icon: "success",
+          title: `แก้ไขข้อมูลเรียบร้อย`,
+        }).then(() => {
+          this.$router.push({ name: "ServiceStudent" });
+          window.location.reload();
+        });
       });
     },
-    EditProfile() {},
-    ClearForm() {},
+  },
+  validations() {
+    return {
+      first_nameEn: {
+        required: helpers.withMessage(
+          "ป้อนชื่อจริง(ภาษาอังกฤษ) ก่อน",
+          required
+        ),
+      },
+      last_nameEn: {
+        required: helpers.withMessage("ป้อนนามสกุล(ภาษาอังกฤษ) ก่อน", required),
+      },
+      email: {
+        required: helpers.withMessage("ป้อนอีเมลก่อน", required),
+        email: helpers.withMessage("รูปแบบอีเมลที่ป้อนไม่ถูกต้อง", email),
+      },
+      phone: {
+        required: helpers.withMessage("ป้อนเบอร์ติดต่อก่อน", required),
+        minLength: helpers.withMessage(
+          ({ $params }) =>
+            `เบอร์ติดต่อตัวเลขต้องไม่น้อยกว่า ${$params.min} ตัว`,
+          minLength(10)
+        ),
+      },
+      address: {
+        required: helpers.withMessage(
+          "ป้อนที่อยู่ที่สามารถติดต่อได้ก่อน",
+          required
+        ),
+      },
+    };
   },
 
   mounted() {
