@@ -20,11 +20,11 @@
                   </div>
                   <div class="w-full lg:w-6/12">
                     <h3 class="mt-1 text-2xl font-semibold ">
-                      ระบบแจ้งซ่อมอุปกรณ์ / บำรุงรักษา
+                      ระบบแจ้งตกค้างรายวิชา
                     </h3>
 
                     <h3 class="text-xl font-normal ">
-                      | Maintenance System
+                      | Course Residualisation System
                     </h3>
                   </div>
                   <div class="w-full lg:w-3/12">
@@ -58,11 +58,11 @@
                     <div class="w-full lg:w-6/12 lg:order-1">
                       <form ref="addProductForm">
                         <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-12/12">
+                          <div class="w-full px-4 md:w-4/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >รหัสครุภัณฑ์</label
+                              >รหัสรายวิชา</label
                             >
 
                             <input
@@ -77,6 +77,25 @@
                               class="mt-2 text-sm text-red-500"
                             >
                               {{ v$.Title.$errors[0].$message }}
+                            </div> -->
+                          </div>
+                           <div class="w-full px-4 md:w-8/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Dates"
+                              >ชื่อรายวิชา</label
+                            >
+                            <input
+                              v-model="Dates"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Product name"
+                            />
+                            <!-- <div
+                              v-if="v$.Dates.$error"
+                              class="mt-2 text-sm text-red-500"
+                            >
+                              {{ v$.Dates.$errors[0].$message }}
                             </div> -->
                           </div>
                         </div>
@@ -188,7 +207,7 @@
   </div>
 </template>
 <script>
-import cover from "@/assets/img/repair.png";
+import cover from "@/assets/img/enroll_class.png";
 //import http from "@/services/APIService";
 export default {
   data() {

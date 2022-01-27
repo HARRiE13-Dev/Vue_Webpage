@@ -20,22 +20,16 @@
                   </div>
                   <div class="w-full lg:w-6/12">
                     <h3 class="mt-1 text-2xl font-semibold ">
-                      ระบบแจ้งซ่อมอุปกรณ์ / บำรุงรักษา
+                     รายการแจ้งซ่อมอุปกรณ์ / บำรุงรักษา
                     </h3>
 
                     <h3 class="text-xl font-normal ">
-                      | Maintenance System
+                      | Maintenance List
                     </h3>
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <a href="javascript:history.go(-1)">
-                        <button
-                          class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          รายการ
-                        </button>
+                      <a href="javascript:history.go(-2)">
                         <button
                           class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
@@ -47,133 +41,110 @@
                   </div>
                 </div>
 
-                <div class="py-6 mt-2 text-left border-t border-blueGray-200">
+                <div class="py-6 mt-2 text-left ">
                   <div class="flex flex-wrap">
-                    <div class="w-full lg:w-6/12 lg:order-2">
-                      <div class="p-4">
-                        <img :src="cover" class="shadow-none" alt="" />
+                    <div class="w-full lg:w-12/12 lg:order-2">
+                      <div class="block w-full overflow-x-auto">
+                        <!-- Projects table -->
+                        <table
+                          class="items-center w-full bg-transparent border-collapse"
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                              >
+                                ลำดับ
+                              </th>
+                              <th
+                                class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                              >
+                                หัวข้อรายการ
+                              </th>
+                              <th
+                                class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                              >
+                                รายละเอียด
+                              </th>
+                              <th
+                                class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                              >
+                                ไฟล์แนบ / รูปภาพ
+                              </th>
+
+                              <th
+                                class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                              >
+                                สถานะ
+                              </th>
+                              <th
+                                class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                              ></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr >
+                              <td
+                                class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                              >
+                                <!-- {{ feed.complainId }} -->
+                                1
+                              </td>
+                              <td
+                                class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
+                              >
+                                <h5 class="w-48 font-semibold truncate text-md">
+                                  <!-- {{ feed.Complain_Title }} -->1
+                                </h5>
+                                <p class="w-48 font-normal">
+                                  <!-- วันที่ : {{ feed.Complain_Date }} -->
+                                </p>
+                              </td>
+                              <td
+                                class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
+                              >
+                                <div>
+                                  <p class="w-48 font-normal :truncate">
+                                    <!-- {{ feed.Complain_Detail }} -->1
+                                  </p>
+                                </div>
+                              </td>
+                              <td
+                                class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                              >
+                                <img
+                                  class="w-24 h-24 bg-gray-200 shadow-lg border"
+                                  :src="cover"
+                                 
+                                  alt=""
+                                />
+                              </td>
+
+                              <td
+                                class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                              >
+                                <button
+                               
+                                  class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                                  type="button"
+                                >
+                                  <i class="mr-1 fas fa-tools"></i>
+                                  <span>รอดำเนินการ</span>
+                                </button>
+                         
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!-- แสดงผลตัวแบ่งหน้าเพจ-->
+                        <VueTailwindPagination
+                          :current="currentPage"
+                          :total="total"
+                          :per-page="perPage"
+                          @page-changed="onPageClick($event)"
+                        />
                       </div>
-                    </div>
-                    <div class="w-full lg:w-6/12 lg:order-1">
-                      <form ref="addProductForm">
-                        <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >รหัสครุภัณฑ์</label
-                            >
-                            <input
-                              v-model="Title"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Product name"
-                            />
-
-                            <!-- <div
-                              v-if="v$.Title.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
-                              {{ v$.Title.$errors[0].$message }}
-                            </div> -->
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
-                              >ชื่ออุปกรณ์</label
-                            >
-                            <input
-                              v-model="Dates"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Product name"
-                            />
-                            <!-- <div
-                              v-if="v$.Dates.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
-                              {{ v$.Dates.$errors[0].$message }}
-                            </div> -->
-                          </div>
-                          <div class="w-full px-4 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
-                              >ห้องเก็บอุปกรณ์ / ที่อยู่อุปกรณ์</label
-                            >
-                            <input
-                              v-model="Dates"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Product name"
-                            />
-                            <!-- <div
-                              v-if="v$.Dates.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
-                              {{ v$.Dates.$errors[0].$message }}
-                            </div> -->
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Detail"
-                              >รายละเอียด / ความเสียหาย</label
-                            >
-                            <textarea
-                              v-model="Detail"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              rows="5"
-                              placeholder="Product description"
-                            ></textarea>
-                            <!-- <div
-                              v-if="v$.Detail.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
-                              {{ v$.Detail.$errors[0].$message }}
-                            </div> -->
-                          </div>
-                        </div>
-
-                        <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-12/12">
-                            <div class="mt-4">
-                              <img v-if="imgUrl" :src="imgUrl" class="w-full" />
-                            </div>
-
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="image"
-                              >อัพโหลดรูปภาพ (ถ้ามี)</label
-                            >
-                            <input
-                              ref="fileupload"
-                              @change="onFileChange"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="file"
-                            />
-                          </div>
-                        </div>
-                        <div class="py-6 text-center">
-                          <button
-                            class="px-6 py-3 mb-1 mr-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                            type="button"
-                          >
-                            ล้าง
-                          </button>
-                          <button
-                            class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                            type="button"
-                          >
-                            ยืนยัน
-                          </button>
-                        </div>
-                      </form>
                     </div>
                   </div>
                 </div>
@@ -193,5 +164,6 @@ export default {
       cover,
     };
   },
+  methods: {},
 };
 </script>

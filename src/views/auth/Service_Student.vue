@@ -33,24 +33,26 @@
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
-                        <img
-                          :src="cover1"
-                          class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
-                        />
+                        <router-link to="service_student/course">
+                          <img
+                            :src="cover1"
+                            class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
+                          />
 
-                        <div class="relative p-4 ">
-                          <h4 class="text-xl font-bold text-left ">
-                            ระบบแจ้งตกค้างรายวิชา
-                          </h4>
-
-                          <div
-                            class="mt-2 text-center border-t border-blueGray-200"
-                          >
-                            <h4 class="mt-2 font-normal text-left text-md ">
-                              Course Residualisation System
+                          <div class="relative p-4 ">
+                            <h4 class="text-xl font-bold text-left ">
+                              ระบบแจ้งตกค้างรายวิชา
                             </h4>
+
+                            <div
+                              class="mt-2 text-center border-t border-blueGray-200"
+                            >
+                              <h4 class="mt-2 font-normal text-left text-md ">
+                                Course Residualisation System
+                              </h4>
+                            </div>
                           </div>
-                        </div>
+                        </router-link>
                       </div>
                     </div>
                     <div class="w-full px-2 lg:w-3/12 ">

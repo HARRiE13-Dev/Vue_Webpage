@@ -43,6 +43,10 @@ import AlumnusShow from "@/views/admin/AlumnusShow.vue";
 import AlumnusAdd from "@/views/admin/AlumnusAdd.vue";
 import AlumnusEdit from "@/views/admin/AlumnusEdit.vue";
 
+import StudentShow from "@/views/admin/StudentShow.vue";
+import StudentAdd from "@/views/admin/StudentAdd.vue";
+import StudentEdit from "@/views/admin/StudentEdit.vue";
+
 
 // views for Auth layout
 import Login_User from "@/views/auth/Login_User.vue";
@@ -50,7 +54,9 @@ import Service_Student from "@/views/auth/Service_Student.vue";
 import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 
 //Service For Student
+import Course from "@/views/auth/forStudent/CourseAlert.vue";
 import Maintenance from "@/views/auth/forStudent/Maintenance_System.vue";
+import MaintenanceList from "@/views/auth/forStudent/Maintenance_List.vue";
 import ProfileStudent from "@/views/auth/forStudent/ProfileStudent.vue";
 
 
@@ -198,12 +204,32 @@ const routes = [
       },
       {
         path: "/admin/equipmentshow",
+        name: 'EquipmentShow',
         component: EquipmentShow,
         beforeEnter: authGuard_Admin
       },
       {
         path: "/admin/complaining",
+        name: 'Complaining',
         component: Complaining,
+        beforeEnter: authGuard_Admin
+      },
+      {
+        path: "/admin/studentshow",
+        name: 'StudentShow',
+        component: StudentShow,
+        beforeEnter: authGuard_Admin
+      },
+      {
+        path: "/admin/studentAdd",
+        name: 'StudentAdd',
+        component: StudentAdd,
+        beforeEnter: authGuard_Admin
+      },
+      {
+        path: "/admin/studentEdit",
+        name: 'StudentEdit',
+        component: StudentEdit,
         beforeEnter: authGuard_Admin
       },
     ],
@@ -240,9 +266,21 @@ const routes = [
         beforeEnter: authGuard
       },
       {
+        path: "/service/service_student/maintenancelist",
+        name: "MaintenanceList",
+        component: MaintenanceList,
+        beforeEnter: authGuard
+      },
+      {
         path: "/service/service_student/profilestudent",
         name: "ProfileStudent",
         component: ProfileStudent,
+        beforeEnter: authGuard
+      },
+      {
+        path: "/service/service_student/course",
+        name: "Course",
+        component: Course,
         beforeEnter: authGuard
       },
     ],
@@ -378,3 +416,5 @@ app.use(store)
 app.use(VCalendar, {})
 app.use(VueSweetalert2);
 app.mount('#app') 
+
+
