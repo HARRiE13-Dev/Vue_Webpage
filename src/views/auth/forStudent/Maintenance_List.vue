@@ -63,11 +63,10 @@
                               for="Title"
                               >รหัสครุภัณฑ์</label
                             >
-                            
                             <input
                               v-model="Title"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="search"
+                              type="text"
                               placeholder="Product name"
                             />
 
@@ -188,7 +187,6 @@
 </template>
 <script>
 import cover from "@/assets/img/repair.png";
-//import http from "@/services/APIService";
 export default {
   data() {
     return {

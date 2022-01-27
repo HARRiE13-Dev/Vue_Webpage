@@ -249,7 +249,7 @@
   </div>
 </template>
 <script>
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 import useValidate from "@vuelidate/core";
 import { required, email, minLength, helpers } from "@vuelidate/validators";
 export default {

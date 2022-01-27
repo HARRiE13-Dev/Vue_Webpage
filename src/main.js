@@ -95,6 +95,7 @@ function authGuard(to, from, next){
     next() 
   }else{
     localStorage.removeItem("user");
+    
     next({name: 'Login'})
   }
 
@@ -117,7 +118,7 @@ function authGuard_Personnel(to, from, next){
     next() 
   }else{
     localStorage.removeItem("user");
-    alert("You are not authorized to access this page")
+    alert("Warning : You are not authorized to access this page! \n\n คำเตือน : ผู้ใช้งานไม่มีสิทธิ์เข้าถึงหน้านี้...โปรดตรวจสอบข้อมูล!")
     next({name: 'Login'})
   }
 
@@ -140,7 +141,7 @@ function authGuard_Admin(to, from, next){
     next() 
   }else{
     localStorage.removeItem("user");
-    alert("You are not authorized to access this page")
+    alert("Warning : You are not authorized to access this page! \n\n คำเตือน : ผู้ใช้งานไม่มีสิทธิ์เข้าถึงหน้านี้...โปรดตรวจสอบข้อมูล!")
     next({name: 'Login'})
   }
 

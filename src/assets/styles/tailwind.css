@@ -2465,7 +2465,12 @@ select {
 .mr-2 {
   margin-right: 0.5rem;
 }
-.g-recaptcha {transform: scale(0.85); transform-origin: left top;}
+.g-recaptcha {
+  transform:scale(0.77);
+  -webkit-transform:scale(0.77);
+  transform-origin:0 0;
+  -webkit-transform-origin:0 0;
+}
 
 .mb-2 {
   margin-bottom: 0.5rem;
@@ -2581,6 +2586,9 @@ select {
 
 .-mt-5 {
   margin-top: -1rem;
+}
+.-mt-10 {
+  margin-top: -2rem;
 }
 .-mt-20 {
   margin-top: -5rem;

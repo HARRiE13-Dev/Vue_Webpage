@@ -158,7 +158,7 @@ export default {
       this.navbarOpen = !this.navbarOpen;
     },
     toggleDropdown: function() {
-      console.log("muie");
+    
       if (this.dropdownPopoverShow) {
         this.dropdownPopoverShow = false;
       } else {

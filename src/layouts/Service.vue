@@ -132,7 +132,7 @@
 import Foot from "@/components/Footers/Foot.vue";
 import ServiceNavbar from "@/components/Navbars/ServiceNavbar.vue";
 import team from "@/assets/img/no-img.png";
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 export default {
   data() {
     return {

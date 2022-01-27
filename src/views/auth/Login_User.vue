@@ -1,9 +1,9 @@
 <template>
-  <div class="container h-full px-4 mx-auto custom">
+  <div class="container h-full px-4 mx-auto custom -mt-10">
     <div class="flex items-center content-center justify-center h-full">
       <div class="w-full px-4 lg:w-4/12">
         <div
-          class="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 "
+          class="relative flex flex-col w-full min-w-0  break-words border-0 rounded-lg shadow-lg bg-blueGray-200 "
         >
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">
@@ -76,6 +76,7 @@
 
               <div class="mb-3 mt-6 ">
                 <vue-recaptcha
+                  
                   v-if="showRecaptcha"
                   siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
                   size="normal"
@@ -132,8 +133,8 @@ export default {
     recaptchaExpired() {
       this.$refs.vueRecaptcha.reset();
     },
-    recaptchaFailed(response) {
-      console.log(response);
+    recaptchaFailed() {
+      console.log();
     },
     showPassword() {
       if (this.type === "password") {

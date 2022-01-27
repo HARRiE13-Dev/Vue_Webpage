@@ -71,7 +71,7 @@
                       <img
                         alt="..."
                         :src="alum.Alumni_Picture"
-                        class="w-full align-middle p-2 rounded-full bg-white shadow-md"
+                        class="w-full align-middle p-2 rounded-full bg-blueGray-200 shadow-md"
                       />
                     </div>
                     <div
