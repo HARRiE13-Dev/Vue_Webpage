@@ -47,6 +47,10 @@ import StudentShow from "@/views/admin/StudentShow.vue";
 import StudentAdd from "@/views/admin/StudentAdd.vue";
 import StudentEdit from "@/views/admin/StudentEdit.vue";
 
+import PersonnelShow from "@/views/admin/PersonnelShow.vue";
+import PersonnelAdd from "@/views/admin/PersonnelAdd.vue";
+import PersonnelEdit from "@/views/admin/PersonnelEdit.vue";
+
 
 // views for Auth layout
 import Login_User from "@/views/auth/Login_User.vue";
@@ -90,8 +94,10 @@ import store from './store';
 function authGuard(to, from, next){
   
   let isAuthenticated = false
-
-  if(localStorage.getItem('user')){
+  let local_user = JSON.parse(window.localStorage.getItem("user"));
+  let status = local_user.status;
+  
+  if(localStorage.getItem('user') && status == "success"){
     isAuthenticated = true 
   }else{
     isAuthenticated = false 
@@ -101,7 +107,6 @@ function authGuard(to, from, next){
     next() 
   }else{
     localStorage.removeItem("user");
-    
     next({name: 'Login'})
   }
 
@@ -113,8 +118,9 @@ function authGuard_Personnel(to, from, next){
   let isAuthenticated = false
   let local_user = JSON.parse(window.localStorage.getItem("user"));
   let user_role = local_user.user.role;
+  let token = local_user.token;
 
-  if(user_role == 1){
+  if(token && user_role == 1){
     isAuthenticated = true 
   }else{
     isAuthenticated = false 
@@ -136,8 +142,9 @@ function authGuard_Admin(to, from, next){
   let isAuthenticated = false
   let local_user = JSON.parse(window.localStorage.getItem("user"));
   let user_role = local_user.user.role;
+  let token = local_user.token;
 
-  if(user_role == 0){
+  if(token && user_role == 0){
     isAuthenticated = true 
   }else{
     isAuthenticated = false 
@@ -230,6 +237,24 @@ const routes = [
         path: "/admin/studentEdit",
         name: 'StudentEdit',
         component: StudentEdit,
+        beforeEnter: authGuard_Admin
+      },
+      {
+        path: "/admin/personnelshow",
+        name: 'PersonnelShow',
+        component: PersonnelShow,
+        beforeEnter: authGuard_Admin
+      },
+      {
+        path: "/admin/personnelAdd",
+        name: 'PersonnelAdd',
+        component: PersonnelAdd,
+        beforeEnter: authGuard_Admin
+      },
+      {
+        path: "/admin/personnelEdit",
+        name: 'PersonnelEdit',
+        component: PersonnelEdit,
         beforeEnter: authGuard_Admin
       },
     ],

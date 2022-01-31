@@ -8,7 +8,7 @@
           <div class="px-6">
             <div class="mt-6 text-center">
               <h1 class="py-6 text-3xl font-bold ">
-                CSMJU | ระบบจัดการข้อมูลนักศึกษา
+                CSMJU | ระบบจัดการข้อมูลบุคคลากร
               </h1>
             </div>
             <br class="shadow-xl" />
@@ -19,7 +19,7 @@
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
                   <div class="w-full px-4 font-semibold text-md md:w-2/12">
-                    จำนวน {{ products.total }} รายการ
+                    จำนวน {{ this.total }} รายการ
                   </div>
 
                   <div class="w-full px-4 py-4 md:w-6/12">
@@ -80,46 +80,38 @@
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap "
                       >
-                        ลำดับ
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                      >
                         ชื่อ - นามสกุล
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                       >
-                        ติดต่อ
+                        ประเภท
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                      >
+                        สังกัด
                       </th>
 
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                       >
-                        ที่อยู่
+                        ติดต่อ
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                      >
+                        สถานะ
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
                       >
                         การจัดการ
                       </th>
-                     
                     </tr>
                   </thead>
                   <tbody>
-                    <tr
-                      v-for="student in products.data"
-                      :key="student.studentId"
-                    >
-                      <td
-                        class="w-5 p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        <div>
-                          <p class="w-12 font-normal ">
-                            {{ student.studentCode }}
-                          </p>
-                        </div>
-                      </td>
+                    <tr v-for="student in products" :key="student.personnelId">
                       <td
                         class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
@@ -127,27 +119,26 @@
                           class="flex items-center text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                         >
                           <img
-                            :src="student.PictureProfile"
+                            :src="student.personnelPhoto"
                             alt="..."
                             class="w-10 h-10 border-2 rounded-full shadow border-blueGray-50"
                           />
                           <span class="ml-3 text-sm font-semiBold">
-                            {{ student.nameTh }} {{ student.surnameTh }}
+                            {{ student.titlePosition }} {{ student.firstName }}
+                            {{ student.lastName }}
                             <div class="text-xs font-normal">
-                              {{ student.nameEn }} {{ student.surnameEn }}
+                              {{ student.titleNameEn }}
+                              {{ student.fistNameEn }} {{ student.lastNameEn }}
                             </div>
                           </span>
                         </div>
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="w-5 p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <div class="w-48">
-                          <p class="font-normal truncate-3">
-                            อีเมล : {{ student.EmailStudent }}
-                          </p>
-                          <p class="font-normal truncate-3">
-                            โทร. : {{ student.EmailStudent }}
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ student.positionType }}
                           </p>
                         </div>
                       </td>
@@ -156,7 +147,28 @@
                       >
                         <div>
                           <p class="w-48 font-normal truncate-3">
-                            {{ student.Address }}
+                            {{ student.faculty }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal truncate-3">
+                            อีเมล : {{ student.e_mail }}
+                          </p>
+                          <p class="font-normal truncate-3">
+                            โทร. : {{ student.phoneNumber }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-wrap"
+                      >
+                        <div>
+                          <p class="w-48 font-normal truncate-3">
+                            {{ student.statusWork }}
                           </p>
                         </div>
                       </td>
@@ -182,13 +194,6 @@
                     </tr>
                   </tbody>
                 </table>
-                <!-- แสดงผลตัวแบ่งหน้าเพจ-->
-                <VueTailwindPagination
-                  :current="currentPage"
-                  :total="total"
-                  :per-page="perPage"
-                  @page-changed="onPageClick($event)"
-                />
               </div>
             </div>
           </div>
@@ -199,15 +204,12 @@
 </template>
 <script>
 import http from "@/services/APIService";
-//import '@ocrv/vue-tailwind-pagination/styles'
-import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
+
 import moment from "moment";
 
-//import moment from "moment";
 export default {
   data() {
     return {
-      /** ตัวแปรสำหรับเก็บข้อมูลสินค้าที่อ่านจาก API */
       products: [],
       currentPage: 0,
       perPage: 0,
@@ -233,13 +235,12 @@ export default {
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
      ************************************************************************/
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
-    async getProducts(pageNumber) {
-      let response = await http.get(`student?page=${pageNumber}`);
+    async getProducts() {
+      let response = await http.get(`personnel`);
       let responseProduct = response.data;
       this.products = responseProduct;
-      this.currentPage = responseProduct.current_page;
-      this.perPage = responseProduct.per_page;
-      this.total = responseProduct.total;
+      this.total = responseProduct.length;
+      console.log(this.total);
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
@@ -253,16 +254,7 @@ export default {
       this.total = responseProduct.total;
     },
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
-    onPageClick(event) {
-      this.currentPage = event;
-      // เช็คว่ามีการค้นหาสินค้าอยู่หรือไม่
-      if (this.keyword == "") {
-        // ไม่ได้ค้นหา
-        this.getProducts(this.currentPage);
-      } else {
-        this.getProductsSearch(this.currentPage);
-      }
-    },
+
     /***********************************************************************
      * ส่วนของการลบสินค้า
      ************************************************************************/
@@ -334,11 +326,10 @@ export default {
     },
   },
 
-  components: { VueTailwindPagination },
+  components: {},
   mounted() {
-    this.currentPage = 1;
     // อ่านสินค้าจาก API
-    this.getProducts(this.currentPage);
+    this.getProducts();
   },
 };
 </script>
