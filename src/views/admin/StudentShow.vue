@@ -56,7 +56,7 @@
                     >
                       <i class="fas fa-broom"></i> ล้าง
                     </button>
-                    <router-link to="AlumnusAdd">
+                    <router-link to="StudentAdd">
                       <button
                         @click="openModalAddProduct"
                         class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
@@ -80,7 +80,7 @@
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap "
                       >
-                        ลำดับ
+                       รหัสนักศึกษา
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
@@ -147,7 +147,7 @@
                             อีเมล : {{ student.EmailStudent }}
                           </p>
                           <p class="font-normal truncate-3">
-                            โทร. : {{ student.EmailStudent }}
+                            โทร. : {{ student.mobile }}
                           </p>
                         </div>
                       </td>

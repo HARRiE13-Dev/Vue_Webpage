@@ -137,7 +137,7 @@
                         class="w-5 p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
                         <div>
-                          <p class="w-12 font-normal ">
+                          <p class="w-20 font-normal ">
                             {{ student.positionType }}
                           </p>
                         </div>
@@ -146,7 +146,7 @@
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-wrap"
                       >
                         <div>
-                          <p class="w-48 font-normal truncate-3">
+                          <p class="w-20 font-normal truncate-3">
                             {{ student.faculty }}
                           </p>
                         </div>
@@ -167,7 +167,7 @@
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-wrap"
                       >
                         <div>
-                          <p class="w-48 font-normal truncate-3">
+                          <p class="w-20 font-normal truncate-3">
                             {{ student.statusWork }}
                           </p>
                         </div>

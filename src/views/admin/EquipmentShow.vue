@@ -150,6 +150,7 @@
                   </table>
 
                   <!-- แสดงผลตัวแบ่งหน้าเพจ-->
+
                   <VueTailwindPagination
                     :current="currentPage"
                     :total="total"
@@ -640,9 +641,11 @@
   </div>
 </template>
 <script>
-import http from "@/services/APIService";
 //import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
+
+import http from "@/services/APIService";
+
 import useValidate from "@vuelidate/core";
 import { required, helpers } from "@vuelidate/validators";
 import moment from "moment";
@@ -1027,6 +1030,7 @@ export default {
 };
 </script>
 <style lang="css">
+@import "@ocrv/vue-tailwind-pagination/styles" screen and (max-width: 768px);
 .rotate-45 {
   --tw-rotate: 90deg !important;
 }

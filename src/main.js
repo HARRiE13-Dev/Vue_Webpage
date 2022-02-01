@@ -30,6 +30,8 @@ import Service_forPersonnel from "@/layouts/Service_forPersonnel.vue";
 
 import Dashboard from "@/views/admin/Dashboard.vue";
 
+import Banner from "@/views/admin/Banner.vue";
+
 
 import EquipmentShow from "@/views/admin/EquipmentShow.vue";
 
@@ -168,6 +170,12 @@ const routes = [
     redirect: "/admin/dashboard",
     component: Admin,
     children: [
+      {
+        path: "/admin/banner",
+        name: 'Banner',
+        component:  Banner,
+        beforeEnter: authGuard_Admin
+      },
       {
         path: "/admin/dashboard",
         name: 'Dashboard',
