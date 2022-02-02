@@ -5,7 +5,7 @@
     <main>
       <section class="relative w-full h-full min-h-screen py-16">
         <div
-          class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
+          class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-200 bg-full"
           :style="`background-image: url('${backgroundLogin}');`"
         ></div>
         <div>
@@ -128,7 +128,11 @@
             </section>
           </main>
         </div>
-        <router-view />
+            <router-view v-slot="{ Component }">
+          <transition name="route" mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
         <foot absolute />
       </section>
     </main>

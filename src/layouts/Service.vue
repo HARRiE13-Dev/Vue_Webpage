@@ -5,7 +5,7 @@
     <main>
       <section class="relative w-full h-full min-h-screen py-16">
         <div
-          class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
+          class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-200 bg-full"
           :style="`background-image: url('${backgroundLogin}');`"
         ></div>
         <div>
@@ -83,7 +83,7 @@
                               <h3
                                 class="ml-3 mb-2 text-2xl font-semibold leading-normal text-blueGray-100"
                               >
-                                 {{ this.first_nameEn }} {{ this.last_nameEn }}
+                                {{ this.first_nameEn }} {{ this.last_nameEn }}
                               </h3>
                             </div>
                           </div>
@@ -122,7 +122,13 @@
             </section>
           </main>
         </div>
-        <router-view />
+
+        <router-view v-slot="{ Component }">
+          <transition name="route" mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
+
         <foot absolute />
       </section>
     </main>
@@ -174,7 +180,6 @@ export default {
         this.profile = response.data.data[0];
         let fromCheck = response.data.from;
         if (fromCheck !== null) {
-          
           this.studentID = this.profile.studentCode;
           this.first_name = this.profile.nameTh;
           this.last_name = this.profile.surnameTh;
@@ -185,7 +190,6 @@ export default {
           this.address = this.profile.Address;
           this.imgUrl = this.profile.PictureProfile;
         } else {
-          
           this.first_name = local_user.name;
           this.last_name = local_user.surname;
           this.phone = local_user.mobile;
@@ -199,3 +203,4 @@ export default {
   },
 };
 </script>
+

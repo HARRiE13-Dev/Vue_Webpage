@@ -4,7 +4,7 @@
       class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
       href="#pablo"
       ref="btnDropdownRef"
-      v-on:click="toggleDropdown($event)"
+      @click="toggleDropdown($event)"
     >
       เกี่ยวกับ
     </a>
@@ -97,7 +97,8 @@ export default {
     };
   },
   methods: {
-    toggleDropdown: function(event) {
+    toggleDropdown(event) {
+
       event.preventDefault();
       if (this.dropdownPopoverShow) {
         this.dropdownPopoverShow = false;
@@ -107,7 +108,20 @@ export default {
           placement: "bottom-start",
         });
       }
+
     },
+    close (e) {
+      if (!this.$el.contains(e.target)) {
+        this.dropdownPopoverShow = false;
+      }
+    }
+
   },
+  mounted () {
+    document.addEventListener('click', this.close)
+  },
+  beforeDestroy () {
+    document.removeEventListener('click',this.close)
+  }
 };
 </script>

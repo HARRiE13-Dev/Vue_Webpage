@@ -78,9 +78,7 @@ export default {
       lastname: "",
     };
   },
-  mounted() {
-    this.getPersonnelData();
-  },
+
   methods: {
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
@@ -137,10 +135,23 @@ export default {
         });
       }
     },
+    close(e) {
+      if (!this.$el.contains(e.target)) {
+        this.dropdownPopoverShow = false;
+      }
+    },
     onClickLogout() {
       localStorage.removeItem("user");
       this.$router.push({ name: "Login" });
     },
+  },
+
+  mounted() {
+    document.addEventListener("click", this.close);
+    this.getPersonnelData();
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.close);
   },
 };
 </script>

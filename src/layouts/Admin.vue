@@ -5,7 +5,11 @@
       <admin-navbar />
       <header-stats />
       <div class="w-full px-4 mx-auto -m-24 md:px-10">
-        <router-view />
+        <router-view v-slot="{ Component }">
+          <transition name="route" mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
         <footer-admin />
       </div>
     </div>

@@ -26,7 +26,6 @@
                       >
                       <input
                         ref="fileupload"
-
                         type="file"
                         @change="onFileSelected"
                         class="px-3 py-8 leading-tight text-gray-700 border rounded shadow w-full"
@@ -84,7 +83,7 @@
                       <div class="text-center mt-4">
                         <button
                           @click="deleteBanner(image.Banner_ID)"
-                          class="px-4 py-2 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow-lg outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                          class="px-4 py-2 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow-lg outline-none bg-red-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-trash-alt"></i>
@@ -130,26 +129,112 @@ export default {
       let day = date.getDate();
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
-
       let hour = date.getHours();
       let minute = date.getMinutes();
       let second = date.getSeconds();
-
       let today = year + "-" + month + "-" + day;
       let time = hour + ":" + minute + ":" + second;
 
-      const formData = new FormData();
-      formData.append("Banner_Date", today);
-      formData.append("Banner_Time", time);
-      formData.append("Banner_File", this.file);
-      http.post(`banner/create`, formData).then(() => {
-        window.location.reload();
-      });
+      if (this.file != null) {
+        const swalWithBootstrapButtons = this.$swal.mixin({
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons
+          .fire({
+            title: "ยืนยันการอัพโหลดรูปภาพ",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "ยืนยัน",
+            cancelButtonText: "ยกเลิก",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              const formData = new FormData();
+              formData.append("Banner_Date", today);
+              formData.append("Banner_Time", time);
+              formData.append("Banner_File", this.file);
+              http.post(`banner/create`, formData).then(() => {
+                swalWithBootstrapButtons
+                  .fire("การอัพโหลดรูปภาพสำเร็จ!", "", "success")
+                  .then(() => {
+                    today = null;
+                    time = null;
+                    this.file = "";
+                    this.$refs.fileupload.value = null;
+                    window.location.reload();
+                  });
+              });
+            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+              swalWithBootstrapButtons.fire(
+                "ยกเลิกการอัพโหลดรูปภาพ!",
+                "",
+                "error"
+              );
+            }
+          });
+      } else {
+        const Toast = this.$swal.mixin({
+          position: "center",
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+        });
+        Toast.fire({
+          icon: "warning",
+          title: "เพิ่มรูปภาพการแสดงผลก่อน",
+        });
+      }
     },
+
     deleteBanner(id) {
-      http.delete(`banner/delete/${id}`).then(() => {
-        window.location.reload();
+      const swalWithBootstrapButtons = this.$swal.mixin({
+        customClass: {
+          title: "font-weight-bold",
+          confirmButton:
+            "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          cancelButton:
+            "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+        },
+        buttonsStyling: false,
       });
+
+      swalWithBootstrapButtons
+        .fire({
+          title: "ยืนยันการลบรูปภาพ",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "ยืนยัน",
+          cancelButtonText: "ยกเลิก",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            http.delete(`banner/delete/${id}`).then(() => {
+              swalWithBootstrapButtons
+                .fire("ลบรูปภาพเรียบร้อย!", "", "success")
+                .then(() => {
+                  this.file = "";
+                  this.$refs.fileupload.value = null;
+                  window.location.reload();
+                });
+            });
+          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+              "ยกเลิกการลบรูปภาพเรียบร้อย!",
+              "",
+              "error"
+            );
+          }
+        });
     },
   },
 

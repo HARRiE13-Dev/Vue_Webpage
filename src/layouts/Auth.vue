@@ -9,7 +9,11 @@
           class="absolute top-0 w-full h-full  bg-no-repeat bg-blueGray-800 bg-full"
           :style="`background-image: url('${backgroundLogin}');`"
         ></div>
-        <router-view />
+           <router-view v-slot="{ Component }">
+          <transition name="route" mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
         <foot absolute />
       </section>
     </main>

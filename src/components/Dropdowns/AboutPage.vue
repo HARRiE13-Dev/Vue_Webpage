@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="#pablo" ref="btnDropdownRef" v-on:click="toggleDropdown($event)">
+    <a href="#pablo" ref="btnDropdownRef" @click="toggleDropdown($event)">
       เกี่ยวกับ
     </a>
     <div
@@ -17,6 +17,7 @@
         รู้จักกับเรา
       </span>
       <router-link
+       @click="close($event)"
         to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
@@ -102,6 +103,17 @@ export default {
         });
       }
     },
+    close(e) {
+      if (!this.$el.contains(e.target)) {
+        this.dropdownPopoverShow = false;
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener("click", this.close);
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.close);
   },
 };
 </script>

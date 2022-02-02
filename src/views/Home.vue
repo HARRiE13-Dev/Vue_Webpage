@@ -22,6 +22,7 @@
                 >
                   Computer Science
                 </h1>
+
                 <h2
                   class="mt-4 text-2xl duration-150 ease-linear text-blueGray-200 hover:text-emerald-600 hover:zoom"
                 >
@@ -57,7 +58,6 @@
             <div class="w-full px-4 text-center md:w-6/12">
               <router-link to="program" target="_blank">
                 <div
-               
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
                 >
                   <div class="flex-auto p-1 ">
@@ -208,6 +208,7 @@
         </div>
       </section>
     </main>
+
     <main-footer />
   </div>
 </template>
@@ -355,3 +356,38 @@ export default defineComponent({
   },
 });
 </script>
+<style>
+.line-1 {
+  position: relative;
+  top: 50%;
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(39, 21, 21, 0.75);
+  /* font-size: 180%; */
+  /* text-align: center; */
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+/* Animation */
+.anim-typewriter {
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 24em;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(1, 3, 3, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+</style>
