@@ -1,7 +1,7 @@
 <template>
   <div class="container px-4 mx-auto">
     <div
-      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
       <section class="px-6 py-6">
         <div class="mt-0 text-center">

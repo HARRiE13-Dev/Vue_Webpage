@@ -1,9 +1,9 @@
 <template>
   <div class="container px-4 mx-auto">
     <div
-      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
-      <div class="px-6">
+      <div class="px-6 ">
         <div class="mt-6 text-center">
           <h3
             class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
@@ -31,7 +31,7 @@
 
         <hr />
 
-        <div class="px-6 mt-6">
+        <div class="px-6 mt-6 cssanimation sequence fadeInBottom">
           <h3
             class="mb-6 text-2xl font-semibold leading-normal text-blueGray-700"
           >
@@ -43,7 +43,7 @@
           <div
             v-for="classroom in lab_array"
             v-bind:key="classroom.ClassroomId"
-            class="w-full px-2 lg:w-3/12 "
+            class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom"
           >
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-200"

@@ -3,7 +3,7 @@
     <div class="flex items-center content-center justify-center h-full">
       <div class="w-full px-4 lg:w-4/12">
         <div
-          class="relative flex flex-col w-full min-w-0  break-words border-0 rounded-lg shadow-lg bg-blueGray-200 "
+          class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0  break-words border-0 rounded-lg shadow-lg bg-blueGray-200 "
         >
           <div class="px-6 py-6 mb-0 rounded-t">
             <div class="mb-3 text-center">
@@ -16,7 +16,7 @@
           </div>
           <div class="flex-auto px-4 py-10 pt-0 lg:px-10">
             <form @submit.prevent="onSubmit">
-              <div class="relative w-full mb-3">
+              <div class="relative w-full mb-3 cssanimation sequence fadeInBottom">
                 <label
                   class="block mb-2 text-sm font-bold uppercase text-blueGray-600"
                   htmlFor="grid-password"
@@ -37,7 +37,7 @@
                 {{ v$.username.$errors[0].$message }}
               </div>
 
-              <div class="relative w-full mb-3">
+              <div class="relative w-full mb-3 cssanimation sequence fadeInBottom">
                 <label
                   class="block mb-2 text-sm font-bold uppercase text-blueGray-600"
                   htmlFor="grid-password"
@@ -61,7 +61,7 @@
                 {{ v$.password.$errors[0].$message }}
               </div>
 
-              <div>
+              <div class="relative w-full mb-3 cssanimation sequence fadeInBottom">
                 <label class="inline-flex items-center cursor-pointer">
                   <input
                     @click="showPassword"
@@ -74,7 +74,7 @@
                 </label>
               </div>
 
-              <div class="mb-3 mt-6 ">
+              <div class="mb-3 mt-6 cssanimation sequence fadeInBottom">
                 <vue-recaptcha
                   
                   v-if="showRecaptcha"
@@ -90,7 +90,7 @@
                 >
                 </vue-recaptcha>
               </div>
-              <div class="mt-6 text-center">
+              <div class="mt-6 text-center cssanimation sequence fadeInBottom">
                 <button
                   @click="submit"
                   class="w-full px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
@@ -145,7 +145,7 @@ export default {
     },
     submit() {
       this.v$.$validate();
-      if (this.verify == null) {
+      if (this.verify != null) {
         if (
           // eslint-disable-next-line no-useless-escape
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username)

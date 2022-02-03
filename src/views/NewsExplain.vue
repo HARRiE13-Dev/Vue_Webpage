@@ -1,7 +1,7 @@
 <template>
   <div class="container px-4 mx-auto">
     <div
-      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
       <div class="px-6">
         <div class="mt-6 text-center">
@@ -23,7 +23,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words max-h-news h-full"
             >
-              <div class="px-0 mt-2 lg:px-10 ">
+              <div class="px-0 mt-2 lg:px-10 cssanimation sequence fadeInBottom">
                 <img
                   v-if="eimgUrl"
                   :src="eimgUrl"

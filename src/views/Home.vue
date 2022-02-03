@@ -18,19 +18,19 @@
             <div class="w-full px-4 mt-32 text-left lg:w-6/12">
               <div class="pr-12">
                 <h1
-                  class="text-5xl font-semibold text-white duration-150 ease-linear hover:text-emerald-600 hover:zoom"
+                  class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white duration-150 ease-linear hover:text-emerald-600 hover:zoom"
                 >
                   Computer Science
                 </h1>
 
                 <h2
-                  class="mt-4 text-2xl duration-150 ease-linear text-blueGray-200 hover:text-emerald-600 hover:zoom"
+                  class="cssanimation sequence fadeInBottom mt-4 text-2xl duration-150 ease-linear text-blueGray-200 hover:text-emerald-600 hover:zoom"
                 >
                   Maejo University
                 </h2>
               </div>
               <div class="my-6 rectangle" id="section1"></div>
-              <div class="mt-2 text-blueGray-200 item-center">
+              <div class="mt-2 text-blueGray-200 item-center ">
                 <i class="px-2 far fa-play-circle fa-lg"></i>
                 <a href="#section2">รับชมวีดีโอแนะนำ</a>
               </div>
@@ -40,7 +40,7 @@
                 <Carousel :autoplay="2000">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
-                      class="relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
+                      class="cssanimation sequence fadeInBottom relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
                     >
                       <img class="cropped-bg" :src="image.Banner_File" />
                     </div>
@@ -55,7 +55,7 @@
       <section class="pb-20 lg:-mt-64 bg-blueGray-200 custom">
         <div class="container mx-auto">
           <div class="flex flex-wrap">
-            <div class="w-full px-4 text-center md:w-6/12">
+            <div class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom">
               <router-link to="program" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -71,7 +71,7 @@
               </router-link>
             </div>
 
-            <div class="w-full px-4 text-center md:w-6/12">
+            <div class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom">
               <a href="http://www.admissions.mju.ac.th/www/" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -88,7 +88,7 @@
             </div>
           </div>
           <div class="flex flex-wrap">
-            <div class="w-full px-4 text-center md:w-4/12">
+            <div class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom">
               <router-link to="about" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -103,7 +103,7 @@
                 </div>
               </router-link>
             </div>
-            <div class="w-full px-4 text-center md:w-4/12">
+            <div class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom">
               <router-link to="activity" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
@@ -112,13 +112,13 @@
                     <img
                       alt="..."
                       :src="menu4"
-                      class="relative mx-0 shadow-lg lg:cropped-card2"
+                      class="relative mx-0 shadow-lg lg:cropped-card2 "
                     />
                   </div>
                 </div>
               </router-link>
             </div>
-            <div class="w-full px-4 text-center md:w-4/12">
+            <div class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom">
               <router-link to="contact" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -357,37 +357,5 @@ export default defineComponent({
 });
 </script>
 <style>
-.line-1 {
-  position: relative;
-  top: 50%;
-  width: 24em;
-  margin: 0 auto;
-  border-right: 2px solid rgba(39, 21, 21, 0.75);
-  /* font-size: 180%; */
-  /* text-align: center; */
-  white-space: nowrap;
-  overflow: hidden;
-  transform: translateY(-50%);
-}
-/* Animation */
-.anim-typewriter {
-  animation: typewriter 4s steps(44) 1s 1 normal both,
-    blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 24em;
-  }
-}
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: rgba(1, 3, 3, 0.75);
-  }
-  to {
-    border-right-color: transparent;
-  }
-}
+
 </style>

@@ -5,7 +5,7 @@
         <div class="container mx-auto">
           <div class="flex flex-wrap ">
             <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
+              class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
             >
               <div class="px-6 mt-6">
                 <div class="flex flex-wrap rounded-lg bg-blueGray-100">
@@ -29,7 +29,7 @@
 
                 <div class="py-6 mt-2 text-left border-t border-blueGray-200">
                   <div class="flex flex-wrap">
-                    <div class="w-full px-2 lg:w-3/12 ">
+                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
@@ -58,7 +58,7 @@
                         </router-link>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 ">
+                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
@@ -86,7 +86,7 @@
                         </router-link>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 ">
+                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
@@ -112,7 +112,7 @@
                         </router-link>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 ">
+                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
@@ -138,7 +138,7 @@
                         </router-link>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 ">
+                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >

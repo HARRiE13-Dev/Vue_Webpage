@@ -1,7 +1,7 @@
 <template>
   <div class="container px-4 mx-auto custom">
     <div
-      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
       <div class="px-6 ">
         <div class="mt-10 mb-6 text-center ">
@@ -21,7 +21,7 @@
           <div
             v-for="personnel in personnel_array"
             v-bind:key="personnel.personnelId"
-            class="w-full px-4 text-center lg:w-3/12 bg-blueGray-100 border rounded-md shadow-sm"
+            class="cssanimation sequence fadeInBottom w-full px-4 text-center lg:w-3/12 bg-blueGray-100 border rounded-md shadow-sm"
           >
             <div class="relative px-12 py-12 ">
               <img

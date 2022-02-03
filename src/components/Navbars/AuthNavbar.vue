@@ -10,7 +10,7 @@
       >
         <router-link
           class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed text-white uppercase whitespace-nowrap"
-          to="/"
+          to="/home"
         >
           Computer Science | MJU
         </router-link>
@@ -23,7 +23,7 @@
         <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
           <li class="flex items-center">
             <router-link
-              to="/"
+              to="/home"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent hover:text-emerald-600 whitespace-nowrap"
             >
               หน้าแรก

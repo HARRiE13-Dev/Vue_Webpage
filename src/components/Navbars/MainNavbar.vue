@@ -8,7 +8,7 @@
       <div
         class="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start"
       >
-        <router-link to="/">
+        <router-link to="/home">
           <img src="@/assets/img/logo.png" alt="" class="h-12 reletive" />
         </router-link>
       </div>
@@ -21,7 +21,7 @@
         <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
           <li class="flex items-center">
             <router-link
-              to="/"
+              to="/home"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
             >
               หน้าแรก

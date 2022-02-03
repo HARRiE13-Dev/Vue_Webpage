@@ -168,7 +168,6 @@ Transition Routing by Harrie13
 ============
 */
 
-
 .route-enter-from {
   opacity: 0;
   transform: translateX(100px);
@@ -182,6 +181,21 @@ Transition Routing by Harrie13
 }
 .route-leave-active {
   transition: all 0.3s ease-in;
+}
+.cssanimation, .cssanimation span {
+  animation-duration: 1.2s;
+  animation-fill-mode: both;
+}
+
+.cssanimation span { display: inline-block }
+
+.fadeInBottom { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+  from {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+  to { opacity: 1 }
 }
 /*
 Tabular data

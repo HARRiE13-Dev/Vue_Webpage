@@ -83,8 +83,8 @@ import Contact from "@/views/Contact.vue";
 import Classroom from "@/views/Classroom.vue";
 import Schedule from "@/views/Schedule.vue";
 import Alumnus from "@/views/Alumnus.vue";
+import Welcome from "@/views/Welcome.vue";
 
-import TestApi from "@/views/TestApi.vue";
 
 import store from "./store";
 
@@ -399,11 +399,6 @@ const routes = [
         path: "/alumnus",
         component: Alumnus,
       },
-
-      {
-        path: "/testapi",
-        component: TestApi,
-      },
     ],
   },
   //Home-layout
@@ -419,8 +414,12 @@ const routes = [
         beforeEnter: authGuard,
       },
       {
-        path: "/",
+        path: "/home",
         component: Home,
+      },
+      {
+        path: "/",
+        component: Welcome,
       },
 
       //Error 404

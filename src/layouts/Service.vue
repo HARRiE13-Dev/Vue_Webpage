@@ -4,18 +4,12 @@
 
     <main>
       <section class="relative w-full h-full min-h-screen py-16">
-        <div
-          class="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-200 bg-full"
-          :style="`background-image: url('${backgroundLogin}');`"
-        ></div>
         <div>
           <main class="profile-page custom">
             <section class="relative block h-500-px">
               <div
                 class="absolute top-0 w-full h-full bg-center bg-cover"
-                style="
-            background-image: url('https://wwwdev.csmju.com/images/banner/thumbnail/Banner_1639385731.jpg');
-          "
+                :style="`background-image: url('${bgupdate}');`"
               >
                 <span
                   id="blackOverlay"
@@ -47,11 +41,13 @@
               <div class="container mx-auto">
                 <div class="flex flex-wrap ">
                   <div
-                    class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words rounded-lg shadow-xl bg-blueGray-800 lg:w-12/12"
+                    class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words rounded-lg shadow-xl bg-blueGray-800 lg:w-12/12"
                   >
                     <div class="px-6">
                       <div class="flex flex-wrap text-center lg:text-left">
-                        <div class="w-full px-6 lg:w-4/12 ">
+                        <div
+                          class="relative w-full px-6 lg:w-4/12 cssanimation sequence fadeInBottom"
+                        >
                           <div class="relative text-center">
                             <img
                               alt="..."
@@ -70,7 +66,9 @@
                             </button>
                           </div>
                         </div>
-                        <div class="relative w-full lg:w-4/12 ">
+                        <div
+                          class="relative w-full lg:w-4/12 cssanimation sequence fadeInBottom"
+                        >
                           <div class="flex py-4 pt-6">
                             <div
                               class="py-3 border-l-2 text-center lg:text-left"
@@ -88,7 +86,9 @@
                             </div>
                           </div>
                         </div>
-                        <div class="relative w-full px-6 lg:w-4/12 ">
+                        <div
+                          class="relative w-full px-6 lg:w-4/12 cssanimation sequence fadeInBottom"
+                        >
                           <div class="flex justify-center py-4 pt-4">
                             <div
                               class="p-3 mt-4 text-left border-2 rounded-lg shadow-lg bg-blueGray-100 border-blueGray-300"
@@ -137,11 +137,13 @@
 <script>
 import Foot from "@/components/Footers/Foot.vue";
 import ServiceNavbar from "@/components/Navbars/ServiceNavbar.vue";
-import team from "@/assets/img/no-img.png";
+import team from "@/assets/img/logo.png";
 import http from "@/services/WebpageService";
+import bgupdate from "@/assets/img/bg-update.jpg";
 export default {
   data() {
     return {
+      bgupdate,
       team,
       studentID: "",
       first_name: "",
@@ -203,4 +205,3 @@ export default {
   },
 };
 </script>
-

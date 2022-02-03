@@ -10,21 +10,23 @@
       >
         <router-link
           class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed text-white uppercase whitespace-nowrap"
-          to="/"
+          to="/home"
         >
-        <div class="flex">
-          <div class="w-auto text-xl">
-            CSMJU 
+          <div class="flex">
+            <div class="w-auto text-xl">
+              CSMJU
+            </div>
+            <div
+              class="invisible w-auto mt-1 ml-3 whitespace-normal lg:visible"
+            >
+              | Management Information Systems
+            </div>
           </div>
-          <div class="invisible w-auto mt-1 ml-3 whitespace-normal lg:visible">
-           | Management Information Systems
-          </div>
-          </div> 
         </router-link>
         <button
           class="block h-10 px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
           type="button"
-          v-on:click="setNavbarOpen"
+          @click="setNavbarOpen"
         >
           <i class="text-white fas fa-bars"></i>
         </button>
@@ -34,21 +36,21 @@
         :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']"
         id="example-navbar-warning"
       >
-        
         <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
-         <li class="flex items-center">
+          <li class="flex items-center">
             <router-link
-              to="/"
+              to="/home"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
             >
               หน้าแรก
             </router-link>
           </li>
 
-            <li class="flex items-center">
-            <about-page class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap" />
+          <li class="flex items-center">
+            <about-page
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
+            />
           </li>
-
 
           <li class="flex items-center">
             <router-link
@@ -59,14 +61,12 @@
             </router-link>
           </li>
 
-        
-
           <li class="flex items-center">
             <router-link
               to="/news"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
             >
-                ข่าวสาร
+              ข่าวสาร
             </router-link>
           </li>
 
@@ -75,16 +75,16 @@
               to="/alumnus"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
             >
-               ศิษย์เก่า
+              ศิษย์เก่า
             </router-link>
           </li>
 
-           <li class="flex items-center">
+          <li class="flex items-center">
             <router-link
               to="/contact"
               class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
             >
-               ติดต่อเรา
+              ติดต่อเรา
             </router-link>
           </li>
 
@@ -98,8 +98,7 @@
                 ออกจากระบบ
               </button>
             </router-link>
-          </li>       
-          
+          </li>
         </ul>
       </div>
     </div>
@@ -111,20 +110,20 @@ export default {
   data() {
     return {
       navbarOpen: false,
-       dropdownPopoverShow: false,
+      dropdownPopoverShow: false,
     };
   },
   methods: {
-    setNavbarOpen: function () {
+    setNavbarOpen: function() {
       this.navbarOpen = !this.navbarOpen;
     },
-    onClickLogout(){
+    onClickLogout() {
       localStorage.removeItem("user");
       this.$router.push({ name: "Login" });
-    }
+    },
   },
   components: {
-   AboutPage,
+    AboutPage,
   },
 };
 </script>

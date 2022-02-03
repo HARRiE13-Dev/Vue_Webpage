@@ -21,12 +21,12 @@
           ></div>
         </div>
 
-        <div class="flex flex-wrap">
-          <div class="w-full  p-2 lg:w-6/12">
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-6/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 ">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
