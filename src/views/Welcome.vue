@@ -2,7 +2,7 @@
   <div class="relative page custom">
     <div class="countdown-col col">
       <div class="relative newslatter middle">
-        <div class="px-4">
+        <div class="px-4 cssanimation sequence fadeInBottom">
           <img
             class="h-24 center-img shadow-lg"
             src="@/assets/img/logo.png"
@@ -24,7 +24,9 @@
           </h2>
         </div>
 
-        <form class="mt-48 relative ">
+        <form
+          class="delay-btn mt-48 relative cssanimation sequence fadeInBottom"
+        >
           <button
             @click="tohome"
             type="button"
@@ -137,6 +139,9 @@ export default {
 }
 .delay {
   animation-delay: 6.5s;
+}
+.delay-btn {
+  animation-delay: 11s;
 }
 
 @keyframes typewriter {
