@@ -85,10 +85,25 @@ import Schedule from "@/views/Schedule.vue";
 import Alumnus from "@/views/Alumnus.vue";
 import Welcome from "@/views/Welcome.vue";
 
-
 import store from "./store";
 
-// Authentication Route Guards Function
+// Authentication Home
+function intoGuard(to, from, next) {
+  let isAuthenticated = false;
+  JSON.parse(window.localStorage.getItem("into"));
+  if (localStorage.getItem("into")) {
+    isAuthenticated = true;
+  } else {
+    isAuthenticated = false;
+  }
+  if (isAuthenticated) {
+    next();
+  } else {
+    next({ name: "Welcome" });
+  }
+}
+
+// Authentication Student
 function authGuard(to, from, next) {
   let isAuthenticated = false;
   let local_user = JSON.parse(window.localStorage.getItem("user"));
@@ -108,7 +123,7 @@ function authGuard(to, from, next) {
   }
 }
 
-// Authentication Route Guards Function
+// Authentication Personnel
 function authGuard_Personnel(to, from, next) {
   let isAuthenticated = false;
   let local_user = JSON.parse(window.localStorage.getItem("user"));
@@ -132,7 +147,7 @@ function authGuard_Personnel(to, from, next) {
   }
 }
 
-// Authentication Route Guards Function
+// Authentication Admin
 function authGuard_Admin(to, from, next) {
   let isAuthenticated = false;
   let local_user = JSON.parse(window.localStorage.getItem("user"));
@@ -270,6 +285,7 @@ const routes = [
         path: "/auth/login",
         name: "Login",
         component: Login_User,
+        beforeEnter: intoGuard,
       },
     ],
   },
@@ -359,45 +375,55 @@ const routes = [
       {
         path: "/about",
         component: About,
+        beforeEnter: intoGuard,
       },
       {
         path: "/program",
         component: Program,
+        beforeEnter: intoGuard,
       },
 
       {
         path: "/news",
         name: "News",
         component: News,
+        beforeEnter: intoGuard,
       },
       {
         path: "/newsexplain",
         name: "NewsExplain",
         component: NewsExplain,
+        beforeEnter: intoGuard,
       },
       {
         path: "/staff",
         component: Staff,
+        beforeEnter: intoGuard,
       },
       {
         path: "/teacher",
         component: Teacher,
+        beforeEnter: intoGuard,
       },
       {
         path: "/contact",
         component: Contact,
+        beforeEnter: intoGuard,
       },
       {
         path: "/classroom",
         component: Classroom,
+        beforeEnter: intoGuard,
       },
       {
         path: "/schedule",
         component: Schedule,
+        beforeEnter: intoGuard,
       },
       {
         path: "/alumnus",
         component: Alumnus,
+        beforeEnter: intoGuard,
       },
     ],
   },
@@ -415,10 +441,13 @@ const routes = [
       },
       {
         path: "/home",
+        name: "Home",
         component: Home,
+        beforeEnter: intoGuard,
       },
       {
         path: "/",
+        name: "Welcome",
         component: Welcome,
       },
 
@@ -430,6 +459,7 @@ const routes = [
           title: "Not Found This Page",
           description: "ไม่พบหน้า",
         },
+        beforeEnter: intoGuard,
       },
     ],
   },

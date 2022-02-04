@@ -1,15 +1,14 @@
 <template>
   <div>
-    <navbar/>
+    <navbar />
 
     <main>
       <section class="relative w-full h-full min-h-screen py-40">
-        
         <div
-          class="absolute top-0 w-full h-full  bg-no-repeat bg-blueGray-800 bg-full"
+          class="absolute top-0 w-full h-full bg-blueGray-800 bg-full"
           :style="`background-image: url('${backgroundLogin}');`"
         ></div>
-           <router-view v-slot="{ Component }">
+        <router-view v-slot="{ Component }">
           <transition name="route" mode="out-in">
             <component :is="Component"></component>
           </transition>

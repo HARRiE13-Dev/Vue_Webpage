@@ -14,13 +14,20 @@
         >
           Computer Science | MJU
         </router-link>
+        <button
+          class="block px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
+          type="button"
+          @click="setNavbarOpen"
+        >
+          <i class="text-white fas fa-bars"></i>
+        </button>
       </div>
       <div
         class="items-center flex-grow bg-teal-500 lg:flex lg:bg-opacity-0 lg:shadow-none"
         :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']"
         id="example-navbar-warning"
       >
-        <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
+        <ul class="flex flex-col z-3 list-none lg:flex-row lg:ml-auto">
           <li class="flex items-center">
             <router-link
               to="/home"
@@ -93,6 +100,9 @@ import AboutPage from "@/components/Dropdowns/AboutPage.vue";
 export default {
   data() {
     return {
+      navbarOpen: false,
+      dropdownPopoverShow: false,
+
       local_user: [],
       local_token: "",
 
@@ -101,6 +111,9 @@ export default {
     };
   },
   methods: {
+    setNavbarOpen: function() {
+      this.navbarOpen = !this.navbarOpen;
+    },
     checkLogin() {
       let local_student = JSON.parse(window.localStorage.getItem("user"));
       let token_student = local_student.access_token;

@@ -55,7 +55,9 @@
       <section class="pb-20 lg:-mt-64 bg-blueGray-200 custom">
         <div class="container mx-auto">
           <div class="flex flex-wrap">
-            <div class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom"
+            >
               <router-link to="program" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -71,7 +73,9 @@
               </router-link>
             </div>
 
-            <div class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom"
+            >
               <a href="http://www.admissions.mju.ac.th/www/" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -88,7 +92,9 @@
             </div>
           </div>
           <div class="flex flex-wrap">
-            <div class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom"
+            >
               <router-link to="about" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -103,7 +109,9 @@
                 </div>
               </router-link>
             </div>
-            <div class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom"
+            >
               <router-link to="activity" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
@@ -118,7 +126,9 @@
                 </div>
               </router-link>
             </div>
-            <div class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom"
+            >
               <router-link to="contact" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
@@ -356,6 +366,3 @@ export default defineComponent({
   },
 });
 </script>
-<style>
-
-</style>

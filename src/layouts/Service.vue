@@ -181,7 +181,7 @@ export default {
       http.get(`student/${studentID}`).then((response) => {
         this.profile = response.data.data[0];
         let fromCheck = response.data.from;
-        if (fromCheck !== null) {
+        if (fromCheck != null) {
           this.studentID = this.profile.studentCode;
           this.first_name = this.profile.nameTh;
           this.last_name = this.profile.surnameTh;

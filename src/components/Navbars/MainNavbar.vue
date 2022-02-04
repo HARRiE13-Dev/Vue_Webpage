@@ -11,6 +11,13 @@
         <router-link to="/home">
           <img src="@/assets/img/logo.png" alt="" class="h-12 reletive" />
         </router-link>
+        <button
+          class="block px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
+          type="button"
+          @click="setNavbarOpen"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
 
       <div
@@ -18,7 +25,7 @@
         :class="[navbarOpen ? 'block' : 'hidden']"
         id="example-navbar-warning"
       >
-        <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
+        <ul class="flex flex-col list-none z-3 lg:flex-row lg:ml-auto">
           <li class="flex items-center">
             <router-link
               to="/home"

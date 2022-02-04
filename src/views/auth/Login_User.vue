@@ -16,12 +16,19 @@
           </div>
           <div class="flex-auto px-4 py-10 pt-0 lg:px-10">
             <form @submit.prevent="onSubmit">
-              <div class="relative w-full mb-3 cssanimation sequence fadeInBottom">
+              <div
+                class="relative w-full mb-3 cssanimation sequence fadeInBottom"
+              >
                 <label
-                  class="block mb-2 text-sm font-bold uppercase text-blueGray-600"
+                  class="block mb-2 text-md font-normal uppercase text-blueGray-600"
                   htmlFor="grid-password"
                 >
-                  ชื่อผู้ใช้งาน
+                  <b>
+                    ชื่อผู้ใช้งาน
+                  </b>
+                  <span class="text-xs">
+                    (Username)
+                  </span>
                 </label>
                 <input
                   v-model="username"
@@ -37,12 +44,19 @@
                 {{ v$.username.$errors[0].$message }}
               </div>
 
-              <div class="relative w-full mb-3 cssanimation sequence fadeInBottom">
+              <div
+                class="relative w-full mb-3 cssanimation sequence fadeInBottom"
+              >
                 <label
-                  class="block mb-2 text-sm font-bold uppercase text-blueGray-600"
+                  class="block mb-2 text-md font-normal uppercase text-blueGray-600"
                   htmlFor="grid-password"
                 >
-                  รหัสผ่าน
+                  <b>
+                    รหัสผ่าน
+                  </b>
+                  <span class="text-xs">
+                    (Password)
+                  </span>
                 </label>
                 <input
                   v-model="password"
@@ -61,7 +75,9 @@
                 {{ v$.password.$errors[0].$message }}
               </div>
 
-              <div class="relative w-full mb-3 cssanimation sequence fadeInBottom">
+              <div
+                class="relative w-full mb-3 cssanimation sequence fadeInBottom"
+              >
                 <label class="inline-flex items-center cursor-pointer">
                   <input
                     @click="showPassword"
@@ -69,14 +85,13 @@
                     class="w-5 h-5 ml-1 transition-all duration-150 ease-linear border-0 rounded form-checkbox text-blueGray-700"
                   />
                   <span class="ml-2 text-sm text-blueGray-600">
-                    แสดงรหัสผ่าน
+                    แสดงรหัสผ่าน (Show)
                   </span>
                 </label>
               </div>
 
               <div class="mb-3 mt-6 cssanimation sequence fadeInBottom">
                 <vue-recaptcha
-                  
                   v-if="showRecaptcha"
                   siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
                   size="normal"
@@ -145,7 +160,7 @@ export default {
     },
     submit() {
       this.v$.$validate();
-      if (this.verify != null) {
+      if (this.verify == null) {
         if (
           // eslint-disable-next-line no-useless-escape
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username)

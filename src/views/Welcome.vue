@@ -1,27 +1,29 @@
 <template>
-  <div class="relative page custom">
+  <div class="relative page custom ">
     <div class="countdown-col col">
       <div class="relative newslatter middle">
         <div class="px-4 cssanimation sequence fadeInBottom">
           <img
-            class="h-24 center-img shadow-lg"
+            class="h-24 center-img shadow-lg bg-no-repeat bg-cover bg-full"
             src="@/assets/img/logo.png"
             alt=""
             srcset=""
           />
         </div>
-        <h1
-          class="pt-2 mt-0 text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
-        >
-          ยินดีตอนรับสู่สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
-        </h1>
-
-        <div class="relative mt-16 ">
-          <h2
-            class="italic delay h-10 line-2 anim-typewriter-2 text-white font-bold text-shadow align-middle mb-12 text-4xl leading-none"
+        <div class="relative w-full">
+          <h1
+            class="pt-2 mt-0 text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
           >
-            Welcome to Computer Science ,Maejo University()
-          </h2>
+            ยินดีตอนรับสู่สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
+          </h1>
+
+          <div class="mt-16 ">
+            <h2
+              class="italic delay h-10 line-2 anim-typewriter-2 text-white font-bold text-shadow align-middle mb-12 text-4xl leading-none"
+            >
+              Welcome to Computer Science ,Maejo University()
+            </h2>
+          </div>
         </div>
 
         <form
@@ -47,7 +49,9 @@ export default {
   },
   methods: {
     tohome() {
-      this.$router.push("/home");
+      let localData = { state: 1 };
+      localStorage.setItem("into", JSON.stringify(localData));
+      this.$router.push({ name: "Home" });
     },
   },
 };

@@ -23,7 +23,9 @@
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words max-h-news h-full"
             >
-              <div class="px-0 mt-2 lg:px-10 cssanimation sequence fadeInBottom">
+              <div
+                class="px-0 mt-2 lg:px-10 cssanimation sequence fadeInBottom"
+              >
                 <img
                   v-if="eimgUrl"
                   :src="eimgUrl"
@@ -89,14 +91,8 @@ export default {
   mounted() {
     this.getPersonnelData();
     this.mybutton = document.getElementById("myBtn");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {
-      this.scrollFunction();
-    };
   },
   methods: {
-    // When the user clicks on the button, scroll to the top of the document
     topFunction() {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
