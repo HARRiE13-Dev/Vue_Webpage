@@ -30,7 +30,7 @@
           class="delay-btn mt-48 relative cssanimation sequence fadeInBottom"
         >
           <button
-            @click="tohome"
+            @click="homePage"
             type="button"
             class="newslatter-button text-2xl shadow-lg text-white"
           >
@@ -48,20 +48,24 @@ export default {
     return {};
   },
   methods: {
-    tohome() {
+    homePage() {
       let localData = { state: 1 };
       localStorage.setItem("into", JSON.stringify(localData));
       this.$router.push({ name: "Home" });
     },
+    playSound() {
+      const audio = new Audio(
+        "https://www.chosic.com/wp-content/uploads/2021/09/Computer-keyboard-fast.mp3"
+      );
+      audio.play();
+    },
+  },
+  mounted() {
+    this.playSound();
   },
 };
 </script>
 <style>
-.page {
-  background: #f1f1f1;
-  display: flex;
-  flex-wrap: wrap;
-}
 .col {
   flex: 1;
   height: 100vh;
@@ -134,7 +138,7 @@ export default {
 
 /* Animation */
 .anim-typewriter-1 {
-  animation: typewriter 5s steps(48) 2s 1 normal both,
+  animation: typewriter 4s steps(44) 2s 1 normal both,
     blinkTextCursor 550ms steps(48) infinite normal;
 }
 .anim-typewriter-2 {
@@ -142,10 +146,10 @@ export default {
     blinkTextCursor 500ms steps(44) infinite normal;
 }
 .delay {
-  animation-delay: 6.5s;
+  animation-delay: 5s;
 }
 .delay-btn {
-  animation-delay: 11s;
+  animation-delay: 8s;
 }
 
 @keyframes typewriter {

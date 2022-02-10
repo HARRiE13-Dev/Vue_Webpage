@@ -226,7 +226,7 @@ export default {
         
         
         //Post in Web
-        http.post("newsadd", data).then((response) => {
+        http.post(`news/create`, data).then((response) => {
           console.log(response);
           
           const Toast = this.$swal.mixin({

@@ -171,7 +171,8 @@ export default {
         .get(`classroom/ห้องปฏิบัติการ`)
         .then((response) => {
           this.lab_array = response.data;
-          console.log(response.data);
+          this.lab_array.pop()
+          
         })
         .catch((error) => {
           if (error.response) {
@@ -184,7 +185,7 @@ export default {
         .get(`classroom/ห้องบรรยาย`)
         .then((response) => {
           this.lec_array = response.data;
-          console.log(response.data);
+          
         })
         .catch((error) => {
           if (error.response) {

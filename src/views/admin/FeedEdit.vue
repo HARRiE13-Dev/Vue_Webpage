@@ -159,7 +159,7 @@ export default {
     
     EditProduct() {
         this.newsId = this.$store.state.newsEdit
-      http.get(`newsid/${this.newsId}`).then((response) => {
+      http.get(`news/update/${this.newsId}`).then((response) => {
         // console.log(response.data)
         this.enewsId = response.data.newsId;
         this.eTitle = response.data.News_Title;
