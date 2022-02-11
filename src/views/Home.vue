@@ -18,19 +18,21 @@
             <div class="w-full px-4 mt-32 text-left lg:w-6/12">
               <div class="pr-12">
                 <h1
-                  class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white duration-150 ease-linear hover:text-emerald-600 hover:zoom"
+                  class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white "
                 >
                   Computer Science
                 </h1>
 
                 <h2
-                  class="cssanimation sequence fadeInBottom mt-4 text-2xl duration-150 ease-linear text-blueGray-200 hover:text-emerald-600 hover:zoom"
+                  class="cssanimation sequence fadeInBottom mt-4 text-2xl text-blueGray-200"
                 >
                   Maejo University
                 </h2>
               </div>
               <div class="my-6 rectangle" id="section1"></div>
-              <div class="mt-2 text-blueGray-200 item-center ">
+              <div
+                class="mt-2 text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600  hover:zoom-xs"
+              >
                 <i class="px-2 far fa-play-circle fa-lg"></i>
                 <a href="#section2">รับชมวีดีโอแนะนำ</a>
               </div>

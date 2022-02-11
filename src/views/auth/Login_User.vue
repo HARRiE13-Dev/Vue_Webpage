@@ -174,6 +174,7 @@ export default {
               })
               .then((response) => {
                 //Data User LocalStorage
+
                 localStorage.setItem("user", JSON.stringify(response.data));
                 if (response.data.user.role == 1) {
                   const Toast = this.$swal.mixin({
@@ -207,7 +208,10 @@ export default {
               })
               .catch((error) => {
                 if (error.response) {
-                  if (error.response.status == 401) {
+                  if (
+                    error.response.status == 401 ||
+                    error.response == undefined
+                  ) {
                     //Call Sweet Alert
                     const Toast = this.$swal.mixin({
                       toast: true,
@@ -226,6 +230,24 @@ export default {
                       this.password = "";
                     });
                   }
+                } else if (error.response == undefined) {
+                  //Call Sweet Alert
+                  const Toast = this.$swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                  });
+
+                  Toast.fire({
+                    icon: "error",
+                    title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
+                  }).then(() => {
+                    // Login  Success => Dashboard
+
+                    this.password = "";
+                  });
                 }
               });
           } else {

@@ -45,7 +45,9 @@
                   >
                     <div class="px-6">
                       <div class="flex flex-wrap text-center lg:text-left">
-                        <div class="w-full px-6 lg:w-4/12 cssanimation sequence fadeInBottom">
+                        <div
+                          class="w-full px-6 lg:w-4/12 cssanimation sequence fadeInBottom"
+                        >
                           <div class="relative text-center">
                             <img
                               alt="..."
@@ -63,7 +65,9 @@
                             </button>
                           </div>
                         </div>
-                        <div class="relative w-full lg:w-4/12 cssanimation sequence fadeInBottom">
+                        <div
+                          class="relative w-full lg:w-4/12 cssanimation sequence fadeInBottom"
+                        >
                           <div class="flex py-4 pt-8">
                             <div
                               class="py-3 border-l-2 text-center lg:text-left"
@@ -88,7 +92,9 @@
                             </div>
                           </div>
                         </div>
-                        <div class="relative w-full px-6 lg:w-4/12 cssanimation sequence fadeInBottom">
+                        <div
+                          class="relative w-full px-6 lg:w-4/12 cssanimation sequence fadeInBottom"
+                        >
                           <div class="flex justify-center py-4 pt-6">
                             <div
                               class="p-3 mt-4 text-left border-2 rounded-lg shadow-lg bg-blueGray-100 border-blueGray-300"

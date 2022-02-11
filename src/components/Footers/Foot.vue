@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="pb-6"
+    class="pb-6 "
     :class="[
       absolute ? 'absolute w-full bottom-0 bg-blueGray-800' : 'relative',
     ]"

@@ -641,7 +641,6 @@
   </div>
 </template>
 <script>
-//import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
 
 import http from "@/services/APIService";
@@ -1029,8 +1028,8 @@ export default {
   },
 };
 </script>
-<style lang="css">
-@import "@ocrv/vue-tailwind-pagination/styles" screen and (max-width: 768px);
+<style scoped>
+/* @import "@ocrv/vue-tailwind-pagination/styles"; */
 .rotate-45 {
   --tw-rotate: 90deg !important;
 }
