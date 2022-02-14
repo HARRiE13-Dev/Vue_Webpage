@@ -1028,12 +1028,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-/* @import "@ocrv/vue-tailwind-pagination/styles"; */
-.rotate-45 {
-  --tw-rotate: 90deg !important;
-}
-.-rotate-45 {
-  --tw-rotate: -90deg !important;
-}
-</style>

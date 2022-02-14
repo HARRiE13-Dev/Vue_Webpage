@@ -56,138 +56,134 @@
                       </div>
                     </div>
                     <div class="w-full lg:w-6/12 lg:order-1">
-                      <form ref="addProductForm">
+                      <form>
                         <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-4/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >รหัสรายวิชา</label
+                          <div class="w-full px-4 md:w-12/12">
+                            <label class="block my-3 text-gray-700 text-md"
+                              >กลุ่มรายวิชาเฉพาะ</label
                             >
-
-                            <input
-                              v-model="Title"
+                            <select
+                              v-model="s_type"
+                              @keyup="getCourse"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="search"
-                              placeholder="Product name"
-                            />
-
-                            <!-- <div
-                              v-if="v$.Title.$error"
+                            >
+                              <option value="1">กลุ่มรายวิชาภายในสาขา</option>
+                              <option value="2">กลุ่มรายวิชาภายนอกสาขา</option>
+                            </select>
+                            <div
+                              v-if="v$.s_type.$error"
                               class="mt-2 text-sm text-red-500"
                             >
-                              {{ v$.Title.$errors[0].$message }}
-                            </div> -->
+                              {{ v$.s_type.$errors[0].$message }}
+                            </div>
                           </div>
-                           <div class="w-full px-4 md:w-8/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
+                        </div>
+                        <div class="flex flex-wrap mb-2">
+                          <div class="w-full px-4 md:w-8/12">
+                            <label class="block my-3 text-gray-700 text-md"
+                              >รหัสรายวิชา</label
+                            >
+                            <input
+                              v-model="s_code"
+                              @keyup="getSubject"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="number"
+                              placeholder="Subject Code"
+                            />
+                            <div
+                              v-if="v$.s_code.$error"
+                              class="mt-2 text-sm text-red-500"
+                            >
+                              {{ v$.s_code.$errors[0].$message }}
+                            </div>
+                          </div>
+                          <div class="w-full px-4 md:w-4/12">
+                            <label class="block my-3 text-gray-700 text-md"
+                              >กลุ่มเรียน</label
+                            >
+                            <input
+                              v-model="s_section"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="number"
+                              placeholder="Section"
+                            />
+                            <div
+                              v-if="v$.s_section.$error"
+                              class="mt-2 text-sm text-red-500"
+                            >
+                              {{ v$.s_section.$errors[0].$message }}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-2">
+                          <div class="w-full px-4 md:w-12/12">
+                            <label class="block my-3 text-gray-700 text-md"
                               >ชื่อรายวิชา</label
                             >
                             <input
-                              v-model="Dates"
+                              v-model="s_name"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Subject Name"
                             />
-                            <!-- <div
-                              v-if="v$.Dates.$error"
+                            <div
+                              v-if="v$.s_name.$error"
                               class="mt-2 text-sm text-red-500"
                             >
-                              {{ v$.Dates.$errors[0].$message }}
-                            </div> -->
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
-                              >ชื่ออุปกรณ์</label
-                            >
-                            <input
-                              v-model="Dates"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Product name"
-                            />
-                            <!-- <div
-                              v-if="v$.Dates.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
-                              {{ v$.Dates.$errors[0].$message }}
-                            </div> -->
-                          </div>
-                          <div class="w-full px-4 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
-                              >ห้องเก็บอุปกรณ์ / ที่อยู่อุปกรณ์</label
-                            >
-                            <input
-                              v-model="Dates"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Product name"
-                            />
-                            <!-- <div
-                              v-if="v$.Dates.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
-                              {{ v$.Dates.$errors[0].$message }}
-                            </div> -->
+                              {{ v$.s_name.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
-                              for="Detail"
-                              >รายละเอียด / ความเสียหาย</label
+                              for="Dates"
+                              >อาจารย์ผู้รับผิดชอบ</label
+                            >
+                            <select
+                              v-model="advisor"
+                              id="advisor"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                            >
+                            </select>
+                            <div
+                              v-if="v$.advisor.$error"
+                              class="mt-2 text-sm text-red-500"
+                            >
+                              {{ v$.advisor.$errors[0].$message }}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-2">
+                          <div class="w-full px-4 md:w-12/12">
+                            <label class="block my-3 text-gray-700 text-md"
+                              >เหตุผลในการยืนคำร้องแจ้งตก-ค้างรายวิชา</label
                             >
                             <textarea
-                              v-model="Detail"
+                              v-model="s_detail"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               rows="5"
-                              placeholder="Product description"
+                              placeholder="Explain your detail"
                             ></textarea>
-                            <!-- <div
-                              v-if="v$.Detail.$error"
+                            <div
+                              v-if="v$.s_detail.$error"
                               class="mt-2 text-sm text-red-500"
                             >
-                              {{ v$.Detail.$errors[0].$message }}
-                            </div> -->
-                          </div>
-                        </div>
-
-                        <div class="flex flex-wrap mb-2">
-                          <div class="w-full px-4 md:w-12/12">
-                            <div class="mt-4">
-                              <img v-if="imgUrl" :src="imgUrl" class="w-full" />
+                              {{ v$.s_detail.$errors[0].$message }}
                             </div>
-
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="image"
-                              >อัพโหลดรูปภาพ (ถ้ามี)</label
-                            >
-                            <input
-                              ref="fileupload"
-                              @change="onFileChange"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="file"
-                            />
                           </div>
                         </div>
                         <div class="py-6 text-center">
                           <button
+                            @click="clearForm"
                             class="px-6 py-3 mb-1 mr-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
                             ล้าง
                           </button>
                           <button
+                            @click="submit"
                             class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
@@ -208,17 +204,168 @@
 </template>
 <script>
 import cover from "@/assets/img/enroll_class.png";
-//import http from "@/services/APIService";
+import http from "@/services/WebpageService";
+import useValidate from "@vuelidate/core";
+import { required, minLength, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
+      v$: useValidate(),
       cover,
+      s_type: [{ value: "" }],
+      s_code: "",
+      s_name: "",
+      s_section: "",
+      s_detail: "",
+      subject_arr: [],
+      advisor_array: [],
+
+      advisor: "",
+      profile: [],
     };
   },
   methods: {
-    ListMaintenance() {
-      this.$router.push({ name: "MaintenanceList" });
+    getSubject() {
+      if (this.s_type == "1") {
+        http.get(`subject/code/${this.s_code}`).then((response) => {
+          this.subject_arr = response.data[0];
+          if (this.s_code == "") {
+            this.s_name = "";
+          } else {
+            this.s_name =
+              this.subject_arr.Subject_NameTh +
+              ` (${this.subject_arr.Subject_NameEn})`;
+          }
+        });
+      }
     },
+    Personnal() {
+      let dateDropdown = document.getElementById("advisor");
+      http.get(`personnel/teacher`).then((response) => {
+        this.advisor_array = response.data;
+        for (let i = 0; i <= this.advisor_array.length; i++) {
+          let dateOption = document.createElement("option");
+          dateOption.text = `${this.advisor_array[i].titlePosition} ${this.advisor_array[i].firstName} ${this.advisor_array[i].lastName} `;
+          dateOption.value = `${this.advisor_array[i].titlePosition} ${this.advisor_array[i].firstName} ${this.advisor_array[i].lastName} `;
+          dateDropdown.add(dateOption);
+          this.advisor_array[i].Classroom_Name -= 1;
+        }
+      });
+    },
+    listMenu() {
+      this.$router.push({ name: "CourseAlertList" });
+    },
+    clearForm() {
+      this.s_type = "";
+      this.s_code = "";
+      this.s_name = "";
+      this.s_section = "";
+      this.s_detail = "";
+      this.advisor = "";
+    },
+    submit() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        const swalWithBootstrapButtons = this.$swal.mixin({
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
+        swalWithBootstrapButtons
+          .fire({
+            title: "ตรวจสอบข้อมูลการแจ้งตก-ค้างรายวิชา",
+
+            html:
+              ` <p class="custom text-left font-normal text-sm"> <b>รหัสรายวิชา :</b> ${this.s_code} <b>กลุ่มเรียน :</b>  ${this.s_section}</p>` +
+              ` <p class="custom text-left font-normal text-sm"> <b>ห้องเรียน :</b> ${this.s_name}</p>` +
+              ` <p class="custom text-left font-normal text-sm">  <b>อาจารย์ผู้รับผิดชอบ :</b> ${this.advisor} </p>` +
+              ` <p class="custom text-left font-normal text-sm"> <b>รายละเอียด :</b> ${this.s_detail}</p>`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "ยืนยัน",
+            cancelButtonText: "ยกเลิก",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              let local_user = JSON.parse(window.localStorage.getItem("user"));
+              let email_cut = local_user.email;
+              let studentID = email_cut.slice(3, 13);
+              http.get(`student/${studentID}`).then((response) => {
+                this.profile = response.data.data[0];
+              });
+
+              let Data = FormData();
+              Data.append("Residaual_Detail", this.s_detail);
+              Data.append("nameTh", this.profile);
+              Data.append("surnameTh", this.profile);
+              Data.append("EmailStudent", this.profile);
+              Data.append("mobile", this.profile);
+              Data.append("studentCode", this.profile);
+
+              let sec = "-";
+              if (this.s_type == "1") {
+                Data.append("Sec_Internal", this.s_section);
+                Data.append("Sec_Another", sec);
+                Data.append("Subject_Internal", this.s_code);
+                Data.append("Subject_External", sec);
+              } else if (this.s_type == "2") {
+                Data.append("Sec_Internal", sec);
+                Data.append("Sec_Another", this.s_section);
+                Data.append("Subject_Internal", sec);
+                Data.append("Subject_External", this.s_code);
+              }
+              
+
+              swalWithBootstrapButtons.fire(
+                "บันทึกเรียบร้อย!",
+                "ดำเนินการแจ้งตก-ค้างรายวิชาเรียบร้อย",
+                "success"
+              );
+            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+              swalWithBootstrapButtons.fire(
+                "ยกเลิกเรียบร้อย!",
+                "คุณได้ยกเลิกการแจ้งตก-ค้างรายวิชา",
+                "error"
+              );
+            }
+          });
+      }
+    },
+  },
+  mounted() {
+    this.Personnal();
+  },
+  validations() {
+    return {
+      s_code: {
+        required: helpers.withMessage("ป้อนรหัสรายวิชาก่อน", required),
+        minLength: helpers.withMessage(
+          ({ $params }) => `รหัสรายวิชาต้องไม่น้อยกว่า ${$params.min} ตัว`,
+          minLength(8)
+        ),
+      },
+      s_section: {
+        required: helpers.withMessage("ป้อนกลุ่มเรียนก่อน", required),
+      },
+      s_type: {
+        required: helpers.withMessage("เลือกกลุ่มรายวิชาก่อน", required),
+      },
+      s_name: {
+        required: helpers.withMessage("ป้อนชื่อรายวิชาก่อน", required),
+      },
+      advisor: {
+        required: helpers.withMessage("ป้อนอาจารย์ผู้รับผิดชอบก่อน", required),
+      },
+      s_detail: {
+        required: helpers.withMessage("ป้อนเหตุผลการยื่นคำร้องก่อน", required),
+      },
+    };
   },
 };
 </script>

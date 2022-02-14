@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 /*! tailwindcss v2.0.4 | MIT License | https://tailwindcss.com */
-
+@import "@ocrv/vue-tailwind-pagination/styles";
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
