@@ -3,7 +3,7 @@
     <main class="profile-page custom">
       <section class="relative pb-16 bg-blueGray-200">
         <div class="container mx-auto">
-          <div class="flex flex-wrap ">
+          <div class="flex flex-wrap">
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
             >
@@ -19,11 +19,11 @@
                     </div>
                   </div>
                   <div class="w-full lg:w-6/12">
-                    <h3 class="mt-1 text-2xl font-semibold ">
+                    <h3 class="mt-1 text-2xl font-semibold">
                       ระบบแจ้งตกค้างรายวิชา
                     </h3>
 
-                    <h3 class="text-xl font-normal ">
+                    <h3 class="text-xl font-normal">
                       | Course Residualisation System
                     </h3>
                   </div>
@@ -60,11 +60,11 @@
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
                             <label class="block my-3 text-gray-700 text-md"
-                              >กลุ่มรายวิชาเฉพาะ</label
-                            >
+                              >กลุ่มรายวิชาเฉพาะ{{ this.s_type }}
+                            </label>
                             <select
                               v-model="s_type"
-                              @keyup="getCourse"
+                              @keyup="getSubject"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                             >
                               <option value="1">กลุ่มรายวิชาภายในสาขา</option>
@@ -142,11 +142,19 @@
                               >อาจารย์ผู้รับผิดชอบ</label
                             >
                             <select
+                              v-if="showSelect"
                               v-model="advisor"
                               id="advisor"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                            >
-                            </select>
+                            ></select>
+                            <input
+                              v-if="showInput"
+                              v-model="advisor"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Subject Advisor"
+                            />
+
                             <div
                               v-if="v$.advisor.$error"
                               class="mt-2 text-sm text-red-500"
@@ -222,11 +230,16 @@ export default {
 
       advisor: "",
       profile: [],
+
+      showSelect: true,
+      showInput: false,
     };
   },
   methods: {
     getSubject() {
       if (this.s_type == "1") {
+        this.showSelect = true;
+        this.showInput = false;
         http.get(`subject/code/${this.s_code}`).then((response) => {
           this.subject_arr = response.data[0];
           if (this.s_code == "") {
@@ -237,6 +250,9 @@ export default {
               ` (${this.subject_arr.Subject_NameEn})`;
           }
         });
+      } else if (this.s_type == "2") {
+        this.showSelect = false;
+        this.showInput = true;
       }
     },
     Personnal() {
@@ -320,7 +336,6 @@ export default {
                 Data.append("Subject_Internal", sec);
                 Data.append("Subject_External", this.s_code);
               }
-              
 
               swalWithBootstrapButtons.fire(
                 "บันทึกเรียบร้อย!",
