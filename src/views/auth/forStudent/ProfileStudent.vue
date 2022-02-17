@@ -3,7 +3,7 @@
     <main class="profile-page custom">
       <section class="relative pb-16 bg-blueGray-200">
         <div class="container mx-auto">
-          <div class="flex flex-wrap ">
+          <div class="flex flex-wrap">
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
             >
@@ -19,24 +19,21 @@
                     </div>
                   </div>
                   <div class="w-full lg:w-6/12">
-                    <h3 class="mt-1 text-2xl font-semibold ">
+                    <h3 class="mt-1 text-2xl font-semibold">
                       แก้ไขข้อมูลส่วนตัวผู้ใช้งาน
                     </h3>
 
-                    <h3 class="text-xl font-normal ">
-                      | Edit your profile
-                    </h3>
+                    <h3 class="text-xl font-normal">| Edit your profile</h3>
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <a href="javascript:history.go(-1)">
-                        <button
-                          class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ย้อนกลับ
-                        </button>
-                      </a>
+                      <button
+                        @click="back"
+                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ย้อนกลับ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -55,7 +52,7 @@
                           />
                           <div class="text-left">
                             <label
-                              class="block mt-4   my-3 text-gray-700 text-md"
+                              class="block mt-4 my-3 text-gray-700 text-md"
                               for="image"
                               >อัพโหลดรูปโปรไฟล์</label
                             >
@@ -74,7 +71,7 @@
                     <div class="w-full mt-2 lg:w-6/12">
                       <div class="border-l pr-2 pl-4">
                         <div class="flex flex-wrap mb-4">
-                          <div class="w-full  px-2 md:w-12/12">
+                          <div class="w-full px-2 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
@@ -106,7 +103,7 @@
                           </div>
                           <div class="w-full px-2 md:w-6/12">
                             <label
-                              class="block my-3  text-gray-700 text-md"
+                              class="block my-3 text-gray-700 text-md"
                               for="Title"
                               >นามสกุล (ภาษาไทย)</label
                             >
@@ -141,7 +138,7 @@
                           </div>
                           <div class="w-full px-2 md:w-6/12">
                             <label
-                              class="block my-3  text-gray-700 text-md"
+                              class="block my-3 text-gray-700 text-md"
                               for="Title"
                               >นามสกุล (ภาษาอังกฤษ)</label
                             >
@@ -227,7 +224,7 @@
                     </div>
                   </div>
                   <div class="flex flex-wrap">
-                    <div class="w-full lg:w-12/12  pr-4">
+                    <div class="w-full lg:w-12/12 pr-4">
                       <div class="mt-4 p-4 text-center">
                         <button
                           @click="CreateProfile"
@@ -374,6 +371,9 @@ export default {
             }
           });
       }
+    },
+    back() {
+      this.$router.push({ name: "ServiceStudent" });
     },
     EditProfile(id) {
       let formDataUpdate = new FormData();

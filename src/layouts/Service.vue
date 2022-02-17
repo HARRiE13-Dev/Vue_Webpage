@@ -53,7 +53,7 @@
                               alt="..."
                               v-if="imgUrl"
                               :src="imgUrl"
-                              class="-mt-20 cropped-profile rounded-full shadow-lg h-200-px center-img max-w-200-px"
+                              class="-mt-20 bg-white cropped-profile rounded-full shadow-lg h-200-px center-img max-w-200-px"
                             />
                           </div>
                           <div class="relative px-3 py-6 mt-2 text-center">
@@ -137,7 +137,7 @@
 <script>
 import Foot from "@/components/Footers/Foot.vue";
 import ServiceNavbar from "@/components/Navbars/ServiceNavbar.vue";
-import team from "@/assets/img/logo.png";
+import team from "@/assets/img/user_null.svg";
 import http from "@/services/WebpageService";
 import bgupdate from "@/assets/img/bg-update.jpg";
 export default {

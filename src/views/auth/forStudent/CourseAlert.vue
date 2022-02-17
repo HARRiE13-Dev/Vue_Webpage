@@ -36,14 +36,15 @@
                       >
                         รายการ
                       </button>
-                      <a href="javascript:history.go(-1)">
+                     
                         <button
+                        @click="back"
                           class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
                         >
                           ย้อนกลับ
                         </button>
-                      </a>
+                      
                     </div>
                   </div>
                 </div>
@@ -60,7 +61,7 @@
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
                             <label class="block my-3 text-gray-700 text-md"
-                              >กลุ่มรายวิชาเฉพาะ{{ this.s_type }}
+                              >กลุ่มรายวิชาเฉพาะ
                             </label>
                             <select
                               v-model="s_type"
@@ -233,6 +234,9 @@ export default {
 
       showSelect: true,
       showInput: false,
+
+      studentID: "",
+      fromCheck: null,
     };
   },
   methods: {
@@ -279,6 +283,32 @@ export default {
       this.s_detail = "";
       this.advisor = "";
     },
+    getProfile() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let email_cut = local_user.email;
+      this.studentID = email_cut.slice(3, 13);
+      http.get(`student/${this.studentID}`).then((response) => {
+        this.profile = response.data.data[0];
+        this.fromCheck = response.data.from;
+
+        if (this.fromCheck != 1) {
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true,
+          });
+          Swal.fire({
+            icon: "warning",
+            title: `กรุณากรอกข้อมูลส่วนตัวของท่านก่อนใช้งานระบบ`,
+          });
+          this.$router.push({ name: "ProfileStudent" });
+        }
+      });
+    },
+    back() {
+      this.$router.push({ name: "ServiceStudent" });
+    },
     submit() {
       this.v$.$validate();
       if (!this.v$.$error) {
@@ -295,7 +325,6 @@ export default {
         swalWithBootstrapButtons
           .fire({
             title: "ตรวจสอบข้อมูลการแจ้งตก-ค้างรายวิชา",
-
             html:
               ` <p class="custom text-left font-normal text-sm"> <b>รหัสรายวิชา :</b> ${this.s_code} <b>กลุ่มเรียน :</b>  ${this.s_section}</p>` +
               ` <p class="custom text-left font-normal text-sm"> <b>ห้องเรียน :</b> ${this.s_name}</p>` +
@@ -309,39 +338,36 @@ export default {
           })
           .then((result) => {
             if (result.isConfirmed) {
-              let local_user = JSON.parse(window.localStorage.getItem("user"));
-              let email_cut = local_user.email;
-              let studentID = email_cut.slice(3, 13);
-              http.get(`student/${studentID}`).then((response) => {
-                this.profile = response.data.data[0];
-              });
-
-              let Data = FormData();
-              Data.append("Residaual_Detail", this.s_detail);
-              Data.append("nameTh", this.profile);
-              Data.append("surnameTh", this.profile);
-              Data.append("EmailStudent", this.profile);
-              Data.append("mobile", this.profile);
-              Data.append("studentCode", this.profile);
-
+              let data = new FormData();
+              data.append("Residaual_Detail", this.s_detail);
+              data.append("nameTh", this.profile.nameTh);
+              data.append("surnameTh", this.profile.surnameTh);
+              data.append("EmailStudent", this.profile.EmailStudent);
+              data.append("mobile", this.profile.mobile);
+              data.append("studentCode", this.studentID);
               let sec = "-";
               if (this.s_type == "1") {
-                Data.append("Sec_Internal", this.s_section);
-                Data.append("Sec_Another", sec);
-                Data.append("Subject_Internal", this.s_code);
-                Data.append("Subject_External", sec);
+                data.append("Sec_Internal", this.s_section);
+                data.append("Sec_Another", sec);
+                data.append("Subject_Internal", this.s_code);
+                data.append("Subject_External", sec);
               } else if (this.s_type == "2") {
-                Data.append("Sec_Internal", sec);
-                Data.append("Sec_Another", this.s_section);
-                Data.append("Subject_Internal", sec);
-                Data.append("Subject_External", this.s_code);
+                data.append("Sec_Internal", sec);
+                data.append("Sec_Another", this.s_section);
+                data.append("Subject_Internal", sec);
+                data.append("Subject_External", this.s_code);
               }
-
-              swalWithBootstrapButtons.fire(
-                "บันทึกเรียบร้อย!",
-                "ดำเนินการแจ้งตก-ค้างรายวิชาเรียบร้อย",
-                "success"
-              );
+              http.post(`residaual/create`, data).then(() => {
+                swalWithBootstrapButtons
+                  .fire(
+                    "บันทึกเรียบร้อย!",
+                    "ดำเนินการแจ้งตก-ค้างรายวิชาเรียบร้อย",
+                    "success"
+                  )
+                  .then(() => {
+                    window.location.reload();
+                  });
+              });
             } else if (result.dismiss === this.$swal.DismissReason.cancel) {
               swalWithBootstrapButtons.fire(
                 "ยกเลิกเรียบร้อย!",
@@ -355,6 +381,7 @@ export default {
   },
   mounted() {
     this.Personnal();
+    this.getProfile();
   },
   validations() {
     return {

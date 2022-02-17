@@ -5,11 +5,11 @@
       <div
         class="relative flex items-center content-center justify-center pt-16 pb-32 custom min-h-screen-75"
       >
-        <div class="top-0 w-full h-full bg-center bg-cover ">
+        <div class="top-0 w-full h-full bg-center bg-cover">
           <img
             alt="..."
             :src="bg2"
-            class="relative mx-0 shadow-lg cropped center-img "
+            class="relative mx-0 shadow-lg cropped center-img"
           />
         </div>
 
@@ -18,7 +18,7 @@
             <div class="w-full px-4 mt-32 text-left lg:w-6/12">
               <div class="pr-12">
                 <h1
-                  class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white "
+                  class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white"
                 >
                   Computer Science
                 </h1>
@@ -31,7 +31,7 @@
               </div>
               <div class="my-6 rectangle" id="section1"></div>
               <div
-                class="mt-2 text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600  hover:zoom-xs"
+                class="mt-2 text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600 hover:zoom-xs"
               >
                 <i class="px-2 far fa-play-circle fa-lg"></i>
                 <a href="#section2">รับชมวีดีโอแนะนำ</a>
@@ -39,7 +39,7 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="2000">
+                <Carousel :autoplay="3000">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
                       class="cssanimation sequence fadeInBottom relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
@@ -62,9 +62,9 @@
             >
               <router-link to="program" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
-                  <div class="flex-auto p-1 ">
+                  <div class="flex-auto p-1">
                     <img
                       alt="..."
                       :src="menu1"
@@ -80,9 +80,9 @@
             >
               <a href="http://www.admissions.mju.ac.th/www/" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
-                  <div class="flex-auto p-1 ">
+                  <div class="flex-auto p-1">
                     <img
                       alt="..."
                       :src="menu2"
@@ -99,9 +99,9 @@
             >
               <router-link to="about" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
-                  <div class="flex-auto p-1 ">
+                  <div class="flex-auto p-1">
                     <img
                       alt="..."
                       :src="menu3"
@@ -118,11 +118,11 @@
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
-                  <div class="flex-auto p-1 ">
+                  <div class="flex-auto p-1">
                     <img
                       alt="..."
                       :src="menu4"
-                      class="relative mx-0 shadow-lg lg:cropped-card2 "
+                      class="relative mx-0 shadow-lg lg:cropped-card2"
                     />
                   </div>
                 </div>
@@ -133,9 +133,9 @@
             >
               <router-link to="contact" target="_blank">
                 <div
-                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white "
+                  class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
-                  <div class="flex-auto p-1 ">
+                  <div class="flex-auto p-1">
                     <img
                       alt="..."
                       :src="menu5"
@@ -163,7 +163,7 @@
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom"
                 >
-                  <div class="flex-auto p-4 ">
+                  <div class="flex-auto p-4">
                     <img
                       alt="..."
                       :src="news.News_Picture"
@@ -173,7 +173,7 @@
                   <h3 class="px-4 mb-2 text-lg font-semibold truncate">
                     {{ news.News_Title }}
                   </h3>
-                  <p class="px-4 pb-4 text-left truncate-3 ">
+                  <p class="px-4 pb-4 text-left truncate-3">
                     {{ news.News_Detail }}
                   </p>
                 </div>
@@ -198,7 +198,7 @@
           <div class="flex flex-wrap mt-12 mb-12">
             <div class="w-full px-4 text-center md:w-12/12">
               <div
-                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg "
+                class="relative flex flex-col w-full min-w-0 mb-8 break-words bg-white rounded-lg shadow-lg"
               >
                 <div class="flex-auto px-0">
                   <div
