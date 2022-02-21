@@ -61,6 +61,7 @@ import Course from "@/views/auth/forStudent/CourseAlert.vue";
 import Maintenance from "@/views/auth/forStudent/Maintenance_System.vue";
 import MaintenanceList from "@/views/auth/forStudent/Maintenance_List.vue";
 import ProfileStudent from "@/views/auth/forStudent/ProfileStudent.vue";
+import RoomReserveStudent from "@/views/auth/forStudent/RoomReserveStudent.vue";
 
 //Service For Personnel
 import Maintenance_Personnel from "@/views/auth/forPersonnel/Maintenance_System_forPersonnel.vue";
@@ -125,6 +126,7 @@ function authGuard(to, from, next) {
 
 // Authentication Personnel
 function authGuard_Personnel(to, from, next) {
+  
   let isAuthenticated = false;
   let local_user = JSON.parse(window.localStorage.getItem("user"));
   let user_role = local_user.user.role;
@@ -323,6 +325,12 @@ const routes = [
         path: "/service/service_student/course",
         name: "Course",
         component: Course,
+        beforeEnter: authGuard,
+      },
+      {
+        path: "/service/service_student/roomreserve",
+        name: "RoomReserveStudent",
+        component: RoomReserveStudent,
         beforeEnter: authGuard,
       },
     ],

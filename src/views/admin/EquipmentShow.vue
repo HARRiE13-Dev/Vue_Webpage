@@ -15,7 +15,7 @@
               <div class="flex flex-wrap items-center justify-between my-8">
                 <div class="w-full md:w-2/12">
                   <h2
-                    class="items-center mx-4 text-sm font-semibold text-gray-700 md:text-xl "
+                    class="items-center mx-4 text-md font-semibold text-gray-700 md:text-xl "
                   >
                     จำนวน {{ products.total }} รายการ
                   </h2>
@@ -73,7 +73,7 @@
                   <table class="w-full whitespace-no-wrap">
                     <thead>
                       <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                        class="text-sm text-blueGray-500 border-b-2 border-blueGray-500"
                       >
                         <th class="px-4 py-3">ลำดับ</th>
                         <th class="px-4 py-3">รหัสครุภัณฑ์</th>
@@ -83,13 +83,11 @@
                         <th class="px-4 py-3">แก้ไข / นำออก</th>
                       </tr>
                     </thead>
-                    <tbody
-                      class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
-                    >
+                    <tbody>
                       <tr
                         v-for="equipment in products.data"
                         :key="equipment.equipmentId"
-                        class="text-gray-700 dark:text-gray-400 hover:bg-blue-100"
+                        class="border-b"
                       >
                         <td class="px-4 py-3 text-sm">
                           {{ equipment.equipmentId }}

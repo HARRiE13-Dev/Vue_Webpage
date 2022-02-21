@@ -64,7 +64,7 @@
 <script>
 import { createPopper } from "@popperjs/core";
 //import image from "@/assets/img/team-1-800x800.jpg";
-import http from "@/services/AuthService";
+import http from "@/services/APIService";
 
 export default {
   data() {
@@ -86,7 +86,7 @@ export default {
       let idUserData = userData.id;
       idUserData = idUserData - 1;
       http
-        .get(`personnelid/${idUserData}`)
+        .get(`personnel/id/${idUserData}`)
         .then((response) => {
           this.personnel_array = response.data;
           //Get data from API

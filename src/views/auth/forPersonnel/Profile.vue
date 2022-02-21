@@ -3,7 +3,7 @@
     <main class="profile-page custom">
       <section class="relative pb-16 bg-blueGray-200">
         <div class="container mx-auto">
-          <div class="flex flex-wrap ">
+          <div class="flex flex-wrap">
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
             >
@@ -19,13 +19,11 @@
                     </div>
                   </div>
                   <div class="w-full lg:w-6/12">
-                    <h3 class="mt-1 text-2xl font-semibold ">
+                    <h3 class="mt-1 text-2xl font-semibold">
                       แก้ไขข้อมูลส่วนตัวผู้ใช้งาน
                     </h3>
 
-                    <h3 class="text-xl font-normal ">
-                      | Edit your profile
-                    </h3>
+                    <h3 class="text-xl font-normal">| Edit your profile</h3>
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
@@ -45,8 +43,8 @@
                   <div class="flex flex-wrap">
                     <!-- from input -->
                     <div class="w-full lg:w-6/12 pr-4">
-                      <div class="px-2">
-                        <div class="relative text-center">
+                      <div class="mb-8">
+                        <div class="relative text-center px-2">
                           <img
                             alt="..."
                             v-if="imgUrl"
@@ -55,11 +53,10 @@
                           />
                           <div class="text-left">
                             <label
-                              class="block mt-4   my-3 text-gray-700 text-md"
+                              class="block mt-4 my-3 text-gray-700 text-md"
                               for="image"
                               >อัพโหลดรูปโปรไฟล์</label
                             >
-
                             <input
                               ref="fileupload"
                               type="file"
@@ -69,86 +66,247 @@
                           </div>
                         </div>
                       </div>
+                      <div class="flex flex-wrap mb-4">
+                        <div class="w-full px-2 md:w-12/12">
+                          <label
+                            class="block my-3 mb-4 text-blueGray-500 text-md border-b font-semibold"
+                            for="Title"
+                            >ข้อมูลส่วนตัว (Personal Infomation)</label
+                          >
+                          <label
+                            class="block my-3 text-gray-700 text-md"
+                            for="Title"
+                            >รหัสประจำตัวประชาชน</label
+                          >
+                          <input
+                            v-model="id_card"
+                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
+                            type="text"
+                            placeholder="ID"
+                            readonly
+                          />
+                        </div>
+                      </div>
+                      <div class="flex flex-wrap mb-4">
+                        <div class="w-full px-2 md:w-6/12">
+                          <label
+                            class="block my-3 text-gray-700 text-md"
+                            for="Title"
+                            >ชื่อ (ภาษาไทย)</label
+                          >
+                          <input
+                            v-model="first_name"
+                            class="w-full px-3 placeholder-blueGray-300 bg-blueGray-200 py-2 leading-tight text-gray-700 border rounded shadow"
+                            type="text"
+                            placeholder="Firstname"
+                            readonly
+                          />
+                        </div>
+                        <div class="w-full px-2 md:w-6/12">
+                          <label
+                            class="block my-3 text-gray-700 text-md"
+                            for="Title"
+                            >นามสกุล (ภาษาไทย)</label
+                          >
+                          <input
+                            v-model="last_name"
+                            class="w-full px-3 py-2 placeholder-blueGray-300 bg-blueGray-200 leading-tight text-gray-700 border rounded shadow"
+                            type="text"
+                            placeholder="Lastname"
+                            readonly
+                          />
+                        </div>
+                      </div>
+                      <div class="flex flex-wrap mb-4">
+                        <div class="w-full px-2 md:w-6/12">
+                          <label
+                            class="block my-3 text-gray-700 text-md"
+                            for="Title"
+                            >ชื่อ (ภาษาอังกฤษ)</label
+                          >
+                          <input
+                            v-model="first_nameEn"
+                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                            type="text"
+                            placeholder="Firstname (English)"
+                          />
+                          <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
+                        </div>
+                        <div class="w-full px-2 md:w-6/12">
+                          <label
+                            class="block my-3 text-gray-700 text-md"
+                            for="Title"
+                            >นามสกุล (ภาษาอังกฤษ)</label
+                          >
+                          <input
+                            v-model="last_nameEn"
+                            class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                            type="text"
+                            placeholder="Lastname (English)"
+                          />
+                          <!-- <div
+                              v-if="v$.last_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.last_nameEn.$errors[0].$message }}
+                            </div> -->
+                        </div>
+                      </div>
                     </div>
                     <!-- Simulator  -->
                     <div class="w-full mt-2 lg:w-6/12">
                       <div class="border-l pr-2 pl-4">
                         <div class="flex flex-wrap mb-4">
-                          <div class="w-full  px-2 md:w-12/12">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 mb-4 text-blueGray-500 text-md border-b font-semibold"
+                              for="Title"
+                              >ตำแหน่ง (Position)</label
+                            >
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >รหัสนักศึกษา</label
+                              >ตำแหน่งทางการศึกษา</label
                             >
                             <input
-                              v-model="studentID"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
-                              type="text"
-                              placeholder="Student ID"
-                              
-                            />
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >ชื่อ (ภาษาไทย)</label
-                            >
-                            <input
-                              v-model="first_name"
-                              class="w-full px-3 placeholder-blueGray-300 bg-blueGray-200 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Firstname"
-                              
-                            />
-                          </div>
-                          <div class="w-full px-2 md:w-6/12">
-                            <label
-                              class="block my-3  text-gray-700 text-md"
-                              for="Title"
-                              >นามสกุล (ภาษาไทย)</label
-                            >
-                            <input
-                              v-model="last_name"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 bg-blueGray-200 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Lastname"
-                              
-                            />
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >ชื่อ (ภาษาอังกฤษ)</label
-                            >
-                            <input
-                              v-model="first_nameEn"
+                              v-model="position"
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Firstname (English)"
+                              placeholder="Position of Education"
                             />
-                          </div>
-                          <div class="w-full px-2 md:w-6/12">
-                            <label
-                              class="block my-3  text-gray-700 text-md"
-                              for="Title"
-                              >นามสกุล (ภาษาอังกฤษ)</label
+                            <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
                             >
-                            <input
-                              v-model="last_nameEn"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Lastname (English)"
-                            />
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ตำแหน่งทางการบริหาร</label
+                            >
+                            <input
+                              v-model="employee"
+                              class="w-full px-3 bg-blueGray-200 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Position of Administration"
+                              readonly
+                            />
+                            <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 mb-4 text-blueGray-500 text-md border-b font-semibold"
+                              for="Title"
+                              >การศึกษา (Graduate)</label
+                            >
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ชื่อปริญญา</label
+                            >
+                            <input
+                              v-model="graduate"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Degree"
+                              
+                            />
+                            <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >สาขา / ภาควิชา</label
+                            >
+                            <input
+                              v-model="major"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Department"
+                              
+                            />
+                            <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >สถาบันการศึกษา</label
+                            >
+                            <input
+                              v-model="campus"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="University"
+                              
+                            />
+                            <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
+                          </div>
+                        </div>
+                        <label
+                          class="block ml-2 my-3 mb-4 text-blueGray-500 text-md border-b font-semibold"
+                          for="Title"
+                          >การติดต่อ (Contact)</label
+                        >
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-6/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >เบอร์ติดต่อ</label
+                            >
+                            <input
+                              v-model="phone"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              type="text"
+                              placeholder="Tel."
+                             
+                            />
+                            <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
+                            >
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
+                          </div>
+                          <div class="w-full px-2 md:w-6/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
@@ -159,53 +317,22 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Email"
+                              
                             />
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >มือถือ</label
+                            <!-- <div
+                              v-if="v$.first_nameEn.$error"
+                              class="mt-0 text-sm text-red-500"
                             >
-                            <input
-                              v-model="phone"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="text"
-                              placeholder="Phone"
-                            />
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >ที่อยู่ (ปัจจุบัน)</label
-                            >
-                            <textarea
-                              v-model="address"
-                              cols="30"
-                              placeholder="address"
-                              rows="5"
-                              class="relative w-full px-3 py-1 border rounded shadow text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
-                            ></textarea>
+                              {{ v$.first_nameEn.$errors[0].$message }}
+                            </div> -->
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap">
-                    <div class="w-full lg:w-12/12  pr-4">
+                    <div class="w-full lg:w-12/12 pr-4">
                       <div class="mt-4 p-4 text-center">
-                        <button
-                          @click="Clearform"
-                          class="px-6 py-3 mb-1  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ล้าง
-                        </button>
                         <button
                           @click="CreateProfile"
                           class="px-6 py-3 mb-1 mx-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
@@ -227,22 +354,27 @@
 </template>
 <script>
 import http from "@/services/APIService";
+import useValidate from "@vuelidate/core";
+//import { required, email, minLength, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
-      studentID: "",
+      v$: useValidate(),
+      id_card: "",
       first_name: "",
       last_name: "",
       first_nameEn: "",
       last_nameEn: "",
+      position: "",
+      employee: "",
+      graduate: "",
+      major: "",
+      campus: "",
       email: "",
       phone: "",
-      address: "",
-
-      base64: "",
-
       imgUrl: "",
       file: null,
+      profile: [],
     };
   },
   methods: {
@@ -251,43 +383,132 @@ export default {
       this.file = event.target.files[0];
       this.imgUrl = URL.createObjectURL(file);
     },
-
     ShowProfile() {
-      http.get("student").then((response) => {
-        console.log(response);
-      });
-      // if(){
-        //Created Profile - No Data in DB
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-      this.first_name = local_user.name;
-      this.last_name = local_user.surname;
-      this.phone = local_user.mobile;
-      let email_cut = local_user.email;
-      this.studentID = email_cut.slice(3, 13);
-      // }else{
-      //   //Edit Profile - Have Data in DB
+      let uid = local_user.user.id - 1;
 
-      // }
+      http.get(`personnel/id/${uid}`).then((response) => {
+        this.profile = response.data;
+        this.imgUrl = this.profile.personnelPhoto;
+        this.id_card = this.profile.citizenId;
+        this.first_name = this.profile.firstName;
+        this.last_name = this.profile.lastName;
+        this.first_nameEn = this.profile.fistNameEn;
+        this.last_nameEn = this.profile.lastNameEn;
+        this.position = this.profile.position;
+        this.employee = this.profile.adminPosition;
+        this.graduate = this.profile.education;
+        this.major = this.profile.major;
+        this.campus = this.profile.university;
+        this.email = this.profile.e_mail;
+        this.phone = this.profile.phoneNumber;
+      });
     },
     CreateProfile() {
-      let formData = new FormData();
-      formData.append("studentCode", this.studentID);
-      formData.append("nameTh", this.first_name);
-      formData.append("surnameTh", this.last_name);
-      formData.append("nameEn", this.first_nameEn);
-      formData.append("surnameEn", this.last_nameEn);
-      formData.append("EmailStudent", this.email);
-      formData.append("mobile", this.phone);
-      formData.append("Address", this.address);
-      formData.append("PictureProfile", this.file);
-      http.post("student/create", formData).then((response) => {
-        console.log(response);
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        const swalWithBootstrapButtons = this.$swal.mixin({
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons
+          .fire({
+            title: "ยืนยันการบันทึกข้อมูล",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "ยืนยัน",
+            cancelButtonText: "ยกเลิก",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              if (this.fromCheck !== null) {
+                //Update Profile
+                this.EditProfile(this.ID);
+              } else {
+                //Create Profile
+                let formDataCreate = new FormData();
+                formDataCreate.append("studentCode", this.studentID);
+                formDataCreate.append("nameTh", this.first_name);
+                formDataCreate.append("surnameTh", this.last_name);
+                formDataCreate.append("nameEn", this.first_nameEn);
+                formDataCreate.append("surnameEn", this.last_nameEn);
+                formDataCreate.append("EmailStudent", this.email);
+                formDataCreate.append("mobile", this.phone);
+                formDataCreate.append("Address", this.address);
+                formDataCreate.append("PictureProfile", this.file);
+                http.post("student/create", formDataCreate).then(() => {
+                  swalWithBootstrapButtons
+                    .fire("บันทึกข้อมูลเรียบร้อย!", "", "success")
+                    .then(() => {
+                      this.$router.push({ name: "ServiceStudent" });
+                      window.location.reload();
+                    });
+                });
+              }
+            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+              this.topic = null;
+              this.detail = null;
+              this.file = null;
+              this.date = null;
+              this.imgUrl = null;
+              this.file = "";
+              this.$refs.fileupload.value = null;
+              swalWithBootstrapButtons.fire(
+                "ยกเลิกการส่งข้อมูลเรียบร้อย!",
+                "",
+                "error"
+              );
+            }
+          });
+      }
+    },
+    back() {
+      this.$router.push({ name: "ServiceTeacher" });
+    },
+    EditProfile(id) {
+      let formDataUpdate = new FormData();
+      formDataUpdate.append("studentCode", this.studentID);
+      formDataUpdate.append("nameTh", this.first_name);
+      formDataUpdate.append("surnameTh", this.last_name);
+      formDataUpdate.append("nameEn", this.first_nameEn);
+      formDataUpdate.append("surnameEn", this.last_nameEn);
+      formDataUpdate.append("EmailStudent", this.email);
+      formDataUpdate.append("mobile", this.phone);
+      formDataUpdate.append("Address", this.address);
+      formDataUpdate.append("PictureProfile", this.file);
+      formDataUpdate.append("_method", "PUT");
+      http.post(`student/update/${id}`, formDataUpdate).then(() => {
+        const Swal = this.$swal.mixin({
+          position: "center",
+          showConfirmButton: true,
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
+
+        Swal.fire({
+          icon: "success",
+          title: `แก้ไขข้อมูลเรียบร้อย`,
+        }).then(() => {
+          this.$router.push({ name: "ServiceStudent" });
+          window.location.reload();
+        });
       });
     },
-    EditProfile() {},
-    ClearForm() {},
   },
-
   mounted() {
     this.ShowProfile();
   },

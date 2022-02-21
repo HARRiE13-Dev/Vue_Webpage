@@ -13,7 +13,7 @@
             </div>
             <br class="shadow-xl" />
             <div
-              class="relative flex flex-col w-full  mb-4 break-words rounded "
+              class="relative flex flex-col w-full  mb-4 break-words rounded"
             >
               <div class="w-full lg:w-12/12 pr-4">
                 <div class="px-2">

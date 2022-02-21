@@ -36,15 +36,14 @@
                       >
                         รายการ
                       </button>
-                     
-                        <button
+
+                      <button
                         @click="back"
-                          class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ย้อนกลับ
-                        </button>
-                      
+                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ย้อนกลับ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -248,6 +247,7 @@ export default {
           this.subject_arr = response.data[0];
           if (this.s_code == "") {
             this.s_name = "";
+            this.advisor = "";
           } else {
             this.s_name =
               this.subject_arr.Subject_NameTh +
@@ -338,8 +338,9 @@ export default {
           })
           .then((result) => {
             if (result.isConfirmed) {
+              let mes = `${this.s_detail} \nรหัสวิชา : ${this.s_code} อาจารย์ผู้รับผิดชอบ : ${this.advisor}`;
               let data = new FormData();
-              data.append("Residaual_Detail", this.s_detail);
+              data.append("Residaual_Detail", mes);
               data.append("nameTh", this.profile.nameTh);
               data.append("surnameTh", this.profile.surnameTh);
               data.append("EmailStudent", this.profile.EmailStudent);
@@ -349,25 +350,37 @@ export default {
               if (this.s_type == "1") {
                 data.append("Sec_Internal", this.s_section);
                 data.append("Sec_Another", sec);
-                data.append("Subject_Internal", this.s_code);
+                data.append("Subject_Internal", this.s_name);
                 data.append("Subject_External", sec);
               } else if (this.s_type == "2") {
                 data.append("Sec_Internal", sec);
                 data.append("Sec_Another", this.s_section);
                 data.append("Subject_Internal", sec);
-                data.append("Subject_External", this.s_code);
+                data.append("Subject_External", this.s_name);
               }
-              http.post(`residaual/create`, data).then(() => {
-                swalWithBootstrapButtons
-                  .fire(
-                    "บันทึกเรียบร้อย!",
-                    "ดำเนินการแจ้งตก-ค้างรายวิชาเรียบร้อย",
-                    "success"
-                  )
-                  .then(() => {
-                    window.location.reload();
-                  });
-              });
+              http
+                .post(`residaual/create`, data)
+                .then(() => {
+                  swalWithBootstrapButtons
+                    .fire(
+                      "บันทึกเรียบร้อย!",
+                      "ดำเนินการแจ้งตก-ค้างรายวิชาเรียบร้อย",
+                      "success"
+                    )
+                    .then(() => {
+                      window.location.reload();
+                    });
+                })
+                .catch((error) => {
+                  if (error) {
+                    //Call Sweet Alert
+                    swalWithBootstrapButtons.fire(
+                      "ข้อมูลไม่ถูกต้อง!",
+                      "กรุณาตรวจสอบข้อมูลอีกครั้ง",
+                      "error"
+                    );
+                  }
+                });
             } else if (result.dismiss === this.$swal.DismissReason.cancel) {
               swalWithBootstrapButtons.fire(
                 "ยกเลิกเรียบร้อย!",

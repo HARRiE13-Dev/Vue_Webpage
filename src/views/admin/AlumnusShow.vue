@@ -4,7 +4,7 @@
       <div
         class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
       >
-        <div class="container px-4 mx-auto">
+        <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
               <h1 class="py-6 text-3xl font-bold ">
@@ -12,10 +12,7 @@
               </h1>
             </div>
             <br class="shadow-xl" />
-            <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded shadow-lg"
-            
-            >
+            <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
@@ -77,96 +74,92 @@
                   class="items-center w-full bg-transparent border-collapse"
                 >
                   <thead>
-                    <tr>
+                    <tr
+                      class="text-blueGray-500 border-b-2  border-blueGray-500"
+                    >
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap "
-                       
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
                         ลำดับ
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                      
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ชื่อ - นามสกุล
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                       
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         สถานะ
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                        
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         สังกัด
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                    
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ตำแหน่ง
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                      
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         การจัดการ
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                    
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       ></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="alum in products.data" :key="alum.AlumniId">
+                    <tr
+                      class="border-b"
+                      v-for="alum in products.data"
+                      :key="alum.AlumniId"
+                    >
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         {{ alum.AlumniId }}
                       </td>
-                       <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <td
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <div
-                          class="flex items-center text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                          class="flex items-center text-xs text-left align-middle whitespace-nowrap"
                         >
                           <img
                             :src="alum.Alumni_Picture"
                             alt="..."
-                            class="w-10 h-10 border-2 rounded-full shadow border-blueGray-50"
+                            class="w-10 h-10 rounded-full shadow-lg"
                           />
-                          <span
-                            class="ml-3 text-sm font-semiBold"
-                            
-                          >
-                             {{ alum.Firstname_Alumni}}
+                          <span class="ml-3 text-sm font-semiBold">
+                            {{ alum.Firstname_Alumni }}
                             <div class="text-xs font-normal">
-                             {{ alum.Lastname_Alumni }}
+                              {{ alum.Lastname_Alumni }}
                             </div>
                           </span>
                         </div>
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         {{ alum.StudentCode_Alumni }}
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         {{ alum.Workplace }}
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         {{ alum.Job_Title }}
                       </td>
-                     
+
                       <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
                           @click="Edit(alum.AlumniId)"
@@ -247,7 +240,9 @@ export default {
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
-      let response = await http.get(`alumni/name/${this.keyword}?page=${pageNumber}`);
+      let response = await http.get(
+        `alumni/name/${this.keyword}?page=${pageNumber}`
+      );
       let responseProduct = response.data;
       this.products = responseProduct;
       this.currentPage = responseProduct.current_page;

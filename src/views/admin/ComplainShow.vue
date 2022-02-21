@@ -4,14 +4,14 @@
       <div
         class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
       >
-        <div class="container px-4 mx-auto">
+        <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
               <h1 class="py-6 text-3xl font-bold ">CSMJU | แจ้งติดต่อกลับ</h1>
             </div>
             <br class="shadow-xl" />
             <div
-              class="relative flex flex-col w-full min-w-0 mb-6 shadow-lg break-wordsrounded"
+              class="relative flex flex-col w-full min-w-0 mb-6 break-words "
             >
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
@@ -54,15 +54,6 @@
                     >
                       <i class="fas fa-broom"></i> ล้าง
                     </button>
-                    <router-link to="">
-                      <button
-                        @click="openModalAddProduct"
-                        class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
-                        type="button"
-                      >
-                        <i class="fas fa-plus"></i> เพิ่ม
-                      </button>
-                    </router-link>
                   </div>
                 </div>
               </div>
@@ -74,40 +65,43 @@
                   class="items-center w-full bg-transparent border-collapse"
                 >
                   <thead>
-                    <tr>
+                    <tr
+                      class="text-blueGray-500 border-b-2  border-blueGray-500"
+                    >
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ลำดับ
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         หัวข้อ
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         รายละเอียด
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ไฟล์แนบ / รูปภาพ
                       </th>
 
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         สถานะ
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-                      ></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="feed in products" :key="feed.complainId">
+                    <tr
+                      class="border-b"
+                      v-for="feed in products"
+                      :key="feed.complainId"
+                    >
                       <td
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
@@ -202,18 +196,10 @@
 </template>
 <script>
 import http from "@/services/APIService";
-//import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
-import moment from "moment";
-//import { createPopper } from "@popperjs/core";
-
-//import moment from "moment";
 export default {
   data() {
     return {
-      /** ตัวแปรสำหรับเก็บข้อมูลสินค้าที่อ่านจาก API */
-      dropdownPopoverShow: false,
-
       products: [],
       currentPage: 0,
       perPage: 0,
@@ -221,25 +207,19 @@ export default {
     };
   },
   methods: {
-    toggleDropdown: function(complainId) {
-      this.dropdownPopoverShow = !this.dropdownPopoverShow;
-      console.log(complainId);
-    },
-    /***********************************************************************
-     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
-     ************************************************************************/
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
-    async getProducts() {
-      let response = await http.get(`complain`);
+    async getProducts(pageNumber) {
+      let response = await http.get(`complain?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = responseProduct;
-
-      this.total = this.products.length;
-      console.log(this.total);
+      this.currentPage = responseProduct.current_page;
+      this.perPage = responseProduct.per_page;
+      this.total = responseProduct.total;
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
-      let response = await http.get(`news/${this.keyword}?page=${pageNumber}`);
+      let response = await http.get(
+        `complain/${this.keyword}?page=${pageNumber}`
+      );
       let responseProduct = response.data;
       this.products = responseProduct;
       this.currentPage = responseProduct.current_page;
@@ -261,7 +241,7 @@ export default {
     submitSearchForm() {
       if (this.keyword != "") {
         // เรียกค้นไปยัง api ของ laravel
-        http.get(`news/${this.keyword}`).then((response) => {
+        http.get(`complain/${this.keyword}`).then((response) => {
           let responseProduct = response.data;
           this.products = responseProduct;
           this.currentPage = responseProduct.current_page;
@@ -277,17 +257,6 @@ export default {
       this.currentPage = 1;
       this.getProducts(this.currentPage);
       this.keyword = "";
-    },
-    // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("DD/MM/YYYY hh:mm:ss");
-      }
-    },
-    // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(",", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
   },
 

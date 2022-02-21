@@ -4,7 +4,7 @@
       <div
         class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
       >
-        <div class="container px-4 mx-auto">
+        <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
               <h1 class="py-6 text-3xl font-bold ">
@@ -12,9 +12,7 @@
               </h1>
             </div>
             <br class="shadow-xl" />
-            <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded shadow-lg"
-            >
+            <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
@@ -72,44 +70,44 @@
               <!-- News Feeds table -->
               <div class="block w-full overflow-x-auto">
                 <!-- Projects table -->
-                <table
-                  class="items-center w-full bg-transparent border-collapse"
-                >
+                <table class="items-center w-full bg-transparent ">
                   <thead>
-                    <tr>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
+                    >
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap "
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                       รหัสนักศึกษา
+                        รหัสนักศึกษา
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ชื่อ - นามสกุล
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ติดต่อ
                       </th>
 
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ที่อยู่
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         การจัดการ
                       </th>
-                     
                     </tr>
                   </thead>
                   <tbody>
                     <tr
                       v-for="student in products.data"
                       :key="student.studentId"
+                      class="border-b"
                     >
                       <td
                         class="w-5 p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"

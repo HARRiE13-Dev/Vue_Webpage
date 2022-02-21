@@ -4,15 +4,13 @@
       <div
         class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
       >
-        <div class="container px-4 mx-auto">
+        <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
               <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร</h1>
             </div>
             <br class="shadow-xl" />
-            <div
-              class="relative flex flex-col w-full min-w-0 mb-6 shadow-lg break-wordsrounded"
-            >
+            <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
@@ -74,45 +72,50 @@
                   class="items-center w-full bg-transparent border-collapse"
                 >
                   <thead>
-                    <tr>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
+                    >
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ลำดับ
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         หัวข้อข่าว
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         รายละเอียด
                       </th>
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ประเภท
                       </th>
 
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         การจัดการ
                       </th>
-                      
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="feed in products.data" :key="feed.newsId">
+                    <tr
+                      class="border-b"
+                      v-for="feed in products.data"
+                      :key="feed.newsId"
+                    >
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         {{ feed.newsId }}
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         <h5 class="w-48 font-semibold truncate text-md">
                           {{ feed.News_Title }}
@@ -121,23 +124,21 @@
                           เผยแพร่ : {{ feed.News_Date }} | {{ feed.News_Time }}
                         </p>
                       </td>
-                      <td
-                        class="p-4 px-2 text-sm align-middle border-t-0 border-l-0 border-r-0 "
-                      >
+                      <td class="p-4 px-2 text-sm align-middle">
                         <div>
-                          <p class="w-64 font-normal truncate-3">
+                          <p class="w-auto font-normal truncate-3">
                             {{ feed.News_Detail }}
                           </p>
                         </div>
                       </td>
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         {{ feed.News_Type }}
                       </td>
 
                       <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
                           @click="Edit(feed.newsId)"
