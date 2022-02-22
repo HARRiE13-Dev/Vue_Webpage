@@ -58,17 +58,18 @@ import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 
 //Service For Student
 import Course from "@/views/auth/forStudent/CourseAlert.vue";
-import Maintenance from "@/views/auth/forStudent/Maintenance_System.vue";
+import Maintenance from "@/views/auth/forStudent/MaintainStudent.vue";
 import MaintenanceList from "@/views/auth/forStudent/Maintenance_List.vue";
 import ProfileStudent from "@/views/auth/forStudent/ProfileStudent.vue";
 import RoomReserveStudent from "@/views/auth/forStudent/RoomReserveStudent.vue";
 
 //Service For Personnel
-import Maintenance_Personnel from "@/views/auth/forPersonnel/Maintenance_System_forPersonnel.vue";
+import Maintenance_Personnel from "@/views/auth/forPersonnel/Maintain.vue";
 import Cv from "@/views/auth/forPersonnel/CV.vue";
 import CVPrint from "@/views/auth/forPersonnel/CVPrint.vue";
 import RoomReserve from "@/views/auth/forPersonnel/RoomReserve.vue";
 import Profile from "@/views/auth/forPersonnel/Profile.vue";
+import ChangePassword from "@/views/auth/forPersonnel/ChangePassword.vue";
 
 // views without layouts
 
@@ -371,9 +372,14 @@ const routes = [
         component: Profile,
         beforeEnter: authGuard_Personnel,
       },
+      {
+        path: "/service/service_teacher/password",
+        name: "Password",
+        component: ChangePassword,
+        beforeEnter: authGuard_Personnel,
+      },
     ],
   },
-
   //Main-Menu-layout
   {
     path: "/main",

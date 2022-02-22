@@ -54,7 +54,10 @@
                 <i class="mr-2 text-lg fas fa-university "></i>
                 การศึกษา
                 <p class="text-blueGray-700">
-                  {{ personnel.education }} {{ personnel.major }}
+                  {{ personnel.education }}
+                </p>
+                <p class="text-blueGray-700">
+                  {{ personnel.major }}
                 </p>
                 <p class="text-blueGray-700">
                   {{ personnel.university }}

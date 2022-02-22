@@ -287,25 +287,8 @@ export default defineComponent({
     this.getNewsData();
     this.getBannerData();
     console.log(process.env.VUE_APP_URL);
-
-    //this.welcomeHome();
   },
   methods: {
-    // welcomeHome() {
-    //   const Swal = this.$swal.mixin({
-    //     position: "center",
-
-    //   });
-
-    //   Swal.fire({
-    //     title: "Computer Science MJU",
-    //     text: "ยินดีต้อนรับสู่เว็บไซต์ของสาขาวิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้",
-    //     imageUrl: "https://unsplash.it/400/200",
-    //     imageWidth: 400,
-    //     imageHeight: 200,
-
-    //   });
-    // },
     getNewsData() {
       http
         .get(`newsapp`)

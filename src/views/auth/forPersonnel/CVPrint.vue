@@ -134,7 +134,7 @@
 </template>
 
 <script>
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 export default {
   data() {
     return {

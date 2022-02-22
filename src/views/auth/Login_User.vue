@@ -148,9 +148,7 @@ export default {
     recaptchaExpired() {
       this.$refs.vueRecaptcha.reset();
     },
-    recaptchaFailed() {
-      console.log();
-    },
+    recaptchaFailed() {},
     showPassword() {
       if (this.type === "password") {
         this.type = "text";

@@ -27,14 +27,20 @@
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <a href="javascript:history.go(-1)">
-                        <button
-                          class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ย้อนกลับ
-                        </button>
-                      </a>
+                      <button
+                        @click="ChangePassword"
+                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        เปลี่ยนรหัสผ่าน
+                      </button>
+                      <button
+                        @click="back"
+                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ย้อนกลับ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -226,7 +232,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Degree"
-                              
                             />
                             <!-- <div
                               v-if="v$.first_nameEn.$error"
@@ -248,7 +253,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Department"
-                              
                             />
                             <!-- <div
                               v-if="v$.first_nameEn.$error"
@@ -270,7 +274,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="University"
-                              
                             />
                             <!-- <div
                               v-if="v$.first_nameEn.$error"
@@ -297,7 +300,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Tel."
-                             
                             />
                             <!-- <div
                               v-if="v$.first_nameEn.$error"
@@ -317,7 +319,6 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
                               placeholder="Email"
-                              
                             />
                             <!-- <div
                               v-if="v$.first_nameEn.$error"
@@ -334,7 +335,7 @@
                     <div class="w-full lg:w-12/12 pr-4">
                       <div class="mt-4 p-4 text-center">
                         <button
-                          @click="CreateProfile"
+                          @click="EditProfile(id)"
                           class="px-6 py-3 mb-1 mx-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
                         >
@@ -360,6 +361,7 @@ export default {
   data() {
     return {
       v$: useValidate(),
+      uid: "",
       id_card: "",
       first_name: "",
       last_name: "",
@@ -378,6 +380,12 @@ export default {
     };
   },
   methods: {
+    ChangePassword() {
+      this.$router.push({ name: "Password" });
+    },
+    back() {
+      this.$router.push({ name: "ServiceTeacher" });
+    },
     onFileSelected(event) {
       const file = event.target.files[0];
       this.file = event.target.files[0];
@@ -385,9 +393,8 @@ export default {
     },
     ShowProfile() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-      let uid = local_user.user.id - 1;
-
-      http.get(`personnel/id/${uid}`).then((response) => {
+      this.uid = local_user.user.id - 1;
+      http.get(`personnel/id/${this.uid}`).then((response) => {
         this.profile = response.data;
         this.imgUrl = this.profile.personnelPhoto;
         this.id_card = this.profile.citizenId;
@@ -404,88 +411,23 @@ export default {
         this.phone = this.profile.phoneNumber;
       });
     },
-    CreateProfile() {
-      this.v$.$validate();
-      if (!this.v$.$error) {
-        const swalWithBootstrapButtons = this.$swal.mixin({
-          customClass: {
-            title: "font-weight-bold",
-            confirmButton:
-              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-            cancelButton:
-              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-          },
-          buttonsStyling: false,
-        });
-
-        swalWithBootstrapButtons
-          .fire({
-            title: "ยืนยันการบันทึกข้อมูล",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "ยืนยัน",
-            cancelButtonText: "ยกเลิก",
-            reverseButtons: true,
-          })
-          .then((result) => {
-            if (result.isConfirmed) {
-              if (this.fromCheck !== null) {
-                //Update Profile
-                this.EditProfile(this.ID);
-              } else {
-                //Create Profile
-                let formDataCreate = new FormData();
-                formDataCreate.append("studentCode", this.studentID);
-                formDataCreate.append("nameTh", this.first_name);
-                formDataCreate.append("surnameTh", this.last_name);
-                formDataCreate.append("nameEn", this.first_nameEn);
-                formDataCreate.append("surnameEn", this.last_nameEn);
-                formDataCreate.append("EmailStudent", this.email);
-                formDataCreate.append("mobile", this.phone);
-                formDataCreate.append("Address", this.address);
-                formDataCreate.append("PictureProfile", this.file);
-                http.post("student/create", formDataCreate).then(() => {
-                  swalWithBootstrapButtons
-                    .fire("บันทึกข้อมูลเรียบร้อย!", "", "success")
-                    .then(() => {
-                      this.$router.push({ name: "ServiceStudent" });
-                      window.location.reload();
-                    });
-                });
-              }
-            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
-              this.topic = null;
-              this.detail = null;
-              this.file = null;
-              this.date = null;
-              this.imgUrl = null;
-              this.file = "";
-              this.$refs.fileupload.value = null;
-              swalWithBootstrapButtons.fire(
-                "ยกเลิกการส่งข้อมูลเรียบร้อย!",
-                "",
-                "error"
-              );
-            }
-          });
-      }
-    },
-    back() {
-      this.$router.push({ name: "ServiceTeacher" });
-    },
-    EditProfile(id) {
+    EditProfile() {
       let formDataUpdate = new FormData();
-      formDataUpdate.append("studentCode", this.studentID);
-      formDataUpdate.append("nameTh", this.first_name);
-      formDataUpdate.append("surnameTh", this.last_name);
-      formDataUpdate.append("nameEn", this.first_nameEn);
-      formDataUpdate.append("surnameEn", this.last_nameEn);
-      formDataUpdate.append("EmailStudent", this.email);
-      formDataUpdate.append("mobile", this.phone);
-      formDataUpdate.append("Address", this.address);
-      formDataUpdate.append("PictureProfile", this.file);
+      formDataUpdate.append("personnelPhoto", this.file);
+      formDataUpdate.append("citizenId", this.id_card);
+      formDataUpdate.append("firstName", this.first_name);
+      formDataUpdate.append("lastName", this.last_name);
+      formDataUpdate.append("fistNameEn", this.first_nameEn);
+      formDataUpdate.append("lastNameEn", this.last_nameEn);
+      formDataUpdate.append("position", this.position);
+      formDataUpdate.append("adminPosition", this.employee);
+      formDataUpdate.append("education", this.graduate);
+      formDataUpdate.append("major", this.major);
+      formDataUpdate.append("university", this.campus);
+      formDataUpdate.append("e_mail", this.email);
+      formDataUpdate.append("phoneNumber", this.phone);
       formDataUpdate.append("_method", "PUT");
-      http.post(`student/update/${id}`, formDataUpdate).then(() => {
+      http.post(`personnel/update/${this.uid}`, formDataUpdate).then(() => {
         const Swal = this.$swal.mixin({
           position: "center",
           showConfirmButton: true,
@@ -498,14 +440,15 @@ export default {
           },
           buttonsStyling: false,
         });
-
         Swal.fire({
           icon: "success",
           title: `แก้ไขข้อมูลเรียบร้อย`,
         }).then(() => {
-          this.$router.push({ name: "ServiceStudent" });
+          this.$router.push({ name: "ServiceTeacher" });
           window.location.reload();
         });
+      }).catch((error) => {
+        console.log(error.data);
       });
     },
   },
