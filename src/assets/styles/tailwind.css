@@ -3317,6 +3317,30 @@ select {
 .resize {
   resize: both;
 }
+.color-code-1 {
+  background-color: #4f3565;
+}
+.color-code-2 {
+  background-color: #1e3c72;
+}
+.color-code-3 {
+  background-color: #14a2c6;
+}
+.color-code-4 {
+  background-color: #e49a43;
+}
+.color-code-5 {
+  background-color: #6ea29e;
+}
+.color-code-6 {
+  background-color: #bd564c;
+}
+.color-code-7 {
+  background-color: #009b70;
+}
+.color-code-8 {
+  background-color: #cd4a77;
+}
 
 * {
   --tw-shadow: 0 0 #0000;

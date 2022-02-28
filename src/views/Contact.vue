@@ -15,7 +15,9 @@
 
         <div class="py-5 mt-10 text-center border-t border-blueGray-200">
           <div class="flex flex-wrap">
-            <div class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+            >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
               >
@@ -35,7 +37,9 @@
                 *หมายเหตุ : กรุณาติดต่อภายในวัน และเวลาราชการ
               </p>
             </div>
-            <div class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+            >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
               >
@@ -52,7 +56,9 @@
             </div>
           </div>
           <div class="flex flex-wrap mt-10">
-            <div class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+            >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
               >
@@ -70,7 +76,9 @@
                 >
               </h3>
             </div>
-            <div class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom">
+            <div
+              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+            >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
               >
@@ -124,7 +132,7 @@
                 <img
                   v-if="imgUrl"
                   :src="imgUrl"
-                  class="w-full cropped-card1 round-lg"
+                  class="w-full cropped-card1 rounded-lg shadow-lg"
                 />
               </div>
 
@@ -175,201 +183,176 @@
               class="w-full px-4 mb-0 text-left border-t border-blueGray-200 lg:w-12/12"
             >
               <h3
-                class="mt-2 mb-6 text-2xl font-normal leading-normal text-left text-blueGray-700"
+                class="mt-8 mb-0 text-2xl font-normal leading-normal text-center text-blueGray-700"
               >
                 ดาวน์โหลดแบบฟอร์มเอกสารราชการ
               </h3>
             </div>
-            <div class="flex flex-wrap mt-4">
-              <div class="w-full px-2 lg:w-2/12 ">
-                <div
-                  class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
+            <div class="flex flex-auto mt-4">
+              <div class="block w-full overflow-x-auto lg:w-12/12">
+                <!-- Projects table -->
+                <table
+                  class="items-center w-full bg-transparent border-collapse"
                 >
-                  <img
-                    alt="..."
-                    :src="icon"
-                    class="w-full  align-middle rounded-t-lg text-blueGray-500"
-                  />
-                  <blockquote class="relative">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      class="absolute left-0 block w-full h-95-px -top-94-px"
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        class="fill-current text-blueGray-100"
-                      ></polygon>
-                    </svg>
-                  </blockquote>
-                  <div class="relative p-4 ">
-                    <h4 class="text-xl font-bold ">
-                      ใบลาสำหรับนักศึกษา / บุคลากร
-                    </h4>
-
-                    <div class="mt-2 text-center border-t border-blueGray-200">
-                      <button
-                        class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                        type="button"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        ลำดับ
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        แบบฟอร์มเอกสารราชการ
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ดาวน์โหลด
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full px-2 lg:w-2/12 ">
-                <div
-                  class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
-                >
-                  <img
-                    alt="..."
-                    :src="icon"
-                    class="w-full  align-middle rounded-t-lg text-blueGray-500"
-                  />
-                  <blockquote class="relative">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      class="absolute left-0 block w-full h-95-px -top-94-px"
-                    >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        class="fill-current text-blueGray-100"
-                      ></polygon>
-                    </svg>
-                  </blockquote>
-                  <div class="relative p-4 ">
-                    <h4 class="text-xl font-bold ">
-                      แบบแสดงความจำนงบริจาคเงิน
-                    </h4>
-
-                    <div class="mt-2 text-center border-t border-blueGray-200">
-                      <button
-                        class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                        type="button"
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-left w-full">
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
-                        ดาวน์โหลด
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full px-2 lg:w-2/12 ">
-                <div
-                  class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
-                >
-                  <img
-                    alt="..."
-                    :src="icon"
-                    class="w-full  align-middle rounded-t-lg text-blueGray-500"
-                  />
-                  <blockquote class="relative">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      class="absolute left-0 block w-full h-95-px -top-94-px"
-                    >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        class="fill-current text-blueGray-100"
-                      ></polygon>
-                    </svg>
-                  </blockquote>
-                  <div class="relative p-4 ">
-                    <h4 class="text-xl font-bold ">
-                      แบบฟอร์มลาสำหรับนักศึกษา
-                    </h4>
+                        1
+                      </td>
 
-                    <div class="mt-2 text-center border-t border-blueGray-200">
-                      <button
-                        class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                        type="button"
-                      >
-                        ดาวน์โหลด
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full px-2 lg:w-2/12 ">
-                <div
-                  class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
-                >
-                  <img
-                    alt="..."
-                    :src="icon"
-                    class="w-full  align-middle rounded-t-lg text-blueGray-500"
-                  />
-                  <blockquote class="relative">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      class="absolute left-0 block w-full h-95-px -top-94-px"
-                    >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        class="fill-current text-blueGray-100"
-                      ></polygon>
-                    </svg>
-                  </blockquote>
-                  <div class="relative p-4 ">
-                    <h4 class="text-xl font-bold ">
-                      ใบรับรองเวลาปฏิบัติงาน
-                    </h4>
+                      <td class="p-4 px-2 text-sm align-middle">
+                        <div>
+                          <p class="w-full font-normal truncate-3">
+                            แบบฟอร์มใบลาสำหรับคณาจารย์ และบุคลากร
+                          </p>
+                        </div>
+                      </td>
 
-                    <div class="mt-2 text-center border-t border-blueGray-200">
-                      <button
-                        class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                        type="button"
+                      <td
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
-                        ดาวน์โหลด
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full px-2 lg:w-2/12 ">
-                <div
-                  class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
-                >
-                  <img
-                    alt="..."
-                    :src="icon"
-                    class="w-full  align-middle rounded-t-lg text-blueGray-500"
-                  />
-                  <blockquote class="relative">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      class="absolute left-0 block w-full h-95-px -top-94-px"
-                    >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        class="fill-current text-blueGray-100"
-                      ></polygon>
-                    </svg>
-                  </blockquote>
-                  <div class="relative p-4 ">
-                    <h4 class="text-xl font-bold ">
-                      แบบฟอร์มใบเบิกค่ารักษาพยาบาล
-                    </h4>
+                        <button
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-arrow-down"></i>
+                          <span class="ml-1 text-md font-bold">Download</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
+                      >
+                        2
+                      </td>
 
-                    <div class="mt-2 text-center border-t border-blueGray-200">
-                      <button
-                        class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                        type="button"
+                      <td class="p-4 px-2 text-sm align-middle">
+                        <div>
+                          <p class="font-normal truncate-3">
+                            แบบฟอร์มใบลาสำหรับนักศึกษา
+                          </p>
+                        </div>
+                      </td>
+
+                      <td
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
-                        ดาวน์โหลด
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                        <button
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-arrow-down"></i>
+                          <span class="ml-1 text-md font-bold">Download</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
+                      >
+                        3
+                      </td>
+
+                      <td class="p-4 px-2 text-sm align-middle">
+                        <div>
+                          <p class="w-full font-normal truncate-3">
+                            แบบฟอร์มใบเบิกค่ารักษาพยาบาล
+                          </p>
+                        </div>
+                      </td>
+
+                      <td
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
+                      >
+                        <button
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-arrow-down"></i>
+                          <span class="ml-1 text-md font-bold">Download</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
+                      >
+                        4
+                      </td>
+
+                      <td class="p-4 px-2 text-sm align-middle">
+                        <div>
+                          <p class="w-full font-normal truncate-3">
+                            ใบรับรองเวลาปฏิบัติงาน
+                          </p>
+                        </div>
+                      </td>
+
+                      <td
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
+                      >
+                        <button
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-arrow-down"></i>
+                          <span class="ml-1 text-md font-bold">Download</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
+                      >
+                        5
+                      </td>
+
+                      <td class="p-4 px-2 text-sm align-middle">
+                        <div>
+                          <p class="w-full font-normal truncate-3">
+                            แบบแสดงความจำนงบริจาคเงิน
+                          </p>
+                        </div>
+                      </td>
+
+                      <td
+                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
+                      >
+                        <button
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-arrow-down"></i> 
+                          <span class="ml-1 text-md font-bold">Download</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -398,7 +381,6 @@ export default {
       file: null,
 
       verify: null,
-      
     };
   },
   methods: {
@@ -511,4 +493,3 @@ export default {
   },
 };
 </script>
-

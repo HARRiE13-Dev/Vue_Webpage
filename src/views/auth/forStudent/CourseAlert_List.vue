@@ -20,7 +20,7 @@
                   </div>
                   <div class="w-full lg:w-6/12">
                     <h3 class="mt-1 text-2xl font-semibold ">
-                     รายการแจ้งซ่อมอุปกรณ์ / บำรุงรักษา
+                      รายการแจ้งซ่อมอุปกรณ์ / บำรุงรักษา
                     </h3>
 
                     <h3 class="text-xl font-normal ">
@@ -83,7 +83,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr >
+                            <tr>
                               <td
                                 class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                               >
@@ -115,7 +115,6 @@
                                 <img
                                   class="w-24 h-24 bg-gray-200 shadow-lg border"
                                   :src="cover"
-                                 
                                   alt=""
                                 />
                               </td>
@@ -124,14 +123,12 @@
                                 class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                               >
                                 <button
-                               
                                   class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                                   type="button"
                                 >
                                   <i class="mr-1 fas fa-tools"></i>
                                   <span>รอดำเนินการ</span>
                                 </button>
-                         
                               </td>
                             </tr>
                           </tbody>

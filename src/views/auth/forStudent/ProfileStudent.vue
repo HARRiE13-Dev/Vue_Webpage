@@ -65,11 +65,24 @@
                             />
                           </div>
                         </div>
+                        
                       </div>
-                    </div>
-                    <!-- Simulator  -->
-                    <div class="w-full mt-2 lg:w-6/12">
-                      <div class="border-l pr-2 pl-4">
+                      <div class="mt-8 flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >รหัสประจำตัวประชาชนนักศึกษา</label
+                            >
+                            <input
+                              v-model="card_id"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
+                              type="text"
+                              placeholder="Card ID"
+                              readonly
+                            />
+                          </div>
+                        </div>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-2 md:w-12/12">
                             <label
@@ -86,6 +99,11 @@
                             />
                           </div>
                         </div>
+                    </div>
+                    <!-- Simulator  -->
+                    <div class="w-full mt-2 lg:w-6/12">
+                      <div class="border-l pr-2 pl-4">
+                        
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-2 md:w-6/12">
                             <label
@@ -253,6 +271,8 @@ export default {
   data() {
     return {
       v$: useValidate(),
+      card_id: "",
+
       studentID: "",
       first_name: "",
       last_name: "",
@@ -297,12 +317,14 @@ export default {
           this.phone = this.profile.mobile;
           this.address = this.profile.Address;
           this.imgUrl = this.profile.PictureProfile;
+          this.card_id = local_user.card_id;
         } else {
           this.first_name = local_user.name;
           this.last_name = local_user.surname;
           this.phone = local_user.mobile;
           let email_cut = local_user.email;
           this.studentID = email_cut.slice(3, 13);
+          this.card_id = local_user.card_id;
         }
       });
     },

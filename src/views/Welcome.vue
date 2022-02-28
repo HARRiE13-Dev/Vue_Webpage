@@ -14,7 +14,7 @@
           <h1
             class="pt-2 mt-0 text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
           >
-            ยินดีตอนรับสู่สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
+            ยินดีต้อนรับสู่สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
           </h1>
 
           <div class="mt-16 ">

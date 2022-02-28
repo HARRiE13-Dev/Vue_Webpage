@@ -62,14 +62,15 @@
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >รหัสครุภัณฑ์</label
+                              >รหัสครุภัณฑ์ <i class="text-red-500 text-sm">** ไม่จำเป็นต้องกรอก วท. xxxx</i></label
                             >
 
                             <input
-                              v-model="Title"
+                              v-model="equip_id"
+                              @keyup="getEquipmentInfo"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="search"
-                              placeholder="Product name"
+                              placeholder="Equipment Code"
                             />
 
                             <!-- <div
@@ -88,10 +89,10 @@
                               >ชื่ออุปกรณ์</label
                             >
                             <input
-                              v-model="Dates"
+                              v-model="equip_name"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Equipment Name"
                             />
                             <!-- <div
                               v-if="v$.Dates.$error"
@@ -107,10 +108,10 @@
                               >ห้องเก็บอุปกรณ์ / ที่อยู่อุปกรณ์</label
                             >
                             <input
-                              v-model="Dates"
+                              v-model="equip_where"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="text"
-                              placeholder="Product name"
+                              placeholder="Equipment Location"
                             />
                             <!-- <div
                               v-if="v$.Dates.$error"
@@ -128,10 +129,10 @@
                               >รายละเอียด / ความเสียหาย</label
                             >
                             <textarea
-                              v-model="Detail"
+                              v-model="equip_detail"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               rows="5"
-                              placeholder="Product description"
+                              placeholder="Equipment broken detail"
                             ></textarea>
                             <!-- <div
                               v-if="v$.Detail.$error"
@@ -145,17 +146,21 @@
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
                             <div class="mt-4">
-                              <img v-if="imgUrl" :src="imgUrl" class="w-full" />
+                              <img
+                                v-if="imgUrl"
+                                :src="imgUrl"
+                                class="w-full cropped-card1 rounded-lg shadow-lg"
+                              />
                             </div>
 
                             <label
-                              class="block my-3 text-gray-700 text-md"
+                              class="block my-3 text-gray-700 text-md mt-4"
                               for="image"
                               >อัพโหลดรูปภาพ (ถ้ามี)</label
                             >
                             <input
                               ref="fileupload"
-                              @change="onFileChange"
+                              @change="onFileSelected"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
                               type="file"
                             />
@@ -163,6 +168,7 @@
                         </div>
                         <div class="py-6 text-center">
                           <button
+                            @click="clearForm"
                             class="px-6 py-3 mb-1 mr-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
@@ -189,17 +195,191 @@
 </template>
 <script>
 import cover from "@/assets/img/repair.png";
-//import http from "@/services/APIService";
+import http from "@/services/WebpageService";
+import useValidate from "@vuelidate/core";
+import { required, minLength, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
+      v$: useValidate(),
       cover,
+      equip_id: "",
+      equip_name: "",
+      equip_where: "",
+      equip_detail: "",
+
+      equip_arr_code: [],
+
+      studentID: "",
+      profile: "",
+      fromCheck: null,
+
+      imgUrl: "",
+      file: null,
     };
   },
   methods: {
-    ListMaintenance() {
-      this.$router.push({ name: "MaintenanceList" });
+    onFileSelected(event) {
+      const file = event.target.files[0];
+      this.file = event.target.files[0];
+      this.imgUrl = URL.createObjectURL(file);
     },
+    listMenu() {
+      this.$router.push({ name: "MaintainList" });
+    },
+    back() {
+      this.$router.push({ name: "ServiceStudent" });
+    },
+    getEquipmentInfo() {
+      http.get(`equipments/code/${this.equip_id}`).then((response) => {
+        this.equip_arr_code = response.data.data[0];
+        this.equip_name = `${this.equip_arr_code.Equipment_Brand} | ${this.equip_arr_code.Equipment_Name}`;
+        this.equip_where = this.equip_arr_code.Equipment_Room;
+      });
+    },
+    clearForm() {
+      this.equip_id = "";
+      this.equip_name = "";
+      this.equip_where = "";
+      this.equip_detail = "";
+      this.equip_arr_code = [];
+      this.imgUrl = "";
+      this.file = null;
+    },
+    getProfile() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let email_cut = local_user.email;
+      this.studentID = email_cut.slice(3, 13);
+      http.get(`student/${this.studentID}`).then((response) => {
+        this.profile = response.data.data[0];
+        this.fromCheck = response.data.from;
+
+        if (this.fromCheck != 1) {
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true,
+          });
+          Swal.fire({
+            icon: "warning",
+            title: `กรุณากรอกข้อมูลส่วนตัวของท่านก่อนใช้งานระบบ`,
+          });
+          this.$router.push({ name: "ProfileStudent" });
+        }
+      });
+    },
+    submit() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        const swalWithBootstrapButtons = this.$swal.mixin({
+          customClass: {
+            title: "font-weight-bold",
+            confirmButton:
+              "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            cancelButton:
+              "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+        });
+        swalWithBootstrapButtons
+          .fire({
+            title: "ตรวจสอบข้อมูลการแจ้งตก-ค้างรายวิชา",
+            html:
+              ` <p class="custom text-left font-normal text-sm"> <b>รหัสรายวิชา :</b> ${this.s_code} <b>กลุ่มเรียน :</b>  ${this.s_section}</p>` +
+              ` <p class="custom text-left font-normal text-sm"> <b>ห้องเรียน :</b> ${this.s_name}</p>` +
+              ` <p class="custom text-left font-normal text-sm">  <b>อาจารย์ผู้รับผิดชอบ :</b> ${this.advisor} </p>` +
+              ` <p class="custom text-left font-normal text-sm"> <b>รายละเอียด :</b> ${this.s_detail}</p>`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "ยืนยัน",
+            cancelButtonText: "ยกเลิก",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              let mes = `${this.s_detail} \nรหัสวิชา : ${this.s_code} อาจารย์ผู้รับผิดชอบ : ${this.advisor}`;
+              let data = new FormData();
+              data.append("Residaual_Detail", mes);
+              data.append("nameTh", this.profile.nameTh);
+              data.append("surnameTh", this.profile.surnameTh);
+              data.append("EmailStudent", this.profile.EmailStudent);
+              data.append("mobile", this.profile.mobile);
+              data.append("studentCode", this.studentID);
+              let sec = "-";
+              if (this.s_type == "1") {
+                data.append("Sec_Internal", this.s_section);
+                data.append("Sec_Another", sec);
+                data.append("Subject_Internal", this.s_name);
+                data.append("Subject_External", sec);
+              } else if (this.s_type == "2") {
+                data.append("Sec_Internal", sec);
+                data.append("Sec_Another", this.s_section);
+                data.append("Subject_Internal", sec);
+                data.append("Subject_External", this.s_name);
+              }
+              http
+                .post(`residaual/create`, data)
+                .then(() => {
+                  swalWithBootstrapButtons
+                    .fire(
+                      "บันทึกเรียบร้อย!",
+                      "ดำเนินการแจ้งตก-ค้างรายวิชาเรียบร้อย",
+                      "success"
+                    )
+                    .then(() => {
+                      window.location.reload();
+                    });
+                })
+                .catch((error) => {
+                  if (error) {
+                    //Call Sweet Alert
+                    swalWithBootstrapButtons.fire(
+                      "ข้อมูลไม่ถูกต้อง!",
+                      "กรุณาตรวจสอบข้อมูลอีกครั้ง",
+                      "error"
+                    );
+                  }
+                });
+            } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+              swalWithBootstrapButtons.fire(
+                "ยกเลิกเรียบร้อย!",
+                "คุณได้ยกเลิกการแจ้งตก-ค้างรายวิชา",
+                "error"
+              );
+            }
+          });
+      }
+    },
+  },
+  mounted() {
+    this.getEquipmentInfo();
+  },
+  validations() {
+    return {
+      s_code: {
+        required: helpers.withMessage("ป้อนรหัสรายวิชาก่อน", required),
+        minLength: helpers.withMessage(
+          ({ $params }) => `รหัสรายวิชาต้องไม่น้อยกว่า ${$params.min} ตัว`,
+          minLength(8)
+        ),
+      },
+      s_section: {
+        required: helpers.withMessage("ป้อนกลุ่มเรียนก่อน", required),
+      },
+      s_type: {
+        required: helpers.withMessage("เลือกกลุ่มรายวิชาก่อน", required),
+      },
+      s_name: {
+        required: helpers.withMessage("ป้อนชื่อรายวิชาก่อน", required),
+      },
+      advisor: {
+        required: helpers.withMessage("ป้อนอาจารย์ผู้รับผิดชอบก่อน", required),
+      },
+      s_detail: {
+        required: helpers.withMessage("ป้อนเหตุผลการยื่นคำร้องก่อน", required),
+      },
+    };
   },
 };
 </script>

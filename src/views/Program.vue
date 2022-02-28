@@ -51,7 +51,7 @@
                   class="w-full px-2 lg:w-4/12  text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 color-code-1 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white">
                       <h5
@@ -119,7 +119,7 @@
                   class="w-full px-2 lg:w-4/12  text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 color-code-2 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white">
                       <h5
@@ -187,7 +187,7 @@
                   class="w-full px-2 lg:w-4/12 text-shadow text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 color-code-3 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white hover:text-blueGray-800">
                       <h5
@@ -261,7 +261,7 @@
                   class="w-full px-2 lg:w-4/12 text-shadow text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 color-code-4 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white hover:text-blueGray-800">
                       <h5
@@ -335,7 +335,7 @@
                   class="w-full px-2 lg:w-4/12 text-shadow text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 color-code-5 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white hover:text-blueGray-800">
                       <h5
@@ -409,7 +409,7 @@
                   class="w-full px-2 lg:w-4/12 text-shadow text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 color-code-6 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white hover:text-blueGray-800">
                       <h5
@@ -483,7 +483,7 @@
                   class="w-full px-2 lg:w-4/12 text-shadow text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg border-blueGray-300 color-code-7 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white hover:text-blueGray-800">
                       <h5
@@ -557,7 +557,7 @@
                   class="w-full px-2 lg:w-4/12 text-shadow text-center"
                 >
                   <div
-                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 bg-emerald-500 showdisplay hover:zoom-xs"
+                    class="flex h-100-px flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg  border-blueGray-300 color-code-8 showdisplay hover:zoom-xs"
                   >
                     <div class="px-2 py-4 text-white hover:text-blueGray-800">
                       <h5
