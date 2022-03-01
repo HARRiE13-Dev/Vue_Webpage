@@ -39,7 +39,7 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="3000">
+                <Carousel :autoplay="4000">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
                       class="cssanimation sequence fadeInBottom relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"

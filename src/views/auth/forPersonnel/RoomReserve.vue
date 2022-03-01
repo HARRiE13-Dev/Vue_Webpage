@@ -257,6 +257,14 @@ export default {
           },
           dates: new Date(year, month, 14),
         },
+        {
+          key: 2,
+          customData: {
+            title: "กิจกรรมทำความสะอาด อาคาร 60 ปี ม.แม่โจ้ ครั้งที่ 36",
+            class: "bg-red-600 text-white",
+          },
+          dates: new Date(year, month, 14),
+        },
       ],
       room_array: [],
       advisor_array: [],

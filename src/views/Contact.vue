@@ -239,7 +239,12 @@
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
-                          <span class="ml-1 text-md font-bold">Download</span>
+                          <a
+                            href="../assets/doc/vac_personnel.pdf"
+                            class="ml-1 text-md font-bold"
+                            download
+                            >Download</a
+                          >
                         </button>
                       </td>
                     </tr>
@@ -266,7 +271,12 @@
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
-                          <span class="ml-1 text-md font-bold">Download</span>
+                          <a
+                            href="../assets/doc/vac_student.pdf"
+                            class="ml-1 text-md font-bold"
+                            download
+                            >Download</a
+                          >
                         </button>
                       </td>
                     </tr>
@@ -293,7 +303,12 @@
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
-                          <span class="ml-1 text-md font-bold">Download</span>
+                          <a
+                            href="../assets/doc/medical_fee.pdf"
+                            class="ml-1 text-md font-bold"
+                            download
+                            >Download</a
+                          >
                         </button>
                       </td>
                     </tr>
@@ -320,7 +335,12 @@
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
-                          <span class="ml-1 text-md font-bold">Download</span>
+                          <a
+                            href="../assets/doc/duty_confirm.doc"
+                            class="ml-1 text-md font-bold"
+                            download
+                            >Download</a
+                          >
                         </button>
                       </td>
                     </tr>
@@ -346,8 +366,13 @@
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
-                          <i class="fas fa-arrow-down"></i> 
-                          <span class="ml-1 text-md font-bold">Download</span>
+                          <i class="fas fa-arrow-down"></i>
+                          <a
+                            href="../assets/doc/donate.docx"
+                            class="ml-1 text-md font-bold"
+                            download
+                            >Download</a
+                          >
                         </button>
                       </td>
                     </tr>

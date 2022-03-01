@@ -51,6 +51,8 @@ import PersonnelShow from "@/views/admin/PersonnelShow.vue";
 import PersonnelAdd from "@/views/admin/PersonnelAdd.vue";
 import PersonnelEdit from "@/views/admin/PersonnelEdit.vue";
 
+import CourseAlertShow from "@/views/admin/CourseAlertShow.vue";
+
 // views for Auth layout
 import Login_User from "@/views/auth/Login_User.vue";
 import Service_Student from "@/views/auth/Service_Student.vue";
@@ -127,7 +129,6 @@ function authGuard(to, from, next) {
 
 // Authentication Personnel
 function authGuard_Personnel(to, from, next) {
-  
   let isAuthenticated = false;
   let local_user = JSON.parse(window.localStorage.getItem("user"));
   let user_role = local_user.user.role;
@@ -274,6 +275,12 @@ const routes = [
         path: "/admin/personnelEdit",
         name: "PersonnelEdit",
         component: PersonnelEdit,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/CourseAlertShow",
+        name: "CourseAlertShow",
+        component: CourseAlertShow,
         beforeEnter: authGuard_Admin,
       },
     ],

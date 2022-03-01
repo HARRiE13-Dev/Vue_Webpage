@@ -57,43 +57,32 @@
                         class="bg-white rounded px-8 pt-2 pb-8"
                         @submit.prevent
                       >
-                        <div class="flex w-full">
+                        <div class="flex w-full px-2 mb-4">
                           <v-date-picker
-                            v-model="range"
-                            mode="dateTime"
-                            :masks="masks"
-                            is-range
+                            class="inline-block h-full"
+                            v-model="date"
                           >
-                            <template
-                              v-slot="{
-                                inputValue,
-                                inputEvents,
-                              }"
-                            >
-                              <div
-                                class="flex flex-wrap mb-4 justify-start items-center"
-                              >
-                                <div class="relative w-full px-2 md:w-5/12">
-                                  <input
-                                    class="flex-grow px-6 text-gray-900 py-2 border rounded w-full"
-                                    :value="inputValue.start"
-                                    v-on="inputEvents.start"
-                                  />
-                                </div>
-                                <div
-                                  class="relative text-center w-full px-2 md:w-2/12"
+                            <template v-slot="{ inputValue, togglePopover }">
+                              <div class="flex items-center">
+                                <button
+                                  class="p-2 bg-blue-100 border border-blue-200 hover:bg-blue-200 text-blue-600 rounded-l focus:bg-blue-500 focus:text-white focus:border-blue-500 focus:outline-none"
+                                  @click="togglePopover()"
                                 >
-                                  <i
-                                    class="fas fa-long-arrow-alt-right fa-lg"
-                                  ></i>
-                                </div>
-                                <div class="relative w-full px-2 md:w-5/12">
-                                  <input
-                                    class="flex-grow px-6 py-2 text-gray-900 border rounded w-full"
-                                    :value="inputValue.end"
-                                    v-on="inputEvents.end"
-                                  />
-                                </div>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    class="w-4 h-4 fill-current"
+                                  >
+                                    <path
+                                      d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"
+                                    ></path>
+                                  </svg>
+                                </button>
+                                <input
+                                  :value="inputValue"
+                                  class="bg-white text-gray-700 w-full py-1 px-2 appearance-none border rounded-r focus:outline-none focus:border-blue-500"
+                                  readonly
+                                />
                               </div>
                             </template>
                           </v-date-picker>
@@ -228,38 +217,34 @@
 import http from "@/services/WebpageService";
 export default {
   data() {
-    const month = new Date().getMonth();
-    const year = new Date().getFullYear();
-    const date = new Date().getDate();
-    // const m = 12;
-    // const y = 2021;
-
     return {
-      timezone: "",
+      date: new Date(),
+
       dateInput: null,
-      dateInputTo: null,
-      activity: [],
-      range: {
-        start: new Date(year, month, date + 1),
-        end: new Date(year, month, date + 1),
-      },
+
       masks: {
         weekdays: "WWW",
         month: "ธันวาคม",
         input: "YYYY-MM-DD h:mm A",
       },
+
       attributes: [
         {
-          key: 1,
+          key: null,
           customData: {
-            title: "กิจกรรมทำความสะอาด อาคาร 60 ปี ม.แม่โจ้ ครั้งที่ 36",
-            class: "bg-red-600 text-white",
+            title: "",
+            class: "",
           },
-          dates: new Date(year, month, 14),
+
+          dates: new Date(),
         },
       ],
+
       room_array: [],
       advisor_array: [],
+
+      booking: [],
+
       room: "",
       advisor: "",
       topic: "",
@@ -293,6 +278,13 @@ export default {
         }
       });
     },
+    getBooking() {
+      http.get(`bookclassroom`).then((response) => {
+        this.booking = response.data;
+        console.log(this.booking[0].Book_Date);
+        console.log(this.date);
+      });
+    },
 
     submit() {
       const swalWithBootstrapButtons = this.$swal.mixin({
@@ -311,7 +303,7 @@ export default {
           title: "ตรวจสอบข้อมูล",
 
           html:
-            `<p class="custom text-left font-normal text-sm"> <b>ตั้งแต่ :</b> ${this.range.start} <br><b>ถึง :</b>  ${this.range.end}</p>` +
+            `<p class="custom text-left font-normal text-sm"> <b>ตั้งแต่ :</b> ${this.date}</p>` +
             ` <p class="custom text-left font-normal text-sm"> <b>ห้องเรียน :</b> ${this.room}</p>` +
             ` <p class="custom text-left font-normal text-sm">  <b>โครงการ :</b> ${this.topic} </p>` +
             ` <p class="custom text-left font-normal text-sm"> <b>ผู้รับผิดชอบ :</b> ${this.advisor}</p>`,
@@ -323,6 +315,26 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
+            let data = new FormData();
+            data.append("Classroom_Name");
+            data.append("Book_TimeStart");
+            data.append("Book_TimeEnd");
+            data.append("Book_Date");
+            data.append("Status_Book");
+            data.append("Book_Detail", this.topic);
+            data.append("FirstName");
+            data.append("LastName");
+            data.append("StudentCode");
+            data.append("Email");
+            data.append("Adviser", this.advisor);
+
+            this.attributes[0].key = 1;
+            this.attributes[0].customData.title = "ไม่ว่าง";
+            this.attributes[0].customData.class =
+              "bg-red-500 text-white text-center p-1";
+            const book_time = this.date;
+            this.attributes[0].dates.setTime(book_time.getTime());
+
             swalWithBootstrapButtons.fire(
               "จองเรียบร้อย!",
               "ระบบกำลังส่งข้อมูลการจองไปยังผู้ดูแลระบบ",
@@ -336,12 +348,12 @@ export default {
             );
           }
         });
-      //this.$router.push({ name: "CVPrint" });
     },
   },
   mounted() {
     this.Classroom();
     this.Personnal();
+    this.getBooking();
   },
 };
 </script>

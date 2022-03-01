@@ -348,7 +348,7 @@
 
           <li class="items-center">
             <router-link
-              to="/admin/remaining"
+              to="/admin/CourseAlertShow"
               v-slot="{ href, navigate, isActive }"
             >
               <a
@@ -361,8 +361,8 @@
                     : 'text-blueGray-700 hover:text-blueGray-500',
                 ]"
               >
-                <i
-                  class="mr-2 text-sm fas fa-tools"
+               <i
+                  class="mr-2 text-sm fas fa-check-circle"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
 

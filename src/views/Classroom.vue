@@ -43,7 +43,7 @@
           <div
             v-for="classroom in lab_array"
             v-bind:key="classroom.ClassroomId"
-            class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom"
+            class="w-full px-2 lg:w-4/12 cssanimation sequence fadeInBottom"
           >
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words rounded-lg shadow-lg bg-blueGray-200"
@@ -69,7 +69,7 @@
                   {{ classroom.Classroom_Name }}
                 </h4>
                 <div
-                  class="mt-2 px-2 py-1 font-normal rounded-md bg-blueGray-100 text-blueGray-700 text-md"
+                  class="mt-2 px-2 py-1 font-normal border-2 rounded-md bg-blueGray-100 text-blueGray-700 text-md shadow-lg"
                 >
                   <p class="mt-1">
                     จำนวนที่นั่ง : {{ classroom.Classroom_sit }}
@@ -123,7 +123,7 @@
                   {{ classroom.Classroom_Name }}
                 </h4>
                 <div
-                  class="mt-2 px-2 py-1 font-normal rounded-md bg-blueGray-100 text-blueGray-700 text-md"
+                  class="mt-2 px-2 py-1 font-normal border-2 shadow-lg rounded-md bg-blueGray-100 text-blueGray-700 text-md"
                 >
                   <p class="mt-1">
                     จำนวนที่นั่ง : {{ classroom.Classroom_sit }}
@@ -142,13 +142,11 @@
   </div>
 </template>
 <script>
-
 import http from "@/services/WebpageService";
 
 export default {
   data() {
     return {
-      
       lec_array: [],
       lab_array: [],
       classroom: {
@@ -167,33 +165,14 @@ export default {
   },
   methods: {
     getRoomData() {
-      http
-        .get(`classroom/ห้องปฏิบัติการ`)
-        .then((response) => {
-          this.lab_array = response.data;
-          this.lab_array.pop()
-          
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          }
-        });
-      http
-        .get(`classroom/ห้องบรรยาย`)
-        .then((response) => {
-          this.lec_array = response.data;
-          
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          }
-        });
+      http.get(`classroom/ห้องปฏิบัติการ`).then((response) => {
+        this.lab_array = response.data;
+        this.lab_array.pop();
+      });
+
+      http.get(`classroom/ห้องบรรยาย`).then((response) => {
+        this.lec_array = response.data;
+      });
     },
   },
   components: {},
