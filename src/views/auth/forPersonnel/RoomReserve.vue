@@ -29,14 +29,13 @@
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <a href="javascript:history.go(-1)">
-                        <button
-                          class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ย้อนกลับ
-                        </button>
-                      </a>
+                      <button
+                        @click="back"
+                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ย้อนกลับ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -57,43 +56,32 @@
                         class="bg-white rounded px-8 pt-2 pb-8"
                         @submit.prevent
                       >
-                        <div class="flex w-full">
+                        <div class="flex w-full px-2 mb-4">
                           <v-date-picker
-                            v-model="range"
-                            mode="dateTime"
-                            :masks="masks"
-                            is-range
+                            class="inline-block h-full"
+                            v-model="date"
                           >
-                            <template
-                              v-slot="{
-                                inputValue,
-                                inputEvents,
-                              }"
-                            >
-                              <div
-                                class="flex flex-wrap mb-4 justify-start items-center"
-                              >
-                                <div class="relative w-full px-2 md:w-5/12">
-                                  <input
-                                    class="flex-grow px-6 text-gray-900 py-2 border rounded w-full"
-                                    :value="inputValue.start"
-                                    v-on="inputEvents.start"
-                                  />
-                                </div>
-                                <div
-                                  class="relative text-center w-full px-2 md:w-2/12"
+                            <template v-slot="{ inputValue, togglePopover }">
+                              <div class="flex items-center">
+                                <button
+                                  class="p-2 bg-blue-100 border border-blue-200 hover:bg-blue-200 text-blue-600 rounded-l focus:bg-blue-500 focus:text-white focus:border-blue-500 focus:outline-none"
+                                  @click="togglePopover()"
                                 >
-                                  <i
-                                    class="fas fa-long-arrow-alt-right fa-lg"
-                                  ></i>
-                                </div>
-                                <div class="relative w-full px-2 md:w-5/12">
-                                  <input
-                                    class="flex-grow px-6 py-2 text-gray-900 border rounded w-full"
-                                    :value="inputValue.end"
-                                    v-on="inputEvents.end"
-                                  />
-                                </div>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    class="w-4 h-4 fill-current"
+                                  >
+                                    <path
+                                      d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"
+                                    ></path>
+                                  </svg>
+                                </button>
+                                <input
+                                  :value="inputValue"
+                                  class="bg-white text-gray-700 w-full py-1 px-2 appearance-none border rounded-r focus:outline-none focus:border-blue-500"
+                                  readonly
+                                />
                               </div>
                             </template>
                           </v-date-picker>
@@ -225,49 +213,37 @@
   </div>
 </template>
 <script>
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 export default {
   data() {
-    const month = new Date().getMonth();
-    const year = new Date().getFullYear();
-    const date = new Date().getDate();
-    // const m = 12;
-    // const y = 2021;
-
     return {
-      timezone: "",
+      date: new Date(),
+
       dateInput: null,
-      dateInputTo: null,
-      activity: [],
-      range: {
-        start: new Date(year, month, date + 1),
-        end: new Date(year, month, date + 1),
-      },
+
       masks: {
         weekdays: "WWW",
         month: "ธันวาคม",
         input: "YYYY-MM-DD h:mm A",
       },
+
       attributes: [
         {
-          key: 1,
+          key: null,
           customData: {
-            title: "กิจกรรมทำความสะอาด อาคาร 60 ปี ม.แม่โจ้ ครั้งที่ 36",
-            class: "bg-red-600 text-white",
+            title: "",
+            class: "bg-emerald-500 text-center text-white",
           },
-          dates: new Date(year, month, 14),
-        },
-        {
-          key: 2,
-          customData: {
-            title: "กิจกรรมทำความสะอาด อาคาร 60 ปี ม.แม่โจ้ ครั้งที่ 36",
-            class: "bg-red-600 text-white",
-          },
-          dates: new Date(year, month, 14),
+
+          dates: null,
         },
       ],
+
       room_array: [],
       advisor_array: [],
+
+      booking: [],
+
       room: "",
       advisor: "",
       topic: "",
@@ -301,16 +277,41 @@ export default {
         }
       });
     },
+    getBooking() {
+      http.get(`bookclassroom`).then((response) => {
+        this.booking = response.data;
 
+        for (let i = 0; i <= this.booking.length; i++) {
+          this.attributes[i].key = i;
+          this.attributes[i].customData.title = "ไม่ว่าง";
+          this.attributes[i].dates = new Date(this.booking[i].Book_Date);
+        }
+      });
+    },
+    getProfile() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let email_cut = local_user.email;
+      this.studentID = email_cut.slice(3, 13);
+      http.get(`student/${this.studentID}`).then((response) => {
+        this.profile = response.data.data[0];
+        this.fromCheck = response.data.from;
+
+        if (this.fromCheck != 1) {
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true,
+          });
+          Swal.fire({
+            icon: "warning",
+            title: `กรุณากรอกข้อมูลส่วนตัวของท่านก่อนใช้งานระบบ`,
+          });
+          this.$router.push({ name: "ProfileStudent" });
+        }
+      });
+    },
     submit() {
-      //   let data = {
-      //     start: this.range.start,
-      //     end: this.range.end,
-      //     room: this.room,
-      //     advisor: this.advisor,
-      //     topic: this.topic,
-      //     detail: this.detail,
-      //   };
       const swalWithBootstrapButtons = this.$swal.mixin({
         customClass: {
           title: "font-weight-bold",
@@ -327,7 +328,7 @@ export default {
           title: "ตรวจสอบข้อมูล",
 
           html:
-            `<p class="custom text-left font-normal text-sm"> <b>ตั้งแต่ :</b> ${this.range.start} <br><b>ถึง :</b>  ${this.range.end}</p>` +
+            `<p class="custom text-left font-normal text-sm"> <b>วันที่จอง :</b> ${this.date}</p>` +
             ` <p class="custom text-left font-normal text-sm"> <b>ห้องเรียน :</b> ${this.room}</p>` +
             ` <p class="custom text-left font-normal text-sm">  <b>โครงการ :</b> ${this.topic} </p>` +
             ` <p class="custom text-left font-normal text-sm"> <b>ผู้รับผิดชอบ :</b> ${this.advisor}</p>`,
@@ -339,11 +340,33 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            swalWithBootstrapButtons.fire(
-              "จองเรียบร้อย!",
-              "ระบบกำลังส่งข้อมูลการจองไปยังผู้ดูแลระบบ",
-              "success"
-            );
+            let local_user = JSON.parse(window.localStorage.getItem("user"));
+            let name = local_user.name;
+            let surname = local_user.surname;
+            let email = local_user.email;
+            let studentID = email.slice(3, 13);
+
+            let data = new FormData();
+            data.append("Classroom_Name", this.room);
+            data.append("Book_TimeStart", "00:00:00");
+            data.append("Book_TimeEnd", "00:00:00");
+            data.append("Book_Date", this.date);
+            data.append("Status_Book", "รอการอนุมัติ");
+            data.append("Book_Detail", this.topic);
+            data.append("FirstName", name);
+            data.append("LastName", surname);
+            data.append("StudentCode", studentID);
+            data.append("Email", email);
+            data.append("Adviser", this.advisor);
+
+            http.post("bookclassroom/create", data).then(() => {
+              swalWithBootstrapButtons
+                .fire("บันทึกข้อมูลเรียบร้อย!", "", "success")
+                .then(() => {
+                  this.$router.push({ name: "ServiceStudent" });
+                  window.location.reload();
+                });
+            });
           } else if (result.dismiss === this.$swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               "ยกเลิกเรียบร้อย!",
@@ -352,12 +375,15 @@ export default {
             );
           }
         });
-      //this.$router.push({ name: "CVPrint" });
+    },
+    back() {
+      this.$router.push({ name: "ServiceTeacher" });
     },
   },
   mounted() {
     this.Classroom();
     this.Personnal();
+    this.getBooking();
   },
 };
 </script>

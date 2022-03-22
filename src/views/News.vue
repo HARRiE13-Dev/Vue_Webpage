@@ -28,6 +28,7 @@
             class="w-full px-2 pb-4 lg:w-4/12 cssanimation sequence fadeInBottom"
           >
             <div
+             @click="ShowAll(news.newsId)"
               class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100 h-full"
             >
               <img
@@ -58,7 +59,7 @@
                 <div class="mt-2 text-center border-t border-blueGray-200">
                   <button
                     @click="ShowAll(news.newsId)"
-                    class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-full shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                    class="px-4 py-2 mt-2 mb-1 mr-1 text-xs font-semibold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none"
                     type="button"
                   >
                     อ่านต่อ

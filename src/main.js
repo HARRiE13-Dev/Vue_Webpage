@@ -130,9 +130,11 @@ function authGuard(to, from, next) {
 // Authentication Personnel
 function authGuard_Personnel(to, from, next) {
   let isAuthenticated = false;
-  let local_user = JSON.parse(window.localStorage.getItem("user"));
-  let user_role = local_user.user.role;
-  let token = local_user.token;
+  let permission = JSON.parse(window.localStorage.getItem("permission"));
+  let personnel_user = JSON.parse(window.localStorage.getItem("user"));
+
+  let user_role = permission.role;
+  let token = personnel_user.access_token;
 
   if (token && user_role == 1) {
     isAuthenticated = true;

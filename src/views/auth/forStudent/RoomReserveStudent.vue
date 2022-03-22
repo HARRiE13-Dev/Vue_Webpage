@@ -29,14 +29,13 @@
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <a href="javascript:history.go(-1)">
-                        <button
-                          class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ย้อนกลับ
-                        </button>
-                      </a>
+                      <button
+                        @click="back"
+                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ย้อนกลับ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -233,10 +232,10 @@ export default {
           key: null,
           customData: {
             title: "",
-            class: "",
+            class: "bg-emerald-500 text-center text-white",
           },
 
-          dates: new Date(),
+          dates: null,
         },
       ],
 
@@ -281,11 +280,37 @@ export default {
     getBooking() {
       http.get(`bookclassroom`).then((response) => {
         this.booking = response.data;
-        console.log(this.booking[0].Book_Date);
-        console.log(this.date);
+
+        for (let i = 0; i <= this.booking.length; i++) {
+          this.attributes[i].key = i;
+          this.attributes[i].customData.title = "ไม่ว่าง";
+          this.attributes[i].dates = new Date(this.booking[i].Book_Date);
+        }
       });
     },
+    getProfile() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let email_cut = local_user.email;
+      this.studentID = email_cut.slice(3, 13);
+      http.get(`student/${this.studentID}`).then((response) => {
+        this.profile = response.data.data[0];
+        this.fromCheck = response.data.from;
 
+        if (this.fromCheck != 1) {
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true,
+          });
+          Swal.fire({
+            icon: "warning",
+            title: `กรุณากรอกข้อมูลส่วนตัวของท่านก่อนใช้งานระบบ`,
+          });
+          this.$router.push({ name: "ProfileStudent" });
+        }
+      });
+    },
     submit() {
       const swalWithBootstrapButtons = this.$swal.mixin({
         customClass: {
@@ -303,7 +328,7 @@ export default {
           title: "ตรวจสอบข้อมูล",
 
           html:
-            `<p class="custom text-left font-normal text-sm"> <b>ตั้งแต่ :</b> ${this.date}</p>` +
+            `<p class="custom text-left font-normal text-sm"> <b>วันที่จอง :</b> ${this.date}</p>` +
             ` <p class="custom text-left font-normal text-sm"> <b>ห้องเรียน :</b> ${this.room}</p>` +
             ` <p class="custom text-left font-normal text-sm">  <b>โครงการ :</b> ${this.topic} </p>` +
             ` <p class="custom text-left font-normal text-sm"> <b>ผู้รับผิดชอบ :</b> ${this.advisor}</p>`,
@@ -315,31 +340,33 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
+            let local_user = JSON.parse(window.localStorage.getItem("user"));
+            let name = local_user.name;
+            let surname = local_user.surname;
+            let email = local_user.email;
+            let studentID = email.slice(3, 13);
+
             let data = new FormData();
-            data.append("Classroom_Name");
-            data.append("Book_TimeStart");
-            data.append("Book_TimeEnd");
-            data.append("Book_Date");
-            data.append("Status_Book");
+            data.append("Classroom_Name", this.room);
+            data.append("Book_TimeStart", "00:00:00");
+            data.append("Book_TimeEnd", "00:00:00");
+            data.append("Book_Date", this.date);
+            data.append("Status_Book", "รอการอนุมัติ");
             data.append("Book_Detail", this.topic);
-            data.append("FirstName");
-            data.append("LastName");
-            data.append("StudentCode");
-            data.append("Email");
+            data.append("FirstName", name);
+            data.append("LastName", surname);
+            data.append("StudentCode", studentID);
+            data.append("Email", email);
             data.append("Adviser", this.advisor);
 
-            this.attributes[0].key = 1;
-            this.attributes[0].customData.title = "ไม่ว่าง";
-            this.attributes[0].customData.class =
-              "bg-red-500 text-white text-center p-1";
-            const book_time = this.date;
-            this.attributes[0].dates.setTime(book_time.getTime());
-
-            swalWithBootstrapButtons.fire(
-              "จองเรียบร้อย!",
-              "ระบบกำลังส่งข้อมูลการจองไปยังผู้ดูแลระบบ",
-              "success"
-            );
+            http.post("bookclassroom/create", data).then(() => {
+              swalWithBootstrapButtons
+                .fire("บันทึกข้อมูลเรียบร้อย!", "", "success")
+                .then(() => {
+                  this.$router.push({ name: "ServiceStudent" });
+                  window.location.reload();
+                });
+            });
           } else if (result.dismiss === this.$swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               "ยกเลิกเรียบร้อย!",
@@ -349,11 +376,15 @@ export default {
           }
         });
     },
+    back() {
+      this.$router.push({ name: "ServiceStudent" });
+    },
   },
   mounted() {
     this.Classroom();
     this.Personnal();
     this.getBooking();
+    this.getProfile();
   },
 };
 </script>

@@ -65,7 +65,7 @@
                             <select
                               v-model="s_type"
                               @keyup="getSubject"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 "
                             >
                               <option value="1">กลุ่มรายวิชาภายในสาขา</option>
                               <option value="2">กลุ่มรายวิชาภายนอกสาขา</option>
@@ -86,7 +86,7 @@
                             <input
                               v-model="s_code"
                               @keyup="getSubject"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               type="number"
                               placeholder="Subject Code"
                             />
@@ -103,7 +103,7 @@
                             >
                             <input
                               v-model="s_section"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               type="number"
                               placeholder="Section"
                             />
@@ -122,7 +122,7 @@
                             >
                             <input
                               v-model="s_name"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Subject Name"
                             />
@@ -145,12 +145,12 @@
                               v-if="showSelect"
                               v-model="advisor"
                               id="advisor"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                             ></select>
                             <input
                               v-if="showInput"
                               v-model="advisor"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Subject Advisor"
                             />
@@ -170,7 +170,7 @@
                             >
                             <textarea
                               v-model="s_detail"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               rows="5"
                               placeholder="Explain your detail"
                             ></textarea>

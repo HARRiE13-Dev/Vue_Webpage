@@ -141,7 +141,7 @@
 <script>
 import Foot from "@/components/Footers/Foot.vue";
 import ServiceNavbar from "@/components/Navbars/ServiceNavbar.vue";
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 import bgupdate from "@/assets/img/bg-update.jpg";
 
 export default {
@@ -178,13 +178,10 @@ export default {
     },
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-      let userData = local_user.user;
-      let idUserData = userData.id;
-      idUserData = idUserData - 1;
       http
-        .get(`personnel/id/${idUserData}`)
+        .get(`personnel/cardid/${local_user.card_id}`)
         .then((response) => {
-          this.personnel_array = response.data;
+          this.personnel_array = response.data[0];
           //Get data from API
           this.introduction = this.personnel_array.titlePosition;
           this.firstname = this.personnel_array.firstName;
@@ -202,7 +199,7 @@ export default {
         })
         .catch((error) => {
           if (error.response) {
-            if (error.response.status == 500) {
+            if (error.response.status == 405) {
               //Call Sweet Alert
               const Toast = this.$swal.mixin({
                 position: "center",

@@ -527,9 +527,29 @@ a {
  * supplement a partial reset that is already applied by
  * normalize.css.
  */
-
-button,
-input,
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-bottom: 1px solid ;
+  background-color: transparent;
+}
+button{
+  background-color: transparent;
+  background-image: none;
+}
+input{
+  border: none;
+  border-bottom: 1px solid ;
+  background-color: transparent;
+  
+}
+textarea{
+  border: none;
+  border-bottom: 1px solid ;
+  background-color: transparent;
+}
 optgroup,
 select,
 textarea {

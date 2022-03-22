@@ -61,49 +61,52 @@
                               ref="fileupload"
                               type="file"
                               @change="onFileSelected"
-                              class="px-3 py-2 leading-tight text-gray-700 border rounded shadow w-full"
+                              class="px-3 py-2 leading-tight text-gray-700 border-b w-full"
                             />
                           </div>
                         </div>
-                        
                       </div>
                       <div class="mt-8 flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >รหัสประจำตัวประชาชนนักศึกษา</label
-                            >
-                            <input
-                              v-model="card_id"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
-                              type="text"
-                              placeholder="Card ID"
-                              readonly
-                            />
-                          </div>
+                        <div class="w-full px-2 md:w-12/12">
+                          <label class="block my-3 text-gray-700 text-md"
+                            >รหัสประจำตัวประชาชน</label
+                          >
+                          <input
+                            v-model="card_id"
+                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border bg-blueGray-100"
+                            type="text"
+                            placeholder="Card ID"
+                            readonly
+                          />
                         </div>
-                        <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >รหัสนักศึกษา</label
-                            >
-                            <input
-                              v-model="studentID"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
-                              type="text"
-                              placeholder="Student ID"
-                              readonly
-                            />
-                          </div>
+                      </div>
+                      <div class="flex flex-wrap mb-4">
+                        <div class="w-full px-2 md:w-12/12">
+                          <label class="block my-3 text-gray-700 text-md"
+                            >รหัสนักศึกษา</label
+                          >
+                          <input
+                            v-model="studentID"
+                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border bg-blueGray-100"
+                            type="text"
+                            placeholder="Student ID"
+                            readonly
+                          />
                         </div>
+                      </div>
+                      <div class="flex flex-wrap mb-4">
+                        <div class="w-full px-2 md:w-12/12">
+                          <label class="block my-3 text-red-500 text-sm"
+                            >**หมายเหตุ :
+                            กรณีที่ต้องการแก้ไขข้อมูลส่วนตัวในส่วนที่จำกัดไว้
+                            กรุณาแจ้งบุคคลกรสาขาวิชา**</label
+                          >
+                        </div>
+                      </div>
                     </div>
                     <!-- Simulator  -->
                     <div class="w-full mt-2 lg:w-6/12">
                       <div class="border-l pr-2 pl-4">
-                        
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-2 md:w-6/12">
                             <label
@@ -113,7 +116,7 @@
                             >
                             <input
                               v-model="first_name"
-                              class="w-full px-3 placeholder-blueGray-300 bg-blueGray-200 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 bg-blueGray-100 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Firstname"
                               readonly
@@ -127,7 +130,7 @@
                             >
                             <input
                               v-model="last_name"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 bg-blueGray-200 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 bg-blueGray-100 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Lastname"
                               readonly
@@ -143,7 +146,7 @@
                             >
                             <input
                               v-model="first_nameEn"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Firstname (English)"
                             />
@@ -162,7 +165,7 @@
                             >
                             <input
                               v-model="last_nameEn"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Lastname (English)"
                             />
@@ -183,7 +186,7 @@
                             >
                             <input
                               v-model="email"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Email"
                             />
@@ -204,7 +207,7 @@
                             >
                             <input
                               v-model="phone"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Phone"
                             />
@@ -228,7 +231,7 @@
                               cols="30"
                               placeholder="address"
                               rows="5"
-                              class="relative w-full px-3 py-1 border rounded shadow text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                              class="relative w-full px-3 py-1 border-b text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                             ></textarea>
                             <div
                               v-if="v$.address.$error"

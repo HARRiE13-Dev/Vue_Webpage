@@ -106,13 +106,11 @@ export default {
   },
   methods: {
     checkLogin() {
-      let local_student = JSON.parse(window.localStorage.getItem("user"));
-      let token_student = local_student.access_token;
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let type = local_user.type[0];
+      console.log(type)
 
-      let local_teacher = JSON.parse(window.localStorage.getItem("user"));
-      let token_techer = local_teacher.token;
-
-      if (token_techer != null) {
+      if (type == "personnel") {
         const Toast = this.$swal.mixin({
           toast: true,
           position: "top-end",
@@ -127,7 +125,7 @@ export default {
         }).then(() => {
           window.location.href = "/service/service_teacher";
         });
-      } else if (token_student != null) {
+      } else if (type == "student") {
         const Toast = this.$swal.mixin({
           toast: true,
           position: "top-end",

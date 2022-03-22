@@ -47,26 +47,7 @@
                     <div class="w-full lg:w-6/12 pr-4">
                       <form ref="addProductForm">
                         <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-8/12">
-                            <div class="mt-0">
-                              <img v-if="imgUrl" :src="imgUrl" class="w-full" />
-                            </div>
-
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="image"
-                              >อัพโหลดรูปโปรไฟล์</label
-                            >
-                            <input
-                              ref="fileupload"
-                              @change="onFileChange"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="file"
-                            />
-                          </div>
-                        </div>
-                        <div class="flex flex-wrap mb-4">
-                          <div class="w-full px-2 md:w-2/12">
+                          <div class="w-full px-2 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
@@ -74,12 +55,14 @@
                             >
                             <input
                               v-model="position"
-                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Position"
                             />
                           </div>
-                          <div class="w-full px-2 md:w-5/12">
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-6/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
@@ -87,12 +70,12 @@
                             >
                             <input
                               v-model="first_name"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Firstname"
                             />
                           </div>
-                          <div class="w-full px-2 md:w-5/12">
+                          <div class="w-full px-2 md:w-6/12">
                             <label
                               class="block my-3  text-gray-700 text-md"
                               for="Title"
@@ -100,7 +83,7 @@
                             >
                             <input
                               v-model="last_name"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Lastname"
                             />
@@ -115,7 +98,7 @@
                             >
                             <input
                               v-model="first_nameEn"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Firstname"
                             />
@@ -128,7 +111,7 @@
                             >
                             <input
                               v-model="last_nameEn"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Lastname"
                             />
@@ -143,7 +126,7 @@
                             >
                             <input
                               v-model="address"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Address"
                             />
@@ -156,7 +139,7 @@
                             >
                             <input
                               v-model="phone"
-                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Phone Number"
                             />
@@ -169,7 +152,7 @@
                             >
                             <input
                               v-model="email"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="email"
                             />
@@ -187,7 +170,7 @@
                               cols="30"
                               placeholder="Bio"
                               rows="5"
-                              class="relative w-full px-3 py-1 border rounded shadow text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                              class="relative w-full px-3 py-1 border text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                             ></textarea>
                           </div>
                         </div>
@@ -201,7 +184,7 @@
                             <select
                               v-model="year1"
                               id="date-dropdown1"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border"
                             >
                             </select>
                           </div>
@@ -209,7 +192,7 @@
                           <div class="w-full px-2 md:w-2/12">
                             <input
                               v-model="graduate1"
-                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border rounded shadow"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border"
                               type="text"
                               placeholder="Graduate"
                             />
@@ -217,7 +200,7 @@
                           <div class="w-full px-2 md:w-8/12">
                             <input
                               v-model="institution1"
-                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Institution"
                             />
@@ -228,7 +211,7 @@
                             <select
                               v-model="year2"
                               id="date-dropdown2"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border"
                             >
                             </select>
                           </div>
@@ -236,7 +219,7 @@
                           <div class="w-full px-2 md:w-2/12">
                             <input
                               v-model="graduate2"
-                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border rounded shadow"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border"
                               type="text"
                               placeholder="Graduate"
                             />
@@ -244,7 +227,7 @@
                           <div class="w-full px-2 md:w-8/12">
                             <input
                               v-model="institution2"
-                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Institution"
                             />
@@ -255,7 +238,7 @@
                             <select
                               v-model="year3"
                               id="date-dropdown3"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border"
                             >
                             </select>
                           </div>
@@ -263,7 +246,7 @@
                           <div class="w-full px-2 md:w-2/12">
                             <input
                               v-model="graduate3"
-                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border rounded shadow"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight  text-gray-700 border"
                               type="text"
                               placeholder="Graduate"
                             />
@@ -271,7 +254,7 @@
                           <div class="w-full px-2 md:w-8/12">
                             <input
                               v-model="institution3"
-                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                               type="text"
                               placeholder="Institution"
                             />
@@ -293,7 +276,7 @@
                               <div class="w-full md:w-8/12">
                                 <input
                                   v-model="input.exp"
-                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                                   type="text"
                                   placeholder="Exeperience"
                                 />
@@ -336,7 +319,7 @@
                               <div class="w-full md:w-8/12">
                                 <input
                                   v-model="input.skill"
-                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                                   type="text"
                                   placeholder="Skills"
                                 />
@@ -377,7 +360,7 @@
                               <div class="w-full md:w-8/12">
                                 <input
                                   v-model="input.port"
-                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                                   type="text"
                                   placeholder="Portfolio"
                                 />
@@ -484,7 +467,6 @@
                                     class="ml-5 font-normal text-sm min-h-50-px leading-normal break-words text-blueGray-500"
                                   >
                                     {{ this.bio }}
-                                    
                                   </p>
                                 </div>
                                 <div class="px-0">
@@ -599,7 +581,7 @@
   </div>
 </template>
 <script>
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 //import html2pdf from "html2pdf.js";
 // import html2canvas from "html2canvas";
 // import jsPDF from "jspdf";
@@ -680,7 +662,7 @@ export default {
               "ระบบกำลังพิมพ์เอกสาร",
               "success"
             );
-          
+
             let routeData = this.$router.resolve({
               name: "CVPrint",
             });
@@ -736,13 +718,11 @@ export default {
 
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-      let userData = local_user.user;
-      let idUserData = userData.id;
-      idUserData = idUserData - 1;
+
       http
-        .get(`personnel/id/${idUserData}`)
+        .get(`personnel/cardid/${local_user.card_id}`)
         .then((response) => {
-          this.personnel_array = response.data;
+          this.personnel_array = response.data[0];
           //Get data from API
           this.position = this.personnel_array.titlePosition;
           this.first_name = this.personnel_array.firstName;

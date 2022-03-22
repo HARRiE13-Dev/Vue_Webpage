@@ -102,10 +102,10 @@
                           >
                           <input
                             v-model="first_name"
-                            class="w-full px-3 placeholder-blueGray-300 bg-blueGray-200 py-2 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 placeholder-blueGray-300  py-2 leading-tight text-gray-700 border rounded shadow"
                             type="text"
                             placeholder="Firstname"
-                            readonly
+                           
                           />
                         </div>
                         <div class="w-full px-2 md:w-6/12">
@@ -116,10 +116,10 @@
                           >
                           <input
                             v-model="last_name"
-                            class="w-full px-3 py-2 placeholder-blueGray-300 bg-blueGray-200 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 py-2 placeholder-blueGray-300  leading-tight text-gray-700 border rounded shadow"
                             type="text"
                             placeholder="Lastname"
-                            readonly
+                           
                           />
                         </div>
                       </div>
@@ -354,7 +354,7 @@
   </div>
 </template>
 <script>
-import http from "@/services/APIService";
+import http from "@/services/WebpageService";
 import useValidate from "@vuelidate/core";
 //import { required, email, minLength, helpers } from "@vuelidate/validators";
 export default {
@@ -393,9 +393,10 @@ export default {
     },
     ShowProfile() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-      this.uid = local_user.user.id - 1;
-      http.get(`personnel/id/${this.uid}`).then((response) => {
-        this.profile = response.data;
+    
+      http.get(`personnel/cardid/${local_user.card_id}`).then((response) => {
+        this.profile = response.data[0];
+
         this.imgUrl = this.profile.personnelPhoto;
         this.id_card = this.profile.citizenId;
         this.first_name = this.profile.firstName;
@@ -409,6 +410,7 @@ export default {
         this.campus = this.profile.university;
         this.email = this.profile.e_mail;
         this.phone = this.profile.phoneNumber;
+       
       });
     },
     EditProfile() {
@@ -427,29 +429,32 @@ export default {
       formDataUpdate.append("e_mail", this.email);
       formDataUpdate.append("phoneNumber", this.phone);
       formDataUpdate.append("_method", "PUT");
-      http.post(`personnel/update/${this.uid}`, formDataUpdate).then(() => {
-        const Swal = this.$swal.mixin({
-          position: "center",
-          showConfirmButton: true,
-          customClass: {
-            title: "font-weight-bold",
-            confirmButton:
-              "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-            cancelButton:
-              "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-          },
-          buttonsStyling: false,
+      http
+        .post(`personnel/update/${this.uid}`, formDataUpdate)
+        .then(() => {
+          const Swal = this.$swal.mixin({
+            position: "center",
+            showConfirmButton: true,
+            customClass: {
+              title: "font-weight-bold",
+              confirmButton:
+                "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+              cancelButton:
+                "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+            },
+            buttonsStyling: false,
+          });
+          Swal.fire({
+            icon: "success",
+            title: `แก้ไขข้อมูลเรียบร้อย`,
+          }).then(() => {
+            this.$router.push({ name: "ServiceTeacher" });
+            window.location.reload();
+          });
+        })
+        .catch((error) => {
+          console.log(error.data);
         });
-        Swal.fire({
-          icon: "success",
-          title: `แก้ไขข้อมูลเรียบร้อย`,
-        }).then(() => {
-          this.$router.push({ name: "ServiceTeacher" });
-          window.location.reload();
-        });
-      }).catch((error) => {
-        console.log(error.data);
-      });
     },
   },
   mounted() {

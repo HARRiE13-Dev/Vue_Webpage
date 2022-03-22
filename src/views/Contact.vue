@@ -19,7 +19,7 @@
               class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
             >
               <div
-                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
+                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
               >
                 <i class="fas fa-phone-alt fa-2x"></i>
               </div>
@@ -41,7 +41,7 @@
               class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
             >
               <div
-                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
+                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
               >
                 <i class="fas fa-envelope fa-2x"></i>
               </div>
@@ -60,7 +60,7 @@
               class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
             >
               <div
-                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
+                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
               >
                 <i class="fab fa-facebook-f fa-2x"></i>
               </div>
@@ -80,7 +80,7 @@
               class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
             >
               <div
-                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-full shadow-lg bg-emerald-400"
+                class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
               >
                 <i class="fab fa-line fa-3x"></i>
               </div>
@@ -105,9 +105,9 @@
                 <p>หัวข้อเรื่อง</p>
                 <input
                   v-model="Topic"
+                  class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border"
                   type="text"
-                  placeholder="หัวข้อเรื่อง"
-                  class="relative w-full px-2 py-1 text-sm bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                  placeholder="ชื่อโครงการ"
                 />
                 <div v-if="v$.Topic.$error" class="mt-2 text-sm text-red-500">
                   {{ v$.Topic.$errors[0].$message }}
@@ -121,7 +121,7 @@
                   cols="30"
                   placeholder="เนื้อหา / รายละเอียด"
                   rows="5"
-                  class="relative w-full px-3 py-1 text-base bg-white border rounded outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                  class="relative w-full px-3 py-1 text-base bg-white borderoutline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                 ></textarea>
                 <div v-if="v$.Detail.$error" class="mt-0 text-sm text-red-500">
                   {{ v$.Detail.$errors[0].$message }}
@@ -139,7 +139,7 @@
               <div class="mb-6 text-lg text-blueGray-500">
                 <span>แนบรูปภาพ</span>
                 <div
-                  class="relative flex items-center justify-center h-32 bg-gray-100 border-2 border-blue-700 rounded-lg border-all"
+                  class="relative flex items-center justify-center h-32 bg-gray-100 border-b border-blue-700 "
                 >
                   <input
                     ref="fileupload"
@@ -235,7 +235,7 @@
                         class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
-                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-lg shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
@@ -267,7 +267,7 @@
                         class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
-                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-lg shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
@@ -299,7 +299,7 @@
                         class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
-                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-lg shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
@@ -331,7 +331,7 @@
                         class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
-                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-lg shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
@@ -363,7 +363,7 @@
                         class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
-                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-full shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-emerald-500 rounded-lg shadow-md outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-arrow-down"></i>
@@ -395,10 +395,12 @@ import { required, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
+      icon,
       v$: useValidate(),
+
       Topic: "",
       Detail: "",
-      icon,
+
       showRecaptcha: true,
       date: new Date().toString(),
 
@@ -418,7 +420,7 @@ export default {
     submit() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        if (this.verify !== null) {
+        if (this.verify != null) {
           const swalWithBootstrapButtons = this.$swal.mixin({
             customClass: {
               title: "font-weight-bold",
@@ -442,18 +444,17 @@ export default {
             .then((result) => {
               if (result.isConfirmed) {
                 let data = new FormData();
-                data.append("Complain_Title", this.topic);
-                data.append("Complain_Detail", this.detail);
+                data.append("Complain_Title", this.Topic);
+                data.append("Complain_Detail", this.Detail);
                 data.append("Complain_Picture", this.file);
                 data.append("Complain_Date", this.date);
 
-                http.post("classroom/create", data).then(() => {
-                  this.topic = null;
-                  this.detail = null;
+                http.post("complain/create", data).then(() => {
+                  this.Topic = null;
+                  this.Detail = null;
                   this.file = null;
                   this.date = null;
                   this.imgUrl = null;
-                  this.file = "";
                   this.$refs.fileupload.value = null;
 
                   swalWithBootstrapButtons.fire(
@@ -463,12 +464,12 @@ export default {
                   );
                 });
               } else if (result.dismiss === this.$swal.DismissReason.cancel) {
-                this.topic = null;
-                this.detail = null;
+                this.Topic = null;
+                this.Detail = null;
                 this.file = null;
                 this.date = null;
                 this.imgUrl = null;
-                this.file = "";
+
                 this.$refs.fileupload.value = null;
                 swalWithBootstrapButtons.fire(
                   "ยกเลิกการส่งข้อมูลเรียบร้อย!",
@@ -499,9 +500,7 @@ export default {
     recaptchaExpired() {
       this.$refs.vueRecaptcha.reset();
     },
-    recaptchaFailed(response) {
-      console.log(response);
-    },
+    recaptchaFailed() {},
   },
   validations() {
     return {

@@ -73,10 +73,16 @@
                             <div
                               class="py-3 border-l-2 text-center lg:text-left"
                             >
+
+                              <h3
+                                class="ml-3 mb-3 text-lg font-normal leading-normal text-blueGray-100"
+                              >
+                               รหัสนักศึกษา : {{ this.studentID }} 
+                              </h3>
                               <h3
                                 class="ml-3 mb-2 text-4xl font-semibold leading-normal text-blueGray-100"
                               >
-                                {{ this.first_name }} {{ this.last_name }}
+                                {{ this.first_name }} {{ this.last_name }} 
                               </h3>
                               <h3
                                 class="ml-3 mb-2 text-2xl font-semibold leading-normal text-blueGray-100"

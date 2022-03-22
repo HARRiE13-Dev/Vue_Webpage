@@ -142,6 +142,7 @@ export default {
     },
     onClickLogout() {
       localStorage.removeItem("user");
+      localStorage.removeItem("permission")
       this.$router.push({ name: "Login" });
     },
   },

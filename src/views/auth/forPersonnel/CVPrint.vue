@@ -174,17 +174,17 @@ export default {
     async printCV() {
       document.title = `${this.last_nameEn}_CV.pdf`;
       window.print();
+      window.onafterprint = window.close;	
+      
+
     },
 
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-      let userData = local_user.user;
-      let idUserData = userData.id;
-      idUserData = idUserData - 1;
       http
-        .get(`personnelid/${idUserData}`)
+        .get(`personnel/cardid/${local_user.card_id}`)
         .then((response) => {
-          this.personnel_array = response.data;
+          this.personnel_array = response.data[0];
           //Get data from API
           this.position = this.personnel_array.titlePosition;
           this.first_name = this.personnel_array.firstName;

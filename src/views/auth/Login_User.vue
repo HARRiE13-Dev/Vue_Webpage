@@ -62,7 +62,7 @@
                   v-model="password"
                   :type="type"
                   class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="วันเกิด เช่น 12081998"
+                  placeholder="รหัสผ่าน เช่น mju@12061998"
                 />
                 <button @click="submit" type="submit" class="hidden">
                   Submit
@@ -126,7 +126,7 @@ import vueRecaptcha from "vue3-recaptcha2";
 import useValidate from "@vuelidate/core";
 import { required, minLength, helpers } from "@vuelidate/validators";
 import http from "@/services/MJUService";
-import httpPersonnel from "@/services/AuthService";
+import httpAdmin from "@/services/AuthService";
 
 export default {
   data() {
@@ -165,16 +165,22 @@ export default {
         ) {
           //Login Personnel Service - Check Form Email
           if (!this.v$.$error) {
-            httpPersonnel
-              .post("login", {
-                email: this.username,
-                password: this.password,
+            http
+              .post("login/mju/ad", {
+                username: this.username,
+                // password: this.password,
               })
               .then((response) => {
                 //Data User LocalStorage
 
+                let setRole = { role: 1 };
                 localStorage.setItem("user", JSON.stringify(response.data));
-                if (response.data.user.role == 1) {
+                localStorage.setItem("permission", JSON.stringify(setRole));
+
+                if (
+                  response.data.status == "success" &&
+                  response.data.type[0] == "personnel"
+                ) {
                   const Toast = this.$swal.mixin({
                     toast: true,
                     position: "top-end",
@@ -188,20 +194,8 @@ export default {
                   }).then(() => {
                     this.$router.push({ name: "ServiceTeacher" });
                   });
-                } else if (response.data.user.role == 0) {
-                  const Toast = this.$swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 1000,
-                    timerProgressBar: true,
-                  });
-                  Toast.fire({
-                    icon: "success",
-                    title: "กำลังเข้าสู่ระบบ",
-                  }).then(() => {
-                    this.$router.push({ name: "Dashboard" });
-                  });
+                } else if (response.data.status == "fail") {
+                  this.AdminLogin();
                 }
               })
               .catch((error) => {
@@ -223,8 +217,6 @@ export default {
                       icon: "error",
                       title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
                     }).then(() => {
-                      // Login  Success => Dashboard
-
                       this.password = "";
                     });
                   }
@@ -264,12 +256,11 @@ export default {
           }
         } else {
           //Login Student Service - Check Form Not Email
-
           if (!this.v$.$error) {
             http
               .post("login/mju/ad", {
                 username: "mju" + this.username,
-                password: "mju@" + this.password,
+                password: this.password,
               })
               .then((response) => {
                 if (response.data.status == "success") {
@@ -304,8 +295,6 @@ export default {
                     icon: "error",
                     title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
                   }).then(() => {
-                    // Login  Success => Dashboard
-
                     this.password = "";
                   });
                 }
@@ -357,6 +346,71 @@ export default {
           title: `กดยืนยัน "reCAPTCHA" ก่อน`,
         });
       }
+    },
+    async AdminLogin() {
+      httpAdmin
+        .post("login", {
+          email: this.username,
+          password: this.password,
+        })
+        .then((response) => {
+          //Data User LocalStorage
+          localStorage.setItem("user", JSON.stringify(response.data));
+          if (response.data.user.role == 0) {
+            const Toast = this.$swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 1000,
+              timerProgressBar: true,
+            });
+            Toast.fire({
+              icon: "success",
+              title: "กำลังเข้าสู่ระบบ",
+            }).then(() => {
+              this.$router.push({ name: "Dashboard" });
+            });
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 401 || error.response == undefined) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
+              }).then(() => {
+                // Login  Success => Dashboard
+
+                this.password = "";
+              });
+            }
+          } else if (error.response == undefined) {
+            //Call Sweet Alert
+            const Toast = this.$swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 1000,
+              timerProgressBar: true,
+            });
+
+            Toast.fire({
+              icon: "error",
+              title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
+            }).then(() => {
+              this.password = "";
+            });
+          }
+        });
     },
   },
   components: {

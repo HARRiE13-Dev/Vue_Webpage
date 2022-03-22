@@ -59,33 +59,32 @@
                       <form ref="addProductForm">
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Title"
-                              >รหัสครุภัณฑ์ <i class="text-red-500 text-sm">** ไม่จำเป็นต้องกรอก วท. xxxx</i></label
+                            <label class="block my-3 text-gray-700 text-md"
+                              >รหัสครุภัณฑ์
+                              <i class="text-red-500 text-sm"
+                                >*หมายเหตุ : ไม่จำเป็นต้องกรอก วท. xxxx</i
+                              ></label
                             >
 
                             <input
                               v-model="equip_id"
                               @keyup="getEquipmentInfo"
                               class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
-                              type="search"
+                              type="serach"
                               placeholder="Equipment Code"
                             />
 
-                            <!-- <div
-                              v-if="v$.Title.$error"
+                            <div
+                              v-if="v$.equip_id.$error"
                               class="mt-2 text-sm text-red-500"
                             >
-                              {{ v$.Title.$errors[0].$message }}
-                            </div> -->
+                              {{ v$.equip_id.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
+                            <label class="block my-3 text-gray-700 text-md"
                               >ชื่ออุปกรณ์</label
                             >
                             <input
@@ -94,17 +93,15 @@
                               type="text"
                               placeholder="Equipment Name"
                             />
-                            <!-- <div
-                              v-if="v$.Dates.$error"
+                            <div
+                              v-if="v$.equip_name.$error"
                               class="mt-2 text-sm text-red-500"
                             >
-                              {{ v$.Dates.$errors[0].$message }}
-                            </div> -->
+                              {{ v$.equip_name.$errors[0].$message }}
+                            </div>
                           </div>
                           <div class="w-full px-4 md:w-6/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
+                            <label class="block my-3 text-gray-700 text-md"
                               >ห้องเก็บอุปกรณ์ / ที่อยู่อุปกรณ์</label
                             >
                             <input
@@ -113,19 +110,17 @@
                               type="text"
                               placeholder="Equipment Location"
                             />
-                            <!-- <div
-                              v-if="v$.Dates.$error"
+                            <div
+                              v-if="v$.equip_where.$error"
                               class="mt-2 text-sm text-red-500"
                             >
-                              {{ v$.Dates.$errors[0].$message }}
-                            </div> -->
+                              {{ v$.equip_where.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-2">
                           <div class="w-full px-4 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Detail"
+                            <label class="block my-3 text-gray-700 text-md"
                               >รายละเอียด / ความเสียหาย</label
                             >
                             <textarea
@@ -134,12 +129,12 @@
                               rows="5"
                               placeholder="Equipment broken detail"
                             ></textarea>
-                            <!-- <div
-                              v-if="v$.Detail.$error"
+                            <div
+                              v-if="v$.equip_detail.$error"
                               class="mt-2 text-sm text-red-500"
                             >
-                              {{ v$.Detail.$errors[0].$message }}
-                            </div> -->
+                              {{ v$.equip_detail.$errors[0].$message }}
+                            </div>
                           </div>
                         </div>
 
@@ -175,6 +170,7 @@
                             ล้าง
                           </button>
                           <button
+                            @click="submit"
                             class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                             type="button"
                           >
@@ -286,10 +282,10 @@ export default {
           .fire({
             title: "ตรวจสอบข้อมูลการแจ้งตก-ค้างรายวิชา",
             html:
-              ` <p class="custom text-left font-normal text-sm"> <b>รหัสรายวิชา :</b> ${this.s_code} <b>กลุ่มเรียน :</b>  ${this.s_section}</p>` +
-              ` <p class="custom text-left font-normal text-sm"> <b>ห้องเรียน :</b> ${this.s_name}</p>` +
-              ` <p class="custom text-left font-normal text-sm">  <b>อาจารย์ผู้รับผิดชอบ :</b> ${this.advisor} </p>` +
-              ` <p class="custom text-left font-normal text-sm"> <b>รายละเอียด :</b> ${this.s_detail}</p>`,
+              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">รหัสครุภัณฑ์ :</b> ${this.equip_id} </p>` +
+              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">ชื่อครุภัณฑ์ :</b> ${this.equip_name} </p>` +
+              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">ห้องเก็บ / ที่อยู่ :</b> ${this.equip_where} </p>` +
+              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">รายละเอียด :</b> ${this.equip_detail}</p>`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "ยืนยัน",
@@ -298,9 +294,8 @@ export default {
           })
           .then((result) => {
             if (result.isConfirmed) {
-              let mes = `${this.s_detail} \nรหัสวิชา : ${this.s_code} อาจารย์ผู้รับผิดชอบ : ${this.advisor}`;
               let data = new FormData();
-              data.append("Residaual_Detail", mes);
+              data.append("Residaual_Detail");
               data.append("nameTh", this.profile.nameTh);
               data.append("surnameTh", this.profile.surnameTh);
               data.append("EmailStudent", this.profile.EmailStudent);
@@ -354,30 +349,37 @@ export default {
   },
   mounted() {
     this.getEquipmentInfo();
+    this.getProfile();
   },
   validations() {
     return {
-      s_code: {
-        required: helpers.withMessage("ป้อนรหัสรายวิชาก่อน", required),
+      equip_id: {
+        required: helpers.withMessage(
+          "ป้อนรหัสอุปกรณ์ / รหัสครุภัณฑ์ก่อน",
+          required
+        ),
         minLength: helpers.withMessage(
-          ({ $params }) => `รหัสรายวิชาต้องไม่น้อยกว่า ${$params.min} ตัว`,
-          minLength(8)
+          ({ $params }) => `รหัสต้องไม่น้อยกว่า ${$params.min} ตัว`,
+          minLength(11)
         ),
       },
-      s_section: {
-        required: helpers.withMessage("ป้อนกลุ่มเรียนก่อน", required),
+      equip_name: {
+        required: helpers.withMessage(
+          "ป้อนชื่ออุปกรณ์ / รหัสครุภัณฑ์ก่อน",
+          required
+        ),
       },
-      s_type: {
-        required: helpers.withMessage("เลือกกลุ่มรายวิชาก่อน", required),
+      equip_where: {
+        required: helpers.withMessage(
+          "ป้อนที่อยู่ของอุปกรณ์ / รหัสครุภัณฑ์ก่อน",
+          required
+        ),
       },
-      s_name: {
-        required: helpers.withMessage("ป้อนชื่อรายวิชาก่อน", required),
-      },
-      advisor: {
-        required: helpers.withMessage("ป้อนอาจารย์ผู้รับผิดชอบก่อน", required),
-      },
-      s_detail: {
-        required: helpers.withMessage("ป้อนเหตุผลการยื่นคำร้องก่อน", required),
+      equip_detail: {
+        required: helpers.withMessage(
+          "ป้อนรายละเอียดความเสียหายก่อน",
+          required
+        ),
       },
     };
   },
