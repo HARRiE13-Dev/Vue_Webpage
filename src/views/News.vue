@@ -28,7 +28,7 @@
             class="w-full px-2 pb-4 lg:w-4/12 cssanimation sequence fadeInBottom"
           >
             <div
-             @click="ShowAll(news.newsId)"
+              @click="ShowAll(news.newsId)"
               class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100 h-full"
             >
               <img

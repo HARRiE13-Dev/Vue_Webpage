@@ -168,7 +168,7 @@ export default {
             http
               .post("login/mju/ad", {
                 username: this.username,
-                // password: this.password,
+                //password: this.password,
               })
               .then((response) => {
                 //Data User LocalStorage
@@ -339,10 +339,13 @@ export default {
           showConfirmButton: false,
           timer: 1500,
           timerProgressBar: true,
+          customClass: {
+            title: "font-semibold custom text-blueGray-600",
+          },
         });
 
         Swal.fire({
-          icon: "warning",
+          icon: "info",
           title: `กดยืนยัน "reCAPTCHA" ก่อน`,
         });
       }

@@ -39,7 +39,7 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="3000" >
+                <Carousel :autoplay="3000">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
                       class="cssanimation sequence fadeInBottom relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
@@ -205,7 +205,7 @@
                     class="relative w-full max-w-full overflow-hidden h-500-px pb-72"
                   >
                     <iframe
-                      class="absolute top-0 left-0 w-full h-full rounded-b"
+                      class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
                       src="https://www.youtube.com/embed/88JeU0ShY60"
                       title="Presentation | Com-Sci MJU 2020"
                       frameborder="0"

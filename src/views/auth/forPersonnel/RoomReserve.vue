@@ -79,7 +79,7 @@
                                 </button>
                                 <input
                                   :value="inputValue"
-                                  class="bg-white text-gray-700 w-full py-1 px-2 appearance-none border rounded-r focus:outline-none focus:border-blue-500"
+                                  class="bg-white text-gray-700 w-full py-1 px-2 appearance-none text-center focus:outline-none focus:border-blue-500"
                                   readonly
                                 />
                               </div>
@@ -97,7 +97,7 @@
                           <select
                             v-model="room"
                             id="classroom"
-                            class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 py-2 leading-tight text-gray-700 "
                           >
                           </select>
                         </div>
@@ -111,7 +111,7 @@
                         <div class="w-full px-2 md:w-12/12">
                           <input
                             v-model="topic"
-                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                             type="text"
                             placeholder="ชื่อโครงการ"
                           />
@@ -129,7 +129,7 @@
                             cols="30"
                             placeholder="รายละเอียดการจอง"
                             rows="5"
-                            class="relative w-full px-3 py-1 border rounded shadow text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
+                            class="relative w-full px-3 py-1 text-base bg-white outline-none placeholder-blueGray-300 text-blueGray-600 border-blueGray-300 focus:outline-none focus:shadow-outline"
                           ></textarea>
                         </div>
                       </div>
@@ -143,7 +143,7 @@
                           <select
                             v-model="advisor"
                             id="advisor"
-                            class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 py-2 leading-tight text-gray-700"
                           >
                           </select>
                         </div>
@@ -363,7 +363,7 @@ export default {
               swalWithBootstrapButtons
                 .fire("บันทึกข้อมูลเรียบร้อย!", "", "success")
                 .then(() => {
-                  this.$router.push({ name: "ServiceStudent" });
+                  this.$router.push({ name: "ServiceTeacher" });
                   window.location.reload();
                 });
             });

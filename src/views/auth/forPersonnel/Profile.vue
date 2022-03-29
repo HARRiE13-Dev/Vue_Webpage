@@ -67,7 +67,7 @@
                               ref="fileupload"
                               type="file"
                               @change="onFileSelected"
-                              class="px-3 py-2 leading-tight text-gray-700 border rounded shadow w-full"
+                              class="px-3 py-2 leading-tight text-gray-700 border w-full"
                             />
                           </div>
                         </div>
@@ -86,7 +86,7 @@
                           >
                           <input
                             v-model="id_card"
-                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow bg-blueGray-200"
+                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 bg-blueGray-100"
                             type="text"
                             placeholder="ID"
                             readonly
@@ -102,10 +102,9 @@
                           >
                           <input
                             v-model="first_name"
-                            class="w-full px-3 placeholder-blueGray-300  py-2 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 placeholder-blueGray-300  py-2 leading-tight text-gray-700"
                             type="text"
                             placeholder="Firstname"
-                           
                           />
                         </div>
                         <div class="w-full px-2 md:w-6/12">
@@ -116,10 +115,9 @@
                           >
                           <input
                             v-model="last_name"
-                            class="w-full px-3 py-2 placeholder-blueGray-300  leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 py-2 placeholder-blueGray-300  leading-tight text-gray-700"
                             type="text"
                             placeholder="Lastname"
-                           
                           />
                         </div>
                       </div>
@@ -132,7 +130,7 @@
                           >
                           <input
                             v-model="first_nameEn"
-                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                             type="text"
                             placeholder="Firstname (English)"
                           />
@@ -151,7 +149,7 @@
                           >
                           <input
                             v-model="last_nameEn"
-                            class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700 border rounded shadow"
+                            class="w-full px-3 py-2 placeholder-blueGray-300 leading-tight text-gray-700"
                             type="text"
                             placeholder="Lastname (English)"
                           />
@@ -181,7 +179,7 @@
                             >
                             <input
                               v-model="position"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Position of Education"
                             />
@@ -202,7 +200,7 @@
                             >
                             <input
                               v-model="employee"
-                              class="w-full px-3 bg-blueGray-200 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 bg-blueGray-200 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Position of Administration"
                               readonly
@@ -218,7 +216,7 @@
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-2 md:w-12/12">
                             <label
-                              class="block my-3 mb-4 text-blueGray-500 text-md border-b font-semibold"
+                              class="block my-3 mt-3 mb-4 text-blueGray-500 text-md border-b font-semibold"
                               for="Title"
                               >การศึกษา (Graduate)</label
                             >
@@ -229,7 +227,7 @@
                             >
                             <input
                               v-model="graduate"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Degree"
                             />
@@ -250,7 +248,7 @@
                             >
                             <input
                               v-model="major"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Department"
                             />
@@ -271,7 +269,7 @@
                             >
                             <input
                               v-model="campus"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="University"
                             />
@@ -284,7 +282,7 @@
                           </div>
                         </div>
                         <label
-                          class="block ml-2 my-3 mb-4 text-blueGray-500 text-md border-b font-semibold"
+                          class="block ml-2 mt-6 mb-4 text-blueGray-500 text-md border-b font-semibold"
                           for="Title"
                           >การติดต่อ (Contact)</label
                         >
@@ -297,7 +295,7 @@
                             >
                             <input
                               v-model="phone"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Tel."
                             />
@@ -316,7 +314,7 @@
                             >
                             <input
                               v-model="email"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Email"
                             />
@@ -393,7 +391,7 @@ export default {
     },
     ShowProfile() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-    
+
       http.get(`personnel/cardid/${local_user.card_id}`).then((response) => {
         this.profile = response.data[0];
 
@@ -410,7 +408,6 @@ export default {
         this.campus = this.profile.university;
         this.email = this.profile.e_mail;
         this.phone = this.profile.phoneNumber;
-       
       });
     },
     EditProfile() {

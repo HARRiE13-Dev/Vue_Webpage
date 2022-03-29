@@ -121,24 +121,26 @@
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
-                        <img
-                          :src="cover4"
-                          class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
-                        />
+                        <a @click="dev">
+                          <img
+                            :src="cover4"
+                            class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
+                          />
 
-                        <div class="relative p-4 ">
-                          <h4 class="text-xl font-bold text-left ">
-                            ระบบบันทึกกิจกรรมนักศึกษา
-                          </h4>
-
-                          <div
-                            class="mt-2 text-center border-t border-blueGray-200"
-                          >
-                            <h4 class="mt-2 font-normal text-left text-md ">
-                              Workshop Enrollment System
+                          <div class="relative p-4 ">
+                            <h4 class="text-xl font-bold text-left ">
+                              ระบบบันทึกกิจกรรมนักศึกษา
                             </h4>
+
+                            <div
+                              class="mt-2 text-center border-t border-blueGray-200"
+                            >
+                              <h4 class="mt-2 font-normal text-left text-md ">
+                                Workshop Enrollment System
+                              </h4>
+                            </div>
                           </div>
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -164,6 +166,27 @@ export default {
       cover3,
       cover4,
     };
+  },
+  methods: {
+    dev() {
+      const Swal = this.$swal.mixin({
+        position: "center",
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        customClass: {
+          title:
+            "custom font-semibold text-4xl text-center text-blueGray-500 mb-2",
+          text: "custom font-normal text-lg text-center text-blueGray-500 ",
+        },
+      });
+
+      Swal.fire({
+        icon: "info",
+        title: `Coming Soon`,
+        text: `" ระบบจะเปิดให้ใช้งานในอนาคต " `,
+      });
+    },
   },
 };
 </script>

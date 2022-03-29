@@ -3,7 +3,7 @@
     <div
       class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
-      <div class="px-6 ">
+      <div class="lg:px-10 ">
         <div class="mt-6 text-center">
           <h3
             class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
@@ -22,12 +22,25 @@
         </div>
 
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h3
+                class="mb-2 text-2xl font-semibold leading-normal text-blueGray-700"
+              >
+                แผนการเรียนของหลักสูตรแต่ละชั้นปี
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-6/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <div class="relative flex mb-4 ">
-                <div class="relative w-auto">
+                <div class="relative w-autoss">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                   >
@@ -35,7 +48,9 @@
                   </h5>
                 </div>
                 <div class="relative w-auto ml-3 text-blueGray-700 text-shadow">
-                  <h5 class="text-3xl font-semibold leading-normal ">
+                  <h5
+                    class="text-3xl font-semibold leading-normal whitespace-normal"
+                  >
                     Fundamentals Computer Science
                   </h5>
 

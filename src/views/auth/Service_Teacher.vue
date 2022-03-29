@@ -29,7 +29,9 @@
 
                 <div class="py-6 mt-2 text-left border-t border-blueGray-200">
                   <div class="flex flex-wrap">
-                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
+                    <div
+                      class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom"
+                    >
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
@@ -58,7 +60,9 @@
                         </router-link>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
+                    <div
+                      class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom"
+                    >
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
@@ -86,7 +90,9 @@
                         </router-link>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
+                    <div
+                      class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom"
+                    >
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
@@ -112,16 +118,17 @@
                         </router-link>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
+                    <div
+                      class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom"
+                    >
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
-                        <router-link to="service_teacher/roomreserve">
+                        <a @click="dev">
                           <img
                             :src="cover4"
                             class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
                           />
-
                           <div class="relative p-4 ">
                             <h4 class="text-xl font-bold text-left ">
                               ระบบยืม-คืนครุภัณฑ์
@@ -135,19 +142,20 @@
                               </h4>
                             </div>
                           </div>
-                        </router-link>
+                        </a>
                       </div>
                     </div>
-                    <div class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom">
+                    <div
+                      class="w-full px-2 lg:w-3/12 cssanimation sequence fadeInBottom"
+                    >
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
-                        <router-link to="service_teacher/roomreserve">
+                        <a @click="dev">
                           <img
                             :src="cover5"
                             class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"
                           />
-
                           <div class="relative p-4 ">
                             <h4 class="text-xl font-bold text-left ">
                               ระบบจองเบิกจ่ายอุปกรณ์
@@ -161,7 +169,7 @@
                               </h4>
                             </div>
                           </div>
-                        </router-link>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -188,8 +196,29 @@ export default {
       cover2,
       cover3,
       cover4,
-      cover5
+      cover5,
     };
+  },
+  methods: {
+    dev() {
+      const Swal = this.$swal.mixin({
+        position: "center",
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        customClass: {
+          title:
+            "custom font-semibold text-4xl text-center text-blueGray-500 mb-2",
+          text: "custom font-normal text-lg text-center text-blueGray-500 ",
+        },
+      });
+
+      Swal.fire({
+        icon: "info",
+        title: `Coming Soon`,
+        text: `" ระบบจะเปิดให้ใช้งานในอนาคต " `,
+      });
+    },
   },
 };
 </script>

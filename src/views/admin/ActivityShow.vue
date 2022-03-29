@@ -7,16 +7,14 @@
         <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">
-                CSMJU | ระบบแจ้งตกค้างรายวิชา
-              </h1>
+              <h1 class="py-6 text-3xl font-bold ">CSMJU | ระบบบันทึกกิจกรรม</h1>
             </div>
             <br class="shadow-xl" />
             <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
-                  <div class="w-full px-4 font-semibold text-md md:w-2/12">
+                  <div class="w-full px-4 font-bold text-md md:w-2/12">
                     จำนวน {{ products.total }} รายการ
                   </div>
 
@@ -54,6 +52,15 @@
                     >
                       <i class="fas fa-broom"></i> ล้าง
                     </button>
+                    <router-link to="addfeed">
+                      <button
+                        @click="openModalAddProduct"
+                        class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
+                        type="button"
+                      >
+                        <i class="fas fa-plus"></i> เพิ่ม
+                      </button>
+                    </router-link>
                   </div>
                 </div>
               </div>
@@ -66,123 +73,82 @@
                 >
                   <thead>
                     <tr
-                      class="text-blueGray-500 border-b-2  border-blueGray-500"
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         ลำดับ
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        ชื่อ - นามสกุล
+                        หัวข้อข่าว
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        ชื่อรายวิชา
+                        รายละเอียด
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        กลุ่มเรียน
+                        ประเภท
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        รายยละเอียด
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        ติดต่อ
-                      </th>
+
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
                         การจัดการ
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      ></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr
                       class="border-b"
-                      v-for="course in products"
-                      :key="course.Id"
+                      v-for="feed in products.data"
+                      :key="feed.newsId"
                     >
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
-                        {{ course.Id }}
+                        {{ feed.newsId }}
                       </td>
-                      <td
-                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
-                      >
-                        <div
-                          class="flex items-center text-xs text-left align-middle whitespace-nowrap"
-                        >
-                          <span class="ml-3 text-sm">
-                            <p class="font-bold">
-                              {{ course.nameTh }} {{ course.surnameTh }}
-                            </p>
-
-                            <div class="text-xs font-normal">
-                              รหัสนักศึกษา : {{ course.studentCode }}
-                            </div>
-                          </span>
-                        </div>
-                      </td>
-                      <td class="p-4 px-2 text-sm align-middle">
-                        <div>
-                          <p class="w-48 font-normal truncate-3">
-                            {{ course.Subject_Internal }}
-                          </p>
-                          <p
-                            class=" font-normal truncate-3 text-red-500 text-xs"
-                          >
-                            (รายวิชาภายนอก :
-                            {{ course.Subject_External }} )
-                          </p>
-                        </div>
-                      </td>
-
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
-                        {{ course.Sec_Internal }}
-                        <p class="text-red-500 text-xs">
-                          กรณีกลุ่มรายวิชานอก : {{ course.Sec_Another }}
+                        <h5 class="w-48 font-semibold truncate text-md">
+                          {{ feed.News_Title }}
+                        </h5>
+                        <p>
+                          เผยแพร่ : {{ feed.News_Date }} | {{ feed.News_Time }}
                         </p>
                       </td>
-
                       <td class="p-4 px-2 text-sm align-middle">
                         <div>
-                          <p class="w-48 font-normal truncate-3">
-                            {{ course.Residaual_Detail }}
+                          <p class="w-auto font-normal truncate-3">
+                            {{ feed.News_Detail }}
                           </p>
                         </div>
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
-                        <p><b>โทร. :</b> {{ course.mobile }}</p>
-                        <p><b>อีเมล :</b> {{ course.EmailStudent }}</p>
+                        {{ feed.News_Type }}
                       </td>
 
                       <td
                         class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
+                          @click="Edit(feed.newsId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-edit"></i>
                         </button>
                         <button
+                          @click="onclickDelete(feed.newsId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
@@ -192,6 +158,7 @@
                     </tr>
                   </tbody>
                 </table>
+
                 <!-- แสดงผลตัวแบ่งหน้าเพจ-->
                 <VueTailwindPagination
                   :current="currentPage"
@@ -223,39 +190,39 @@ export default {
       perPage: 0,
       total: 0,
 
-      AlumniId: 0,
-      Firstname_Alumni: "",
-      Lastname_Alumni: "",
-      StudentCode_Alumni: "",
-      Workplace: "",
-      Contact: "",
-      Caption: "",
-      Job_Title: "",
-      Alumni_Picture: "",
+      newsId: 0,
+      News_Detail: "",
+      News_Date: "",
+      News_Time: "",
+      News_Picture: "",
+      News_Title: "",
+      News_File: "",
+      News_links: "",
+      News_Type: "",
     };
   },
   methods: {
-    Edit(AlumniId) {
-      this.$router.push({ name: "CourseAlertEdit" });
-      this.$store.state.alumnusEdit = AlumniId;
+    Edit(newsId) {
+      this.$router.push({ name: "EditFeed" });
+      this.$store.state.newsEdit = newsId;
     },
     /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
      ************************************************************************/
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
-    async getProducts() {
-      let response = await http.get(`residaual`);
+    async getProducts(pageNumber) {
+      let response = await http.get(`news?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = responseProduct;
-      // this.currentPage = responseProduct.current_page;
-      // this.perPage = responseProduct.per_page;
+
+      this.currentPage = responseProduct.current_page;
+      this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
+      this.products.data.reverse();
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
-      let response = await http.get(
-        `alumni/name/${this.keyword}?page=${pageNumber}`
-      );
+      let response = await http.get(`news/${this.keyword}?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = responseProduct;
       this.currentPage = responseProduct.current_page;
@@ -289,7 +256,7 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             http
-              .delete(`alumnidelete/${id}`)
+              .delete(`newsdelete/${id}`)
               .then(() => {
                 this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
                 // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
@@ -314,7 +281,7 @@ export default {
     submitSearchForm() {
       if (this.keyword != "") {
         // เรียกค้นไปยัง api ของ laravel
-        http.get(`alumni/name/${this.keyword}`).then((response) => {
+        http.get(`news/${this.keyword}`).then((response) => {
           let responseProduct = response.data;
           this.products = responseProduct;
           this.currentPage = responseProduct.current_page;

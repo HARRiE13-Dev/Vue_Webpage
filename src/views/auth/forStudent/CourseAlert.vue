@@ -57,7 +57,7 @@
                     </div>
                     <div class="w-full lg:w-6/12 lg:order-1">
                       <form>
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
                             <label class="block my-3 text-gray-700 text-md"
                               >กลุ่มรายวิชาเฉพาะ
@@ -78,7 +78,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-8/12">
                             <label class="block my-3 text-gray-700 text-md"
                               >รหัสรายวิชา</label
@@ -115,7 +115,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
                             <label class="block my-3 text-gray-700 text-md"
                               >ชื่อรายวิชา</label
@@ -134,7 +134,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
@@ -163,7 +163,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
                             <label class="block my-3 text-gray-700 text-md"
                               >เหตุผลในการยืนคำร้องแจ้งตก-ค้างรายวิชา</label

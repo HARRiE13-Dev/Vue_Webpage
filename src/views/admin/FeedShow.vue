@@ -7,7 +7,7 @@
         <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">CSMJU | ประกาศข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">CSMJU | ระบบประกาศข่าวสาร</h1>
             </div>
             <br class="shadow-xl" />
             <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
@@ -214,9 +214,11 @@ export default {
       let response = await http.get(`news?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = responseProduct;
+
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
+      this.products.data.reverse();
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {

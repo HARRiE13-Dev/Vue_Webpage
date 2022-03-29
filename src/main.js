@@ -51,6 +51,10 @@ import PersonnelShow from "@/views/admin/PersonnelShow.vue";
 import PersonnelAdd from "@/views/admin/PersonnelAdd.vue";
 import PersonnelEdit from "@/views/admin/PersonnelEdit.vue";
 
+import ActivityShow from "@/views/admin/ActivityShow.vue";
+import ActivityAdd from "@/views/admin/ActivityAdd.vue";
+import ActivityEdit from "@/views/admin/ActivityEdit.vue";
+
 import CourseAlertShow from "@/views/admin/CourseAlertShow.vue";
 
 // views for Auth layout
@@ -283,6 +287,24 @@ const routes = [
         path: "/admin/CourseAlertShow",
         name: "CourseAlertShow",
         component: CourseAlertShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/activityAdd",
+        name: "ActivitylAdd",
+        component: ActivityAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/activityEdit",
+        name: "ActivityEdit",
+        component: ActivityEdit,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/activityShow",
+        name: "ActivityShow",
+        component: ActivityShow,
         beforeEnter: authGuard_Admin,
       },
     ],

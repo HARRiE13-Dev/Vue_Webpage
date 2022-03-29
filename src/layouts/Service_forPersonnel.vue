@@ -52,7 +52,7 @@
                             <img
                               alt="..."
                               :src="image"
-                              class="-mt-20 rounded-full shadow-lg h-200-px center-img max-w-200-px bg-emerald-500"
+                              class="-mt-20 rounded-full shadow-lg h-200-px center-img max-w-200-px bg-emerald-500 border-2"
                             />
                           </div>
                           <div class="relative px-3 py-6 mt-2 text-center">
@@ -181,21 +181,61 @@ export default {
       http
         .get(`personnel/cardid/${local_user.card_id}`)
         .then((response) => {
-          this.personnel_array = response.data[0];
-          //Get data from API
-          this.introduction = this.personnel_array.titlePosition;
-          this.firstname = this.personnel_array.firstName;
-          this.lastname = this.personnel_array.lastName;
+          if (response.data.length == 0) {
+            //Call Sweet Alert
+            const Toast = this.$swal.mixin({
+              position: "center",
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+            });
+            Toast.fire({
+              icon: "error",
+              title: "Your account is not found.",
+            }).then(() => {
+              localStorage.removeItem("user");
+              localStorage.removeItem("permission");
+              this.$router.push({ name: "Login" });
+              this.$router.push({
+                name: "Login",
+              });
+            });
+          } else if (response.data.length == 1) {
+            this.personnel_array = response.data[0];
+            //Get data from API
+            this.introduction = this.personnel_array.titlePosition;
+            this.firstname = this.personnel_array.firstName;
+            this.lastname = this.personnel_array.lastName;
 
-          this.titleEn = this.personnel_array.titleNameEn;
-          this.firstnameEn = this.personnel_array.fistNameEn;
-          this.lastnameEn = this.personnel_array.lastNameEn;
+            this.titleEn = this.personnel_array.titleNameEn;
+            this.firstnameEn = this.personnel_array.fistNameEn;
+            this.lastnameEn = this.personnel_array.lastNameEn;
 
-          this.email = this.personnel_array.e_mail;
-          this.tel = this.personnel_array.phoneNumber;
+            this.email = this.personnel_array.e_mail;
+            this.tel = this.personnel_array.phoneNumber;
 
-          this.position = this.personnel_array.adminPosition;
-          this.image = this.personnel_array.personnelPhoto;
+            this.position = this.personnel_array.adminPosition;
+            this.image = this.personnel_array.personnelPhoto;
+          } else {
+            //Call Sweet Alert
+            const Toast = this.$swal.mixin({
+              position: "center",
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+            });
+            Toast.fire({
+              icon: "error",
+              title: "Your account is not found.",
+            }).then(() => {
+              localStorage.removeItem("user");
+              localStorage.removeItem("permission");
+              this.$router.push({ name: "Login" });
+              this.$router.push({
+                name: "Login",
+              });
+            });
+          }
         })
         .catch((error) => {
           if (error.response) {

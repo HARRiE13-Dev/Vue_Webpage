@@ -29,14 +29,13 @@
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <a href="javascript:history.go(-1)">
-                        <button
-                          class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                        >
-                          ย้อนกลับ
-                        </button>
-                      </a>
+                      <button
+                        @click="back"
+                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        ย้อนกลับ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -362,7 +361,7 @@
                                   v-model="input.port"
                                   class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
                                   type="text"
-                                  placeholder="Portfolio"
+                                  placeholder="Awards / Honors"
                                 />
                               </div>
                               <div class="text-right md:w-4/12">
@@ -788,6 +787,9 @@ export default {
     },
     removeField_port(index, fieldType) {
       fieldType.splice(index, 1);
+    },
+    back() {
+      this.$router.push({ name: "ServiceTeacher" });
     },
   },
 };

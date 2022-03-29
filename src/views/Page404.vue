@@ -10,11 +10,11 @@
         <!-- <img class="" src="@/assets/img/404.gif" alt="404 not found" /> -->
 
         <p
-          class="cssanimation sequence fadeInBottom text-shadow text-2xl mt-10 text-blueGray-700 dark:text-gray-300"
+          class="cssanimation bg-gray-100 px-6 py-2 rounded-lg sequence fadeInBottom text-2xl mt-10 text-blueGray-700 dark:text-gray-300"
         >
           ไม่พบหน้าที่คุณต้องการ!
 
-          <router-link to="/" class="text-teal-500" href="#">
+          <router-link to="/home" class="text-emerald-600 font-semibold" href="#">
             กลับหน้าหลัก
           </router-link>
         </p>
@@ -26,5 +26,3 @@
 <script>
 export default {};
 </script>
-
-

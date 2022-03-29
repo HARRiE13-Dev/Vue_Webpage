@@ -235,7 +235,6 @@ export default {
     EditProduct() {
       this.id = this.$store.state.studentEdit;
       http.get(`student/id/${this.id}`).then((response) => {
-       
         this.imgUrl = response.data.PictureProfile;
       });
     },

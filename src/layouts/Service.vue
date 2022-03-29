@@ -53,7 +53,7 @@
                               alt="..."
                               v-if="imgUrl"
                               :src="imgUrl"
-                              class="-mt-20 bg-white cropped-profile rounded-full shadow-lg h-200-px center-img max-w-200-px"
+                              class="-mt-20 bg-white cropped-profile border-2 rounded-full shadow-lg h-200-px center-img max-w-200-px"
                             />
                           </div>
                           <div class="relative px-3 py-6 mt-2 text-center">

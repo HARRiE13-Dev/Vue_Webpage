@@ -51,7 +51,7 @@
               <h3
                 class="mb-2 text-xl font-semibold leading-normal text-blueGray-700"
               >
-                <a href="mailto:csmju@gmail.com">csmju@gmail.com </a>
+                <a href="mailto:cs@mju.ac.th">cs@mju.ac.th </a>
               </h3>
             </div>
           </div>
@@ -97,9 +97,9 @@
               class="cssanimation sequence fadeInBottom w-full border-blueGray-300 px-6 border-l mb-4 text-left lg:-mt-48 lg:w-6/12"
             >
               <h3
-                class="mb-6 text-2xl font-normal leading-normal text-center text-blueGray-700"
+                class="mb-6 text-2xl font-semibold leading-normal text-center text-blueGray-700"
               >
-                แจ้งปัญหาของท่านให้เราทราบ
+                แจ้งปัญหาของท่านให้เราทราบ / ข้อเสนอแนะ
               </h3>
               <div class="pt-0 mb-3 text-lg text-blueGray-500">
                 <p>หัวข้อเรื่อง</p>
@@ -423,7 +423,7 @@ export default {
         if (this.verify != null) {
           const swalWithBootstrapButtons = this.$swal.mixin({
             customClass: {
-              title: "font-weight-bold",
+              title: "font-semibold custom",
               confirmButton:
                 "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
               cancelButton:
@@ -482,12 +482,15 @@ export default {
           const Swal = this.$swal.mixin({
             position: "center",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2000,
             timerProgressBar: true,
+            customClass: {
+              title: "font-semibold custom text-blueGray-600",
+            },
           });
 
           Swal.fire({
-            icon: "warning",
+            icon: "info",
             title: `กดยืนยัน "reCAPTCHA" ก่อน`,
           });
         }

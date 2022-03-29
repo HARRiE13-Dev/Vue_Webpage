@@ -66,86 +66,26 @@
           </h3>
         </div>
         <div class="flex flex-wrap">
-          <div class="w-full p-4 lg:w-4/12 ">
+          <div
+            v-for="act in products"
+            :key="act.activityId"
+            class="w-full p-4 lg:w-4/12"
+          >
             <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-200 h-full"
+              class="relative flex flex-col text-emerald-600 w-full min-w-0 break-words rounded-lg h-full hover:text-blueGray-700"
             >
               <img
-                alt="..."
-                src="https://wwwdev.csmju.com/images/activitypic/thumbnail/activitypic_1639988208.jpg"
-                class="w-full align-middle rounded-t-lg cropped-news"
+                :src="act.Activity_Picture"
+                class="w-full align-middle rounded-lg cropped-news duration-150 ease-linear hover:zoom-xs shadow-lg"
               />
-              <blockquote class="relative p-8 mb-4">
-                <svg
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 583 95"
-                  class="absolute left-0 block w-full h-95-px -top-94-px"
-                ></svg>
-                <h4 class="text-xl font-bold text-emerald-600">
-                  การอบรมเตรียมความพร้อมก่อนออกปฏิบัติสหกิจศึกษา ประจำปีการศึกษา
-                  2564 - 2565
+              <blockquote class="relative mt-6 ">
+                <h4 class="text-xl font-bold  text-justify">
+                  {{ act.Activity_Title }}
                 </h4>
-                <p class="mt-2 font-light text-blueGray-500 text-md">
-                  ขอเชิญนักศึกษา 4 ปี รหัส 62 / 61 / 60 / 59 / 58 / 57
-                  และนักศึกษา 2 ปีรหัส 63 /62 / 61 / 60 / 59 / 58 / 57
-                  เข้ารับการอบรมเตรียมความพร้อมก่อนออกปฏิบัติสหกิจศึกษา
-                  ประจำปีการศึกษา 2564 - 2565
-                </p>
-              </blockquote>
-            </div>
-          </div>
-          <div class="w-full p-4 lg:w-4/12 ">
-            <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-200 h-full"
-            >
-              <img
-                alt="..."
-                src="https://wwwdev.csmju.com/images/activitypic/thumbnail/activitypic_1639988490.jpg"
-                class="w-full align-middle rounded-t-lg cropped-news"
-              />
-              <blockquote class="relative p-8 mb-4">
-                <svg
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 583 95"
-                  class="absolute left-0 block w-full h-95-px -top-94-px"
-                ></svg>
-                <h4 class="text-xl font-bold text-emerald-600 ">
-                  ขอให้ นศ. ปี 4 วิชา คพ492 สัมมนาวิชาการทางวิทยาการคอมพิวเตอร์
-                  ทุกคน เข้าร่วมอบรม AR VR MR ของมหาวิทยาลัยแม่โจ้ รุ่นที่ 3
-                </h4>
-                <p class="mt-2 font-light text-blueGray-500 text-md">
-                  ขอให้ นศ. ปี 4 วิชา คพ492 สัมมนาวิชาการทางวิทยาการคอมพิวเตอร์
-                  ทุกคน เข้าร่วมอบรม AR VR MR ของมหาวิทยาลัยแม่โจ้ รุ่นที่ 3
-                  ในวันที่ 11-12, 18 ธค 64 แบบออนไล์ผ่านโปรแกรม MS teams
-                </p>
-              </blockquote>
-            </div>
-          </div>
-          <div class="w-full p-4 lg:w-4/12 ">
-            <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear rounded-lg shadow-lg hover:zoom-xs bg-blueGray-200 h-full"
-            >
-              <img
-                alt="..."
-                src="https://wwwdev.csmju.com/images/activitypic/thumbnail/activitypic_1640090076.jpg"
-                class="w-full align-middle rounded-t-lg cropped-news"
-              />
-              <blockquote class="relative p-8 mb-4">
-                <svg
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 583 95"
-                  class="absolute left-0 block w-full h-95-px -top-94-px"
-                ></svg>
-                <h4 class="text-xl font-bold text-emerald-600">
-                  ขอให้ นศ. ปี 4 ร่วมกิจกรรมรับน้องประจำปี 2565
-                </h4>
-                <p class="mt-2 font-light text-blueGray-500 text-md">
-                  ขอให้ นศ. ปี 4 วิชา คพ492 สัมมนาวิชาการทางวิทยาการคอมพิวเตอร์
-                  ทุกคน เข้าร่วมอบรม AR VR MR ของมหาวิทยาลัยแม่โจ้ รุ่นที่ 3
-                  ในวันที่ 11-12, 18 ธค 64 แบบออนไล์ผ่านโปรแกรม MS teams
+                <p
+                  class="mt-10 font-semibold text-blueGray-400 text-sm text-right px-2"
+                >
+                  วันที่ : {{ act.Activity_Start }}
                 </p>
               </blockquote>
             </div>
@@ -160,13 +100,18 @@ import http from "@/services/WebpageService";
 
 export default {
   data() {
+    const day = new Date().getDate();
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
+
     // const m = 12;
     // const y = 2021;
 
     return {
-      activity: [],
+      products: [],
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
       masks: {
         weekdays: "WWW",
         month: "ธันวาคม",
@@ -175,36 +120,24 @@ export default {
         {
           key: 1,
           customData: {
-            title: "กิจกรรมทำความสะอาด อาคาร 60 ปี ม.แม่โจ้ ครั้งที่ 36",
-            class: "bg-red-600 text-white",
+            title: "วันนี้",
+            class: "bg-emerald-500 text-white text-center",
           },
-          dates: new Date(year, month, 14),
-        },
-        {
-          key: 2,
-          customData: {
-            title: "กิจกรรมเดินขบวนทำความสะอาด เทศบาลแม่โจ้ ครั้งที่ 36",
-            class: "bg-emerald-600 text-white",
-          },
-          dates: new Date(year, month, 26),
+          dates: new Date(year, month, day),
         },
       ],
     };
   },
   mounted() {
     this.currentPage = 1;
-    // อ่านสินค้าจาก API
-    this.getProducts(this.currentPage);
+    this.getActivity(this.currentPage);
   },
   methods: {
-    /***********************************************************************
-     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
-     ************************************************************************/
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
-    async getProducts(pageNumber) {
-      let response = await http.get(`alumni?page=${pageNumber}`);
+    async getActivity(pageNumber) {
+      let response = await http.get(`activity?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = response.data;
+      console.log(this.products[0]);
       this.products.reverse();
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;

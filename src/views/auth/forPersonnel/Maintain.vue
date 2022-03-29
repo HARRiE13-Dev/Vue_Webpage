@@ -36,14 +36,15 @@
                       >
                         รายการ
                       </button>
-                      <a href="javascript:history.go(-1)">
+                      
                         <button
+                          @click="back"
                           class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                           type="button"
                         >
                           ย้อนกลับ
                         </button>
-                      </a>
+                      
                     </div>
                   </div>
                 </div>
@@ -57,7 +58,7 @@
                     </div>
                     <div class="w-full lg:w-6/12 lg:order-1">
                       <form ref="addProductForm">
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
                             <label class="block my-3 text-gray-700 text-md"
                               >รหัสครุภัณฑ์
@@ -69,7 +70,7 @@
                             <input
                               v-model="equip_id"
                               @keyup="getEquipmentInfo"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border "
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               type="serach"
                               placeholder="Equipment Code"
                             />
@@ -82,14 +83,14 @@
                             </div>
                           </div>
                         </div>
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-6/12">
                             <label class="block my-3 text-gray-700 text-md"
                               >ชื่ออุปกรณ์</label
                             >
                             <input
                               v-model="equip_name"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Equipment Name"
                             />
@@ -106,7 +107,7 @@
                             >
                             <input
                               v-model="equip_where"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Equipment Location"
                             />
@@ -118,14 +119,14 @@
                             </div>
                           </div>
                         </div>
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
                             <label class="block my-3 text-gray-700 text-md"
                               >รายละเอียด / ความเสียหาย</label
                             >
                             <textarea
                               v-model="equip_detail"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"
                               rows="5"
                               placeholder="Equipment broken detail"
                             ></textarea>
@@ -137,8 +138,7 @@
                             </div>
                           </div>
                         </div>
-
-                        <div class="flex flex-wrap mb-2">
+                        <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
                             <div class="mt-4">
                               <img
@@ -156,7 +156,7 @@
                             <input
                               ref="fileupload"
                               @change="onFileSelected"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 border"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 border-b"
                               type="file"
                             />
                           </div>
@@ -224,7 +224,7 @@ export default {
       this.$router.push({ name: "MaintainList" });
     },
     back() {
-      this.$router.push({ name: "ServiceStudent" });
+      this.$router.push({ name: "ServiceTeacher" });
     },
     getEquipmentInfo() {
       http.get(`equipments/code/${this.equip_id}`).then((response) => {
@@ -241,14 +241,6 @@ export default {
       this.equip_arr_code = [];
       this.imgUrl = "";
       this.file = null;
-    },
-    getProfile() {
-      let local_user = JSON.parse(window.localStorage.getItem("user"));
-      
-      http.get(`personnel/cardid/${local_user}`).then((response) => {
-        this.profile = response.data[0];
-        
-      });
     },
     submit() {
       this.v$.$validate();
@@ -334,7 +326,6 @@ export default {
   },
   mounted() {
     this.getEquipmentInfo();
-    this.getProfile();
   },
   validations() {
     return {
