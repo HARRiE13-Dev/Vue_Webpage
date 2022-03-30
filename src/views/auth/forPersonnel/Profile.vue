@@ -394,7 +394,7 @@ export default {
 
       http.get(`personnel/cardid/${local_user.card_id}`).then((response) => {
         this.profile = response.data[0];
-
+        this.uid = this.profile.personnelId;
         this.imgUrl = this.profile.personnelPhoto;
         this.id_card = this.profile.citizenId;
         this.first_name = this.profile.firstName;

@@ -27,19 +27,17 @@
       >
         ประวัติความเป็นมา
       </router-link>
-      <router-link
-        to="/about"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
-      >
-        พันธกิจ
-      </router-link>
 
       <router-link
+        v-for="about in about_arr"
+        :key="about.AboutId"
+        @click="getId(about.AboutId)"
         to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
       >
-        วิสัยทัศน์
+        {{ about.Topic }}
       </router-link>
+
       <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
       <span
         class="block w-full px-4 pt-2 pb-0 text-sm font-bold bg-transparent whitespace-nowrap text-blueGray-400"
@@ -89,7 +87,7 @@
 </template>
 <script>
 import { createPopper } from "@popperjs/core";
-
+import http from "@/services/WebpageService";
 export default {
   data() {
     return {
@@ -98,7 +96,6 @@ export default {
   },
   methods: {
     toggleDropdown(event) {
-
       event.preventDefault();
       if (this.dropdownPopoverShow) {
         this.dropdownPopoverShow = false;
@@ -108,20 +105,26 @@ export default {
           placement: "bottom-start",
         });
       }
-
     },
-    close (e) {
+    close(e) {
       if (!this.$el.contains(e.target)) {
         this.dropdownPopoverShow = false;
       }
-    }
-
+    },
+    async getAbout() {
+      let response = await http.get(`about`);
+      this.about_arr = response.data;
+    },
+    getId(id) {
+      this.$store.state.aboutid = id;
+    },
   },
-  mounted () {
-    document.addEventListener('click', this.close)
+  mounted() {
+    document.addEventListener("click", this.close);
+    this.getAbout();
   },
-  beforeDestroy () {
-    document.removeEventListener('click',this.close)
-  }
+  beforeDestroy() {
+    document.removeEventListener("click", this.close);
+  },
 };
 </script>

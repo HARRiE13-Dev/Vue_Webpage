@@ -31,6 +31,8 @@ import Dashboard from "@/views/admin/Dashboard.vue";
 
 import Banner from "@/views/admin/Banner.vue";
 
+import AboutMe from "@/views/admin/AboutMe.vue";
+
 import EquipmentShow from "@/views/admin/EquipmentShow.vue";
 
 import Feed from "@/views/admin/FeedShow.vue";
@@ -188,6 +190,12 @@ const routes = [
     redirect: "/admin/dashboard",
     component: Admin,
     children: [
+      {
+        path: "/admin/aboutme",
+        name: "AboutMe",
+        component: AboutMe,
+        beforeEnter: authGuard_Admin,
+      },
       {
         path: "/admin/banner",
         name: "Banner",

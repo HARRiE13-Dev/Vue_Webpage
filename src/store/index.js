@@ -7,7 +7,8 @@ export default createStore({
 
     newsEdit:0,
     alumnusEdit:0,
-    StudentEdit:0
+    StudentEdit:0,
+    aboutid:1,
   },
   mutations: {
 

@@ -17,24 +17,22 @@
         รู้จักกับเรา
       </span>
       <router-link
-       @click="close($event)"
+        @click="close($event)"
         to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
         ประวัติความเป็นมา
       </router-link>
       <router-link
+        v-for="about in about_arr"
+        :key="about.AboutId"
+        @click="getId(about.AboutId)"
         to="/about"
         class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
       >
-        พันธกิจ
+        {{ about.Topic }}
       </router-link>
-      <router-link
-        to="/about"
-        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-      >
-        วิสัยทัศน์
-      </router-link>
+
       <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
       <span
         class="block w-full px-4 pt-2 pb-0 text-sm font-bold bg-transparent whitespace-nowrap text-blueGray-400"
@@ -84,7 +82,7 @@
 </template>
 <script>
 import { createPopper } from "@popperjs/core";
-
+import http from "@/services/WebpageService";
 export default {
   data() {
     return {
@@ -108,9 +106,17 @@ export default {
         this.dropdownPopoverShow = false;
       }
     },
+    async getAbout() {
+      let response = await http.get(`about`);
+      this.about_arr = response.data;
+    },
+    getId(id) {
+      this.$store.state.aboutid = id;
+    },
   },
   mounted() {
     document.addEventListener("click", this.close);
+    this.getAbout();
   },
   beforeDestroy() {
     document.removeEventListener("click", this.close);

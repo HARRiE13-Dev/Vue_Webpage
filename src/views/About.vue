@@ -34,29 +34,21 @@
                     ประวัติความเป็นมา
                   </a>
                 </li>
-                <li class="flex-auto mr-2 -mb-px text-center last:mr-0">
+                <li
+                  v-for="about in about_arr"
+                  :key="about.AboutId"
+                  class="flex-auto mr-2 -mb-px text-center last:mr-0"
+                >
                   <a
                     class="block px-5 py-3 font-bold leading-normal uppercase rounded shadow-lg"
-                    v-on:click="toggleTabs(2)"
+                    @click="toggleTabs(about.AboutId)"
                     v-bind:class="{
-                      'text-emerald-500 bg-white': openTab !== 2,
-                      'text-white bg-emerald-500': openTab === 2,
+                      'text-emerald-500 bg-white': openTab !== about.AboutId,
+                      'text-white bg-emerald-500': openTab === about.AboutId,
                     }"
                   >
-                    <i class="mr-1 text-base fas fa-bullseye"></i> พันธกิจ
-                  </a>
-                </li>
-                <li class="flex-auto mr-2 -mb-px text-center last:mr-0">
-                  <a
-                    class="block px-5 py-3 font-bold leading-normal uppercase rounded shadow-lg"
-                    v-on:click="toggleTabs(3)"
-                    v-bind:class="{
-                      'text-emerald-500 bg-white': openTab !== 3,
-                      'text-white bg-emerald-500': openTab === 3,
-                    }"
-                  >
-                    <i class="mr-1 text-base fas fa-globe"></i>
-                    วิสัยทัศน์
+                    <i class="mr-1 text-base fas fa-bullseye"></i>
+                    {{ about.Topic }}
                   </a>
                 </li>
               </ul>
@@ -201,57 +193,26 @@
                     </div>
 
                     <div
+                      v-for="about in about_arr"
+                      :key="about.AboutId"
                       class="cssanimation sequence fadeInBottom"
                       v-bind:class="{
-                        hidden: openTab !== 2,
-                        block: openTab === 2,
+                        hidden: openTab !== about.AboutId,
+                        block: openTab === about.AboutId,
                       }"
                     >
                       <p
                         class="mt-8 text-2xl font-bold leading-relaxed text-center"
                       >
-                        พันธกิจสาขาวิทยาการคอมพิวเตอร์
+                        {{ about.Topic }}สาขาวิชาวิทยาการคอมพิวเตอร์
                       </p>
                       <p
                         class="mb-8 text-xl font-bold leading-relaxed text-center"
                       >
                         คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
                       </p>
-                      <p class="my-6 rem2">
-                        จัดการเรียนการสอนวิชาพื้นฐานและผลิตบัณฑิตทางด้านวิทยาการคอมพิวเตอร์
-                        เทคโนโลยีสารสนเทศ ให้มีความรู้ทั้งทางทฤษฎีและปฏิบัติ
-                        ดำเนินการวิจัยทางด้านวิทยาการคอมพิวเตอร์และเทคโนโลยีสารสนเทศโดยคำนึงถึงความรู้และการประยุกต์ใช้ผสมผสานให้เกิดการพัฒนาท้องถิ่นและประเทศชาติ
-                        เพื่อเผยแพร่และบริการความรู้ทางด้านวิทยาการคอมพิวเตอร์
-                        เทคโนโลยีสารสนเทศแก่ชุมชนส่งเสริมและเข้าร่วมในกิจกรรมทำนุบำรุงศิลปวัฒนธรรมตามประเพณี
-                      </p>
-                    </div>
-                    <div
-                      class="cssanimation sequence fadeInBottom"
-                      v-bind:class="{
-                        hidden: openTab !== 3,
-                        block: openTab === 3,
-                      }"
-                    >
-                      <p
-                        class="mt-8 text-2xl font-bold leading-relaxed text-center"
-                      >
-                        วิสัยทัศน์สาขาวิทยาการคอมพิวเตอร์
-                      </p>
-                      <p
-                        class="mb-8 text-xl font-bold leading-relaxed text-center"
-                      >
-                        คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
-                      </p>
-                      <p class="my-6 rem2">
-                        สาขาวิชาวิทยาการคอมพิวเตอร์ ได้กำหนดวิสัยทัศน์ คือ<b>
-                          “มุ่งเน้นพัฒนาให้ภาควิชาเป็นศูนย์กลางความเป็นเลิศทางวิชาการเรียนรู้
-                          งานวิจัย
-                          ทางด้านวิทยาการคอมพิวเตอร์และเทคโนโลยีสารสนเทศ
-                          ที่มีขีดความสามารถในการแข่งขัน ระดับประเทศและนานาชาติ
-                          พร้อมทั้งมุ่งพัฒนาและสร้างบัณฑิตที่มีความรู้ความสามารถและมีคุณภาพเข้าสู่ตลาดแรงงาน
-                          รวมถึงยึดมั่นในคุณธรรม” </b
-                        >ขณะเดียวกันภาควิชายังยึดถือและปฏิบัติตามวิสัยทัศน์ของ
-                        คณะวิทยาศาสตร์ และมหาวิทยาลัยแม่โจ้
+                      <p class="my-6 rem2 text-justify">
+                       {{ about.Detail }}
                       </p>
                     </div>
                   </div>
@@ -265,10 +226,12 @@
   </div>
 </template>
 <script>
+import http from "@/services/WebpageService";
 export default {
   data() {
     return {
-      openTab: 1,
+      about_arr: [],
+      openTab: 0,
     };
   },
   components: {},
@@ -276,6 +239,18 @@ export default {
     toggleTabs: function(tabNumber) {
       this.openTab = tabNumber;
     },
+    async getAbout() {
+      let response = await http.get(`about`);
+      this.about_arr = response.data;
+    },
+    changeId(){
+      
+      this.openTab = this.$store.state.aboutid
+    }
+  },
+  mounted() {
+    this.getAbout();
+    this.changeId();
   },
 };
 </script>
