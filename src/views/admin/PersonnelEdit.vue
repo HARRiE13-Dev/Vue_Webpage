@@ -29,7 +29,7 @@
                   >
                   <input
                     v-model="code"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="รหัสนักศึกษา 10 หลัก"
                   />
@@ -48,7 +48,7 @@
                   >
                   <input
                     v-model="first_nameTh"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="ชื่อภาษาไทย"
                   />
@@ -65,7 +65,7 @@
                   >
                   <input
                     v-model="last_nameTh"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="นามสกุลภาษาไทย"
                   />
@@ -84,7 +84,7 @@
                   >
                   <input
                     v-model="first_nameEn"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="ชื่อภาษาอังกฤษ"
                   />
@@ -101,7 +101,7 @@
                   >
                   <input
                     v-model="last_nameEn"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="ชื่อภาษาอังกฤษ"
                   />
@@ -120,7 +120,7 @@
                   >
                   <input
                     v-model="phone"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="เบอร์โทรศัพท์"
                   />
@@ -137,7 +137,7 @@
                   >
                   <input
                     v-model="email"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="อีเมล"
                   />
@@ -157,7 +157,7 @@
                   >
                   <textarea
                     v-model="address"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
                     placeholder="ที่อยู่สามารถติดต่อได้"
                   ></textarea>
@@ -180,7 +180,7 @@
                   <input
                     ref="fileupload"
                     @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="file"
                   />
                 </div>

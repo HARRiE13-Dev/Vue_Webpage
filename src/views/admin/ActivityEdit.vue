@@ -26,7 +26,7 @@
                   >
                   <input
                     v-model="eTitle"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -37,7 +37,7 @@
                   >
                   <input
                     v-model="eType"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -50,7 +50,7 @@
                   >
                   <input
                     v-model="eDates"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -63,7 +63,7 @@
                   >
                   <textarea
                     v-model="eDetail"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
                     placeholder="Product description"
                   ></textarea>
@@ -76,7 +76,7 @@
                   >
                   <input
                     v-model="elinks"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -94,7 +94,7 @@
                   <input
                     ref="fileupload"
                     @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="file"
                   />
                 </div>

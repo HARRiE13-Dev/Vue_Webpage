@@ -13,73 +13,63 @@
             </div>
             <br class="shadow-xl" />
             <div
-              class="relative flex flex-col w-full  mb-4 break-words rounded"
+              class="relative flex flex-col w-full mb-2 break-words rounded"
             >
-              <div class="w-full lg:w-12/12 pr-4">
+              <!-- Simulator  -->
+              <div class="w-full lg:w-12/12 ">
                 <div class="px-2">
-                  <div class="relative text-center">
-                    <div class="text-left mb-4 file-area">
+                  <label
+                    class="block mt-4 mb-2 text-gray-500 text-lg font-semibold"
+                    >การจัดการข้อมูลเกี่ยวกับเราบนหล้าเว็บไซต์หลัก</label
+                  >
+                  <div class="flex flex-wrap mb-4">
+                    <div
+                      v-for="about in about_array"
+                      :key="about.AboutId"
+                      class="w-full px-4 md:w-12/12 border rounded-lg pt-2 pb-4 my-2"
+                    >
                       <label
-                        class="block mt-4 mb-2 text-gray-700 text-lg font-semibold"
-                        for="image"
-                        >อัพโหลดรูปภาพ</label
+                        class="block mb-5  mt-3 text-gray-700 text-xl"
+                        for="Title"
+                        ><b>หัวข้อ :</b> {{ about.Topic }}</label
                       >
-                      <input
-                        ref="fileupload"
-                        type="file"
-                        @change="onFileSelected"
-                        class="px-3 py-8 leading-tight text-gray-700 border rounded shadow w-full"
-                      />
+                      <label
+                        class="block my-3 text-gray-700 text-md"
+                        for="Title"
+                        ><b>คำอธิบาย :</b> {{ about.Detail }}
+                      </label>
+                      <div
+                        class="text-sm text-gray-500 font-normal text-right mt-4"
+                      >
+                        <label class="mr-2">
+                          แก้ไขล่าสุด : {{ about.Update_Date }}
+                        </label>
+                        <button
+                          @click="Edit(student.studentId)"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-lg shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          @click="onclickDelete(student.studentId)"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-lg shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </div>
                     </div>
-                    <img
-                      alt="..."
-                      v-if="imgUrl"
-                      :src="imgUrl"
-                      class="mt-2 rounded-lg shadow-lg center-img h-1/2 w-1/2 cropped bg-emerald-500"
-                    />
                   </div>
-                  <div class="text-center mt-4">
+                  <div class="text-center mt-4 pb-4">
                     <button
                       @click="addPicture"
                       class="px-6 py-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow-lg outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                       type="button"
                     >
                       <i class="fas fa-plus-circle"></i>
-                      เพิ่มรูปภาพ
+                      เพิ่ม
                     </button>
-                  </div>
-                </div>
-              </div>
-              <!-- Simulator  -->
-              <div class="w-full mt-0 lg:w-12/12 ">
-                <div class="border-l pr-2 pl-4">
-                  <label
-                    class="block mt-4 mb-2 text-gray-700 text-lg font-semibold"
-                    for="image"
-                    >การแสดงรูปภาพเคลื่อนไหว</label
-                  >
-                  <div class="flex flex-wrap mb-4">
-                    <div
-                      v-for="about in about_array"
-                      :key="about.AboutId"
-                      class="w-full px-2 md:w-12/12 border rounded-lg pt-2 pb-4 bg-blueGray-100"
-                    >
-                      <label
-                        class="block my-3 text-gray-700 text-md"
-                        for="Title"
-                        >ชื่อ (ภาษาไทย) {{ about.Topic }}</label
-                      >
-
-                      <label
-                        class="block my-3 text-gray-700 text-md"
-                        for="Title"
-                        >ชื่อ (ภาษาไทย)</label
-                      >
-                      <p>
-                        {{ about.Detail }}
-                      </p>
-                      <p>{{about.Update_Date}}</p>
-                    </div>
                   </div>
                 </div>
               </div>

@@ -29,7 +29,7 @@
                   >
                   <input
                     v-model="eFirstname"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -46,7 +46,7 @@
                   >
                   <input
                     v-model="eLastname"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -65,7 +65,7 @@
                   >
                   <input
                     v-model="eCode"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -80,7 +80,7 @@
                   >
                   <input
                     v-model="eWorkplace"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -97,7 +97,7 @@
                   >
                   <input
                     v-model="ePosition"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -116,7 +116,7 @@
                   >
                   <textarea
                     v-model="eCaption"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
                     placeholder="Product description"
                   ></textarea>
@@ -129,7 +129,7 @@
                   >
                   <input
                     v-model="eContact"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Product name"
                   />
@@ -147,7 +147,7 @@
                   <input
                     ref="fileupload"
                     @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="file"
                   />
                 </div>

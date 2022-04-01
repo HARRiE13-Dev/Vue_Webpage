@@ -32,7 +32,7 @@
                   >
                   <input
                     v-model="Firstname"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Firstname"
                   />
@@ -49,7 +49,7 @@
                   >
                   <input
                     v-model="Lastname"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Lastname"
                   />
@@ -68,7 +68,7 @@
                   >
                   <input
                     v-model="Code"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Student Code / Generation"
                   />
@@ -83,7 +83,7 @@
                   >
                   <input
                     v-model="Workplace"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Workplace"
                   />
@@ -100,7 +100,7 @@
                   >
                   <input
                     v-model="Position"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Position"
                   />
@@ -119,7 +119,7 @@
                   >
                   <textarea
                     v-model="Caption"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
                     placeholder="Caption"
                   ></textarea>
@@ -132,7 +132,7 @@
                   >
                   <input
                     v-model="Contact"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Contact"
                   />
@@ -150,7 +150,7 @@
                   <input
                     ref="fileupload"
                     @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="file"
                   />
                 </div>

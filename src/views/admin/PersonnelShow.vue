@@ -277,7 +277,7 @@ export default {
               .delete(`	student/delete/${id}`)
               .then(() => {
                 this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
-                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
+                window.location.reload();
                 if (this.keyword == "") {
                   this.getProducts(this.currentPage);
                 } else {

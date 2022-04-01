@@ -30,7 +30,7 @@
                   >
                   <input
                     v-model="Title"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Title"
                   />
@@ -44,7 +44,7 @@
                   >
                   <input
                     v-model="Type"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Type"
                   />
@@ -60,7 +60,7 @@
                   >
                   <input
                     v-model="Dates"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="Date"
                   />
@@ -76,7 +76,7 @@
                   >
                   <textarea
                     v-model="Detail"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
                     placeholder="Description"
                   ></textarea>
@@ -95,7 +95,7 @@
                   >
                   <input
                     v-model="links"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="URL"
                   />
@@ -113,7 +113,7 @@
                   <input
                     ref="fileupload"
                     @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="file"
                   />
                 </div>
@@ -167,8 +167,8 @@ export default {
       Title: "",
       links: "",
       Type: "",
-      File:"xxx",
-      
+      File: "xxx",
+
       imgSrc: "",
       fileName: "",
       imgUrl: "",
@@ -221,21 +221,19 @@ export default {
         data.append("News_File", this.File);
         data.append("News_links", this.links);
         data.append("News_Type", this.Type);
-        
+
         data.append("News_Picture", this.file);
-        
-        
+
         //Post in Web
         http.post(`news/create`, data).then((response) => {
           console.log(response);
-          
+
           const Toast = this.$swal.mixin({
             toast: true,
             position: "top-end",
             showConfirmButton: false,
             timer: 1500,
             timerProgressBar: true,
-            
           });
           Toast.fire({
             icon: "success",

@@ -197,15 +197,10 @@
 </template>
 <script>
 import http from "@/services/APIService";
-//import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
-import moment from "moment";
-
-//import moment from "moment";
 export default {
   data() {
     return {
-      /** ตัวแปรสำหรับเก็บข้อมูลสินค้าที่อ่านจาก API */
       products: [],
       currentPage: 0,
       perPage: 0,
@@ -227,10 +222,6 @@ export default {
       this.$router.push({ name: "StudentEdit" });
       this.$store.state.studentEdit = id;
     },
-    /***********************************************************************
-     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
-     ************************************************************************/
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
     async getProducts(pageNumber) {
       let response = await http.get(`student?page=${pageNumber}`);
       let responseProduct = response.data;
@@ -239,7 +230,6 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
     },
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
       let response = await http.get(
         `student/${this.keyword}?page=${pageNumber}`
@@ -250,7 +240,6 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
     },
-    // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
     onPageClick(event) {
       this.currentPage = event;
       // เช็คว่ามีการค้นหาสินค้าอยู่หรือไม่
@@ -261,10 +250,6 @@ export default {
         this.getProductsSearch(this.currentPage);
       }
     },
-    /***********************************************************************
-     * ส่วนของการลบสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันสำหรับลบสินค้า
     onclickDelete(id) {
       this.$swal
         .fire({
@@ -277,10 +262,10 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             http
-              .delete(`	student/delete/${id}`)
+              .delete(`student/delete/${id}`)
               .then(() => {
                 this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
-                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
+                window.location.reload();
                 if (this.keyword == "") {
                   this.getProducts(this.currentPage);
                 } else {
@@ -295,10 +280,6 @@ export default {
           }
         });
     },
-    /***********************************************************************
-     * ส่วนของการค้นหาสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันค้นหาสินค้า
     submitSearchForm() {
       if (this.keyword != "") {
         // เรียกค้นไปยัง api ของ laravel
@@ -310,32 +291,19 @@ export default {
           this.total = responseProduct.total;
         });
       } else {
-        this.$swal.fire("ป้อนชื่อสินค้าที่ต้องการค้นหาก่อน");
+        this.$swal.fire("ป้อนรหัสนักศึกษาที่ต้องการค้นหาก่อน");
       }
     },
-    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลการค้นหา
     resetSearchForm() {
       this.currentPage = 1;
       this.getProducts(this.currentPage);
       this.keyword = "";
     },
-    // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("DD/MM/YYYY hh:mm:ss");
-      }
-    },
-    // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(",", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
   },
-
   components: { VueTailwindPagination },
   mounted() {
     this.currentPage = 1;
-    // อ่านสินค้าจาก API
+
     this.getProducts(this.currentPage);
   },
 };

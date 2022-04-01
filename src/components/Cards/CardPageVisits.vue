@@ -6,7 +6,7 @@
       <div class="flex flex-wrap items-center">
         <div class="relative flex-1 flex-grow w-full max-w-full px-4">
           <h3 class="text-base font-semibold text-blueGray-700">
-            ประวิติผู้ใช้งาน (เข้าสู่ระบบ)
+            ผู้ใช้งานเข้าสู่ระบบ
           </h3>
         </div>
         <!-- <div
@@ -58,118 +58,32 @@
             <th
               class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
             >
-              1
+               <!-- empty -->
             </th>
             <td
               class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
             >
-              อิสรา นุชนันท์
+                <!-- empty -->
             </td>
             <td
               class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
             >
-              นักศึกษา
+                <!-- empty -->
             </td>
             <td
               class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
             >
-              13/08/2563 เวลา 12:00:00
+               <!-- empty -->
               
             </td>
             <td
               class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
             >
               
-              iOS / Apple iPhone
+            <!-- empty -->
             </td>
           </tr>
-          <tr>
-            <th
-              class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              2
-            </th>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              ทศพล สุขสวัสดิ์
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              นักศึกษา
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              13/08/2563 เวลา 12:00:00
-              
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              
-              Andoids / Samsung 
-            </td>
-          </tr>
-          <tr>
-            <th
-              class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              3
-            </th>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              นงค์กานต์ สุขสวัสดิ์
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              นักศึกษา
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              16/08/2563 เวลา 12:00:00
-              
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              
-              Windows / Apple iPhone
-            </td>
-          </tr>
-          <tr>
-            <th
-              class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              4
-            </th>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-             สุขสวัสดิ์ สันติพร
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              นักศึกษา
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              13/08/2563 เวลา 12:00:00
-              
-            </td>
-            <td
-              class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-            >
-              
-              iOS / Apple iPhone
-            </td>
-          </tr>
+         
           
         </tbody>
       </table>

@@ -29,15 +29,12 @@
                   >
                   <input
                     v-model="code"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="รหัสนักศึกษา 10 หลัก"
                   />
-                  <div
-                    v-if="v$.Lastname.$error"
-                    class="mt-2 text-sm text-red-500"
-                  >
-                    {{ v$.Lastname.$errors[0].$message }}
+                  <div v-if="v$.code.$error" class="mt-2 text-sm text-red-500">
+                    {{ v$.code.$errors[0].$message }}
                   </div>
                 </div>
               </div>
@@ -48,15 +45,15 @@
                   >
                   <input
                     v-model="first_nameTh"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="ชื่อภาษาไทย"
                   />
                   <div
-                    v-if="v$.Firstname.$error"
+                    v-if="v$.first_nameTh.$error"
                     class="mt-2 text-sm text-red-500"
                   >
-                    {{ v$.Firstname.$errors[0].$message }}
+                    {{ v$.first_nameTh.$errors[0].$message }}
                   </div>
                 </div>
                 <div class="w-full px-4 md:w-6/12">
@@ -65,15 +62,15 @@
                   >
                   <input
                     v-model="last_nameTh"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="นามสกุลภาษาไทย"
                   />
                   <div
-                    v-if="v$.Lastname.$error"
+                    v-if="v$.last_nameTh.$error"
                     class="mt-2 text-sm text-red-500"
                   >
-                    {{ v$.Lastname.$errors[0].$message }}
+                    {{ v$.last_nameTh.$errors[0].$message }}
                   </div>
                 </div>
               </div>
@@ -84,15 +81,15 @@
                   >
                   <input
                     v-model="first_nameEn"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="ชื่อภาษาอังกฤษ"
                   />
                   <div
-                    v-if="v$.Firstname.$error"
+                    v-if="v$.first_nameEn.$error"
                     class="mt-2 text-sm text-red-500"
                   >
-                    {{ v$.Firstname.$errors[0].$message }}
+                    {{ v$.first_nameEn.$errors[0].$message }}
                   </div>
                 </div>
                 <div class="w-full px-4 md:w-6/12">
@@ -101,15 +98,15 @@
                   >
                   <input
                     v-model="last_nameEn"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="ชื่อภาษาอังกฤษ"
                   />
                   <div
-                    v-if="v$.Lastname.$error"
+                    v-if="v$.last_nameEn.$error"
                     class="mt-2 text-sm text-red-500"
                   >
-                    {{ v$.Lastname.$errors[0].$message }}
+                    {{ v$.last_nameEn.$errors[0].$message }}
                   </div>
                 </div>
               </div>
@@ -120,15 +117,12 @@
                   >
                   <input
                     v-model="phone"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="เบอร์โทรศัพท์"
                   />
-                  <div
-                    v-if="v$.Firstname.$error"
-                    class="mt-2 text-sm text-red-500"
-                  >
-                    {{ v$.Firstname.$errors[0].$message }}
+                  <div v-if="v$.phone.$error" class="mt-2 text-sm text-red-500">
+                    {{ v$.phone.$errors[0].$message }}
                   </div>
                 </div>
                 <div class="w-full px-4 md:w-6/12">
@@ -137,15 +131,12 @@
                   >
                   <input
                     v-model="email"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
                     placeholder="อีเมล"
                   />
-                  <div
-                    v-if="v$.Lastname.$error"
-                    class="mt-2 text-sm text-red-500"
-                  >
-                    {{ v$.Lastname.$errors[0].$message }}
+                  <div v-if="v$.email.$error" class="mt-2 text-sm text-red-500">
+                    {{ v$.email.$errors[0].$message }}
                   </div>
                 </div>
               </div>
@@ -157,7 +148,7 @@
                   >
                   <textarea
                     v-model="address"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
                     placeholder="ที่อยู่สามารถติดต่อได้"
                   ></textarea>
@@ -180,18 +171,18 @@
                   <input
                     ref="fileupload"
                     @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow"
+                    class="w-full px-3 py-2 leading-tight text-gray-700 border-b "
                     type="file"
                   />
                 </div>
               </div>
               <div class="py-6 text-center">
                 <button
-                  @click="submitFormEdit()"
+                  @click="submitFormAdd"
                   class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
-                  อัพเดทข้อมูล
+                  บันทึกข้อมูล
                 </button>
               </div>
             </form>
@@ -231,64 +222,64 @@ export default {
       this.file = e.target.files[0];
       this.imgUrl = URL.createObjectURL(file);
     },
-
-    EditProduct() {
-      this.id = this.$store.state.studentEdit;
-      http.get(`student/id/${this.id}`).then((response) => {
-        this.imgUrl = response.data.PictureProfile;
-      });
-    },
-
-    submitFormEdit() {
-      let data = new FormData();
-      data.append("studentCode", this.code);
-      data.append("nameTh", this.first_nameTh);
-      data.append("surnameTh", this.last_nameTh);
-      data.append("nameEn", this.first_nameEn);
-      data.append("surnameEn", this.last_nameEn);
-      data.append("EmailStudent", this.email);
-      data.append("mobile", this.phone);
-      data.append("Address", this.address);
-      data.append("PictureProfile", this.file);
-
-      http.post(`student/create`, data).then(() => {
-        const Toast = this.$swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 1500,
-          timerProgressBar: true,
+    submitFormAdd() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        let data = new FormData();
+        data.append("studentCode", this.code);
+        data.append("nameTh", this.first_nameTh);
+        data.append("surnameTh", this.last_nameTh);
+        data.append("nameEn", this.first_nameEn);
+        data.append("surnameEn", this.last_nameEn);
+        data.append("EmailStudent", this.email);
+        data.append("mobile", this.phone);
+        data.append("Address", this.address);
+        data.append("PictureProfile", this.file);
+        http.post(`student/create`, data).then(() => {
+          const Toast = this.$swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+          });
+          Toast.fire({
+            icon: "success",
+            title: "เพิ่มข้อมูลเรียบร้อย",
+          }).then(() => {
+            this.$router.push({ name: "StudentShow" });
+          });
         });
-        Toast.fire({
-          icon: "success",
-          title: "เพิ่มข้อมูลเรียบร้อย",
-        }).then(() => {
-          this.$router.push({ name: "StudentShow" });
-        });
-      });
+      }
     },
   },
   validations() {
     return {
-      Firstname: {
-        required: helpers.withMessage("ป้อนรายละเอียดข่าวก่อน", required),
+      code: {
+        required: helpers.withMessage("ป้อนรหัสนักศึกษาก่อน", required),
       },
-      Lastname: {
-        required: helpers.withMessage("ป้อนวันที่ก่อน", required),
+      first_nameTh: {
+        required: helpers.withMessage("ป้อนชื่อภาษาไทยก่อน", required),
       },
-
-      Workplace: {
-        required: helpers.withMessage("ป้อนหัวข้อข่าวก่อน", required),
+      last_nameTh: {
+        required: helpers.withMessage("ป้อนนามสกุลภาษาไทยก่อน", required),
       },
-
-      Position: {
-        required: helpers.withMessage("ป้อนประเภทข่าวก่อน", required),
+      first_nameEn: {
+        required: helpers.withMessage("ป้อนชื่อภาษาอังกฤษก่อน", required),
+      },
+      last_nameEn: {
+        required: helpers.withMessage("ป้อนนามสกุลภาษาอังกฤษก่อน", required),
+      },
+      email: {
+        required: helpers.withMessage("ป้อนอีเมลส่วนตัวก่อน", required),
+      },
+      phone: {
+        required: helpers.withMessage("ป้อนเบอร์ติดต่อก่อน", required),
       },
     };
   },
   components: {},
   mounted() {
-    this.EditProduct();
   },
 };
 </script>
