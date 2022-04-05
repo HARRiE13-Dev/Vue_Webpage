@@ -203,7 +203,10 @@
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
-                              >มือถือ</label
+                              >มือถือ
+                              <span class="text-sm text-red-500 italic"
+                                >**ไม่ต้องใส่ขีด (-)**</span
+                              ></label
                             >
                             <input
                               v-model="phone"
@@ -429,10 +432,31 @@ export default {
         Swal.fire({
           icon: "success",
           title: `แก้ไขข้อมูลเรียบร้อย`,
-        }).then(() => {
-          this.$router.push({ name: "ServiceStudent" });
-          window.location.reload();
-        });
+        })
+          .then(() => {
+            this.$router.push({ name: "ServiceStudent" });
+            window.location.reload();
+          })
+          .catch((error) => {
+            if (error.response) {
+              console.log(error.response);
+              if (error.response.status == 500) {
+                //Call Sweet Alert
+                const Toast = this.$swal.mixin({
+                  toast: true,
+                  position: "top-end",
+                  showConfirmButton: false,
+                  timer: 1000,
+                  timerProgressBar: true,
+                });
+
+                Toast.fire({
+                  icon: "error",
+                  title: "ไม่สามารถเชื่อมต่อกับระบบได้",
+                });
+              }
+            }
+          });
       });
     },
   },

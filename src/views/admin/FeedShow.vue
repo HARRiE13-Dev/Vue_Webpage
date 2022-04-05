@@ -7,7 +7,9 @@
         <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">CSMJU | ระบบประกาศข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">
+                CSMJU | ระบบประกาศข่าวสาร
+              </h1>
             </div>
             <br class="shadow-xl" />
             <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
@@ -148,7 +150,7 @@
                           <i class="fas fa-edit"></i>
                         </button>
                         <button
-                          @click="onclickDelete(feed.newsId)"
+                          @click="Delete(feed.newsId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
@@ -176,15 +178,10 @@
 </template>
 <script>
 import http from "@/services/APIService";
-//import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
-import moment from "moment";
-
-//import moment from "moment";
 export default {
   data() {
     return {
-      /** ตัวแปรสำหรับเก็บข้อมูลสินค้าที่อ่านจาก API */
       products: [],
       currentPage: 0,
       perPage: 0,
@@ -202,9 +199,9 @@ export default {
     };
   },
   methods: {
-    Edit(newsId) {
+    Edit(id) {
       this.$router.push({ name: "EditFeed" });
-      this.$store.state.newsEdit = newsId;
+      this.$store.state.newsEdit = id;
     },
     /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
@@ -240,44 +237,45 @@ export default {
         this.getProductsSearch(this.currentPage);
       }
     },
-    /***********************************************************************
-     * ส่วนของการลบสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันสำหรับลบสินค้า
-    onclickDelete(id) {
-      this.$swal
+    Delete(id) {
+      const swalWithBootstrapButtons = this.$swal.mixin({
+        customClass: {
+          title: "font-weight-bold",
+          confirmButton:
+            "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          cancelButton:
+            "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
         .fire({
-          title: "ยืนยันการลบรายการนี้",
-          showDenyButton: false,
+          title: "ยืนยันการลบข้อมูล",
+          icon: "warning",
           showCancelButton: true,
-          confirmButtonText: `ยืนยัน`,
-          cancelButtonText: `ปิดหน้าต่าง`,
+          confirmButtonText: "ยืนยัน",
+          cancelButtonText: "ยกเลิก",
+          reverseButtons: true,
         })
         .then((result) => {
           if (result.isConfirmed) {
-            http
-              .delete(`newsdelete/${id}`)
-              .then(() => {
-                this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
-                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
-                if (this.keyword == "") {
-                  this.getProducts(this.currentPage);
-                } else {
-                  this.getProductsSearch(this.currentPage);
-                }
-              })
-              .catch((error) => {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-              });
+            http.delete(`news/delete/${id}`).then(() => {
+              swalWithBootstrapButtons
+                .fire("ลบข้อมูลเรียบร้อย!", "", "success")
+                .then(() => {
+                  window.location.reload();
+                });
+            });
+          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+              "ยกเลิกการลบข้อมูลเรียบร้อย!",
+              "",
+              "error"
+            );
+            window.location.reload();
           }
         });
     },
-    /***********************************************************************
-     * ส่วนของการค้นหาสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันค้นหาสินค้า
     submitSearchForm() {
       if (this.keyword != "") {
         // เรียกค้นไปยัง api ของ laravel
@@ -289,32 +287,18 @@ export default {
           this.total = responseProduct.total;
         });
       } else {
-        this.$swal.fire("ป้อนชื่อสินค้าที่ต้องการค้นหาก่อน");
+        this.$swal.fire("ป้อนข่าวที่ต้องการค้นหาก่อน");
       }
     },
-    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลการค้นหา
     resetSearchForm() {
       this.currentPage = 1;
       this.getProducts(this.currentPage);
       this.keyword = "";
     },
-    // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("DD/MM/YYYY hh:mm:ss");
-      }
-    },
-    // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(",", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
   },
-
   components: { VueTailwindPagination },
   mounted() {
     this.currentPage = 1;
-    // อ่านสินค้าจาก API
     this.getProducts(this.currentPage);
   },
 };

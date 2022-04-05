@@ -81,27 +81,14 @@ export default {
 
   methods: {
     getPersonnelData() {
-      let local_user = JSON.parse(window.localStorage.getItem("user"));
-      let userData = local_user.user;
-      let idUserData = userData.id;
-      idUserData = idUserData - 1;
       http
-        .get(`personnel/id/${idUserData}`)
+        .get(`personnel/id/17`)
         .then((response) => {
           this.personnel_array = response.data;
           //Get data from API
           this.introduction = this.personnel_array.titlePosition;
           this.firstname = this.personnel_array.firstName;
           this.lastname = this.personnel_array.lastName;
-
-          // this.titleEn = this.personnel_array.titleNameEn;
-          // this.firstnameEn = this.personnel_array.fistNameEn;
-          // this.lastnameEn = this.personnel_array.lastNameEn;
-
-          // this.email = this.personnel_array.e_mail;
-          // this.tel = this.personnel_array.phoneNumber;
-
-          // this.position = this.personnel_array.adminPosition;
           this.image = this.personnel_array.personnelPhoto;
         })
         .catch((error) => {
@@ -142,7 +129,7 @@ export default {
     },
     onClickLogout() {
       localStorage.removeItem("user");
-      localStorage.removeItem("permission")
+      localStorage.removeItem("permission");
       this.$router.push({ name: "Login" });
     },
   },

@@ -130,7 +130,7 @@
                               placeholder="Address"
                             />
                           </div>
-                          <div class="w-full px-2 mb-2 md:w-6/12">
+                          <div class="w-full px-2 mb-4 md:w-6/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
@@ -143,7 +143,7 @@
                               placeholder="Phone Number"
                             />
                           </div>
-                          <div class="w-full px-2 mb-2 md:w-6/12">
+                          <div class="w-full px-2 mb-4 md:w-6/12">
                             <label
                               class="block my-3 text-gray-700 text-md"
                               for="Title"
@@ -559,7 +559,7 @@
                                     <p
                                       class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
                                     >
-                                      {{ port_loop.port }}
+                                      • {{ port_loop.port }}
                                     </p>
                                   </div>
                                 </div>
@@ -587,6 +587,9 @@ import http from "@/services/WebpageService";
 export default {
   data() {
     return {
+      cvId: 0,
+      personnel_array: [],
+      cv_array: [],
       position: "",
       first_name: "",
       last_name: "",
@@ -615,6 +618,7 @@ export default {
     };
   },
   mounted() {
+    this.getCvData();
     this.getPersonnelData();
     this.dateDropdown1();
     this.dateDropdown2();
@@ -633,48 +637,6 @@ export default {
     //   return true;
     // },
 
-    printCV() {
-      const swalWithBootstrapButtons = this.$swal.mixin({
-        customClass: {
-          title: "font-weight-bold",
-          confirmButton:
-            "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-          cancelButton:
-            "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-        },
-        buttonsStyling: false,
-      });
-
-      swalWithBootstrapButtons
-        .fire({
-          title: "ยืนยันการนำออกเอกสาร",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonText: "ยืนยัน",
-          cancelButtonText: "ยกเลิก",
-          reverseButtons: true,
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            swalWithBootstrapButtons.fire(
-              "นำออกเอกสารเรียบร้อย!",
-              "ระบบกำลังพิมพ์เอกสาร",
-              "success"
-            );
-
-            let routeData = this.$router.resolve({
-              name: "CVPrint",
-            });
-            window.open(routeData.href, "_blank");
-          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
-            swalWithBootstrapButtons.fire(
-              "ยกเลิกเรียบร้อย!",
-              "คุณได้ยกเลิกการนำออกเอกสาร",
-              "error"
-            );
-          }
-        });
-    },
     dateDropdown1() {
       let dateDropdown = document.getElementById("date-dropdown1");
 
@@ -714,10 +676,8 @@ export default {
         currentYear -= 1;
       }
     },
-
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
-
       http
         .get(`personnel/cardid/${local_user.card_id}`)
         .then((response) => {
@@ -755,7 +715,147 @@ export default {
           }
         });
     },
+    getCvData() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      http
+        .get(`cv/${local_user.card_id}`)
+        .then((response) => {
+          this.cv_array = response.data[0];
+          //Get data from API
+          this.cvId = this.cv_array.cvId;
+          this.bio = this.cv_array.Bio_Personnel;
+          let bachelor = this.cv_array.BachelorDegree.split(" ");
+          this.year1 = bachelor[1];
+          this.graduate1 = bachelor[2];
+          this.institution1 = bachelor[3] + " " + bachelor[4];
+          let master = this.cv_array.MastersDegree.split(" ");
+          this.year2 = master[1];
+          this.graduate2 = master[2];
+          this.institution2 = master[3] + " " + master[4];
+          let doctor = this.cv_array.DoctoralDegree.split(" ");
+          this.year3 = doctor[1];
+          this.graduate3 = doctor[1];
+          this.institution3 = doctor[3] + " " + doctor[4];
 
+          this.experience_array = this.cv_array.Experience.split(",");
+          this.skill_array = this.cv_array.Skill.split(",");
+          this.portfolio_array = this.cv_array.Portfolio.split(",");
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
+    },
+    printCV() {
+      const swalWithBootstrapButtons = this.$swal.mixin({
+        customClass: {
+          title: "font-weight-bold",
+          confirmButton:
+            "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          cancelButton:
+            "px-6 py-3 mx-4 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+        },
+        buttonsStyling: false,
+      });
+
+      swalWithBootstrapButtons
+        .fire({
+          title: "ยืนยันการนำออกเอกสาร",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "ยืนยัน",
+          cancelButtonText: "ยกเลิก",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            let local_user = JSON.parse(window.localStorage.getItem("user"));
+            let skills = [];
+            let exps = [];
+            let ports = [];
+            this.skill_array.forEach((element) => {
+              skills.push(element.skill);
+            });
+            this.experience_array.forEach((element) => {
+              exps.push(element.exp);
+            });
+            this.portfolio_array.forEach((element) => {
+              ports.push(element.port);
+            });
+
+            let data = new FormData();
+            data.append("Bio_Personnel", this.bio);
+            data.append("Experience", exps);
+            data.append("Skill", skills);
+            data.append("Portfolio", ports);
+            data.append(
+              "BachelorDegree",
+              this.year1 + " " + this.graduate1 + " " + this.institution1
+            );
+            data.append(
+              "MastersDegree",
+              this.year2 + " " + this.graduate2 + " " + this.institution2
+            );
+            data.append(
+              "DoctoralDegree",
+              this.year3 + " " + this.graduate3 + " " + this.institution3
+            );
+            data.append("Bachelor Degree", null);
+            data.append("citizenId", local_user.card_id);
+            if (this.cv_array == null) {
+              http.post("cv/create", data).then(() => {
+                swalWithBootstrapButtons
+                  .fire(
+                    "นำออกเอกสารเรียบร้อย!",
+                    "ระบบกำลังพิมพ์เอกสาร",
+                    "success"
+                  )
+                  .then(() => {
+                    let routeData = this.$router.resolve({
+                      name: "CVPrint",
+                    });
+                    window.open(routeData.href, "_blank");
+                  });
+              });
+            } else if (this.cv_array != null) {
+              http.post(`cv/update/${this.cvId}`, data).then(() => {
+                swalWithBootstrapButtons
+                  .fire(
+                    "นำออกเอกสารเรียบร้อย!",
+                    "ระบบกำลังพิมพ์เอกสาร",
+                    "success"
+                  )
+                  .then(() => {
+                    let routeData = this.$router.resolve({
+                      name: "CVPrint",
+                    });
+                    window.open(routeData.href, "_blank");
+                  });
+              });
+            }
+          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+              "ยกเลิกเรียบร้อย!",
+              "คุณได้ยกเลิกการนำออกเอกสาร",
+              "error"
+            );
+          }
+        });
+    },
     addField_exp(object, fieldType) {
       let newObject = {};
       for (const [key] of Object.entries(object)) {

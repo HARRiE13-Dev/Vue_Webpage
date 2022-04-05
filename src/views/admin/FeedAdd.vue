@@ -23,7 +23,7 @@
               @submit.prevent="onSubmit"
               enctype="multipart/form-data"
             >
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-6/12">
                   <label class="block my-3 text-gray-700 text-md" for="Title"
                     >หัวข้อข่าว</label
@@ -32,7 +32,7 @@
                     v-model="Title"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="Title"
+                    placeholder="News Title"
                   />
                   <div v-if="v$.Title.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.Title.$errors[0].$message }}
@@ -42,34 +42,45 @@
                   <label class="block my-3 text-gray-700 text-md" for="Type"
                     >ประเภทข่าว</label
                   >
-                  <input
+                  <select
                     v-model="Type"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="text"
-                    placeholder="Type"
-                  />
+                    class="w-full px-3 py-2 leading-tight text-gray-700 "
+                  >
+                    <option value="ทั่วไป">ทั่วไป</option>
+                    <option value="ประกาศ">ประกาศ</option>
+                    <option value="รับสมัคร">รับสมัคร</option>
+                    <option value="ประชาสัมพันธ์">ประชาสัมพันธ์</option>
+                    <option value="ทุนการศึกษา">ทุนการศึกษา</option>
+                    <option value="กิจกรรม">กิจกรรม</option>
+                    <option value="เร่งด่วน">เร่งด่วน</option>
+                  </select>
                   <div v-if="v$.Type.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.Type.$errors[0].$message }}
                   </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-6/12">
                   <label class="block my-3 text-gray-700 text-md" for="Dates"
-                    >วันที่</label
+                    >วันที่ประกาศข่าว (วว/ดด/ปปปป)</label
                   >
-                  <input
-                    v-model="Dates"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="text"
-                    placeholder="Date"
-                  />
+                  <div class="flex w-full mt-2">
+                    <v-date-picker v-model="Dates">
+                      <template #default="{ inputValue, inputEvents }">
+                        <input
+                          class="px-3 py-1 border border-gray-500 text-gray-700 text-md focus:outline-none focus:border-blue-500"
+                          :value="inputValue"
+                          v-on="inputEvents"
+                        />
+                      </template>
+                    </v-date-picker>
+                  </div>
                   <div v-if="v$.Dates.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.Dates.$errors[0].$message }}
                   </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
                   <label class="block my-3 text-gray-700 text-md" for="Detail"
                     >รายละเอียด</label
@@ -78,7 +89,7 @@
                     v-model="Detail"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
-                    placeholder="Description"
+                    placeholder="News Description"
                   ></textarea>
                   <div
                     v-if="v$.Detail.$error"
@@ -88,7 +99,7 @@
                   </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
                   <label class="block my-3 text-gray-700 text-md" for="links"
                     >ลิงค์ที่เกี่ยวข้อง</label
@@ -97,25 +108,33 @@
                     v-model="links"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="URL"
+                    placeholder="News Links / Read more (www.example.com)"
                   />
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
-                    <img v-if="imgUrl" :src="imgUrl" class="w-full" />
+                    <img
+                      v-if="imgUrl"
+                      :src="imgUrl"
+                      class="w-auto h-350-px rounded-lg shadow-lg center-img bg-emerald-500 border"
+                    />
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"
                     >รูปภาพ</label
                   >
-                  <input
-                    ref="fileupload"
-                    @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="file"
-                  />
+                  <div
+                    class="relative flex items-center justify-center h-32 bg-gray-100 border-b border-blue-700 "
+                  >
+                    <input
+                      ref="fileupload"
+                      type="file"
+                      @change="onFileChange"
+                      class="w-full h-50-px opacity-0 p-3 bg-white"
+                    />
+                  </div>
                 </div>
               </div>
               <div class="py-6 text-center">
@@ -127,11 +146,12 @@
                   ล้าง
                 </button>
                 <button
-                  @click="submitForm"
-                  class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                  @click="submitForm()"
+                  class="px-6 py-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow-lg outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
-                  ยืนยัน
+                  <i class="fas fa-save"></i>
+                  บันทึกข้อมูล
                 </button>
               </div>
             </form>
@@ -176,22 +196,15 @@ export default {
     };
   },
   methods: {
-    /***********************************************************************
-     * ส่วนของการเพิ่มสินค้าใหม่
-     ************************************************************************/
-    // สร้างฟังก์ชันเมื่อผู้ใช้มีการเลือกรูปภาพในช่องภาพสินค้า
     onFileChange(e) {
       const file = e.target.files[0];
       this.file = e.target.files[0];
       this.imgUrl = URL.createObjectURL(file);
     },
-    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลในฟอร์มเพิ่มสินค้า
     onResetForm() {
-      // การเคลียร์ค่าทั้งหมดในฟอร์ม เราจะต้อง ref
-      // ล้างข้อมูลในฟอร์ม
       this.$refs.addProductForm.reset();
       (this.Detail = ""),
-        (this.Date = ""),
+        (this.Dates = ""),
         (this.Time = ""),
         (this.Picture = ""),
         (this.Title = ""),
@@ -204,30 +217,21 @@ export default {
       this.file = "";
       this.$refs.fileupload.value = null;
     },
-    // สร้างฟังก์ชันสำหรับ submit form สินค้า
     submitForm() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        // ถ้าไม่มี error ในฟอร์ม
-        this.Dates = this.year + "-" + this.month + "-" + this.day;
         this.Time = this.hour + ":" + this.minute + ":" + this.second;
-        // alert('succcess')
-        // ใช้ FormData ของ HTML 5 API ในการรับค่าจากฟอร์มที่มีการแนบไฟล์
+        let formatDate = this.Dates.toISOString().slice(0, 10);
         let data = new FormData();
         data.append("News_Detail", this.Detail);
-        data.append("News_Date", this.Dates);
+        data.append("News_Date", formatDate);
         data.append("News_Time", this.Time);
         data.append("News_Title", this.Title);
         data.append("News_File", this.File);
         data.append("News_links", this.links);
         data.append("News_Type", this.Type);
-
         data.append("News_Picture", this.file);
-
-        //Post in Web
-        http.post(`news/create`, data).then((response) => {
-          console.log(response);
-
+        http.post(`news/create`, data).then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
             position: "top-end",
@@ -264,8 +268,5 @@ export default {
     };
   },
   components: {},
-  mounted() {
-    // อ่านสินค้าจาก API
-  },
 };
 </script>

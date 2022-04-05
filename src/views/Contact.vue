@@ -132,7 +132,7 @@
                 <img
                   v-if="imgUrl"
                   :src="imgUrl"
-                  class="w-full cropped-card1 rounded-lg shadow-lg"
+                  class="w-full cropped-card1 rounded-lg shadow-lg border-b"
                 />
               </div>
 

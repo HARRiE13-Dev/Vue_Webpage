@@ -89,13 +89,31 @@
                   ประสบการณ์การทำงาน / Experience
                 </h1>
                 <div class="pt-1 border-t"></div>
-                <div v-for="exp_loop in experience_array" :key="exp_loop.exp">
-                  <p
-                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
-                  >
-                    {{ exp_loop.exp }}
-                  </p>
-                </div>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ exp_1 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ exp_2 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ exp_3 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ exp_4 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ exp_5 }}
+                </p>
               </div>
               <div class="px-0">
                 <h1 class="mt-6 font-semibold text-lg text-blueGray-700">
@@ -103,13 +121,31 @@
                   ทักษะ / Skills
                 </h1>
                 <div class="pt-1 border-t"></div>
-                <div v-for="skill_loop in skill_array" :key="skill_loop.skill">
-                  <p
-                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
-                  >
-                    {{ skill_loop.skill }}
-                  </p>
-                </div>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ skill_1 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ skill_2 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ skill_3 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ skill_4 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ skill_5 }}
+                </p>
               </div>
               <div class="px-0">
                 <h1 class="mt-6 font-semibold text-lg text-blueGray-700">
@@ -117,13 +153,31 @@
                   ผลงาน / Portfolio
                 </h1>
                 <div class="pt-1 border-t"></div>
-                <div v-for="port_loop in portfolio_array" :key="port_loop.port">
-                  <p
-                    class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
-                  >
-                    {{ port_loop.port }}
-                  </p>
-                </div>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ port_1 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ port_2 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ port_3 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ port_4 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ port_5 }}
+                </p>
               </div>
             </div>
           </div>
@@ -138,17 +192,36 @@ import http from "@/services/WebpageService";
 export default {
   data() {
     return {
+      cv_array: [],
       position: "",
       first_name: "",
       last_name: "",
       titleEn: "",
       first_nameEn: "",
       last_nameEn: "",
-      address: "",
+      address: "มหาวิทยาลัยแม่โจ้",
       phone: "",
       email: "",
 
       bio: "",
+
+      exp_1: "",
+      exp_2: "",
+      exp_3: "",
+      exp_4: "",
+      exp_5: "",
+
+      skill_1: "",
+      skill_2: "",
+      skill_3: "",
+      skill_4: "",
+      skill_5: "",
+
+      port_1: "",
+      port_2: "",
+      port_3: "",
+      port_4: "",
+      port_5: "",
 
       experience_array: [{ exp: "" }],
       skill_array: [{ skill: "" }],
@@ -167,16 +240,74 @@ export default {
   },
   mounted() {
     this.getPersonnelData();
-    this.printCV();
+    //this.printCV();
+    this.getCvData();
   },
 
   methods: {
-    async printCV() {
-      document.title = `${this.last_nameEn}_CV.pdf`;
+    printCV() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      document.title = `CV_Aj-${local_user.email.slice(0, 4)}.pdf`;
       window.print();
-      window.onafterprint = window.close;	
-      
+      window.onafterprint = window.close;
+    },
+    getCvData() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      http
+        .get(`cv/${local_user.card_id}`)
+        .then((response) => {
+          this.cv_array = response.data[0];
+          //Get data from API
+          this.bio = this.cv_array.Bio_Personnel;
+          this.year1 = this.cv_array.BachelorDegree.slice(0, 6);
+          this.graduate1 = this.cv_array.BachelorDegree.slice(6, 9);
+          this.institution1 = this.cv_array.BachelorDegree.slice(9);
+          this.year2 = this.cv_array.MastersDegree.slice(0, 6);
+          this.graduate2 = this.cv_array.MastersDegree.slice(6, 9);
+          this.institution2 = this.cv_array.MastersDegree.slice(9);
+          this.year3 = this.cv_array.DoctoralDegree.slice(0, 6);
+          this.graduate3 = this.cv_array.DoctoralDegree.slice(6, 9);
+          this.institution3 = this.cv_array.DoctoralDegree.slice(9);
 
+          this.experience_array = this.cv_array.Experience.split(",");
+          this.exp_1 = this.experience_array[0];
+          this.exp_2 = this.experience_array[1];
+          this.exp_3 = this.experience_array[2];
+          this.exp_4 = this.experience_array[3];
+          this.exp_5 = this.experience_array[4];
+
+          this.skill_array = this.cv_array.Skill.split(",");
+          this.skill_1 = this.skill_array[0];
+          this.skill_2 = this.skill_array[1];
+          this.skill_3 = this.skill_array[2];
+          this.skill_4 = this.skill_array[3];
+          this.skill_5 = this.skill_array[4];
+
+          this.portfolio_array = this.cv_array.Portfolio.split(",");
+          this.port_1 = this.portfolio_array[0];
+          this.port_2 = this.portfolio_array[1];
+          this.port_3 = this.portfolio_array[2];
+          this.port_4 = this.portfolio_array[3];
+          this.port_5 = this.portfolio_array[4];
+        })
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status == 500) {
+              //Call Sweet Alert
+              const Toast = this.$swal.mixin({
+                position: "center",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Connection Error",
+              });
+            }
+          }
+        });
     },
 
     getPersonnelData() {

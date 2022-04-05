@@ -121,7 +121,7 @@
           </li>
           <li class="items-center">
             <router-link
-              to="/admin/aboutme"
+              to="/admin/aboutmeshow"
               v-slot="{ href, navigate, isActive }"
             >
               <a

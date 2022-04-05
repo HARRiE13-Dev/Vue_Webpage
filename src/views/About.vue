@@ -212,7 +212,7 @@
                         คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
                       </p>
                       <p class="my-6 rem2 text-justify">
-                       {{ about.Detail }}
+                        {{ about.Detail }}
                       </p>
                     </div>
                   </div>
@@ -232,6 +232,7 @@ export default {
     return {
       about_arr: [],
       openTab: 0,
+      obj: [],
     };
   },
   components: {},
@@ -242,11 +243,11 @@ export default {
     async getAbout() {
       let response = await http.get(`about`);
       this.about_arr = response.data;
+      // this.obj = this.about_arr[2].Detail.split(")");
     },
-    changeId(){
-      
-      this.openTab = this.$store.state.aboutid
-    }
+    changeId() {
+      this.openTab = this.$store.state.aboutid;
+    },
   },
   mounted() {
     this.getAbout();

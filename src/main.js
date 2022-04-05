@@ -31,7 +31,9 @@ import Dashboard from "@/views/admin/Dashboard.vue";
 
 import Banner from "@/views/admin/Banner.vue";
 
-import AboutMe from "@/views/admin/AboutMe.vue";
+import AboutMeShow from "@/views/admin/AboutMeShow.vue";
+import AboutMeAdd from "@/views/admin/AboutMeAdd.vue";
+import AboutMeEdit from "@/views/admin/AboutMeEdit.vue";
 
 import EquipmentShow from "@/views/admin/EquipmentShow.vue";
 
@@ -191,9 +193,27 @@ const routes = [
     component: Admin,
     children: [
       {
-        path: "/admin/aboutme",
-        name: "AboutMe",
-        component: AboutMe,
+        path: "/admin/aboutmeshow",
+        name: "AboutMeShow",
+        component: AboutMeShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/aboutmeadd",
+        name: "AboutMeAdd",
+        component: AboutMeAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/aboutmeedit",
+        name: "AboutMeEdit",
+        component: AboutMeEdit,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/aboutmeshow",
+        name: "AboutMeShow",
+        component: AboutMeShow,
         beforeEnter: authGuard_Admin,
       },
       {

@@ -8,7 +8,7 @@
         <div class="top-0 w-full h-full bg-center bg-cover">
           <img
             alt="..."
-            :src="bg2"
+            :src="bg_home"
             class="relative mx-0 shadow-lg cropped center-img"
           />
         </div>
@@ -20,13 +20,13 @@
                 <h1
                   class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white"
                 >
-                  Computer Science
+                 วิทยาการคอมพิวเตอร์
                 </h1>
 
                 <h2
                   class="cssanimation sequence fadeInBottom mt-4 text-2xl text-blueGray-200"
                 >
-                  Maejo University
+                คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
                 </h2>
               </div>
               <div class="my-6 rectangle" id="section1"></div>
@@ -78,7 +78,7 @@
             <div
               class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom"
             >
-              <a href="http://www.admissions.mju.ac.th/www/" target="_blank">
+              <a href="http://www.admissions.mju.ac.th/" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
                 >
@@ -155,8 +155,8 @@
 
           <div class="flex flex-wrap mt-12 mb-12">
             <div
-              v-for="news in news_array"
-              v-bind:key="news.newsId"
+              v-for="n in 3"
+              :key="n"
               class="w-full px-4 text-center md:w-4/12"
             >
               <router-link to="news" target="_blank">
@@ -166,15 +166,15 @@
                   <div class="flex-auto p-4">
                     <img
                       alt="..."
-                      :src="news.News_Picture"
+                      :src="News_Picture[n - 1]"
                       class="relative row-end-auto mx-0 shadow-lg cropped-card2"
                     />
                   </div>
                   <h3 class="px-4 mb-2 text-lg font-semibold truncate">
-                    {{ news.News_Title }}
+                    {{ News_Title[n - 1] }}
                   </h3>
                   <p class="px-4 pb-4 text-left truncate-3">
-                    {{ news.News_Detail }}
+                    {{ News_Detail[n - 1] }}
                   </p>
                 </div>
               </router-link>
@@ -236,7 +236,7 @@ import { defineComponent } from "vue";
 import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
-import bg2 from "@/assets/img/bg-1.png";
+import bg_home from "@/assets/img/bg-home.png";
 
 import menu1 from "@/assets/img/menu1.png";
 import menu2 from "@/assets/img/menu2.png";
@@ -262,7 +262,7 @@ export default defineComponent({
         { id: 3, name: menu5 },
       ],
 
-      bg2,
+      bg_home,
       menu1,
       menu2,
       menu3,
@@ -275,12 +275,16 @@ export default defineComponent({
 
       news_array: [],
       banner_array: [],
-      news: {
-        newsId: 0,
-        News_Title: "",
-        News_Detail: "",
-        News_Picture: "",
-      },
+
+      News_Title: [],
+      News_Detail: [],
+      News_Picture: [],
+      // News_Title_2: "",
+      // News_Detail_2: "",
+      // News_Picture_2: "",
+      // News_Title_3: "",
+      // News_Detail_3: "",
+      // News_Picture_3: "",
     };
   },
   mounted() {
@@ -295,12 +299,12 @@ export default defineComponent({
         .then((response) => {
           this.news_array = response.data;
           this.news_array.reverse();
-
-          if (this.news_array.length > 3) {
-            for (let i = 0; i <= this.news_array.length; i++) {
-              this.news_array.pop(i);
-            }
+          for (let i = 0; i < 3; i++) {
+            this.News_Title.push(this.news_array[i].News_Title);
+            this.News_Detail.push(this.news_array[i].News_Detail);
+            this.News_Picture.push(this.news_array[i].News_Picture);
           }
+          console.log(this.News_Title);
         })
         .catch((error) => {
           if (error.response) {
@@ -327,7 +331,6 @@ export default defineComponent({
         .then((response) => {
           this.banner_array = response.data;
           this.banner_array.reverse();
-
           //console.log(this.banner_array[0].Banner_File);
         })
         .catch((error) => {
