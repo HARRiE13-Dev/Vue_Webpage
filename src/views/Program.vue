@@ -8,7 +8,7 @@
           <h3
             class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
           >
-            กระบวนวิชาของหลักสูตร
+            หลักสูตรสาขาวิชาวิทยาการคอมพิวเตอร์
           </h3>
           <p class="font-semibold leading-normal text-md text-blueGray-500">
             Course Curriculum
@@ -20,20 +20,560 @@
             class="pt-6 mt-10 text-center border-t border-blueGray-200"
           ></div>
         </div>
-
+        <h3
+          class="mb-2 text-2xl font-semibold leading-normal text-blueGray-700"
+        >
+          แผนการเรียนของหลักสูตรแต่ละชั้นปี
+        </h3>
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <h3
-                class="mb-2 text-2xl font-semibold leading-normal text-blueGray-700"
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
               >
-                แผนการเรียนของหลักสูตรแต่ละชั้นปี
-              </h3>
+                ปีที่ 1 / ภาคการศึกษาที่ 1
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+              >
+                ปีที่ 1 / ภาคการศึกษาที่ 2
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+              >
+                ปีที่ 2 / ภาคการศึกษาที่ 1
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+              >
+                ปีที่ 2 / ภาคการศึกษาที่ 2
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+              >
+                ปีที่ 3 / ภาคการศึกษาที่ 1
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+              >
+                ปีที่ 3 / ภาคการศึกษาที่ 2
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+              >
+                ปีที่ 4 / ภาคการศึกษาที่ 1
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+          <div class="w-full p-2 lg:w-12/12 ">
+            <div
+              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+            >
+              <h5
+                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+              >
+                ปีที่ 4 / ภาคการศึกษาที่ 2
+              </h5>
+              <table class="items-center w-full bg-transparent ">
+                <thead>
+                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+                    >
+                      รหัสรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      ชื่อรายวิชา
+                    </th>
+                    <th
+                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                    >
+                      หน่วยกิจ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301111
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="ml-3 font-semiBold">
+                          การเขียนโปรแกรมเบื้องต้น
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3(2-3-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <h3
+          class="mb-2 mt-10 text-2xl font-semibold leading-normal text-blueGray-700"
+        >
+          กระบวนวิชาของหลักสูตรทั้งหมด
+        </h3>
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-6/12 ">
             <div

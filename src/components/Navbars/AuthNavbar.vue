@@ -116,9 +116,8 @@ export default {
     },
     checkLogin() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
+      let role = local_user.user.role;
       let type = local_user.type[0];
-      console.log(type)
-
       if (type == "personnel") {
         const Toast = this.$swal.mixin({
           toast: true,
@@ -127,7 +126,6 @@ export default {
           timer: 1000,
           timerProgressBar: true,
         });
-
         Toast.fire({
           icon: "success",
           title: "กำลังเข้าสู่ระบบ",
@@ -151,6 +149,10 @@ export default {
         });
       } else {
         this.$router.push({ name: "Login" });
+      }
+
+      if(role==0){
+        alert("กรุณาลงชื่อเข้าใช้งาน");
       }
     },
   },

@@ -129,7 +129,6 @@ export default {
 
       v$: useValidate(),
 
-      
       enewsId: "",
       eDetail: "",
       eDates: "",
@@ -156,9 +155,9 @@ export default {
       this.file = e.target.files[0];
       this.eimgUrl = URL.createObjectURL(file);
     },
-    
+
     EditProduct() {
-        this.newsId = this.$store.state.newsEdit
+      this.newsId = this.$store.state.newsEdit;
       http.get(`news/update/${this.newsId}`).then((response) => {
         // console.log(response.data)
         this.enewsId = response.data.newsId;
@@ -188,9 +187,7 @@ export default {
       data.append("_method", "PUT");
       http
         .post(`newsedit/${newsId}`, data)
-        .then((response) => {
-          console.log(response.data);
-          
+        .then(() => {
           // เรียกใช้งาน popup ของ sweetalert2
           const Toast = this.$swal.mixin({
             toast: true,
@@ -198,7 +195,6 @@ export default {
             showConfirmButton: false,
             timer: 1500,
             timerProgressBar: true,
-          
           });
           Toast.fire({
             icon: "success",

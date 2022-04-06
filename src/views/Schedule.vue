@@ -137,7 +137,6 @@ export default {
       let response = await http.get(`activity?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = response.data;
-      console.log(this.products[0]);
       this.products.reverse();
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;

@@ -246,8 +246,8 @@ export default {
         data.append("Alumni_Picture", this.file);
 
         //Post in Web
-        http.post("alumniadd", data).then((response) => {
-          console.log(response);
+        http.post("alumniadd", data).then(() => {
+
 
           const Toast = this.$swal.mixin({
             toast: true,

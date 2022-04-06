@@ -304,7 +304,7 @@ export default defineComponent({
             this.News_Detail.push(this.news_array[i].News_Detail);
             this.News_Picture.push(this.news_array[i].News_Picture);
           }
-          console.log(this.News_Title);
+
         })
         .catch((error) => {
           if (error.response) {
@@ -331,7 +331,6 @@ export default defineComponent({
         .then((response) => {
           this.banner_array = response.data;
           this.banner_array.reverse();
-          //console.log(this.banner_array[0].Banner_File);
         })
         .catch((error) => {
           if (error.response) {

@@ -108,8 +108,7 @@ export default {
     checkLogin() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
       let type = local_user.type[0];
-      console.log(type)
-
+      let role = local_user.user.role;
       if (type == "personnel") {
         const Toast = this.$swal.mixin({
           toast: true,
@@ -118,7 +117,6 @@ export default {
           timer: 1000,
           timerProgressBar: true,
         });
-
         Toast.fire({
           icon: "success",
           title: "กำลังเข้าสู่ระบบ",
@@ -139,6 +137,20 @@ export default {
           title: "กำลังเข้าสู่ระบบ",
         }).then(() => {
           window.location.href = "/service/service_student";
+        });
+      } else if (role == 0) {
+        const Toast = this.$swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1000,
+          timerProgressBar: true,
+        });
+        Toast.fire({
+          icon: "success",
+          title: "กำลังเข้าสู่ระบบ",
+        }).then(() => {
+          window.location.href = "/admin/dashboard";
         });
       } else {
         this.$router.push({ name: "Login" });
