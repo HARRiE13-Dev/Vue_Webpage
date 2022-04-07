@@ -90,7 +90,7 @@
                 </label>
               </div>
 
-              <div class="mb-3 mt-6 cssanimation sequence fadeInBottom">
+              <div class="mb-3 mt-6 cssanimation sequence fadeInBottom block w-full overflow-x-auto">
                 <vue-recaptcha
                   v-if="showRecaptcha"
                   siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"

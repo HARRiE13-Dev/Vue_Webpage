@@ -150,7 +150,7 @@
                 </div>
               </div>
 
-              <div class="mb-3 w-full relative text-center items-center">
+              <div class="mb-3 w-full relative text-center items-center block w-full overflow-x-auto">
                 <vue-recaptcha
                   v-if="showRecaptcha"
                   siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
@@ -188,7 +188,7 @@
                 ดาวน์โหลดแบบฟอร์มเอกสารราชการ
               </h3>
             </div>
-            <div class="flex flex-auto mt-4">
+            <div class="flex flex-auto mt-4 block w-full overflow-x-auto">
               <div class="block w-full overflow-x-auto lg:w-12/12">
                 <!-- Projects table -->
                 <table

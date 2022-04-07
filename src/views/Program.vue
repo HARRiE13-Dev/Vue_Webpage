@@ -3,7 +3,7 @@
     <div
       class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
-      <div class="lg:px-10 ">
+      <div class="lg:px-10">
         <div class="mt-6 text-center">
           <h3
             class="mb-2 text-4xl font-semibold leading-normal text-blueGray-700"
@@ -26,7 +26,7 @@
           แผนการเรียนของหลักสูตรแต่ละชั้นปี
         </h3>
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
-          <div class="w-full p-2 lg:w-12/12 ">
+          <div class="w-full p-2 lg:w-12/12">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
@@ -35,7 +35,7 @@
               >
                 ปีที่ 1 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -235,7 +235,7 @@
               >
                 ปีที่ 1 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -403,7 +403,7 @@
               >
                 ปีที่ 2 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -507,7 +507,7 @@
               >
                 ปีที่ 2 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -643,7 +643,7 @@
               >
                 ปีที่ 3 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -811,7 +811,7 @@
               >
                 ปีที่ 3 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -979,7 +979,7 @@
               >
                 ปีที่ 4 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -1153,7 +1153,7 @@
               >
                 ปีที่ 4 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent ">
+              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
                 <thead>
                   <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
                     <th
@@ -1183,7 +1183,7 @@
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
-                        <p class="w-6 font-normal ">
+                        <p class="w-12 font-normal ">
                           {{ term.Subject_Code }}
                         </p>
                       </div>
@@ -1257,13 +1257,13 @@
         >
           กระบวนวิชาของหลักสูตรทั้งหมด
         </h3>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
-          <div class="w-full p-2 lg:w-6/12 ">
+        <div class="flex flex-wrap cssanimation sequence fadeInBottom ">
+          <div class="w-full p-2 lg:w-6/12">
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <div class="relative flex mb-4 ">
-                <div class="relative w-autoss">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
+                <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
                   >
@@ -1332,7 +1332,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full "
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
@@ -1400,7 +1400,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 h-full bg-blueGray-100"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
@@ -1468,7 +1468,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
@@ -1536,7 +1536,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
@@ -1604,7 +1604,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
@@ -1672,7 +1672,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news h-full border-blueGray-300 bg-blueGray-100"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
@@ -1740,7 +1740,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"
@@ -1808,7 +1808,7 @@
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
-              <div class="relative flex mb-4">
+              <div class="relative flex mb-4 block w-full overflow-x-auto">
                 <div class="relative w-auto">
                   <h5
                     class="-mt-5 font-bold text-55 text-blueGray-700 text-shadow"

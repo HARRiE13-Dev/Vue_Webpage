@@ -20,13 +20,13 @@
                 <h1
                   class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white"
                 >
-                 วิทยาการคอมพิวเตอร์
+                  วิทยาการคอมพิวเตอร์
                 </h1>
 
                 <h2
                   class="cssanimation sequence fadeInBottom mt-4 text-2xl text-blueGray-200"
                 >
-                คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
+                  คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
                 </h2>
               </div>
               <div class="my-6 rectangle" id="section1"></div>
@@ -39,7 +39,7 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="3000">
+                <Carousel :autoplay="this.speed">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
                       class="cssanimation sequence fadeInBottom relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
@@ -256,6 +256,7 @@ export default defineComponent({
   },
   data() {
     return {
+      speed: 3000,
       images: [
         { id: 1, name: menu3 },
         { id: 2, name: menu4 },
@@ -304,7 +305,6 @@ export default defineComponent({
             this.News_Detail.push(this.news_array[i].News_Detail);
             this.News_Picture.push(this.news_array[i].News_Picture);
           }
-
         })
         .catch((error) => {
           if (error.response) {

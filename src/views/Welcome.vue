@@ -10,7 +10,7 @@
             srcset=""
           />
         </div>
-        <div class="relative w-full">
+        <div class="relative w-full block overflow-x-auto">
           <h1
             class="pt-2 mt-0 text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
           >
