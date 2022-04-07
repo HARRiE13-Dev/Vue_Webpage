@@ -265,7 +265,9 @@ export default {
               .then((response) => {
                 if (response.data.status == "success") {
                   //Data User LocalStorage
+                  let setRole = { role: 2 };
                   localStorage.setItem("user", JSON.stringify(response.data));
+                  localStorage.setItem("permission", JSON.stringify(setRole));
 
                   const Toast = this.$swal.mixin({
                     toast: true,
@@ -418,6 +420,12 @@ export default {
   },
   components: {
     vueRecaptcha,
+  },
+  mounted() {
+    //Check Backward
+    if (localStorage.getItem("user")) {
+      history.forward();
+    }
   },
   validations() {
     return {

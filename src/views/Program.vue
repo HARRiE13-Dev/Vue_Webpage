@@ -28,10 +28,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 1 / ภาคการศึกษาที่ 1
               </h5>
@@ -56,13 +56,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_1"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
                         <p class="w-12 font-normal ">
-                          10301111
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -72,8 +76,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -83,7 +87,135 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10100214
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          เกษตรเพื่อชีวิต
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (3-0-6)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10700301
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          ภาษาไทยเพื่อการนำเสนอ
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-2-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10700308
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          ภาษาอังกฤษในชีวิตประจำวัน
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-2-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10305108
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          แคลคูลัสสำหรับวิทยาศาสตร์และเทคโนโลยี
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-3-5)
                         </p>
                       </div>
                     </td>
@@ -96,10 +228,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 1 / ภาคการศึกษาที่ 2
               </h5>
@@ -124,13 +256,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_2"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
                         <p class="w-12 font-normal ">
-                          10301111
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -140,8 +276,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -151,7 +287,103 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10301113
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          คณิตศาสตร์ดีสครีต
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (3-0-6)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10800113
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          พลเมืองดิจิทัล
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (3-0-6)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10700309
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          สนทนาภาษาอังกฤษ
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-2-5)
                         </p>
                       </div>
                     </td>
@@ -164,10 +396,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 2 / ภาคการศึกษาที่ 1
               </h5>
@@ -192,13 +424,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_3"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
                         <p class="w-12 font-normal ">
-                          10301111
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -208,8 +444,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -219,7 +455,39 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10700313
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          ภาษาอังกฤษเชิงวิทยาศาสตร์และนวัตกรรม
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-2-5)
                         </p>
                       </div>
                     </td>
@@ -232,10 +500,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 2 / ภาคการศึกษาที่ 2
               </h5>
@@ -260,13 +528,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_4"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
                         <p class="w-12 font-normal ">
-                          10301111
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -276,8 +548,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -287,7 +559,71 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10304205
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          ความน่าจะเป็นและสถิติ
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (3-0-6)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10700105
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          มนุษย์ สังคม เทคโนโลยีและสิ่งแวดล้อม
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (3-0-6)
                         </p>
                       </div>
                     </td>
@@ -300,10 +636,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 3 / ภาคการศึกษาที่ 1
               </h5>
@@ -328,13 +664,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_5"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
                         <p class="w-12 font-normal ">
-                          10301111
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -344,8 +684,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -355,7 +695,103 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10700320
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          ภาษาอังกฤษเพื่อการศึกษาต่อและการประกอบอาชีพ
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-2-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10300411
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          วิทยาศาสตร์เพื่อชีวิต
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-2-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr v-for="n in 4" :key="n" class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          -
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          วิชาเอกเลือก วิชาที่ {{ n }}
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 ( - - )
                         </p>
                       </div>
                     </td>
@@ -368,10 +804,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 3 / ภาคการศึกษาที่ 2
               </h5>
@@ -396,13 +832,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_6"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
                         <p class="w-12 font-normal ">
-                          10301111
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -412,8 +852,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -423,7 +863,103 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10300410
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          ความฉลาดรู้ด้านวิทยาศาสตร์สำหรับโลกสมัยใหม่
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (3-0-6)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10200504
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          การเป็นผู้ประกอบการ
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 (2-2-5)
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr v-for="n in 3" :key="n" class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          -
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          วิชาเอกเลือก วิชาที่ {{ n + 4 }}
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 ( - - )
                         </p>
                       </div>
                     </td>
@@ -436,10 +972,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 4 / ภาคการศึกษาที่ 1
               </h5>
@@ -464,13 +1000,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_7"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
                         <p class="w-12 font-normal ">
-                          10301111
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -480,8 +1020,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -491,7 +1031,109 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10300497
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          สหกิจศึกษา
+                          <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          6
+                          <i class="text-sm">(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10300498
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          การเรียนรู้อิสระ
+                          <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          6
+                          <i class="text-sm">(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          10300499
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          การศึกษา / ฝึกงาน / ฝึกอบรมต่างประเทศ
+                          <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          6
+                          <i class="text-sm">(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i>
                         </p>
                       </div>
                     </td>
@@ -504,10 +1146,10 @@
         <div class="flex flex-wrap cssanimation sequence fadeInBottom">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
-              class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
+              class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
             >
               <h5
-                class="mb-6 text-xl text-center font-semibold leading-normal text-blueGray-700"
+                class="px-4 bg-emerald-500 rounded-t py-6 text-xl text-center font-semibold leading-normal text-white text-shadow"
               >
                 ปีที่ 4 / ภาคการศึกษาที่ 2
               </h5>
@@ -532,13 +1174,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border-b">
+                  <tr
+                    v-for="term in term_8"
+                    v-bind:key="term.subjectId"
+                    class="border-b"
+                  >
                     <td
                       class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                     >
                       <div>
-                        <p class="w-12 font-normal ">
-                          10301111
+                        <p class="w-6 font-normal ">
+                          {{ term.Subject_Code }}
                         </p>
                       </div>
                     </td>
@@ -548,8 +1194,8 @@
                       <div
                         class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="ml-3 font-semiBold">
-                          การเขียนโปรแกรมเบื้องต้น
+                        <span class="font-normal">
+                          {{ term.Subject_NameTh }}
                           <div class="text-sm font-normal"></div>
                         </span>
                       </div>
@@ -559,7 +1205,39 @@
                     >
                       <div class="w-48">
                         <p class="font-normal">
-                          3(2-3-5)
+                          {{ term.Subject_Credit }}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr v-for="n in 2" :key="n" class="border-b">
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div>
+                        <p class="w-12 font-normal ">
+                          -
+                        </p>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div
+                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <span class="font-normal">
+                          วิชาเลือกเสรี วิชาที่ {{ n }}
+                          <div class="text-sm font-normal"></div>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                    >
+                      <div class="w-48">
+                        <p class="font-normal">
+                          3 ( - - )
                         </p>
                       </div>
                     </td>
@@ -569,6 +1247,11 @@
             </div>
           </div>
         </div>
+        <p class="text-sm italic text-red-500 mt-6 px-4">
+          หมายเหตุ : ชั้นปีที่ 4 ภาคการศึกษาที่ 1 และภาคการศึกษาที่ 2
+          สามารถปรับเปลี่ยนสลับกันได้ ตามความเหมาะสม /
+          ตามความเห็นชอบของอาจารย์ผู้รับผิดชอบหลักสูตร
+        </p>
         <h3
           class="mb-2 mt-10 text-2xl font-semibold leading-normal text-blueGray-700"
         >
@@ -1214,6 +1897,15 @@ export default {
       group_7: [],
       group_8: [],
       group_9: [],
+
+      term_1: [],
+      term_2: [],
+      term_3: [],
+      term_4: [],
+      term_5: [],
+      term_6: [],
+      term_7: [],
+      term_8: [],
     };
   },
   mounted() {
@@ -1250,6 +1942,31 @@ export default {
       });
       http.get(`subject/Special`).then((response) => {
         this.group_9 = response.data;
+      });
+
+      http.get(`subject/term/1`).then((response) => {
+        this.term_1 = response.data;
+      });
+      http.get(`subject/term/2`).then((response) => {
+        this.term_2 = response.data;
+      });
+      http.get(`subject/term/3`).then((response) => {
+        this.term_3 = response.data;
+      });
+      http.get(`subject/term/4`).then((response) => {
+        this.term_4 = response.data;
+      });
+      http.get(`subject/term/5`).then((response) => {
+        this.term_5 = response.data;
+      });
+      http.get(`subject/term/6`).then((response) => {
+        this.term_6 = response.data;
+      });
+      http.get(`subject/term/7`).then((response) => {
+        this.term_7 = response.data;
+      });
+      http.get(`subject/term/8`).then((response) => {
+        this.term_8 = response.data;
       });
     },
   },

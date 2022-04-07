@@ -118,10 +118,14 @@ function intoGuard(to, from, next) {
 // Authentication Student
 function authGuard(to, from, next) {
   let isAuthenticated = false;
+  let permission = JSON.parse(window.localStorage.getItem("permission"));
   let local_user = JSON.parse(window.localStorage.getItem("user"));
-  let status = local_user.status;
 
-  if (localStorage.getItem("user") && status == "success") {
+  let user_role = permission.role;
+  let status = local_user.status;
+  let token = local_user.access_token;
+
+  if (token && user_role == 2 && status == "success") {
     isAuthenticated = true;
   } else {
     isAuthenticated = false;
@@ -131,6 +135,10 @@ function authGuard(to, from, next) {
     next();
   } else {
     localStorage.removeItem("user");
+    localStorage.removeItem("permission");
+    alert(
+      "Warning : You are not authorized to access this page! \n\n คำเตือน : ผู้ใช้งานไม่มีสิทธิ์เข้าถึงหน้านี้...โปรดตรวจสอบข้อมูล!"
+    );
     next({ name: "Login" });
   }
 }
@@ -141,10 +149,11 @@ function authGuard_Personnel(to, from, next) {
   let permission = JSON.parse(window.localStorage.getItem("permission"));
   let personnel_user = JSON.parse(window.localStorage.getItem("user"));
 
+  let status = personnel_user.status;
   let user_role = permission.role;
   let token = personnel_user.access_token;
 
-  if (token && user_role == 1) {
+  if (token && user_role == 1 && status == "success") {
     isAuthenticated = true;
   } else {
     isAuthenticated = false;
@@ -154,6 +163,7 @@ function authGuard_Personnel(to, from, next) {
     next();
   } else {
     localStorage.removeItem("user");
+    localStorage.removeItem("permission");
     alert(
       "Warning : You are not authorized to access this page! \n\n คำเตือน : ผู้ใช้งานไม่มีสิทธิ์เข้าถึงหน้านี้...โปรดตรวจสอบข้อมูล!"
     );

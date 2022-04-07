@@ -111,28 +111,15 @@ export default {
     };
   },
   methods: {
-    setNavbarOpen: function() {
-      this.navbarOpen = !this.navbarOpen;
-    },
     checkLogin() {
-      let local_user = JSON.parse(window.localStorage.getItem("user"));
-      let role = local_user.user.role;
-      let type = local_user.type[0];
-      if (type == "personnel") {
-        const Toast = this.$swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 1000,
-          timerProgressBar: true,
-        });
-        Toast.fire({
-          icon: "success",
-          title: "กำลังเข้าสู่ระบบ",
-        }).then(() => {
-          window.location.href = "/service/service_teacher";
-        });
-      } else if (type == "student") {
+      let user = JSON.parse(window.localStorage.getItem("user"));
+      let permission = JSON.parse(window.localStorage.getItem("permission"));
+
+      let status = user.status;
+      let type = user.type[0];
+      let role = permission.role;
+
+      if (status == "success" && type == "student" && role == 2) {
         const Toast = this.$swal.mixin({
           toast: true,
           position: "top-end",
@@ -145,15 +132,29 @@ export default {
           icon: "success",
           title: "กำลังเข้าสู่ระบบ",
         }).then(() => {
-          window.location.href = "/service/service_student";
+          this.$router.push({ name: "ServiceStudent" });
+        });
+      } else if (status == "success" && type == "personnel" && role == 1) {
+        const Toast = this.$swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1000,
+          timerProgressBar: true,
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "กำลังเข้าสู่ระบบ",
+        }).then(() => {
+          this.$router.push({ name: "ServiceTeacher" });
         });
       } else {
         this.$router.push({ name: "Login" });
       }
-
-      if(role==0){
-        alert("กรุณาลงชื่อเข้าใช้งาน");
-      }
+    },
+    setNavbarOpen: function() {
+      this.navbarOpen = !this.navbarOpen;
     },
   },
   components: {
