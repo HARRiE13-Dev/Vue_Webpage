@@ -8,7 +8,7 @@
           <div class="px-6">
             <div class="mt-6 text-center">
               <h1 class="py-6 text-3xl font-bold ">
-                CSMJU | ระบบจัดการข้อมูลบุคคลากร
+                CSMJU | ระบบจัดการข้อมูลบุคลากร
               </h1>
             </div>
             <br class="shadow-xl" />
@@ -26,7 +26,7 @@
                         v-model="keyword"
                         class="w-full py-2 pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-200 border-0 rounded-md"
                         type="text"
-                        placeholder="ป้อนรหัสนักศึกษาที่ต้องการค้นหา เช่น 61041013XX"
+                        placeholder="ป้อนรหัสประชาชน 13 หลัก เช่น 3529XXXXXXXXX"
                         aria-label="Search"
                       />
                       <button
@@ -54,7 +54,7 @@
                     >
                       <i class="fas fa-broom"></i> ล้าง
                     </button>
-                    <router-link to="AlumnusAdd">
+                    <router-link to="PersonnelAdd">
                       <button
                         @click="openModalAddProduct"
                         class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
@@ -112,8 +112,8 @@
                   </thead>
                   <tbody>
                     <tr
-                      v-for="student in products"
-                      :key="student.personnelId"
+                      v-for="teacher in products"
+                      :key="teacher.personnelId"
                       class="border-b"
                     >
                       <td
@@ -123,16 +123,16 @@
                           class="flex items-center text-xs text-left align-middle whitespace-nowrap"
                         >
                           <img
-                            :src="student.personnelPhoto"
+                            :src="teacher.personnelPhoto"
                             alt="..."
                             class="w-10 h-10 border-2 rounded-full shadow border-blueGray-50"
                           />
                           <span class="ml-3 text-sm font-semiBold">
-                            {{ student.titlePosition }} {{ student.firstName }}
-                            {{ student.lastName }}
+                            {{ teacher.titlePosition }} {{ teacher.firstName }}
+                            {{ teacher.lastName }}
                             <div class="text-xs font-normal">
-                              {{ student.titleNameEn }}
-                              {{ student.fistNameEn }} {{ student.lastNameEn }}
+                              {{ teacher.titleNameEn }}
+                              {{ teacher.fistNameEn }} {{ teacher.lastNameEn }}
                             </div>
                           </span>
                         </div>
@@ -142,7 +142,7 @@
                       >
                         <div>
                           <p class="w-20 font-normal ">
-                            {{ student.positionType }}
+                            {{ teacher.positionType }}
                           </p>
                         </div>
                       </td>
@@ -151,7 +151,7 @@
                       >
                         <div>
                           <p class="w-20 font-normal truncate-3">
-                            {{ student.faculty }}
+                            {{ teacher.faculty }}
                           </p>
                         </div>
                       </td>
@@ -160,10 +160,10 @@
                       >
                         <div class="w-48">
                           <p class="font-normal truncate-3">
-                            อีเมล : {{ student.e_mail }}
+                            อีเมล : {{ teacher.e_mail }}
                           </p>
                           <p class="font-normal truncate-3">
-                            โทร. : {{ student.phoneNumber }}
+                            โทร. : {{ teacher.phoneNumber }}
                           </p>
                         </div>
                       </td>
@@ -172,7 +172,7 @@
                       >
                         <div>
                           <p class="w-20 font-normal truncate-3">
-                            {{ student.statusWork }}
+                            {{ teacher.statusWork }}
                           </p>
                         </div>
                       </td>
@@ -181,14 +181,14 @@
                         class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
                         <button
-                          @click="Edit(student.studentId)"
+                          @click="Edit(teacher.personnelId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-edit"></i>
                         </button>
                         <button
-                          @click="onclickDelete(student.studentId)"
+                          @click="onclickDelete(teacher.personnelId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
@@ -208,9 +208,6 @@
 </template>
 <script>
 import http from "@/services/APIService";
-
-import moment from "moment";
-
 export default {
   data() {
     return {
@@ -233,35 +230,22 @@ export default {
   methods: {
     Edit(id) {
       this.$router.push({ name: "PersonnelEdit" });
-      this.$store.state.studentEdit = id;
+      this.$store.state.PersonnelEdit = id;
     },
-    /***********************************************************************
-     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
-     ************************************************************************/
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
     async getProducts() {
       let response = await http.get(`personnel`);
       let responseProduct = response.data;
       this.products = responseProduct;
       this.total = responseProduct.length;
     },
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
-    async getProductsSearch(pageNumber) {
-      let response = await http.get(
-        `student/${this.keyword}?page=${pageNumber}`
-      );
+    async getProductsSearch() {
+      let response = await http.get(`personnel/cardid/${this.keyword}`);
       let responseProduct = response.data;
       this.products = responseProduct;
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
     },
-    // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
-
-    /***********************************************************************
-     * ส่วนของการลบสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันสำหรับลบสินค้า
     onclickDelete(id) {
       this.$swal
         .fire({
@@ -274,7 +258,7 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             http
-              .delete(`	student/delete/${id}`)
+              .delete(`personnel/delete/${id}`)
               .then(() => {
                 this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
                 window.location.reload();
@@ -292,14 +276,10 @@ export default {
           }
         });
     },
-    /***********************************************************************
-     * ส่วนของการค้นหาสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันค้นหาสินค้า
+
     submitSearchForm() {
       if (this.keyword != "") {
-        // เรียกค้นไปยัง api ของ laravel
-        http.get(`student/${this.keyword}`).then((response) => {
+        http.get(`personnel/cardid/${this.keyword}`).then((response) => {
           let responseProduct = response.data;
           this.products = responseProduct;
           this.currentPage = responseProduct.current_page;
@@ -307,31 +287,18 @@ export default {
           this.total = responseProduct.total;
         });
       } else {
-        this.$swal.fire("ป้อนชื่อสินค้าที่ต้องการค้นหาก่อน");
+        this.$swal.fire("ป้อนรหัสประชาชนที่ต้องการค้นหาก่อน");
       }
     },
-    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลการค้นหา
     resetSearchForm() {
       this.currentPage = 1;
       this.getProducts(this.currentPage);
       this.keyword = "";
     },
-    // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("DD/MM/YYYY hh:mm:ss");
-      }
-    },
-    // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(",", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
   },
 
   components: {},
   mounted() {
-    // อ่านสินค้าจาก API
     this.getProducts();
   },
 };

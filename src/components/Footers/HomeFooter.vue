@@ -2,7 +2,7 @@
   <footer class="relative pt-8 pb-6 bg-blueGray-200 custom">
     <div class="container px-0 mx-auto">
       <div class="flex flex-wrap text-center lg:text-left">
-        <div class="w-full px-6 lg:w-6/12">
+        <div class="w-full px-6 lg:w-4/12">
           <img
             src="@/assets/img/logo.png"
             alt=""
@@ -13,21 +13,21 @@
             สาขาวิชาวิทยาการคอมพิวเตอร์
           </h3>
           <p>
-            <a class="hover:text-blueGray-500" href="https://g.page/CSMJU?shar">
-              อาคาร 60 ปี คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ <br />
+            <a class="hover:text-emerald-600" href="https://g.page/CSMJU?shar">
+              ชั้น 6, อาคาร 60 ปี คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ <br />
               63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</a
             >
           </p>
           <p class="mt-2">
             โทร.
-            <a class=" hover:text-blueGray-500" href="tel:053-873890-3"
+            <a class="hover:text-emerald-600" href="tel:053-873890-3"
               >053-873890-3</a
             >
           </p>
           <p>
             Fax. 053-873898 <br />
             E-mail :
-            <a class="hover:text-blueGray-500" href="mailto:csmju@gmail.com"
+            <a class="hover:text-emerald-600" href="mailto:cs@mju.ac.th"
               >csmju@gmail.com</a
             >
           </p>
@@ -66,10 +66,61 @@
             </a>
           </div>
         </div>
-
-        <div class="w-full px-6 lg:w-6/12">
-          <div class="flex flex-wrap mb-6 items-top ">
-            <h3 class="mb-2 font-semibold text-justify text-md test-left">
+        <div class="w-full px-6 lg:w-4/12">
+          <div class="mb-6 items-top border-l-2 pl-4 border-blueGray-300">
+            <h3 class="mb-2 pb-2 font-semibold text-justify text-md test-left ">
+              เว็บไซต์ที่เกี่ยวข้อง :
+            </h3>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="https://www.mju.ac.th/th/"
+                >&bull; มหาวิทยาลัยแม่โจ้ (เว็บไซต์หลัก)</a
+              >
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="https://secretary-science.mju.ac.th/"
+                >&bull; คณะวิทยาศาสตร์ ม.แม่โจ้ (เว็บไซต์หลัก)</a
+              >
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="https://www.ict.mju.ac.th/"
+                >&bull; ศูนย์สอบวัดมาตรฐานทางด้านเทคโนโลยีสารสนเทศ
+              </a>
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="http://www.education.mju.ac.th/"
+                >&bull; สำนักงานบริหารและพัฒนาวิชาการ</a
+              >
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="https://reg.mju.ac.th/registrar/home.asp"
+                >&bull; ระบบบริการการศึกษา (งานทะเบียน)</a
+              >
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="https://admissions.mju.ac.th/"
+                >&bull; ระบบรับสมัครนักศึกษาระดับปริญญาตรี</a
+              >
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="http://www.payroll.mju.ac.th/"
+                >&bull; ระบบตรวจสอบเงินเดือน</a
+              >
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="https://it.mju.ac.th/"
+                >&bull; กองเทคโนโลยีดิจิทัล</a
+              >
+            </p>
+            <p class="hover:text-emerald-600 mt-2">
+              <a target="_black" href="http://personnel.mju.ac.th/"
+                >&bull; กองบริหารทรัพยากรบุคคล</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="w-full px-6 lg:w-4/12">
+          <div class="mb-6 items-top border-l-2 pl-4 border-blueGray-300">
+            <h3 class="mb-2 pb-2  font-semibold text-justify text-md test-left">
               ตำแหน่งที่ตั้ง :
             </h3>
             <iframe
@@ -84,9 +135,7 @@
           </div>
         </div>
       </div>
-
       <hr class="my-6 border-blueGray-300" />
-
       <div
         class="flex flex-wrap items-center justify-center md:justify-between"
       >

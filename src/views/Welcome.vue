@@ -10,16 +10,16 @@
             srcset=""
           />
         </div>
-        <div class="relative w-full block overflow-x-auto">
+        <div class="relative">
           <h1
-            class="pt-2 mt-0 text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
+            class="w-full block overflow-x-auto pt-2 mt-0 text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
           >
             ยินดีต้อนรับสู่สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
           </h1>
 
           <div class="mt-16 ">
             <h2
-              class="italic delay h-10 line-2 anim-typewriter-2 text-white font-bold text-shadow align-middle mb-12 text-4xl leading-none"
+              class="w-full block overflow-x-auto italic delay h-10 line-2 anim-typewriter-2 text-white font-bold text-shadow align-middle mb-12 text-4xl leading-none"
             >
               Welcome to Computer Science ,Maejo University()
             </h2>

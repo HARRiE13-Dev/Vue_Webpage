@@ -31,7 +31,7 @@
                     v-model="code"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="รหัสนักศึกษา 10 หลัก"
+                    placeholder="Student Code"
                   />
                   <div v-if="v$.code.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.code.$errors[0].$message }}
@@ -47,7 +47,7 @@
                     v-model="first_nameTh"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="ชื่อภาษาไทย"
+                    placeholder="Firstname (Thai)"
                   />
                   <div
                     v-if="v$.first_nameTh.$error"
@@ -64,7 +64,7 @@
                     v-model="last_nameTh"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="นามสกุลภาษาไทย"
+                    placeholder="Lastname (Thai)"
                   />
                   <div
                     v-if="v$.last_nameTh.$error"
@@ -83,7 +83,7 @@
                     v-model="first_nameEn"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="ชื่อภาษาอังกฤษ"
+                    placeholder="Firstname (English)"
                   />
                   <div
                     v-if="v$.first_nameEn.$error"
@@ -100,7 +100,7 @@
                     v-model="last_nameEn"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="ชื่อภาษาอังกฤษ"
+                    placeholder="Lastname (English)"
                   />
                   <div
                     v-if="v$.last_nameEn.$error"
@@ -119,7 +119,7 @@
                     v-model="phone"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="เบอร์โทรศัพท์"
+                    placeholder="Cell Phone"
                   />
                   <div v-if="v$.phone.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.phone.$errors[0].$message }}
@@ -133,7 +133,7 @@
                     v-model="email"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="อีเมล"
+                    placeholder="Email"
                   />
                   <div v-if="v$.email.$error" class="mt-2 text-sm text-red-500">
                     {{ v$.email.$errors[0].$message }}
@@ -150,7 +150,7 @@
                     v-model="address"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
-                    placeholder="ที่อยู่สามารถติดต่อได้"
+                    placeholder="Address"
                   ></textarea>
                 </div>
               </div>

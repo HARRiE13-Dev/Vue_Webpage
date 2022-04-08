@@ -15,13 +15,13 @@
           </p>
         </div>
 
-        <div class="block w-full mb-4 overflow-x-auto">
+        <div class=" w-full mb-4">
           <div
             class="pt-6 mt-10 text-center border-t border-blueGray-200"
           ></div>
         </div>
         <h3
-          class="mb-2 text-2xl font-semibold leading-normal text-blueGray-700"
+          class="text-center lg:text-left mb-2 text-2xl font-semibold leading-normal text-blueGray-700"
         >
           แผนการเรียนของหลักสูตรแต่ละชั้นปี
         </h3>
@@ -35,193 +35,197 @@
               >
                 ปีที่ 1 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_1"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10100214
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          เกษตรเพื่อชีวิต
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (3-0-6)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10700301
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          ภาษาไทยเพื่อการนำเสนอ
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_1"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-2-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10700308
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          ภาษาอังกฤษในชีวิตประจำวัน
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-2-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10305108
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          แคลคูลัสสำหรับวิทยาศาสตร์และเทคโนโลยี
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-3-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10100214
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            เกษตรเพื่อชีวิต
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (3-0-6)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10700301
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            ภาษาไทยเพื่อการนำเสนอ
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-2-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10700308
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            ภาษาอังกฤษในชีวิตประจำวัน
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-2-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10305108
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            แคลคูลัสสำหรับวิทยาศาสตร์และเทคโนโลยี
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-3-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -235,161 +239,165 @@
               >
                 ปีที่ 1 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_2"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10301113
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          คณิตศาสตร์ดีสครีต
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (3-0-6)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10800113
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          พลเมืองดิจิทัล
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_2"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (3-0-6)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10700309
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          สนทนาภาษาอังกฤษ
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-2-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10301113
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            คณิตศาสตร์ดีสครีต
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (3-0-6)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10800113
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            พลเมืองดิจิทัล
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (3-0-6)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10700309
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            สนทนาภาษาอังกฤษ
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-2-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -403,97 +411,101 @@
               >
                 ปีที่ 2 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_3"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10700313
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          ภาษาอังกฤษเชิงวิทยาศาสตร์และนวัตกรรม
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_3"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-2-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10700313
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            ภาษาอังกฤษเชิงวิทยาศาสตร์และนวัตกรรม
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-2-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -507,129 +519,133 @@
               >
                 ปีที่ 2 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_4"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10304205
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          ความน่าจะเป็นและสถิติ
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (3-0-6)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10700105
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          มนุษย์ สังคม เทคโนโลยีและสิ่งแวดล้อม
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_4"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (3-0-6)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10304205
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            ความน่าจะเป็นและสถิติ
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (3-0-6)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10700105
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            มนุษย์ สังคม เทคโนโลยีและสิ่งแวดล้อม
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (3-0-6)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -643,161 +659,165 @@
               >
                 ปีที่ 3 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_5"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10700320
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          ภาษาอังกฤษเพื่อการศึกษาต่อและการประกอบอาชีพ
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-2-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10300411
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          วิทยาศาสตร์เพื่อชีวิต
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_5"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-2-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr v-for="n in 4" :key="n" class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          -
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          วิชาเอกเลือก วิชาที่ {{ n }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 ( - - )
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10700320
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            ภาษาอังกฤษเพื่อการศึกษาต่อและการประกอบอาชีพ
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-2-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10300411
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            วิทยาศาสตร์เพื่อชีวิต
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-2-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr v-for="n in 4" :key="n" class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            -
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            วิชาเอกเลือก วิชาที่ {{ n }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 ( - - )
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -811,161 +831,165 @@
               >
                 ปีที่ 3 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_6"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10300410
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          ความฉลาดรู้ด้านวิทยาศาสตร์สำหรับโลกสมัยใหม่
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (3-0-6)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10200504
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          การเป็นผู้ประกอบการ
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_6"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 (2-2-5)
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr v-for="n in 3" :key="n" class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          -
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          วิชาเอกเลือก วิชาที่ {{ n + 4 }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 ( - - )
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10300410
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            ความฉลาดรู้ด้านวิทยาศาสตร์สำหรับโลกสมัยใหม่
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (3-0-6)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10200504
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            การเป็นผู้ประกอบการ
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 (2-2-5)
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr v-for="n in 3" :key="n" class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            -
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            วิชาเอกเลือก วิชาที่ {{ n + 4 }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 ( - - )
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -979,167 +1003,177 @@
               >
                 ปีที่ 4 / ภาคการศึกษาที่ 1
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_7"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10300497
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          สหกิจศึกษา
-                          <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          6
-                          <i class="text-sm">(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i>
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10300498
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          การเรียนรู้อิสระ
-                          <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_7"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          6
-                          <i class="text-sm">(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i>
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          10300499
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          การศึกษา / ฝึกงาน / ฝึกอบรมต่างประเทศ
-                          <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          6
-                          <i class="text-sm">(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i>
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10300497
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            สหกิจศึกษา
+                            <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            6
+                            <i class="text-sm"
+                              >(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i
+                            >
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10300498
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            การเรียนรู้อิสระ
+                            <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            6
+                            <i class="text-sm"
+                              >(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i
+                            >
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            10300499
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            การศึกษา / ฝึกงาน / ฝึกอบรมต่างประเทศ
+                            <i class="text-sm">(*เลือกอย่างใดอย่างหนึ่ง)</i>
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            6
+                            <i class="text-sm"
+                              >(ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)</i
+                            >
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -1153,97 +1187,101 @@
               >
                 ปีที่ 4 / ภาคการศึกษาที่ 2
               </h5>
-              <table class="items-center w-full bg-transparent block w-full overflow-x-auto">
-                <thead>
-                  <tr class="text-blueGray-500 border-b-2 border-blueGray-500">
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
+              <div class="block overflow-x-auto">
+                <table class="items-center w-full bg-transparent ">
+                  <thead>
+                    <tr
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
-                      รหัสรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      ชื่อรายวิชา
-                    </th>
-                    <th
-                      class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                    >
-                      หน่วยกิจ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="term in term_8"
-                    v-bind:key="term.subjectId"
-                    class="border-b"
-                  >
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          {{ term.Subject_Code }}
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        <span class="font-normal">
-                          {{ term.Subject_NameTh }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          {{ term.Subject_Credit }}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr v-for="n in 2" :key="n" class="border-b">
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div>
-                        <p class="w-12 font-normal ">
-                          -
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                    >
-                      <div
-                        class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        รหัสรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        <span class="font-normal">
-                          วิชาเลือกเสรี วิชาที่ {{ n }}
-                          <div class="text-sm font-normal"></div>
-                        </span>
-                      </div>
-                    </td>
-                    <td
-                      class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        ชื่อรายวิชา
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        หน่วยกิต
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="term in term_8"
+                      v-bind:key="term.subjectId"
+                      class="border-b"
                     >
-                      <div class="w-48">
-                        <p class="font-normal">
-                          3 ( - - )
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-12 font-normal ">
+                            {{ term.Subject_Code }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            {{ term.Subject_NameTh }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            {{ term.Subject_Credit }}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr v-for="n in 2" :key="n" class="border-b">
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div>
+                          <p class="w-0 font-normal ">
+                            -
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <span class="font-normal">
+                            วิชาเลือกเสรี วิชาที่ {{ n }}
+                            <div class="text-sm font-normal"></div>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div class="w-48">
+                          <p class="font-normal">
+                            3 ( - - )
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -1253,7 +1291,7 @@
           ตามความเห็นชอบของอาจารย์ผู้รับผิดชอบหลักสูตร
         </p>
         <h3
-          class="mb-2 mt-10 text-2xl font-semibold leading-normal text-blueGray-700"
+          class="text-center lg:text-left mb-2 mt-10 text-2xl font-semibold leading-normal text-blueGray-700"
         >
           กระบวนวิชาของหลักสูตรทั้งหมด
         </h3>

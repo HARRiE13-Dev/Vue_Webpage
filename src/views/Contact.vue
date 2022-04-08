@@ -150,7 +150,9 @@
                 </div>
               </div>
 
-              <div class="mb-3 w-full relative text-center items-center block w-full overflow-x-auto">
+              <div
+                class="mb-3 w-full relative text-center items-center block w-full overflow-x-auto"
+              >
                 <vue-recaptcha
                   v-if="showRecaptcha"
                   siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"

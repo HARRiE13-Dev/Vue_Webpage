@@ -242,9 +242,7 @@ export default {
     },
     onPageClick(event) {
       this.currentPage = event;
-      // เช็คว่ามีการค้นหาสินค้าอยู่หรือไม่
       if (this.keyword == "") {
-        // ไม่ได้ค้นหา
         this.getProducts(this.currentPage);
       } else {
         this.getProductsSearch(this.currentPage);
