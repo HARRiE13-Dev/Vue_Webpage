@@ -106,9 +106,11 @@
 </template>
 <script>
 import AboutPage from "@/components/Dropdowns/AboutPage.vue";
+import http from "@/services/WebpageService";
 export default {
   data() {
     return {
+      id_login: 0,
       navbarOpen: false,
       dropdownPopoverShow: false,
     };
@@ -121,6 +123,8 @@ export default {
       localStorage.removeItem("user");
       localStorage.removeItem("permission");
       this.$router.push({ name: "Login" });
+      let id = this.$store.state.id_login;
+      http.delete(`checklogin/delete/${id}`).then(() => {});
     },
   },
   components: {

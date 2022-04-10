@@ -35,6 +35,10 @@ import AboutMeShow from "@/views/admin/AboutMeShow.vue";
 import AboutMeAdd from "@/views/admin/AboutMeAdd.vue";
 import AboutMeEdit from "@/views/admin/AboutMeEdit.vue";
 
+import SubjectShow from "@/views/admin/SubjectShow.vue";
+import SubjectAdd from "@/views/admin/SubjectAdd.vue";
+import SubjectEdit from "@/views/admin/SubjectEdit.vue";
+
 import EquipmentShow from "@/views/admin/EquipmentShow.vue";
 
 import Feed from "@/views/admin/FeedShow.vue";
@@ -202,6 +206,24 @@ const routes = [
     redirect: "/admin/dashboard",
     component: Admin,
     children: [
+      {
+        path: "/admin/subjectshow",
+        name: "SubjectShow",
+        component: SubjectShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/subjectadd",
+        name: "SubjectAdd",
+        component: SubjectAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/subjectedit",
+        name: "SubjectEdit",
+        component: SubjectEdit,
+        beforeEnter: authGuard_Admin,
+      },
       {
         path: "/admin/aboutmeshow",
         name: "AboutMeShow",

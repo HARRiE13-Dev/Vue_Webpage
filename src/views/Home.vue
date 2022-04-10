@@ -16,25 +16,35 @@
         <div class="container absolute">
           <div class="flex flex-wrap -mt-20">
             <div class="w-full px-4 mt-32 text-left lg:w-6/12">
-              <div class="pr-12">
+              <div class="pr-12 flex-wrap">
                 <h1
-                  class="cssanimation sequence fadeInBottom text-5xl font-semibold text-white"
+                  class="cssanimation sequence fadeInBottom text-home font-semibold text-white"
                 >
                   วิทยาการคอมพิวเตอร์
                 </h1>
-
                 <h2
-                  class="cssanimation sequence fadeInBottom mt-4 text-2xl text-blueGray-200"
+                  class="cssanimation sequence fadeInBottom mt-0 text-4xl text-blueGray-200"
                 >
                   คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
                 </h2>
               </div>
               <div class="my-6 rectangle" id="section1"></div>
-              <div
-                class="mt-2 text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600 hover:zoom-xs"
-              >
-                <i class="px-2 far fa-play-circle fa-lg"></i>
-                <a href="#section2">รับชมวีดีโอแนะนำ</a>
+              <div class="flex flex-wrap">
+                <div
+                  class="mt-2 mr-2 text-lg text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600 hover:zoom-xs"
+                >
+                  <i class="px-2 far fa-play-circle fa-lg"></i>
+                  <a href="#section2">รับชมวีดีโอแนะนำ</a>
+                </div>
+                <div class="border-l-2 mx-4"></div>
+                <div
+                  class="text-lg mt-2 text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600 hover:zoom-xs"
+                >
+                  <i class="px-2 fas fa-arrow-down fa-lg"></i>
+                  <a href="@/assets/download/CsmjuApp.apk" download
+                    >ดาวน์โหลดแอปพลิเคชัน CSMJU</a
+                  >
+                </div>
               </div>
             </div>
             <div class="w-full text-left lg:w-6/12">

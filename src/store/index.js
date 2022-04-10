@@ -7,10 +7,13 @@ export default createStore({
     newsEdit: 0,
     alumnusEdit: 0,
     StudentEdit: 0,
-    PersonnelEdit: 0,
+    personnelEdit: 0,
     aboutEdit: 0,
+    subjectEdit: 0,
     
     aboutid: 1,
+
+    id_login: 0,
   },
   mutations: {},
   actions: {},

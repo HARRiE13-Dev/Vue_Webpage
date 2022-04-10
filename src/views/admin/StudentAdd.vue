@@ -31,6 +31,7 @@
                     v-model="code"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
+                    maxlength="10"
                     placeholder="Student Code"
                   />
                   <div v-if="v$.code.$error" class="mt-2 text-sm text-red-500">
@@ -119,6 +120,7 @@
                     v-model="phone"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
+                    maxlength="10"
                     placeholder="Cell Phone"
                   />
                   <div v-if="v$.phone.$error" class="mt-2 text-sm text-red-500">

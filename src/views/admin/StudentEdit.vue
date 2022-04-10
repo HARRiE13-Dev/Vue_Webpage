@@ -31,6 +31,7 @@
                     v-model="code"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
+                    maxlength="10"
                     placeholder="รหัสนักศึกษา 10 หลัก"
                   />
                   <div
@@ -122,6 +123,7 @@
                     v-model="phone"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
+                    maxlength="10"
                     placeholder="เบอร์โทรศัพท์"
                   />
                   <div
@@ -210,7 +212,7 @@ export default {
     return {
       v$: useValidate(),
 
-      id: "",
+      id: 0,
 
       code: "",
       first_nameTh: "",
@@ -258,8 +260,6 @@ export default {
       data.append("mobile", this.phone);
       data.append("Address", this.address);
       data.append("PictureProfile", this.file);
-
-      // Send Patch request to laravel
       data.append("_method", "PUT");
       http.post(`student/update/${this.id}`, data).then(() => {
         const Toast = this.$swal.mixin({
@@ -271,7 +271,7 @@ export default {
         });
         Toast.fire({
           icon: "success",
-          title: "อัพเดทข้อมูลเรียบร้อย",
+          title: "แก้ไขข้อมูลเรียบร้อย",
         }).then(() => {
           this.$router.push({ name: "StudentShow" });
         });

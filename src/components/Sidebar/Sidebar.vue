@@ -89,7 +89,7 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tv"
+                  class="mr-2 text-sm fas fa-globe"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 ศูนย์การแสดงผล
@@ -135,7 +135,7 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tv"
+                  class="mr-2 text-sm fas fa-info-circle"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 การแสดงข้อมูลเกี่ยวกับเรา
@@ -144,7 +144,7 @@
           </li>
           <li class="items-center">
             <router-link
-              to="/admin/about_menu"
+              to="/admin/subjectshow"
               v-slot="{ href, navigate, isActive }"
             >
               <a
@@ -158,7 +158,7 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tv"
+                  class="mr-2 text-sm fas fa-address-book"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
               การแสดงข้อมูลหลักสูตร
@@ -190,7 +190,7 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tv"
+                  class="mr-2 text-sm fas fa-user-graduate"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 ข้อมูลนักศึกษา
@@ -213,7 +213,7 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tv"
+                  class="mr-2 text-sm fas fa-user-tie"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 ข้อมูลบุคลากร

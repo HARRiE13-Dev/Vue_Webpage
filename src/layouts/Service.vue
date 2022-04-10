@@ -73,16 +73,15 @@
                             <div
                               class="py-3 border-l-2 text-center lg:text-left"
                             >
-
                               <h3
                                 class="ml-3 mb-3 text-lg font-normal leading-normal text-blueGray-100"
                               >
-                               รหัสนักศึกษา : {{ this.studentID }} 
+                                รหัสนักศึกษา : {{ this.studentID }}
                               </h3>
                               <h3
                                 class="ml-3 mb-2 text-4xl font-semibold leading-normal text-blueGray-100"
                               >
-                                {{ this.first_name }} {{ this.last_name }} 
+                                {{ this.first_name }} {{ this.last_name }}
                               </h3>
                               <h3
                                 class="ml-3 mb-2 text-2xl font-semibold leading-normal text-blueGray-100"
@@ -172,6 +171,7 @@ export default {
   },
   mounted() {
     this.ShowProfile();
+    this.LoginCheck();
   },
   methods: {
     Profile() {
@@ -206,6 +206,28 @@ export default {
           let email_cut = local_user.email;
           this.studentID = email_cut.slice(3, 13);
         }
+      });
+    },
+    LoginCheck() {
+      let user = JSON.parse(window.localStorage.getItem("user"));
+      let username = user.name + " " + user.surname;
+      let type = user.type[0];
+      let date =
+        new Date().getDate() +
+        "/" +
+        (new Date().getMonth() + 1) +
+        "/" +
+        new Date().getFullYear();
+      let device = navigator.userAgent;
+
+      let data = new FormData();
+      data.append("Username", username);
+      data.append("type", type);
+      data.append("Date", date);
+      data.append("Device", device);
+
+      http.post(`checklogin/create`, data).then((response) => {
+        this.$store.state.id_login = response.data.LoginId;
       });
     },
   },

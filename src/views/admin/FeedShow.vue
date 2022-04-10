@@ -26,7 +26,7 @@
                         v-model="keyword"
                         class="w-full py-2 pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-200 border-0 rounded-md"
                         type="text"
-                        placeholder="ป้อนชื่อที่ต้องการค้นหา"
+                        placeholder="ป้อนประเภทข่าวที่ต้องการค้นหา เช่น ทั่วไป"
                         aria-label="Search"
                       />
                       <button

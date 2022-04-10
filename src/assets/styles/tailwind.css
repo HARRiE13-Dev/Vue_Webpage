@@ -1629,8 +1629,8 @@ select {
 }
 
 .rectangle {
-  height: 3px;
-  width: 100px;
+  height: 5px;
+  width: 120px;
   background-color: white;
 }
 
@@ -2395,6 +2395,10 @@ select {
 
 .h-600-px {
   height: 600px;
+}
+
+.text-home {
+  font-size: 3.8rem;
 }
 
 .text-55 {

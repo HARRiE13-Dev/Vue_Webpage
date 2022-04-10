@@ -230,7 +230,7 @@ export default {
   methods: {
     Edit(id) {
       this.$router.push({ name: "PersonnelEdit" });
-      this.$store.state.PersonnelEdit = id;
+      this.$store.state.personnelEdit = id;
     },
     async getProducts() {
       let response = await http.get(`personnel`);

@@ -10,16 +10,16 @@
             srcset=""
           />
         </div>
-        <div class="relative">
+        <div class="relative w-full overflow-x-auto">
+          <div class="w-full block overflow-x-auto"></div>
           <h1
-            class="w-full block overflow-x-auto pt-2 mt-0 text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
+            class="text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
           >
             ยินดีต้อนรับสู่สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
           </h1>
-
-          <div class="mt-16 ">
+          <div class="mt-16 w-full ">
             <h2
-              class="w-full block overflow-x-auto italic delay h-10 line-2 anim-typewriter-2 text-white font-bold text-shadow align-middle mb-12 text-4xl leading-none"
+              class="italic delay h-10 line-2 anim-typewriter-2 text-white font-bold text-shadow align-middle mb-12 text-4xl leading-none"
             >
               Welcome to Computer Science ,Maejo University()
             </h2>
@@ -149,7 +149,7 @@ export default {
   animation-delay: 5s;
 }
 .delay-btn {
-  animation-delay: 8s;
+  animation-delay: 6s;
 }
 
 @keyframes typewriter {

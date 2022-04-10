@@ -90,7 +90,9 @@
                 </label>
               </div>
 
-              <div class="mb-3 mt-6 cssanimation sequence fadeInBottom block w-full overflow-x-auto">
+              <div
+                class="mb-3 mt-6 cssanimation sequence fadeInBottom block w-full overflow-x-auto"
+              >
                 <vue-recaptcha
                   v-if="showRecaptcha"
                   siteKey="6Le4YCUeAAAAAO0lm_yXaykPaveKVJCipX7I_M8u"
@@ -168,15 +170,12 @@ export default {
             http
               .post("login/mju/ad", {
                 username: this.username,
-                //password: this.password,
+                password: this.password,
               })
               .then((response) => {
-                //Data User LocalStorage
-
                 let setRole = { role: 1 };
                 localStorage.setItem("user", JSON.stringify(response.data));
                 localStorage.setItem("permission", JSON.stringify(setRole));
-
                 if (
                   response.data.status == "success" &&
                   response.data.type[0] == "personnel"
@@ -235,7 +234,6 @@ export default {
                     title: "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง",
                   }).then(() => {
                     // Login  Success => Dashboard
-
                     this.password = "";
                   });
                 }
@@ -268,7 +266,6 @@ export default {
                   let setRole = { role: 2 };
                   localStorage.setItem("user", JSON.stringify(response.data));
                   localStorage.setItem("permission", JSON.stringify(setRole));
-
                   const Toast = this.$swal.mixin({
                     toast: true,
                     position: "top-end",
