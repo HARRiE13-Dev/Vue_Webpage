@@ -129,6 +129,7 @@ import useValidate from "@vuelidate/core";
 import { required, minLength, helpers } from "@vuelidate/validators";
 import http from "@/services/MJUService";
 import httpAdmin from "@/services/AuthService";
+import httpLogin from "@/services/WebpageService";
 
 export default {
   data() {
@@ -160,7 +161,7 @@ export default {
     },
     submit() {
       this.v$.$validate();
-      if (this.verify == null) {
+      if (this.verify != null) {
         if (
           // eslint-disable-next-line no-useless-escape
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username)
@@ -191,6 +192,7 @@ export default {
                     icon: "success",
                     title: "กำลังเข้าสู่ระบบ",
                   }).then(() => {
+                    this.LoginCheck();
                     this.$router.push({ name: "ServiceTeacher" });
                   });
                 } else if (response.data.status == "fail") {
@@ -278,7 +280,7 @@ export default {
                     icon: "success",
                     title: "กำลังเข้าสู่ระบบ",
                   }).then(() => {
-                    // Login  Success => Dashboard
+                    this.LoginCheck();
                     this.$router.push({ name: "ServiceStudent" });
                   });
                 } else {
@@ -348,6 +350,33 @@ export default {
           title: `กดยืนยัน "reCAPTCHA" ก่อน`,
         });
       }
+    },
+    LoginCheck() {
+      let user = JSON.parse(window.localStorage.getItem("user"));
+      let username = user.name + " " + user.surname;
+      let type = user.type[0];
+      let date =
+        new Date().getDate() +
+        "/" +
+        (new Date().getMonth() + 1) +
+        "/" +
+        new Date().getFullYear();
+
+      let time =
+        new Date().getHours() +
+        ":" +
+        new Date().getMinutes() +
+        ":" +
+        new Date().getSeconds();
+      let device = navigator.userAgent;
+      let data = new FormData();
+      data.append("Username", username);
+      data.append("type", type);
+      data.append("Date", date + " " + time);
+      data.append("Device", device);
+      httpLogin.post(`checklogin/create`, data).then((response) => {
+        this.$store.state.id_login = response.data.LoginId;
+      });
     },
     async AdminLogin() {
       httpAdmin

@@ -15,7 +15,7 @@
             </div>
             <div class="text-center ">
               <h1 class="py-6 text-3xl font-bold border-b">
-                แก้ไขข้อมูลบุคลากร
+                CSMJU | แก้ไขข้อมูลบุคลากร
               </h1>
             </div>
 

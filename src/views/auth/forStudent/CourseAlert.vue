@@ -368,6 +368,7 @@ export default {
                       "success"
                     )
                     .then(() => {
+                      this.$router.push({ name: "ServiceStudent" });
                       window.location.reload();
                     });
                 })

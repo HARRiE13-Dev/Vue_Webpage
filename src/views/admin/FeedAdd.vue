@@ -14,7 +14,7 @@
               </router-link>
             </div>
             <div class="text-center ">
-              <h1 class="py-6 text-3xl font-bold ">เพิ่มข้อมูลข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">CSMJU | เพิ่มข้อมูลข่าวสาร</h1>
             </div>
 
             <br class="shadow-xl" />

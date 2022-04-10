@@ -14,7 +14,9 @@
               </router-link>
             </div>
             <div class="text-center ">
-              <h1 class="py-6 text-3xl font-bold ">แก้ไขข้อมูลศิษย์เก่า</h1>
+              <h1 class="py-6 text-3xl font-bold ">
+                CSMJU | แก้ไขข้อมูลศิษย์เก่า
+              </h1>
             </div>
 
             <br class="shadow-xl" />
@@ -41,7 +43,9 @@
                   </div>
                 </div>
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eLastname"
+                  <label
+                    class="block my-3 text-gray-700 text-md"
+                    for="eLastname"
                     >นามสกุล</label
                   >
                   <input
@@ -61,14 +65,19 @@
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-6/12">
                   <label class="block my-3 text-gray-700 text-md" for="eCode"
-                    >รหัสนักศึกษา / รุ่น</label
+                    >ศิษย์เก่ารุ่นที่</label
                   >
-                  <input
+                  <select
                     v-model="eCode"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="text"
-                    placeholder="Product name"
-                  />
+                    class="w-full px-3 py-2 leading-tight text-gray-700 "
+                  >
+                    <option
+                      v-for="i in this.born"
+                      :key="`ศิษย์เก่าวิทย์คอม รุ่นที่ ${i}`"
+                      :value="i"
+                      >ศิษย์เก่าวิทย์คอม รุ่นที่ {{ i }}</option
+                    >
+                  </select>
                 </div>
               </div>
               <div class="flex flex-wrap mb-2">
@@ -92,7 +101,9 @@
                   </div>
                 </div>
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="ePosition"
+                  <label
+                    class="block my-3 text-gray-700 text-md"
+                    for="ePosition"
                     >ตำแหน่งงาน</label
                   >
                   <input
@@ -138,11 +149,15 @@
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
-                    <img v-if="eimgUrl" :src="eimgUrl" class="w-ful" />
+                    <img
+                      v-if="eimgUrl"
+                      :src="eimgUrl"
+                      class="w-48 h-200-px center-img cropped"
+                    />
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"
-                    >ภาพสินค้า</label
+                    >รูปภาพศิษย์เก่า</label
                   >
                   <input
                     ref="fileupload"
@@ -153,9 +168,8 @@
                 </div>
               </div>
               <div class="py-6 text-center">
-             
                 <button
-                   @click="submitFormEdit(AlumniId)"
+                  @click="submitFormEdit(AlumniId)"
                   class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
@@ -177,6 +191,7 @@ export default {
   data() {
     return {
       v$: useValidate(),
+      born: new Date().getFullYear() - 1997,
 
       eAlumniId: 0,
       eFirstname: "",
@@ -204,10 +219,10 @@ export default {
       this.file = e.target.files[0];
       this.eimgUrl = URL.createObjectURL(file);
     },
-    
+
     EditProduct() {
       this.AlumniId = this.$store.state.alumnusEdit;
-      http.get(`alumni/${this.AlumniId}`).then((response) => {
+      http.get(`alumni/id/${this.AlumniId}`).then((response) => {
         // console.log(response.data)
         this.eAlumniId = response.data.AlumniId;
         this.eFirstname = response.data.Firstname_Alumni;
@@ -234,13 +249,12 @@ export default {
       data.append("Job_Title", this.ePosition);
       data.append("Caption", this.eCaption);
       data.append("Contact", this.eContact);
-
       data.append("Alumni_Picture", this.file);
 
       // Send Patch request to laravel
       data.append("_method", "PUT");
       http
-        .post(`alumniedit/${AlumniId}`, data)
+        .post(`alumni/update/${AlumniId}`, data)
         .then((response) => {
           console.log(response.data);
 

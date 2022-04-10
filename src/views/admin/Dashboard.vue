@@ -126,7 +126,7 @@ export default {
       room: 0,
       complaint: 0,
       repair: 0,
-      borrow: 0
+      borrow: 0,
     };
   },
   methods: {

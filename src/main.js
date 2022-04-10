@@ -31,6 +31,12 @@ import Dashboard from "@/views/admin/Dashboard.vue";
 
 import Banner from "@/views/admin/Banner.vue";
 
+import ChangePassword from "@/views/admin/ChangePassword.vue";
+
+import RoomShow from "@/views/admin/RoomShow.vue";
+import RoomAdd from "@/views/admin/RoomAdd.vue";
+import RoomEdit from "@/views/admin/RoomEdit.vue";
+
 import AboutMeShow from "@/views/admin/AboutMeShow.vue";
 import AboutMeAdd from "@/views/admin/AboutMeAdd.vue";
 import AboutMeEdit from "@/views/admin/AboutMeEdit.vue";
@@ -40,6 +46,8 @@ import SubjectAdd from "@/views/admin/SubjectAdd.vue";
 import SubjectEdit from "@/views/admin/SubjectEdit.vue";
 
 import EquipmentShow from "@/views/admin/EquipmentShow.vue";
+import EquipmentAdd from "@/views/admin/EquipmentAdd.vue";
+import EquipmentEdit from "@/views/admin/EquipmentEdit.vue";
 
 import Feed from "@/views/admin/FeedShow.vue";
 import AddFeed from "@/views/admin/FeedAdd.vue";
@@ -83,7 +91,6 @@ import Cv from "@/views/auth/forPersonnel/CV.vue";
 import CVPrint from "@/views/auth/forPersonnel/CVPrint.vue";
 import RoomReserve from "@/views/auth/forPersonnel/RoomReserve.vue";
 import Profile from "@/views/auth/forPersonnel/Profile.vue";
-import ChangePassword from "@/views/auth/forPersonnel/ChangePassword.vue";
 
 // views without layouts
 
@@ -207,6 +214,12 @@ const routes = [
     component: Admin,
     children: [
       {
+        path: "/admin/changepassword",
+        name: "ChangePassword",
+        component: ChangePassword,
+        beforeEnter: authGuard_Admin,
+      },
+      {
         path: "/admin/subjectshow",
         name: "SubjectShow",
         component: SubjectShow,
@@ -222,6 +235,24 @@ const routes = [
         path: "/admin/subjectedit",
         name: "SubjectEdit",
         component: SubjectEdit,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/roomshow",
+        name: "RoomShow",
+        component: RoomShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/roomadd",
+        name: "RoomAdd",
+        component: RoomAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/roomedit",
+        name: "RoomEdit",
+        component: RoomEdit,
         beforeEnter: authGuard_Admin,
       },
       {
@@ -299,6 +330,18 @@ const routes = [
         path: "/admin/equipmentshow",
         name: "EquipmentShow",
         component: EquipmentShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/equipmentadd",
+        name: "EquipmentAdd",
+        component: EquipmentAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/equipmentedit",
+        name: "EquipmentEdit",
+        component: EquipmentEdit,
         beforeEnter: authGuard_Admin,
       },
       {
@@ -463,12 +506,6 @@ const routes = [
         component: Profile,
         beforeEnter: authGuard_Personnel,
       },
-      {
-        path: "/service/service_teacher/password",
-        name: "Password",
-        component: ChangePassword,
-        beforeEnter: authGuard_Personnel,
-      },
     ],
   },
   //Main-Menu-layout
@@ -542,7 +579,7 @@ const routes = [
         path: "/service/service_teacher/cvprint",
         name: "CVPrint",
         component: CVPrint,
-        beforeEnter: authGuard,
+        beforeEnter: authGuard_Personnel,
       },
       {
         path: "/home",

@@ -14,7 +14,9 @@
               </router-link>
             </div>
             <div class="text-center ">
-              <h1 class="py-6 text-3xl font-bold ">เพิ่มข้อมูลศิษย์เก่า</h1>
+              <h1 class="py-6 text-3xl font-bold ">
+                CSMJU | เพิ่มข้อมูลศิษย์เก่า
+              </h1>
             </div>
 
             <br class="shadow-xl" />
@@ -23,7 +25,7 @@
               @submit.prevent="onSubmit"
               enctype="multipart/form-data"
             >
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-6/12">
                   <label
                     class="block my-3 text-gray-700 text-md"
@@ -61,20 +63,25 @@
                   </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-6/12">
                   <label class="block my-3 text-gray-700 text-md" for="Code"
-                    >รหัสนักศึกษา / รุ่น</label
+                    >ศิษย์เก่ารุ่นที่</label
                   >
-                  <input
-                    v-model="Code"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="text"
-                    placeholder="Student Code / Generation"
-                  />
+                  <select
+                    v-model="code"
+                    class="w-full px-3 py-2 leading-tight text-gray-700 "
+                  >
+                    <option
+                      v-for="i in this.born"
+                      :key="`ศิษย์เก่าวิทย์คอม รุ่นที่ ${i}`"
+                      :value="i"
+                      >ศิษย์เก่าวิทย์คอม รุ่นที่ {{ i }}</option
+                    >
+                  </select>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-6/12">
                   <label
                     class="block my-3 text-gray-700 text-md"
@@ -112,7 +119,7 @@
                   </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
                   <label class="block my-3 text-gray-700 text-md" for="Caption"
                     >ประวัติส่วนตัว / คติประจำใจ</label
@@ -125,7 +132,7 @@
                   ></textarea>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
                   <label class="block my-3 text-gray-700 text-md" for="Contact"
                     >การติดต่อ</label
@@ -138,14 +145,18 @@
                   />
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
-                    <img v-if="imgUrl" :src="imgUrl" class="w-ful" />
+                    <img
+                      v-if="imgUrl"
+                      :src="imgUrl"
+                      class="w-48 h-200-px center-img cropped"
+                    />
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"
-                    >ภาพสินค้า</label
+                    >รูปภาพศิษย์เก่า</label
                   >
                   <input
                     ref="fileupload"
@@ -187,6 +198,7 @@ export default {
   data() {
     return {
       v$: useValidate(),
+      born: new Date().getFullYear() - 1997,
 
       Firstname: "",
       Lastname: "",
@@ -242,13 +254,8 @@ export default {
         data.append("Contact", this.Contact);
         data.append("Caption", this.Caption);
         data.append("Job_Title", this.Position);
-
         data.append("Alumni_Picture", this.file);
-
-        //Post in Web
-        http.post("alumniadd", data).then(() => {
-
-
+        http.post("alumni/create", data).then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
             position: "top-end",
@@ -263,24 +270,23 @@ export default {
             this.$router.push({ name: "AlumnusShow" });
           });
         });
-      } 
+      }
     },
   },
   validations() {
     return {
       Firstname: {
-        required: helpers.withMessage("ป้อนรายละเอียดข่าวก่อน", required),
+        required: helpers.withMessage("ป้อนชื่อก่อน", required),
       },
       Lastname: {
-        required: helpers.withMessage("ป้อนวันที่ก่อน", required),
+        required: helpers.withMessage("ป้อนนามสกุลก่อน", required),
       },
 
       Workplace: {
-        required: helpers.withMessage("ป้อนหัวข้อข่าวก่อน", required),
+        required: helpers.withMessage("ป้อนสังกัด / บริษัทก่อน", required),
       },
-
       Position: {
-        required: helpers.withMessage("ป้อนประเภทข่าวก่อน", required),
+        required: helpers.withMessage("ป้อนตำแหน่งก่อน", required),
       },
     };
   },

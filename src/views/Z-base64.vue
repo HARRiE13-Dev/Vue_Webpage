@@ -58,7 +58,7 @@ export default {
           .replace("data:", "")
           .replace(/^.+,/, "");
         this.base64 = base64String;
-        alert(this.base64);
+        //alert(this.base64);
       };
       reader.readAsDataURL(file);
     },

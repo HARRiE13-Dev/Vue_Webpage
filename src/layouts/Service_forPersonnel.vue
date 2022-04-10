@@ -168,12 +168,41 @@ export default {
   },
   mounted() {
     this.getPersonnelData();
+    //this.LoginCheck();
   },
 
   methods: {
     profile() {
       this.$router.push({
         name: "Profile",
+      });
+    },
+    LoginCheck() {
+      let user = JSON.parse(window.localStorage.getItem("user"));
+      let username = user.name + " " + user.surname;
+      let type = user.type[0];
+      let date =
+        new Date().getDate() +
+        "/" +
+        (new Date().getMonth() + 1) +
+        "/" +
+        new Date().getFullYear();
+
+      let time =
+        new Date().getHours() +
+        ":" +
+        new Date().getMinutes() +
+        ":" +
+        new Date().getSeconds();
+      let device = navigator.userAgent;
+      let data = new FormData();
+      data.append("Username", username);
+      data.append("type", type);
+      data.append("Date", date + " " + time);
+      data.append("Device", device);
+
+      http.post(`checklogin/create`, data).then((response) => {
+        this.$store.state.id_login = response.data.LoginId;
       });
     },
     getPersonnelData() {

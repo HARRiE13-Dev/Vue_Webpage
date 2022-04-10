@@ -28,13 +28,6 @@
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
                       <button
-                        @click="ChangePassword"
-                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                        type="button"
-                      >
-                        เปลี่ยนรหัสผ่าน
-                      </button>
-                      <button
                         @click="back"
                         class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                         type="button"
@@ -378,9 +371,6 @@ export default {
     };
   },
   methods: {
-    ChangePassword() {
-      this.$router.push({ name: "Password" });
-    },
     back() {
       this.$router.push({ name: "ServiceTeacher" });
     },

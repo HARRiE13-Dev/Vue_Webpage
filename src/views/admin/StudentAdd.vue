@@ -15,7 +15,7 @@
             </div>
             <div class="text-center ">
               <h1 class="py-6 text-3xl font-bold border-b">
-                เพิ่มข้อมูลนักศึกษา
+                CSMJU | เพิ่มข้อมูลนักศึกษา
               </h1>
             </div>
 
@@ -156,7 +156,6 @@
                   ></textarea>
                 </div>
               </div>
-
               <div class="flex flex-wrap mb-2">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
@@ -213,8 +212,8 @@ export default {
       email: "",
       phone: "",
       address: "",
-      imgUrl: "",
 
+      imgUrl: "",
       file: null,
     };
   },
@@ -281,7 +280,6 @@ export default {
     };
   },
   components: {},
-  mounted() {
-  },
+  mounted() {},
 };
 </script>

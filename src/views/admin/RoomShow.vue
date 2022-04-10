@@ -7,26 +7,26 @@
         <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">CSMJU | แจ้งติดต่อกลับ</h1>
+              <h1 class="py-6 text-3xl font-bold ">
+                CSMJU | การแสดงข้อมูลห้องเรียน
+              </h1>
             </div>
             <br class="shadow-xl" />
-            <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words "
-            >
+            <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
               <!-- Header  -->
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
-                  <div class="w-full px-4 font-bold text-md md:w-2/12">
+                  <div class="w-full px-4 font-semibold text-md md:w-2/12">
                     จำนวน {{ this.total }} รายการ
                   </div>
 
                   <div class="w-full px-4 py-4 md:w-6/12">
-                    <!-- <form @submit.prevent="onSubmit">
+                    <form @submit.prevent="onSubmit">
                       <input
                         v-model="keyword"
                         class="w-full py-2 pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-200 border-0 rounded-md"
                         type="text"
-                        placeholder="ป้อนชื่อที่ต้องการค้นหา"
+                        placeholder="ป้อนประเภทห้องเรียนที่ต้องการค้นหา เช่น ห้องบรรยาย"
                         aria-label="Search"
                       />
                       <button
@@ -36,11 +36,11 @@
                       >
                         Submit
                       </button>
-                    </form> -->
+                    </form>
                   </div>
 
                   <div class="w-full px-4 text-center md:w-4/12">
-                    <!-- <button
+                    <button
                       @click="submitSearchForm"
                       class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-lightBlue-500 active:bg-lightBlue-600 hover:shadow-md focus:outline-none"
                       type="button"
@@ -53,7 +53,15 @@
                       type="button"
                     >
                       <i class="fas fa-broom"></i> ล้าง
-                    </button> -->
+                    </button>
+                    <router-link to="RoomAdd">
+                      <button
+                        class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
+                        type="button"
+                      >
+                        <i class="fas fa-plus"></i> เพิ่ม
+                      </button>
+                    </router-link>
                   </div>
                 </div>
               </div>
@@ -61,104 +69,113 @@
               <!-- News Feeds table -->
               <div class="block w-full overflow-x-auto">
                 <!-- Projects table -->
-                <table
-                  class="items-center w-full bg-transparent border-collapse"
-                >
+                <table class="items-center w-full bg-transparent ">
                   <thead>
                     <tr
-                      class="text-blueGray-500 border-b-2  border-blueGray-500"
+                      class="text-blueGray-500 border-b-2 border-blueGray-500"
                     >
                       <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
                       >
-                        ลำดับ
+                        รหัสห้องเรียน
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        หัวข้อ
+                        ชื่อห้องเรียน
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        รายละเอียด
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        ไฟล์แนบ / รูปภาพ
+                        ประเภท
                       </th>
 
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        สถานะ
+                        ตำแหน่ง / อาคาร
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        การจัดการ
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr
-                      class="border-b"
-                      v-for="feed in products"
-                      :key="feed.complainId"
+                      v-for="room in products"
+                      :key="room.ClassroomId"
+                      class="border-b "
                     >
                       <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        {{ feed.complainId }}
-                      </td>
-                      <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
-                      >
-                        <h5 class="w-48 font-semibold truncate text-md">
-                          {{ feed.Complain_Title }}
-                        </h5>
-                        <p class="w-48 font-normal">
-                          วันที่ : {{ feed.Complain_Date }}
-                        </p>
-                      </td>
-                      <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 "
+                        class="w-5 p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
                         <div>
-                          <p class="w-48 font-normal :truncate">
-                            {{ feed.Complain_Detail }}
+                          <p class="w-12 font-normal ">
+                            {{ room.Classroom_Number }}
                           </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                      >
+                        <div
+                          class="flex items-center text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
+                        >
+                          <img
+                            :src="room.Classroom_Images"
+                            alt="..."
+                            class="w-20 h-20 rounded-lg shadow-lg border-2"
+                          />
+                          <span class="ml-3 text-sm font-semibold">
+                            {{ room.Classroom_Name }}
+                            <div class="text-sm font-normal text-emerald-600">
+                              จำนวน {{ room.Classroom_sit }} ที่นั่ง
+                            </div>
+                          </span>
                         </div>
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
-                        <img
-                          class="w-24 h-24 bg-gray-200 shadow-lg border"
-                          :src="feed.Complain_Picture"
-                          alt=""
-                        />
+                        <div class="w-48">
+                          <p class="font-normal truncate-3">
+                            {{ room.Classroom_Type }}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-wrap"
+                      >
+                        <div>
+                          <p class="w-48 font-normal truncate-3">
+                            {{ room.Classroom_Detail }}
+                          </p>
+                        </div>
                       </td>
 
                       <td
                         class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
                       >
                         <button
-                          @click="Delete(feed.complainId)"
+                          @click="Edit(room.ClassroomId)"
+                          class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
+                          type="button"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          @click="onclickDelete(room.ClassroomId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
-                          <i class="mr-1 fas fa-trash"></i>
-                          <span>ลบรายการนี้</span>
+                          <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-
-                <!-- แสดงผลตัวแบ่งหน้าเพจ-->
-                <VueTailwindPagination
-                  :current="currentPage"
-                  :total="total"
-                  :per-page="perPage"
-                  @page-changed="onPageClick($event)"
-                />
               </div>
             </div>
           </div>
@@ -169,29 +186,28 @@
 </template>
 <script>
 import http from "@/services/APIService";
-import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
+
 export default {
   data() {
     return {
       products: [],
-      currentPage: 0,
-      perPage: 0,
       total: 0,
     };
   },
   methods: {
-    async getProducts(pageNumber) {
-      let response = await http.get(`complain?page=${pageNumber}`);
-      let responseProduct = response.data.reverse();
+    Edit(id) {
+      this.$router.push({ name: "RoomEdit" });
+      this.$store.state.roomEdit = id;
+    },
+    async getProducts() {
+      let response = await http.get(`classroom`);
+      let responseProduct = response.data;
       this.products = responseProduct;
-      this.currentPage = responseProduct.current_page;
-      this.perPage = responseProduct.per_page;
       this.total = responseProduct.length;
     },
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
       let response = await http.get(
-        `complain/${this.keyword}?page=${pageNumber}`
+        `classroom/${this.keyword}?page=${pageNumber}`
       );
       let responseProduct = response.data;
       this.products = responseProduct;
@@ -199,45 +215,27 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
     },
-    // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
     onPageClick(event) {
       this.currentPage = event;
-      // เช็คว่ามีการค้นหาสินค้าอยู่หรือไม่
       if (this.keyword == "") {
-        // ไม่ได้ค้นหา
         this.getProducts(this.currentPage);
       } else {
         this.getProductsSearch(this.currentPage);
       }
     },
-
-    submitSearchForm() {
-      if (this.keyword != "") {
-        // เรียกค้นไปยัง api ของ laravel
-        http.get(`complain/${this.keyword}`).then((response) => {
-          let responseProduct = response.data;
-          this.products = responseProduct;
-          this.currentPage = responseProduct.current_page;
-          this.perPage = responseProduct.per_page;
-          this.total = responseProduct.total;
-        });
-      } else {
-        this.$swal.fire("ป้อนชื่อสินค้าที่ต้องการค้นหาก่อน");
-      }
-    },
-    Delete(id) {
+    onclickDelete(id) {
       this.$swal
         .fire({
           title: "ยืนยันการลบรายการนี้",
           showDenyButton: false,
           showCancelButton: true,
           confirmButtonText: `ยืนยัน`,
-          cancelButtonText: `ยกเลิก`,
+          cancelButtonText: `ปิดหน้าต่าง`,
         })
         .then((result) => {
           if (result.isConfirmed) {
             http
-              .delete(`complain/delete/${id}`)
+              .delete(`classroom/delete/${id}`)
               .then(() => {
                 this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
                 window.location.reload();
@@ -255,7 +253,19 @@ export default {
           }
         });
     },
-    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลการค้นหา
+    submitSearchForm() {
+      if (this.keyword != "") {
+        http.get(`classroom/${this.keyword}`).then((response) => {
+          let responseProduct = response.data;
+          this.products = responseProduct;
+          this.currentPage = responseProduct.current_page;
+          this.perPage = responseProduct.per_page;
+          this.total = responseProduct.total;
+        });
+      } else {
+        this.$swal.fire("ป้อนประเภทห้องเรียนที่ต้องการค้นหาก่อน");
+      }
+    },
     resetSearchForm() {
       this.currentPage = 1;
       this.getProducts(this.currentPage);
@@ -263,10 +273,9 @@ export default {
     },
   },
 
-  components: { VueTailwindPagination },
   mounted() {
     this.currentPage = 1;
-    // อ่านสินค้าจาก API
+
     this.getProducts(this.currentPage);
   },
 };

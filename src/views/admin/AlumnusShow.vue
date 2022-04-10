@@ -26,7 +26,7 @@
                         v-model="keyword"
                         class="w-full py-2 pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-200 border-0 rounded-md"
                         type="text"
-                        placeholder="ป้อนชื่อที่ต้องการค้นหา"
+                        placeholder="ป้อนชื่อศิษย์เก่าที่ต้องการค้นหา"
                         aria-label="Search"
                       />
                       <button
@@ -90,17 +90,17 @@
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        สถานะ
+                        ศิษย์เก่า (รุ่นที่)
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        สังกัด
+                        สังกัด / องค์กร
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        ตำแหน่ง
+                        ตำแหน่ง / หน้าที่
                       </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
@@ -145,7 +145,7 @@
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
-                        {{ alum.StudentCode_Alumni }}
+                        ศิษย์เก่าวิทย์คอม รุ่นที่ {{ alum.StudentCode_Alumni }}
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
@@ -196,15 +196,10 @@
 </template>
 <script>
 import http from "@/services/APIService";
-//import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
-import moment from "moment";
-
-//import moment from "moment";
 export default {
   data() {
     return {
-      /** ตัวแปรสำหรับเก็บข้อมูลสินค้าที่อ่านจาก API */
       products: [],
       currentPage: 0,
       perPage: 0,
@@ -226,10 +221,6 @@ export default {
       this.$router.push({ name: "AlumnusEdit" });
       this.$store.state.alumnusEdit = AlumniId;
     },
-    /***********************************************************************
-     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
-     ************************************************************************/
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
     async getProducts(pageNumber) {
       let response = await http.get(`alumni?page=${pageNumber}`);
       let responseProduct = response.data;
@@ -238,7 +229,6 @@ export default {
       this.perPage = responseProduct.per_page;
       this.total = responseProduct.total;
     },
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
       let response = await http.get(
         `alumni/name/${this.keyword}?page=${pageNumber}`
@@ -260,10 +250,6 @@ export default {
         this.getProductsSearch(this.currentPage);
       }
     },
-    /***********************************************************************
-     * ส่วนของการลบสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันสำหรับลบสินค้า
     onclickDelete(id) {
       this.$swal
         .fire({
@@ -276,10 +262,10 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             http
-              .delete(`alumnidelete/${id}`)
+              .delete(`alumni/delete/${id}`)
               .then(() => {
                 this.$swal.fire("ลบรายการเรียบร้อย!", "", "success");
-                // เมื่อแก้ไขรายการเสร็จทำการ ดึงสินค้าล่าสุดมาแสดง
+                window.location.reload();
                 if (this.keyword == "") {
                   this.getProducts(this.currentPage);
                 } else {
@@ -294,13 +280,8 @@ export default {
           }
         });
     },
-    /***********************************************************************
-     * ส่วนของการค้นหาสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันค้นหาสินค้า
     submitSearchForm() {
       if (this.keyword != "") {
-        // เรียกค้นไปยัง api ของ laravel
         http.get(`alumni/name/${this.keyword}`).then((response) => {
           let responseProduct = response.data;
           this.products = responseProduct;
@@ -309,32 +290,18 @@ export default {
           this.total = responseProduct.total;
         });
       } else {
-        this.$swal.fire("ป้อนชื่อสินค้าที่ต้องการค้นหาก่อน");
+        this.$swal.fire("ป้อนชื่อศิษย์เก่าที่ต้องการค้นหาก่อน");
       }
     },
-    // สร้างฟังก์ชันสำหรับเคลียร์ข้อมูลการค้นหา
     resetSearchForm() {
       this.currentPage = 1;
       this.getProducts(this.currentPage);
       this.keyword = "";
     },
-    // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("DD/MM/YYYY hh:mm:ss");
-      }
-    },
-    // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(",", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
   },
-
   components: { VueTailwindPagination },
   mounted() {
     this.currentPage = 1;
-    // อ่านสินค้าจาก API
     this.getProducts(this.currentPage);
   },
 };

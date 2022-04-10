@@ -10,6 +10,8 @@ export default createStore({
     personnelEdit: 0,
     aboutEdit: 0,
     subjectEdit: 0,
+    equipmentEdit: 0,
+    roomEdit: 0,
     
     aboutid: 1,
 

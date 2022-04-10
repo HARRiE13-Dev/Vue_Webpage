@@ -161,7 +161,30 @@
                   class="mr-2 text-sm fas fa-address-book"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-              การแสดงข้อมูลหลักสูตร
+                การแสดงข้อมูลหลักสูตร
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/roomshow"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-building"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                การแสดงข้อมูลห้องเรียน
               </a>
             </router-link>
           </li>
@@ -270,7 +293,7 @@
                   class="mr-2 text-sm fas fa-check-circle"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
-                ระบบจัดการข้อมมูลศิษย์เก่า
+                ระบบข้อมูลศิษย์เก่า
               </a>
             </router-link>
           </li>
@@ -294,29 +317,6 @@
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 ระบบครุภัณฑ์
-              </a>
-            </router-link>
-          </li>
-          <li class="items-center">
-            <router-link
-              to="/admin/complaining"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="block py-3 text-sm font-bold uppercase"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="mr-2 text-sm fas fa-check-circle"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                ระบบการติดต่อกลับ
               </a>
             </router-link>
           </li>
@@ -391,31 +391,6 @@
               </a>
             </router-link>
           </li>
-
-          <li class="items-center">
-            <router-link
-              to="/admin/CourseAlertShow"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="block py-3 text-sm font-bold uppercase"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="mr-2 text-sm fas fa-check-circle"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-
-                ระบบแจ้งตกค้างรายวิชา
-              </a>
-            </router-link>
-          </li>
           <li class="items-center">
             <router-link
               to="/admin/borrow_return"
@@ -437,6 +412,59 @@
                 ></i>
 
                 ระบบยืม-คืนอุปกรณ์
+              </a>
+            </router-link>
+          </li>
+          <hr class="my-4 md:min-w-full" />
+          <h6
+            class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"
+          >
+            การจัดการระบบสารสนเทศ (ระบบแจ้งเตือน)
+          </h6>
+          <li class="items-center">
+            <router-link
+              to="/admin/CourseAlertShow"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-mail-bulk"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+
+                ระบบแจ้งตกค้างรายวิชา
+              </a>
+            </router-link>
+          </li>
+          <li class="items-center">
+            <router-link
+              to="/admin/complaining"
+              v-slot="{ href, navigate, isActive }"
+            >
+              <a
+                :href="href"
+                @click="navigate"
+                class="block py-3 text-sm font-bold uppercase"
+                :class="[
+                  isActive
+                    ? 'text-emerald-500 hover:text-emerald-600'
+                    : 'text-blueGray-700 hover:text-blueGray-500',
+                ]"
+              >
+                <i
+                  class="mr-2 text-sm fas fa-mail-bulk"
+                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                ></i>
+                ระบบการติดต่อกลับ
               </a>
             </router-link>
           </li>

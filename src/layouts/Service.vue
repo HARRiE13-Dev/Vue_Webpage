@@ -171,7 +171,7 @@ export default {
   },
   mounted() {
     this.ShowProfile();
-    this.LoginCheck();
+    //this.LoginCheck();
   },
   methods: {
     Profile() {
@@ -218,14 +218,19 @@ export default {
         (new Date().getMonth() + 1) +
         "/" +
         new Date().getFullYear();
-      let device = navigator.userAgent;
 
+      let time =
+        new Date().getHours() +
+        ":" +
+        new Date().getMinutes() +
+        ":" +
+        new Date().getSeconds();
+      let device = navigator.userAgent;
       let data = new FormData();
       data.append("Username", username);
       data.append("type", type);
-      data.append("Date", date);
+      data.append("Date", date + " " + time);
       data.append("Device", device);
-
       http.post(`checklogin/create`, data).then((response) => {
         this.$store.state.id_login = response.data.LoginId;
       });

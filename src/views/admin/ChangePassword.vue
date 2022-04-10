@@ -1,14 +1,14 @@
 <template>
   <div class="">
     <main class="profile-page custom">
-      <section class="relative pb-16 bg-blueGray-200">
+      <section class="relative pb-16 bg-blueGray-200 rounded-lg">
         <div class="container mx-auto">
           <div class="flex flex-wrap">
             <div
               class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
             >
               <div class="px-6 mt-6">
-                <div class="flex flex-wrap rounded-lg bg-blueGray-100">
+                <div class="flex flex-wrap rounded-lg">
                   <div class="w-full lg:w-3/12">
                     <div class="mr-4 text-center rounded-lg bg-emerald-500">
                       <h3
@@ -27,21 +27,11 @@
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <button
-                        @click="home"
-                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                        type="button"
-                      >
-                        กลับหน้าหลัก
-                      </button>
-
-                      <button
-                        @click="profile"
-                        class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                        type="button"
-                      >
-                        ย้อนกลับ
-                      </button>
+                      <router-link to="Dashboard">
+                        <i
+                          class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
+                        ></i>
+                      </router-link>
                     </div>
                   </div>
                 </div>
@@ -66,11 +56,11 @@
                             >
                             <input
                               v-model="old_password"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="password"
                               placeholder="Old password"
                             />
-                            
+
                             <!-- <div
                               v-if="v$.first_nameEn.$error"
                               class="mt-0 text-sm text-red-500"
@@ -95,7 +85,7 @@
                             >
                             <input
                               v-model="password_1"
-                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="password"
                               placeholder="New password"
                             />
@@ -116,7 +106,7 @@
                             >
                             <input
                               v-model="password_2"
-                              class="w-full px-3  placeholder-blueGray-300 py-2 leading-tight text-gray-700 border rounded shadow"
+                              class="w-full px-3  placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="password"
                               placeholder="Confirm password"
                             />

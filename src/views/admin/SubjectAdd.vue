@@ -7,7 +7,7 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-4 text-right ">
-              <router-link to="StudentShow">
+              <router-link to="subjectshow">
                 <i
                   class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
                 ></i>
@@ -86,8 +86,8 @@
                     v-model="credit"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    maxlength="3"
-                    placeholder="Subject Credit"
+                    maxlength="4"
+                    placeholder="Subject Credit (Ex. 3325 => 3(3-2-5))"
                   />
                   <div
                     v-if="v$.credit.$error"
@@ -104,10 +104,44 @@
                     v-model="detail"
                     class="w-full px-3 py-2 leading-tight text-gray-700 "
                   >
-                    <option value="กลุ่มวิชาความรู้พื้นฐานทางวิทยาการคอมพิวเตอร์ (Fundamental Computer Science)">กลุ่มวิชาความรู้พื้นฐานทางวิทยาการคอมพิวเตอร์ (Fundamental Computer Science)</option>
-                    <option value="กลุ่มวิชาแนวคิดการวิเคราะห์และออกแบบ (System Analysis)">กลุ่มวิชาแนวคิดการวิเคราะห์และออกแบบ (System Analysis)</option>
-
-                   
+                    <option
+                      value="กลุ่มวิชาความรู้พื้นฐานทางวิทยาการคอมพิวเตอร์ (Fundamental Computer Science)"
+                      >กลุ่มวิชาความรู้พื้นฐานทางวิทยาการคอมพิวเตอร์
+                      (Fundamental Computer Science)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาแนวคิดการวิเคราะห์และออกแบบ (System Analysis)"
+                      >กลุ่มวิชาแนวคิดการวิเคราะห์และออกแบบ (System
+                      Analysis)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาการพัฒนาระบบแอปพลิเคชัน (Application Development)"
+                      >กลุ่มวิชาการพัฒนาระบบแอปพลิเคชัน (Application
+                      Development)</option
+                    >
+                    <option value="กลุ่มวิชาระบบเครือข่าย (Network System)"
+                      >กลุ่มวิชาระบบเครือข่าย (Network System)</option
+                    >
+                    <option value="กลุ่มวิชาวิทยาการข้อมูล (Data Science)"
+                      >กลุ่มวิชาวิทยาการข้อมูล (Data Science)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาอินเทอร์เน็ตในทุกสิ่ง (Internet of Things)"
+                      >กลุ่มวิชาอินเทอร์เน็ตในทุกสิ่ง (Internet of
+                      Things)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาปัญญาประดิษฐ์  (Artificial Intelligence)"
+                      >กลุ่มวิชาปัญญาประดิษฐ์ (Artificial Intelligence)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาการประยุกต์งานด้านธุรกิจ (Computer Science for Business)"
+                      >กลุ่มวิชาการประยุกต์งานด้านธุรกิจ (Computer Science for
+                      Business)</option
+                    >
+                    <option value="กลุ่มวิชาหัวข้อพิเศษ (Special Topics)"
+                      >กลุ่มวิชาหัวข้อพิเศษ (Special Topics)</option
+                    >
                   </select>
                   <div
                     v-if="v$.detail.$error"
@@ -127,6 +161,7 @@
                     v-model="term"
                     class="w-full px-3 py-2 leading-tight text-gray-700 "
                   >
+                    <option value="-">-</option>
                     <option v-for="i in 8" :key="i" :value="i">{{ i }}</option>
                   </select>
                   <div v-if="v$.term.$error" class="mt-2 text-sm text-red-500">
@@ -168,31 +203,29 @@ export default {
       credit: "",
       detail: "",
       term: "",
-
-      imgUrl: "",
-      file: null,
     };
   },
   methods: {
-    onFileChange(e) {
-      const file = e.target.files[0];
-      this.file = e.target.files[0];
-      this.imgUrl = URL.createObjectURL(file);
-    },
     submitFormAdd() {
       this.v$.$validate();
       if (!this.v$.$error) {
+        let credit_format =
+          this.credit[0] +
+          "(" +
+          this.credit[1] +
+          "-" +
+          this.credit[2] +
+          "-" +
+          this.credit[3] +
+          ")";
         let data = new FormData();
-        data.append("studentCode", this.code);
-        data.append("nameTh", this.first_nameTh);
-        data.append("surnameTh", this.last_nameTh);
-        data.append("nameEn", this.first_nameEn);
-        data.append("surnameEn", this.last_nameEn);
-        data.append("EmailStudent", this.email);
-        data.append("mobile", this.phone);
-        data.append("Address", this.address);
-        data.append("PictureProfile", this.file);
-        http.post(`student/create`, data).then(() => {
+        data.append("Subject_Code", this.code);
+        data.append("Subject_NameTh", this.nameTh);
+        data.append("Subject_NameEn", this.nameEn);
+        data.append("Subject_Credit", credit_format);
+        data.append("Subject_Detail", this.detail);
+        data.append("Subject_Term", this.term);
+        http.post(`subject/create`, data).then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
             position: "top-end",
@@ -204,7 +237,7 @@ export default {
             icon: "success",
             title: "เพิ่มข้อมูลเรียบร้อย",
           }).then(() => {
-            this.$router.push({ name: "StudentShow" });
+            this.$router.push({ name: "SubjectShow" });
           });
         });
       }
@@ -213,27 +246,27 @@ export default {
   validations() {
     return {
       code: {
-        required: helpers.withMessage("ป้อนรหัสนักศึกษาก่อน", required),
+        required: helpers.withMessage("ป้อนรหัสรายวิชาก่อน", required),
       },
       nameTh: {
-        required: helpers.withMessage("ป้อนชื่อภาษาไทยก่อน", required),
+        required: helpers.withMessage("ป้อนชื่อรายวิชาภาษาไทยก่อน", required),
       },
       nameEn: {
-        required: helpers.withMessage("ป้อนชื่อภาษาอังกฤษก่อน", required),
+        required: helpers.withMessage(
+          "ป้อนชื่อชื่อรายวิชาภาษาอังกฤษก่อน",
+          required
+        ),
       },
-
       credit: {
-        required: helpers.withMessage("ป้อนนามสกุลภาษาอังกฤษก่อน", required),
+        required: helpers.withMessage("ป้อนหน่วยกิตก่อน", required),
       },
       detail: {
-        required: helpers.withMessage("ป้อนอีเมลส่วนตัวก่อน", required),
+        required: helpers.withMessage("ป้อนกลุ่มรายวิชาก่อน", required),
       },
       term: {
-        required: helpers.withMessage("ป้อนเบอร์ติดต่อก่อน", required),
+        required: helpers.withMessage("ป้อนการแสดงเทอมก่อน", required),
       },
     };
   },
-  components: {},
-  mounted() {},
 };
 </script>

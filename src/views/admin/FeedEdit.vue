@@ -14,7 +14,9 @@
               </router-link>
             </div>
             <div class="text-center ">
-              <h1 class="py-6 text-3xl font-bold ">แก้ไขข้อมูลข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">
+                CSMJU | แก้ไขข้อมูลข่าวสาร
+              </h1>
             </div>
 
             <br class="shadow-xl" />
@@ -182,7 +184,6 @@ export default {
       Title: "",
       links: "",
       Type: "",
-      File: "xxx",
 
       imgSrc: "",
       fileName: "",

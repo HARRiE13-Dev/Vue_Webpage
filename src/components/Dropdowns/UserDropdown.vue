@@ -45,7 +45,7 @@
         ข้อมูล API
       </a>
       <router-link
-        to="/contact"
+        to="changepassword"
         class="block w-full px-4 py-2 text-sm font-normal text-blueGray-700 bg-transparent hover:text-emerald-600 whitespace-nowrap"
       >
         เปลี่ยนรหัสผ่าน

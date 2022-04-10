@@ -32,7 +32,7 @@
             <th
               class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap"
             >
-              ลำดับ
+              ลำดับ (ID)
             </th>
             <th
               class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap"
@@ -76,12 +76,16 @@
             <td
               class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
             >
-              {{ user.Date }}
+              {{ user.Date.slice(0, 9) }}
+              <p class="text-sm  text-emerald-600 font-semibold ">
+                ( {{ user.Date.slice(10, 19) }} )
+              </p>
             </td>
+
             <td
               class="p-4 px-6 text-md align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
             >
-              {{ user.Device }}
+              {{ user.Device.slice(0, 11) }}
             </td>
           </tr>
         </tbody>

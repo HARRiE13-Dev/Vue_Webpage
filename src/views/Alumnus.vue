@@ -64,7 +64,7 @@
                     <p
                       class="mb-2 font-normal text-center text-blueGray-700 text-md"
                     >
-                      {{ alum.StudentCode_Alumni }}
+                     ศิษย์เก่าวิทย์คอม รุ่นที่ {{ alum.StudentCode_Alumni }}
                     </p>
                   </div>
                 </div>

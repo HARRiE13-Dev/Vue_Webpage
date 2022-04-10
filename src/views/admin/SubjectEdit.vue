@@ -6,177 +6,180 @@
       >
         <div class="container px-4 mx-auto">
           <div class="px-6">
-            <div class="mt-6 text-center">
-              <h1 class="py-6 text-3xl font-bold ">
-                CSMJU | การแสดงข้อมูลกระบวนวิชา
+            <div class="mt-4 text-right ">
+              <router-link to="subjectshow">
+                <i
+                  class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
+                ></i>
+              </router-link>
+            </div>
+            <div class="text-center ">
+              <h1 class="py-6 text-3xl font-bold border-b">
+                CSMJU | แก้ไขข้อมูลรายวิชา
               </h1>
             </div>
-            <br class="shadow-xl" />
-            <div class="relative flex flex-col w-full min-w-0 mb-6 break-words">
-              <!-- Header  -->
-              <div class="px-4 py-3 mb-0 border-0 rounded-t">
-                <div class="flex flex-wrap items-center">
-                  <div class="w-full px-4 font-semibold text-md md:w-2/12">
-                    จำนวน  รายการ
-                  </div>
 
-                  <div class="w-full px-4 py-4 md:w-6/12">
-                    <form @submit.prevent="onSubmit">
-                      <input
-                        v-model="keyword"
-                        class="w-full py-2 pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-200 border-0 rounded-md"
-                        type="text"
-                        placeholder="ป้อนรหัสนักศึกษาที่ต้องการค้นหา เช่น 61041013XX"
-                        aria-label="Search"
-                      />
-                      <button
-                        @click="submitSearchForm"
-                        type="submit"
-                        class="hidden"
-                      >
-                        Submit
-                      </button>
-                    </form>
-                  </div>
+            <br class="shadow-xl border-t" />
 
-                  <div class="w-full px-4 text-center md:w-4/12">
-                    <button
-               
-                      class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-lightBlue-500 active:bg-lightBlue-600 hover:shadow-md focus:outline-none"
-                      type="button"
+            <form @submit.prevent="onSubmit" enctype="multipart/form-data">
+              <div class="flex flex-wrap mb-4">
+                <div class="w-full px-4 md:w-4/12">
+                  <label class="block my-3 text-gray-700 text-md"
+                    >รหัสรายวิชา</label
+                  >
+                  <input
+                    v-model="code"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
+                    type="text"
+                    maxlength="8"
+                    placeholder="Subject Code"
+                  />
+                  <div v-if="v$.code.$error" class="mt-2 text-sm text-red-500">
+                    {{ v$.code.$errors[0].$message }}
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap mb-4">
+                <div class="w-full px-4 md:w-12/12">
+                  <label class="block my-3 text-gray-700 text-md"
+                    >ชื่อรายวิชา (ภาษาไทย)</label
+                  >
+                  <input
+                    v-model="nameTh"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
+                    type="text"
+                    placeholder="Subject name (Thai)"
+                  />
+                  <div
+                    v-if="v$.nameTh.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.nameTh.$errors[0].$message }}
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap mb-4">
+                <div class="w-full px-4 md:w-12/12">
+                  <label class="block my-3 text-gray-700 text-md"
+                    >ชื่อรายวิชา (ภาษาอังกฤษ)</label
+                  >
+                  <input
+                    v-model="nameEn"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
+                    type="text"
+                    placeholder="Subject name (English)"
+                  />
+                  <div
+                    v-if="v$.nameEn.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.nameEn.$errors[0].$message }}
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap mb-4 mt-8 ">
+                <div class="w-full px-4 md:w-6/12">
+                  <label class="block my-3 text-gray-700 text-md"
+                    >หน่วยกิต</label
+                  >
+                  <input
+                    v-model="credit"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
+                    type="text"
+                    maxlength="4"
+                    placeholder="Subject Credit (Ex. 3325 => 3(3-2-5))"
+                  />
+                  <div
+                    v-if="v$.credit.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.credit.$errors[0].$message }}
+                  </div>
+                </div>
+                <div class="w-full px-4 md:w-6/12">
+                  <label class="block my-3 text-gray-700 text-md"
+                    >กลุ่มรายวิชา</label
+                  >
+                  <select
+                    v-model="detail"
+                    class="w-full px-3 py-2 leading-tight text-gray-700 "
+                  >
+                    <option
+                      value="กลุ่มวิชาความรู้พื้นฐานทางวิทยาการคอมพิวเตอร์ (Fundamental Computer Science)"
+                      >กลุ่มวิชาความรู้พื้นฐานทางวิทยาการคอมพิวเตอร์
+                      (Fundamental Computer Science)</option
                     >
-                      <i class="fas fa-search"></i> ค้นหา
-                    </button>
-                    <button
-               
-                      class="px-4 py-2 mb-1 mr-4 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none"
-                      type="button"
+                    <option
+                      value="กลุ่มวิชาแนวคิดการวิเคราะห์และออกแบบ (System Analysis)"
+                      >กลุ่มวิชาแนวคิดการวิเคราะห์และออกแบบ (System
+                      Analysis)</option
                     >
-                      <i class="fas fa-broom"></i> ล้าง
-                    </button>
-                    <router-link to="StudentAdd">
-                      <button
-                       
-                        class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
-                        type="button"
-                      >
-                        <i class="fas fa-plus"></i> เพิ่ม
-                      </button>
-                    </router-link>
+                    <option
+                      value="กลุ่มวิชาการพัฒนาระบบแอปพลิเคชัน (Application Development)"
+                      >กลุ่มวิชาการพัฒนาระบบแอปพลิเคชัน (Application
+                      Development)</option
+                    >
+                    <option value="กลุ่มวิชาระบบเครือข่าย (Network System)"
+                      >กลุ่มวิชาระบบเครือข่าย (Network System)</option
+                    >
+                    <option value="กลุ่มวิชาวิทยาการข้อมูล (Data Science)"
+                      >กลุ่มวิชาวิทยาการข้อมูล (Data Science)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาอินเทอร์เน็ตในทุกสิ่ง (Internet of Things)"
+                      >กลุ่มวิชาอินเทอร์เน็ตในทุกสิ่ง (Internet of
+                      Things)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาปัญญาประดิษฐ์  (Artificial Intelligence)"
+                      >กลุ่มวิชาปัญญาประดิษฐ์ (Artificial Intelligence)</option
+                    >
+                    <option
+                      value="กลุ่มวิชาการประยุกต์งานด้านธุรกิจ (Computer Science for Business)"
+                      >กลุ่มวิชาการประยุกต์งานด้านธุรกิจ (Computer Science for
+                      Business)</option
+                    >
+                    <option value="กลุ่มวิชาหัวข้อพิเศษ (Special Topics)"
+                      >กลุ่มวิชาหัวข้อพิเศษ (Special Topics)</option
+                    >
+                  </select>
+                  <div
+                    v-if="v$.detail.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.detail.$errors[0].$message }}
                   </div>
                 </div>
               </div>
 
-              <!-- News Feeds table -->
-              <div class="block w-full overflow-x-auto">
-                <!-- Projects table -->
-                <table class="items-center w-full bg-transparent ">
-                  <thead>
-                    <tr
-                      class="text-blueGray-500 border-b-2 border-blueGray-500"
-                    >
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
-                      >
-                        รหัสรายวิชา
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        ชื่อรายวิชา
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        หน่วยกิต
-                      </th>
-
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        กลุ่มรายวิชา
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        การจัดการ
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                    
-                      class="border-b"
-                    >
-                      <td
-                        class="w-5 p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        <div>
-                          <p class="w-12 font-normal ">
-                            {{ subject.Subject_Code }}
-                          </p>
-                        </div>
-                      </td>
-                      <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        <div
-                          class="flex items-center text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                        >
-                        
-                          <span class="ml-3 text-sm font-semiBold">
-                            {{ subject.Subject_NameTh }} 
-                            <div class="text-xs font-normal">
-                              {{ subject.Subject_NameEn }} 
-                            </div>
-                          </span>
-                        </div>
-                      </td>
-                      <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        <div class="w-48">
-                          <p class="font-normal truncate-3">
-                            {{ subject.Subject_Detail }}
-                          </p>
-                      
-                        </div>
-                      </td>
-                      <td
-                        class="p-4 px-6 text-sm align-middle border-t-0 border-l-0 border-r-0 whitespace-wrap"
-                      >
-                        <div>
-                          <p class="w-48 font-normal truncate-3">
-                            {{ subject.Subject_Credit }}
-                          </p>
-                        </div>
-                      </td>
-
-                      <td
-                        class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-                      >
-                        <button
-                          @click="Edit(subject.subjectId)"
-                          class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                          type="button"
-                        >
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button
-                          @click="onclickDelete(subject.subjectId)"
-                          class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                          type="button"
-                        >
-                          <i class="fas fa-trash-alt"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!-- แสดงผลตัวแบ่งหน้าเพจ-->
-            
+              <div class="flex flex-wrap mb-4">
+                <div class="w-full px-4 md:w-2/12">
+                  <label class="block my-3 text-gray-700 text-md"
+                    >แสดงรายวิชาในเทอม</label
+                  >
+                  <select
+                    v-model="term"
+                    class="w-full px-3 py-2 leading-tight text-gray-700 "
+                  >
+                    <option value="-">-</option>
+                    <option v-for="i in 8" :key="i" :value="i">{{ i }}</option>
+                  </select>
+                  <div v-if="v$.term.$error" class="mt-2 text-sm text-red-500">
+                    {{ v$.term.$errors[0].$message }}
+                  </div>
+                </div>
               </div>
-            </div>
+
+              <div class="py-6 text-center">
+                <button
+                  @click="submitFormEdit"
+                  class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                  type="button"
+                >
+                  บันทึกข้อมูล
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -185,68 +188,101 @@
 </template>
 <script>
 import http from "@/services/APIService";
+import useValidate from "@vuelidate/core";
+import { required, helpers } from "@vuelidate/validators";
 export default {
   data() {
     return {
-      first_name: "",
-      about_array: [],
+      v$: useValidate(),
+
+      id: "",
+
+      code: "",
+      nameTh: "",
+      nameEn: "",
+      credit: "",
+      detail: "",
+      term: "",
     };
   },
   methods: {
-    EditAbout(id) {
-      this.$router.push({ name: "SubjectEdit" });
-      this.$store.state.aboutEdit = id;
-    },
-    aboutAdd() {
-      this.$router.push({ name: "SubjectAdd" });
-    },
-    getAbout() {
-      http.get(`subject`).then((response) => {
-        this.about_array = response.data;
+    EditProduct() {
+      this.id = this.$store.state.subjectEdit;
+      http.get(`subject/id/${this.id}`).then((response) => {
+        this.code = response.data.Subject_Code;
+        this.nameTh = response.data.Subject_NameTh;
+        this.nameEn = response.data.Subject_NameEn;
+        let credit = response.data.Subject_Credit;
+        this.credit = credit[0] + credit[3] + credit[5] + credit[7];
+        this.detail = response.data.Subject_Detail;
+        this.term = response.data.Subject_Term;
       });
     },
-    Delete(id) {
-      const swalWithBootstrapButtons = this.$swal.mixin({
-        customClass: {
-          title: "font-weight-bold",
-          confirmButton:
-            "px-6 py-3 ml-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-          cancelButton:
-            "px-6 py-3 custom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-700 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-        },
-        buttonsStyling: false,
-      });
-      swalWithBootstrapButtons
-        .fire({
-          title: "ยืนยันการลบข้อมูล",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonText: "ยืนยัน",
-          cancelButtonText: "ยกเลิก",
-          reverseButtons: true,
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            http.delete(`about/delete/${id}`).then(() => {
-              swalWithBootstrapButtons
-                .fire("ลบข้อมูลเรียบร้อย!", "", "success")
-                .then(() => {
-                  window.location.reload();
-                });
-            });
-          } else if (result.dismiss === this.$swal.DismissReason.cancel) {
-            swalWithBootstrapButtons.fire(
-              "ยกเลิกการลบข้อมูลเรียบร้อย!",
-              "",
-              "error"
-            );
-            window.location.reload();
-          }
+    submitFormEdit() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        let credit_format =
+          this.credit[0] +
+          "(" +
+          this.credit[1] +
+          "-" +
+          this.credit[2] +
+          "-" +
+          this.credit[3] +
+          ")";
+        let data = new FormData();
+        data.append("Subject_Code", this.code);
+        data.append("Subject_NameTh", this.nameTh);
+        data.append("Subject_NameEn", this.nameEn);
+        data.append("Subject_Credit", credit_format);
+        data.append("Subject_Detail", this.detail);
+        data.append("Subject_Term", this.term);
+        data.append("_method", "PUT");
+        http.post(`subject/create`, data).then(() => {
+          const Toast = this.$swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+          });
+          Toast.fire({
+            icon: "success",
+            title: "เพิ่มข้อมูลเรียบร้อย",
+          }).then(() => {
+            this.$router.push({ name: "SubjectShow" });
+          });
         });
+      }
     },
   },
   mounted() {
-    this.getAbout();
+    this.EditProduct();
+  },
+  validations() {
+    return {
+      code: {
+        required: helpers.withMessage("ป้อนรหัสรายวิชาก่อน", required),
+      },
+      nameTh: {
+        required: helpers.withMessage("ป้อนชื่อรายวิชาภาษาไทยก่อน", required),
+      },
+      nameEn: {
+        required: helpers.withMessage(
+          "ป้อนชื่อชื่อรายวิชาภาษาอังกฤษก่อน",
+          required
+        ),
+      },
+      credit: {
+        required: helpers.withMessage("ป้อนหน่วยกิตก่อน", required),
+      },
+      detail: {
+        required: helpers.withMessage("ป้อนกลุ่มรายวิชาก่อน", required),
+      },
+      term: {
+        required: helpers.withMessage("ป้อนการแสดงเทอมก่อน", required),
+      },
+    };
   },
 };
 </script>

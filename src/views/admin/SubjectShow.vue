@@ -56,7 +56,6 @@
                     </button>
                     <router-link to="SubjectAdd">
                       <button
-                        @click="openModalAddProduct"
                         class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
                         type="button"
                       >
@@ -187,32 +186,18 @@ export default {
   data() {
     return {
       products: [],
-      currentPage: 0,
-      perPage: 0,
       total: 0,
-
-      AlumniId: 0,
-      Firstname_Alumni: "",
-      Lastname_Alumni: "",
-      StudentCode_Alumni: "",
-      Workplace: "",
-      Contact: "",
-      Caption: "",
-      Job_Title: "",
-      Alumni_Picture: "",
     };
   },
   methods: {
     Edit(id) {
       this.$router.push({ name: "SubjectEdit" });
-      this.$store.state.studentEdit = id;
+      this.$store.state.subjectEdit = id;
     },
     async getProducts() {
       let response = await http.get(`subject`);
       let responseProduct = response.data;
       this.products = responseProduct;
-      console.log(this.products);
-
       this.total = responseProduct.length;
     },
     async getProductsSearch(pageNumber) {

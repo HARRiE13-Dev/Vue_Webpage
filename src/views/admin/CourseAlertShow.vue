@@ -17,11 +17,11 @@
               <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
                   <div class="w-full px-4 font-semibold text-md md:w-2/12">
-                    จำนวน {{ products.total }} รายการ
+                    จำนวน {{ this.total }} รายการ
                   </div>
 
                   <div class="w-full px-4 py-4 md:w-6/12">
-                    <form @submit.prevent="onSubmit">
+                    <!-- <form @submit.prevent="onSubmit">
                       <input
                         v-model="keyword"
                         class="w-full py-2 pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-200 border-0 rounded-md"
@@ -36,11 +36,11 @@
                       >
                         Submit
                       </button>
-                    </form>
+                    </form> -->
                   </div>
 
                   <div class="w-full px-4 text-center md:w-4/12">
-                    <button
+                    <!-- <button
                       @click="submitSearchForm"
                       class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-lightBlue-500 active:bg-lightBlue-600 hover:shadow-md focus:outline-none"
                       type="button"
@@ -53,7 +53,7 @@
                       type="button"
                     >
                       <i class="fas fa-broom"></i> ล้าง
-                    </button>
+                    </button> -->
                   </div>
                 </div>
               </div>
@@ -246,10 +246,10 @@ export default {
     async getProducts() {
       let response = await http.get(`residaual`);
       let responseProduct = response.data;
-      this.products = responseProduct;
+      this.products = responseProduct.reverse();
       // this.currentPage = responseProduct.current_page;
       // this.perPage = responseProduct.per_page;
-      this.total = responseProduct.total;
+      this.total = responseProduct.length;
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
     async getProductsSearch(pageNumber) {
@@ -260,7 +260,7 @@ export default {
       this.products = responseProduct;
       this.currentPage = responseProduct.current_page;
       this.perPage = responseProduct.per_page;
-      this.total = responseProduct.total;
+      this.total = responseProduct.length;
     },
     // สร้างฟังก์ชันสำหรับการคลิ๊กเปลี่ยนหน้า
     onPageClick(event) {
