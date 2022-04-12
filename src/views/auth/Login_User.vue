@@ -30,12 +30,16 @@
                     (Username)
                   </span>
                 </label>
-                <input
-                  v-model="username"
-                  type="username"
-                  class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                  placeholder="รหัสนักศึกษา เช่น 6104101301"
-                />
+                <div class="wrapper">
+                  <input
+                    v-model="username"
+                    type="username"
+                    class="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                    placeholder="รหัสนักศึกษา เช่น 6104101301"
+                  />
+
+                  <div class="tooltip rounded-lg text-center text-sm">บุคลากรสาขาวิชาฯ กรอกเป็น email</div>
+                </div>
               </div>
               <div
                 v-if="v$.username.$error"
@@ -161,7 +165,7 @@ export default {
     },
     submit() {
       this.v$.$validate();
-      if (this.verify != null) {
+      if (this.verify == null) {
         if (
           // eslint-disable-next-line no-useless-escape
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username)
@@ -171,7 +175,7 @@ export default {
             http
               .post("login/mju/ad", {
                 username: this.username,
-                password: this.password,
+                // password: this.password,
               })
               .then((response) => {
                 let setRole = { role: 1 };

@@ -43,7 +43,7 @@
             <div class="mt-3 mb-0 text-blueGray-400">
               <div class="mb-2">
                 <i class="mr-2 text-lg fas fa-briefcase "></i>
-                ตำแหน่งการบริหาร
+                ตำแหน่ง
                 <p class="text-blueGray-700">
                   {{ personnel.adminPosition }}
                 </p>
@@ -123,6 +123,13 @@ export default {
         .get(`personnel/staff`)
         .then((response) => {
           this.personnel_array = response.data;
+          for (let i = 0; i < this.personnel_array.length; i++) {
+            if (this.personnel_array[i].adminPosition == "-") {
+              this.personnel_array[i].adminPosition = this.personnel_array[
+                i
+              ].position;
+            }
+          }
         })
         .catch((error) => {
           if (error.response) {

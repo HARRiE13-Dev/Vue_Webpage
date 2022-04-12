@@ -56,7 +56,7 @@
                         class="bg-white rounded px-8 pt-2 pb-8"
                         @submit.prevent
                       >
-                     <div class="flex w-full px-2 mt-1 mb-4">
+                        <div class="flex w-full px-2 mt-1 mb-4">
                           <v-date-picker v-model="Dates">
                             <template #default="{ inputValue, inputEvents }">
                               <input
@@ -345,7 +345,6 @@ export default {
                 .fire("บันทึกข้อมูลเรียบร้อย!", "", "success")
                 .then(() => {
                   this.$router.push({ name: "ServiceStudent" });
-                  window.location.reload();
                 });
             });
           } else if (result.dismiss === this.$swal.DismissReason.cancel) {

@@ -176,7 +176,7 @@
                         <label
                           class="block px-2 my-3 text-gray-700 text-md"
                           for="Title"
-                          >การศึกษา / Education
+                          >การศึกษา
                         </label>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-2 md:w-2/12">
@@ -335,6 +335,49 @@
                                 <button
                                   v-show="skill_array.length > 1"
                                   @click="removeField_skill(index, skill_array)"
+                                  class=" px-6 py-3   text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  ลบ
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="flex flex-wrap mb-4">
+                          <div class="w-full px-2 md:w-12/12">
+                            <label
+                              class="block my-3 text-gray-700 text-md"
+                              for="Title"
+                              >ความเชี่ยวชาญ</label
+                            >
+                            <div
+                              v-for="(input, index) in expert_array"
+                              :key="`expertInput-${index}`"
+                              class="flex text-center mt-2"
+                            >
+                              <div class="w-full md:w-8/12">
+                                <input
+                                  v-model="input.expert"
+                                  class="w-full placeholder-blueGray-300 px-3 py-2 leading-tight text-gray-700 border"
+                                  type="text"
+                                  placeholder="Expertise"
+                                />
+                              </div>
+                              <div class="text-right md:w-4/12">
+                                <button
+                                  @click="addField_expert(input, expert_array)"
+                                  class=" mr-2 px-6 py-3  text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                                  type="button"
+                                >
+                                  เพิ่ม
+                                </button>
+
+                                <button
+                                  v-show="expert_array.length > 1"
+                                  @click="
+                                    removeField_expert(index, expert_array)
+                                  "
                                   class=" px-6 py-3   text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                                   type="button"
                                 >
@@ -546,6 +589,25 @@
                                   <h1
                                     class="mt-6 font-semibold text-lg text-blueGray-700"
                                   >
+                                    <i class="fas fa-star text-emerald-500"></i>
+                                    ความเชี่ยวชาญ / Expertise
+                                  </h1>
+                                  <div class="pt-1 border-t"></div>
+                                  <div
+                                    v-for="expert_loop in expert_array"
+                                    :key="expert_loop.expert"
+                                  >
+                                    <p
+                                      class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                                    >
+                                      {{ expert_loop.expert }}
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="px-0">
+                                  <h1
+                                    class="mt-6 font-semibold text-lg text-blueGray-700"
+                                  >
                                     <i
                                       class="fas fa-award text-emerald-500"
                                     ></i>
@@ -605,6 +667,7 @@ export default {
       experience_array: [{ exp: "" }],
       skill_array: [{ skill: "" }],
       portfolio_array: [{ port: "" }],
+      expert_array: [{ expert: "" }],
 
       year1: "",
       graduate1: "",
@@ -787,6 +850,7 @@ export default {
             let skills = [];
             let exps = [];
             let ports = [];
+            let expert = [];
             this.skill_array.forEach((element) => {
               skills.push(element.skill);
             });
@@ -796,12 +860,16 @@ export default {
             this.portfolio_array.forEach((element) => {
               ports.push(element.port);
             });
+            this.expert_array.forEach((element) => {
+              expert.push(element.expert);
+            });
 
             let data = new FormData();
             data.append("Bio_Personnel", this.bio);
             data.append("Experience", exps);
             data.append("Skill", skills);
             data.append("Portfolio", ports);
+            data.append("expertise", expert);
             data.append(
               "BachelorDegree",
               this.year1 + " " + this.graduate1 + " " + this.institution1
@@ -875,6 +943,17 @@ export default {
       fieldType.push(newObject);
     },
     removeField_skill(index, fieldType) {
+      fieldType.splice(index, 1);
+    },
+
+    addField_expert(object, fieldType) {
+      let newObject = {};
+      for (const [key] of Object.entries(object)) {
+        newObject[key] = "";
+      }
+      fieldType.push(newObject);
+    },
+    removeField_expert(index, fieldType) {
       fieldType.splice(index, 1);
     },
 

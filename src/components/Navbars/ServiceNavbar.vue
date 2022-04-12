@@ -87,6 +87,14 @@
               ติดต่อเรา
             </router-link>
           </li>
+          <li class="flex items-center">
+            <router-link
+              to="/download"
+              class="block w-full px-4 py-2 text-sm font-normal text-white bg-transparent whitespace-nowrap"
+            >
+             ดาวน์โหลดเอกสาร
+            </router-link>
+          </li>
 
           <li class="flex items-center">
             <router-link to="/auth/login">
@@ -120,11 +128,11 @@ export default {
       this.navbarOpen = !this.navbarOpen;
     },
     onClickLogout() {
+      let id = this.$store.state.id_login;
+      http.delete(`checklogin/delete/${id}`).then(() => {});
       localStorage.removeItem("user");
       localStorage.removeItem("permission");
       this.$router.push({ name: "Login" });
-      let id = this.$store.state.id_login;
-      http.delete(`checklogin/delete/${id}`).then(() => {});
     },
   },
   components: {

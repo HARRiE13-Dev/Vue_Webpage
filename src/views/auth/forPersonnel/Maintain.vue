@@ -299,7 +299,7 @@ export default {
                       "success"
                     )
                     .then(() => {
-                      window.location.reload();
+                      this.$router.push({ name: "ServiceTeacher" });
                     });
                 })
                 .catch((error) => {

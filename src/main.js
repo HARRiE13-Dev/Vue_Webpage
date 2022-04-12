@@ -81,7 +81,6 @@ import Service_Teacher from "@/views/auth/Service_Teacher.vue";
 //Service For Student
 import Course from "@/views/auth/forStudent/CourseAlert.vue";
 import Maintenance from "@/views/auth/forStudent/MaintainStudent.vue";
-import MaintenanceList from "@/views/auth/forStudent/Maintenance_List.vue";
 import ProfileStudent from "@/views/auth/forStudent/ProfileStudent.vue";
 import RoomReserveStudent from "@/views/auth/forStudent/RoomReserveStudent.vue";
 
@@ -103,6 +102,7 @@ import NewsExplain from "@/views/NewsExplain.vue";
 import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
+import Download from "@/views/Download.vue";
 import Classroom from "@/views/Classroom.vue";
 import Schedule from "@/views/Schedule.vue";
 import Alumnus from "@/views/Alumnus.vue";
@@ -445,12 +445,6 @@ const routes = [
         beforeEnter: authGuard,
       },
       {
-        path: "/service/service_student/maintenancelist",
-        name: "MaintenanceList",
-        component: MaintenanceList,
-        beforeEnter: authGuard,
-      },
-      {
         path: "/service/service_student/profilestudent",
         name: "ProfileStudent",
         component: ProfileStudent,
@@ -514,6 +508,11 @@ const routes = [
     redirect: "/main",
     component: Main,
     children: [
+      {
+        path: "/download",
+        component: Download,
+        beforeEnter: intoGuard,
+      },
       {
         path: "/about",
         component: About,

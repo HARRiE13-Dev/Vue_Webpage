@@ -13,7 +13,7 @@
             สาขาวิชาวิทยาการคอมพิวเตอร์
           </h3>
           <p>
-            <a class="hover:text-emerald-600" href="https://g.page/CSMJU?shar">
+            <a class="hover:text-emerald-600 " href="https://g.page/CSMJU?shar">
               ชั้น 6, อาคาร 60 ปี คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้ <br />
               63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</a
             >
@@ -28,7 +28,7 @@
             Fax. 053-873898 <br />
             E-mail :
             <a class="hover:text-emerald-600" href="mailto:cs@mju.ac.th"
-              >csmju@gmail.com</a
+              >cs@mju.ac.th.com</a
             >
           </p>
           <h3 class="mt-4 font-semibold">

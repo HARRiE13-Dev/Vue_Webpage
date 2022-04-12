@@ -149,6 +149,38 @@
               </div>
               <div class="px-0">
                 <h1 class="mt-6 font-semibold text-lg text-blueGray-700">
+                  <i class="fas fa-tools text-emerald-500"></i>
+                  ความเชี่ยวชาญ / Expertise
+                </h1>
+                <div class="pt-1 border-t"></div>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ expert_1 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ expert_2 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ expert_3 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ expert_4 }}
+                </p>
+                <p
+                  class="ml-5 font-normal text-sm leading-normal break-normal text-blueGray-500"
+                >
+                  {{ expert_5 }}
+                </p>
+              </div>
+              <div class="px-0">
+                <h1 class="mt-6 font-semibold text-lg text-blueGray-700">
                   <i class="fas fa-award text-emerald-500"></i>
                   ผลงาน / Portfolio
                 </h1>
@@ -223,9 +255,16 @@ export default {
       port_4: "",
       port_5: "",
 
+      expert_1: "",
+      expert_2: "",
+      expert_3: "",
+      expert_4: "",
+      expert_5: "",
+
       experience_array: [{ exp: "" }],
       skill_array: [{ skill: "" }],
       portfolio_array: [{ port: "" }],
+      expert_array: [{ expert: "" }],
 
       year1: "",
       graduate1: "",
@@ -240,7 +279,7 @@ export default {
   },
   mounted() {
     this.getPersonnelData();
-    //this.printCV();
+    this.printCV();
     this.getCvData();
   },
 
@@ -248,7 +287,27 @@ export default {
     printCV() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
       document.title = `CV_Aj-${local_user.email.slice(0, 4)}.pdf`;
-      window.print();
+      //window.print();
+      const Swal = this.$swal.mixin({
+          customClass: {
+            title: "font-weight-bold custom",
+            confirmButton:
+              "px-6 py-3 mx-4 costom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+          },
+          buttonsStyling: false,
+
+        });
+      Swal.fire({
+        title: "Export CV to PDF file",
+        text: "นำออกไฟล์เอกสาร CV ของท่านเป็น PDF",
+        icon: "warning",
+        showCancelButton: false,
+        confirmButtonText: "ยืนยัน",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Exported", "นำออกเอกสารเรียบร้อย", "success");
+        }
+      });
       window.onafterprint = window.close;
     },
     getCvData() {
@@ -282,6 +341,13 @@ export default {
           this.skill_3 = this.skill_array[2];
           this.skill_4 = this.skill_array[3];
           this.skill_5 = this.skill_array[4];
+
+          this.expert_array = this.cv_array.expertise.split(",");
+          this.expert_1 = this.expert_array[0];
+          this.expert_2 = this.expert_array[1];
+          this.expert_3 = this.expert_array[2];
+          this.expert_4 = this.expert_array[3];
+          this.expert_5 = this.expert_array[4];
 
           this.portfolio_array = this.cv_array.Portfolio.split(",");
           this.port_1 = this.portfolio_array[0];

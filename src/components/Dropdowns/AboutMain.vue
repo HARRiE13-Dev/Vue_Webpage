@@ -55,7 +55,7 @@
       <span
         class="block w-full px-4 pt-2 pb-0 text-sm font-bold bg-transparent whitespace-nowrap text-blueGray-400"
       >
-        บุคคลากร
+        บุคลากร
       </span>
       <router-link
         to="/teacher"
