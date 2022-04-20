@@ -14,7 +14,11 @@
         >
           ไม่พบหน้าที่คุณต้องการ!
 
-          <router-link to="/home" class="text-emerald-600 font-semibold" href="#">
+          <router-link
+            to="/home"
+            class="text-emerald-600 font-semibold"
+            href="#"
+          >
             กลับหน้าหลัก
           </router-link>
         </p>

@@ -71,6 +71,14 @@ import ActivityShow from "@/views/admin/ActivityShow.vue";
 import ActivityAdd from "@/views/admin/ActivityAdd.vue";
 import ActivityEdit from "@/views/admin/ActivityEdit.vue";
 
+import BookingShow from "@/views/admin/BookingShow.vue";
+import BookingAdd from "@/views/admin/BookingAdd.vue";
+import BookingEdit from "@/views/admin/BookingEdit.vue";
+
+import RepairShow from "@/views/admin/RepairShow.vue";
+import RepairAdd from "@/views/admin/RepairAdd.vue";
+import RepairEdit from "@/views/admin/RepairEdit.vue";
+
 import CourseAlertShow from "@/views/admin/CourseAlertShow.vue";
 
 // views for Auth layout
@@ -235,6 +243,42 @@ const routes = [
         path: "/admin/subjectedit",
         name: "SubjectEdit",
         component: SubjectEdit,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/repairshow",
+        name: "RepairShow",
+        component: RepairShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/repairadd",
+        name: "RepairAdd",
+        component: RepairAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/repairedit",
+        name: "RepairEdit",
+        component: RepairEdit,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/bookingshow",
+        name: "BookingShow",
+        component: BookingShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/bookingadd",
+        name: "BookingAdd",
+        component: BookingAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/bookingdit",
+        name: "BookingEdit",
+        component: BookingEdit,
         beforeEnter: authGuard_Admin,
       },
       {

@@ -8,7 +8,7 @@
           <div class="px-6">
             <div class="mt-6 text-center">
               <h1 class="py-6 text-3xl font-bold ">
-                CSMJU | ระบบบันทึกกิจกรรม
+                CSMJU | ระบบจองห้องเรียน
               </h1>
             </div>
             <br class="shadow-xl" />
@@ -80,24 +80,29 @@
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
-                        ชื่อกิจกรรม / โครงการ
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        ผู้จัด / ผู้รับผิดชอบ
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        รายละเอียด
-                      </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
-                        วันที่จัดกิจกรรม
+                        ห้องเรียน
                       </th>
 
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        เหตุผล / รายละเอียด
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        ผู้จอง
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        วันที่จอง
+                      </th>
+                      <th
+                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
+                      >
+                        สถานะ
+                      </th>
                       <th
                         class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
                       >
@@ -108,49 +113,55 @@
                   <tbody>
                     <tr
                       class="border-b"
-                      v-for="act in products"
-                      :key="act.activityId"
+                      v-for="booking in products"
+                      :key="booking.book_classroomId"
                     >
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
-                        {{ act.Activity_Title }}
+                        {{ booking.Classroom_Name }}
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
                         <h5 class="w-48 font-semibold truncate text-md">
-                          {{ act.Activity_Organizer }}
+                          {{ booking.Book_Detail }}
                         </h5>
                       </td>
-                      <td class="p-4 px-2 text-sm align-middle">
+                      <td class="p-4 px-2 text-md align-middle">
                         <div>
                           <p class="w-auto font-normal truncate-3">
-                            {{ act.Activity_Detail }}
+                            {{ booking.FirstName }}
+                            {{ booking.LastName }}
                           </p>
+                          <p class="text-xs border-b mb-2 font-semibold">
+                            รหัสนักศึกษา: {{ booking.StudentCode }}
+                          </p>
+                          <p class="text-xs">ติดต่อ: {{ booking.Email }}</p>
                         </div>
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"
                       >
-                        {{ act.Activity_Start }}
-                        <p class="text">
-                          เวลา : {{ act.Activity_TimeStart }} ถึง
-                          {{ act.Activity_TimeEnd }}
-                        </p>
+                        {{ booking.Book_Date }}
+                      </td>
+                      <td
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
+                      >
+                        {{ booking.Status_Book }}
                       </td>
                       <td
                         class="p-4 px-6 text-xs align-middle whitespace-nowrap"
                       >
                         <button
-                          @click="Edit(act.activityId)"
+                          @click="Edit(booking.newsId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
                           <i class="fas fa-edit"></i>
                         </button>
                         <button
-                          @click="onclickDelete(act.activityId)"
+                          @click="onclickDelete(booking.newsId)"
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
                           type="button"
                         >
@@ -178,11 +189,7 @@
 </template>
 <script>
 import http from "@/services/APIService";
-//import '@ocrv/vue-tailwind-pagination/styles'
 import VueTailwindPagination from "@ocrv/vue-tailwind-pagination";
-import moment from "moment";
-
-//import moment from "moment";
 export default {
   data() {
     return {
@@ -195,20 +202,18 @@ export default {
   },
   methods: {
     Edit(id) {
-      this.$router.push({ name: "ActivityEdit" });
-      this.$store.state.newsEdit = id;
+      this.$router.push({ name: "RepairEdit" });
+      this.$store.state.repairEdit = id;
     },
     /***********************************************************************
      * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
      ************************************************************************/
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
     async getProducts(pageNumber) {
-      let response = await http.get(`activity?page=${pageNumber}`);
+      let response = await http.get(`bookclassroom?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = responseProduct;
-
       this.total = this.products.length;
-      alert(this.total);
       this.products.data.reverse();
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
@@ -275,8 +280,7 @@ export default {
         http.get(`news/${this.keyword}`).then((response) => {
           let responseProduct = response.data;
           this.products = responseProduct;
-          this.currentPage = responseProduct.current_page;
-          this.perPage = responseProduct.per_page;
+
           this.total = responseProduct.total;
         });
       } else {
@@ -288,17 +292,6 @@ export default {
       this.currentPage = 1;
       this.getProducts(this.currentPage);
       this.keyword = "";
-    },
-    // สร้างฟังก์ชันสำหรับจัดรูปแบบวันที่ด้วย moment.js
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("DD/MM/YYYY hh:mm:ss");
-      }
-    },
-    // สร้างฟังก์ชันแปลงยอดเงินให้เป็นรูปแบบสกุลเงิน (10,000.50)
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(",", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
   },
 
