@@ -15,7 +15,6 @@
 
         <div class="py-5 mt-10 text-center border-t border-blueGray-200">
           <div class="flex flex-wrap ">
-            
             <div class="flex flex-auto mt-4 block w-full overflow-x-auto">
               <div class="block w-full overflow-x-auto lg:w-12/12">
                 <!-- Projects table -->
@@ -68,9 +67,9 @@
                         >
                           <i class="fas fa-arrow-down"></i>
                           <a
-                            href="../assets/doc/vac_personnel.pdf"
+                            href="https://drive.google.com/file/d/19cz3sKjsIsrt6VHfBIsRcaJykbo6eIOv/view?usp=sharing"
                             class="ml-1 text-md font-bold"
-                            download
+                            target="_blank"
                             >Download</a
                           >
                         </button>
@@ -100,9 +99,9 @@
                         >
                           <i class="fas fa-arrow-down"></i>
                           <a
-                            href="../assets/doc/vac_student.pdf"
+                            href="https://drive.google.com/file/d/1yzmD-6t3a8kXi6efQLpFgYwjfhqQa3_Q/view?usp=sharing"
                             class="ml-1 text-md font-bold"
-                            download
+                            target="_blank"
                             >Download</a
                           >
                         </button>
@@ -132,9 +131,9 @@
                         >
                           <i class="fas fa-arrow-down"></i>
                           <a
-                            href="../assets/doc/medical_fee.pdf"
+                            href="https://drive.google.com/file/d/1negMVCZX3aBSZpFTTVZCRUxGXNMmKx3s/view?usp=sharing"
                             class="ml-1 text-md font-bold"
-                            download
+                            target="_blank"
                             >Download</a
                           >
                         </button>
@@ -164,9 +163,9 @@
                         >
                           <i class="fas fa-arrow-down"></i>
                           <a
-                            href="../assets/doc/duty_confirm.doc"
+                            href="https://docs.google.com/document/d/1w1ZzmKxLJxg8IBXo5YK69op7JBQVP82v/edit?usp=sharing&ouid=107917108546787483081&rtpof=true&sd=true"
                             class="ml-1 text-md font-bold"
-                            download
+                            target="_blank"
                             >Download</a
                           >
                         </button>
@@ -196,9 +195,9 @@
                         >
                           <i class="fas fa-arrow-down"></i>
                           <a
-                            href="../assets/doc/donate.docx"
+                            href="https://docs.google.com/document/d/1lFwYXipcuarGpltNROL45hilltLgK1FH/edit?usp=sharing&ouid=107917108546787483081&rtpof=true&sd=true"
                             class="ml-1 text-md font-bold"
-                            download
+                            target="_blank"
                             >Download</a
                           >
                         </button>

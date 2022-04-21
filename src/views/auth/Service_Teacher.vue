@@ -35,10 +35,7 @@
                       <div
                         class="relative flex flex-col w-full min-w-0 mb-6 break-words duration-150 ease-linear border rounded-lg shadow-lg max-h-news border-blueGray-300 hover:zoom-xs bg-blueGray-100"
                       >
-                        <router-link
-                          @click="ShowAll(no)"
-                          to="service_teacher/cv"
-                        >
+                        <router-link to="service_teacher/cv">
                           <img
                             :src="cover1"
                             class="w-full cropped-service align-middle rounded-t-lg text-blueGray-500"

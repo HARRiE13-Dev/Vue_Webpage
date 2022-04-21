@@ -213,6 +213,7 @@
                               class="w-full px-3 placeholder-blueGray-300 py-2 leading-tight text-gray-700"
                               type="text"
                               placeholder="Phone"
+                              maxlength="10"
                             />
                             <div
                               v-if="v$.phone.$error"

@@ -9,7 +9,7 @@
           <div
             class="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left"
           >
-            Copyright © 2021
+            Copyright © {{ years }}
             <a
               class="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
             >
@@ -36,7 +36,7 @@
 export default {
   data() {
     return {
-      date: new Date().getFullYear(),
+      years: new Date().getFullYear(),
     };
   },
 };

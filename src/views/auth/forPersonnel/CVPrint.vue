@@ -224,6 +224,7 @@ import http from "@/services/WebpageService";
 export default {
   data() {
     return {
+      id: 0,
       cv_array: [],
       position: "",
       first_name: "",
@@ -279,37 +280,11 @@ export default {
   },
   mounted() {
     this.getPersonnelData();
-    this.printCV();
     this.getCvData();
+    this.printCV();
   },
 
   methods: {
-    printCV() {
-      let local_user = JSON.parse(window.localStorage.getItem("user"));
-      document.title = `CV_Aj-${local_user.email.slice(0, 4)}.pdf`;
-      //window.print();
-      const Swal = this.$swal.mixin({
-          customClass: {
-            title: "font-weight-bold custom",
-            confirmButton:
-              "px-6 py-3 mx-4 costom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
-          },
-          buttonsStyling: false,
-
-        });
-      Swal.fire({
-        title: "Export CV to PDF file",
-        text: "นำออกไฟล์เอกสาร CV ของท่านเป็น PDF",
-        icon: "warning",
-        showCancelButton: false,
-        confirmButtonText: "ยืนยัน",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire("Exported", "นำออกเอกสารเรียบร้อย", "success");
-        }
-      });
-      window.onafterprint = window.close;
-    },
     getCvData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
       http
@@ -317,6 +292,7 @@ export default {
         .then((response) => {
           this.cv_array = response.data[0];
           //Get data from API
+          this.id = this.cv_array.cvId;
           this.bio = this.cv_array.Bio_Personnel;
           this.year1 = this.cv_array.BachelorDegree.slice(0, 6);
           this.graduate1 = this.cv_array.BachelorDegree.slice(6, 9);
@@ -375,7 +351,6 @@ export default {
           }
         });
     },
-
     getPersonnelData() {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
       http
@@ -414,6 +389,48 @@ export default {
             }
           }
         });
+    },
+    printCV() {
+      let local_user = JSON.parse(window.localStorage.getItem("user"));
+      document.title = `CV_Aj-${local_user.email.slice(0, 4)}.pdf`;
+      const Swal = this.$swal.mixin({
+        customClass: {
+          title: "font-weight-bold custom",
+          confirmButton:
+            "px-6 py-3 mx-4 costom mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none",
+        },
+        buttonsStyling: false,
+      });
+      Swal.fire({
+        title: "กด CTRL + P",
+        html:
+          "เลือก More settings | เมนู Paper size เลือก A4 | เมนู Options นำเครื่องหมายถูกต้องตรง Header and footers ออก",
+        icon: "warning",
+        showCancelButton: false,
+        confirmButtonText: "ยืนยัน",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var beforePrint = function() {
+            console.log("Functionality to run before printing.");
+          };
+
+          var afterPrint = function() {
+            console.log("Functionality to run after printing");
+          };
+
+          if (window.matchMedia) {
+            var mediaQueryList = window.matchMedia("print");
+            mediaQueryList.addListener(function(mql) {
+              if (mql.matches) {
+                beforePrint();
+              } else {
+                afterPrint();
+              }
+            });
+          }
+          // http.http.delete(`cv/delete/${this.id}`).then(() => {});
+        }
+      });
     },
   },
 };

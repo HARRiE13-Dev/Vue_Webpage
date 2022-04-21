@@ -41,9 +41,9 @@
                   class="text-lg mt-2 text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600 hover:zoom-xs"
                 >
                   <i class="px-2 fas fa-arrow-down fa-lg"></i>
-                  <a href="@/assets/download/CsmjuApp.apk" download
-                    >ดาวน์โหลดแอปพลิเคชัน CSMJU</a
-                  >
+                   <router-link to="qrcode" target="_blank">
+                    ดาวน์โหลดแอปพลิเคชัน CSMJU
+                  </router-link>
                 </div>
               </div>
             </div>

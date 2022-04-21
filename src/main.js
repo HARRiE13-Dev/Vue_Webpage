@@ -103,6 +103,7 @@ import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
 import Download from "@/views/Download.vue";
+import QRcode from "@/views/QRcode.vue";
 import Classroom from "@/views/Classroom.vue";
 import Schedule from "@/views/Schedule.vue";
 import Alumnus from "@/views/Alumnus.vue";
@@ -523,7 +524,6 @@ const routes = [
         component: Program,
         beforeEnter: intoGuard,
       },
-
       {
         path: "/news",
         name: "News",
@@ -591,7 +591,11 @@ const routes = [
         name: "Welcome",
         component: Welcome,
       },
-
+      {
+        path: "/qrcode",
+        component: QRcode,
+        beforeEnter: intoGuard,
+      },
       //Error 404
       {
         path: "/:catchAll(.*)",

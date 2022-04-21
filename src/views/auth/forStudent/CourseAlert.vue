@@ -29,13 +29,13 @@
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <button
+                      <!-- <button
                         @click="ListMaintenance"
                         class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
                         รายการ
-                      </button>
+                      </button> -->
 
                       <button
                         @click="back"
@@ -87,7 +87,8 @@
                               v-model="s_code"
                               @keyup="getSubject"
                               class="w-full px-3 py-2 leading-tight text-gray-700"
-                              type="number"
+                              type="text"
+                              maxlength="8"
                               placeholder="Subject Code"
                             />
                             <div
@@ -357,6 +358,7 @@ export default {
                 data.append("Sec_Another", this.s_section);
                 data.append("Subject_Internal", sec);
                 data.append("Subject_External", this.s_name);
+                data.append("Subject60", this.s_code + " " + this.s_name);
               }
               http
                 .post(`residaual/create`, data)

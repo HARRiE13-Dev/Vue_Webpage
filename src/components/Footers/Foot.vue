@@ -14,7 +14,7 @@
           <div
             class="py-1 text-sm font-semibold text-center text-blueGray-500 md:text-left"
           >
-            Copyright © 2021
+            Copyright © {{ years }}
             <a
               class="py-1 text-sm font-semibold text-white hover:text-blueGray-300"
             >
@@ -40,6 +40,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      years: new Date().getFullYear(),
+    };
+  },
   props: {
     absolute: {
       type: Boolean,

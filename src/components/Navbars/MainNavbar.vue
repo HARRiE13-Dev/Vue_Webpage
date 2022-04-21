@@ -65,21 +65,20 @@
               ศิษย์เก่า
             </router-link>
           </li>
-
-          <li class="flex items-center">
-            <router-link
-              to="/contact"
-              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
-            >
-              ติดต่อเรา
-            </router-link>
-          </li>
           <li class="flex items-center">
             <router-link
               to="/download"
               class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
             >
               ดาวน์โหลดเอกสาร
+            </router-link>
+          </li>
+          <li class="flex items-center">
+            <router-link
+              to="/contact"
+              class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700 hover:text-emerald-600"
+            >
+              ติดต่อเรา
             </router-link>
           </li>
 
