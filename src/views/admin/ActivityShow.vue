@@ -54,7 +54,7 @@
                     >
                       <i class="fas fa-broom"></i> ล้าง
                     </button>
-                    <router-link to="addfeed">
+                    <router-link to="activityadd">
                       <button
                         @click="openModalAddProduct"
                         class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "
@@ -198,17 +198,11 @@ export default {
       this.$router.push({ name: "ActivityEdit" });
       this.$store.state.newsEdit = id;
     },
-    /***********************************************************************
-     * ส่วนของการอ่านข้อมูลจาก API และแสดงผลในตาราง
-     ************************************************************************/
-    // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api ทั้งหมด
     async getProducts(pageNumber) {
       let response = await http.get(`activity?page=${pageNumber}`);
       let responseProduct = response.data;
       this.products = responseProduct;
-
       this.total = this.products.length;
-      alert(this.total);
       this.products.data.reverse();
     },
     // ฟังก์ชันสำหรับดึงรายการสินค้าจาก api เมื่อมีการค้นหา (search)
