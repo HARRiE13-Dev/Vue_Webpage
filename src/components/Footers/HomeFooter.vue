@@ -28,7 +28,7 @@
             Fax. 053-873898 <br />
             E-mail :
             <a class="hover:text-emerald-600" href="mailto:cs@mju.ac.th"
-              >cs@mju.ac.th.com</a
+              >cs@mju.ac.th</a
             >
           </p>
           <h3 class="mt-4 font-semibold">
@@ -141,7 +141,7 @@
       >
         <div class="w-full px-4 mx-auto text-center md:w-4/12">
           <div class="py-1 text-sm font-semibold text-blueGray-500">
-            Copyright © 2021 Computer Science MJU
+            Copyright © {{years}} Computer Science MJU
             <br />
             by HOP Team | All Rights Reserved.
           </div>
@@ -151,5 +151,11 @@
   </footer>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      years : new Date().getFullYear()
+    };
+  },
+};
 </script>

@@ -784,25 +784,10 @@ export default {
         .get(`cv/${local_user.card_id}`)
         .then((response) => {
           this.cv_array = response.data[0];
-          //Get data from API
           this.cvId = this.cv_array.cvId;
-          this.bio = this.cv_array.Bio_Personnel;
-          let bachelor = this.cv_array.BachelorDegree.split(" ");
-          this.year1 = bachelor[1];
-          this.graduate1 = bachelor[2];
-          this.institution1 = bachelor[3] + " " + bachelor[4];
-          let master = this.cv_array.MastersDegree.split(" ");
-          this.year2 = master[1];
-          this.graduate2 = master[2];
-          this.institution2 = master[3] + " " + master[4];
-          let doctor = this.cv_array.DoctoralDegree.split(" ");
-          this.year3 = doctor[1];
-          this.graduate3 = doctor[1];
-          this.institution3 = doctor[3] + " " + doctor[4];
-
-          this.experience_array = this.cv_array.Experience.split(",");
-          this.skill_array = this.cv_array.Skill.split(",");
-          this.portfolio_array = this.cv_array.Portfolio.split(",");
+          if(this.cv_array){
+            http.delete(`cv/delete/${this.cvId}`).then(() => {});
+          }
         })
         .catch((error) => {
           if (error.response) {
@@ -822,6 +807,9 @@ export default {
             }
           }
         });
+    },
+    deleteData() {
+      http.delete(`cv/delete/${this.cvId}`).then(() => {});
     },
     printCV() {
       const swalWithBootstrapButtons = this.$swal.mixin({

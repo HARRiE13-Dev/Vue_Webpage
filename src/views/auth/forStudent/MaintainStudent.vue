@@ -29,13 +29,13 @@
                   </div>
                   <div class="w-full lg:w-3/12">
                     <div class="mt-4 text-right">
-                      <button
+                      <!-- <button
                         @click="ListMaintenance"
                         class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-emerald-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                         type="button"
                       >
                         รายการ
-                      </button>
+                      </button> -->
                       <a href="javascript:history.go(-1)">
                         <button
                           class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
@@ -202,6 +202,7 @@ export default {
       equip_name: "",
       equip_where: "",
       equip_detail: "",
+      equip_price: null,
 
       equip_arr_code: [],
 
@@ -230,6 +231,7 @@ export default {
         this.equip_arr_code = response.data.data[0];
         this.equip_name = `${this.equip_arr_code.Equipment_Brand} | ${this.equip_arr_code.Equipment_Name}`;
         this.equip_where = this.equip_arr_code.Equipment_Room;
+        this.equip_price = this.equip_arr_code.Equipment_Price;
       });
     },
     clearForm() {
@@ -248,7 +250,6 @@ export default {
       http.get(`student/${this.studentID}`).then((response) => {
         this.profile = response.data.data[0];
         this.fromCheck = response.data.from;
-
         if (this.fromCheck != 1) {
           const Swal = this.$swal.mixin({
             position: "center",
@@ -279,12 +280,11 @@ export default {
         });
         swalWithBootstrapButtons
           .fire({
-            title: "ตรวจสอบข้อมูลการแจ้งตก-ค้างรายวิชา",
+            title: "ตรวจสอบข้อมูลการแจ้งซ่อมอุปกรณ์",
             html:
-              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">รหัสครุภัณฑ์ :</b> ${this.equip_id} </p>` +
-              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">ชื่อครุภัณฑ์ :</b> ${this.equip_name} </p>` +
-              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">ห้องเก็บ / ที่อยู่ :</b> ${this.equip_where} </p>` +
-              ` <p class="custom text-emerald-600 text-left font-normal text-sm"> <b class="text-blueGray-700">รายละเอียด :</b> ${this.equip_detail}</p>`,
+              ` <p class="custom text-left font-normal text-sm"> <b>รหัส :</b> ${this.equip_id}</p>` +
+              ` <p class="custom text-left font-normal text-sm"> <b>ชื่อ :</b> ${this.equip_name}</p>` +
+              ` <p class="custom text-left font-normal text-sm">  <b>รายละเอียด :</b> ${this.equip_detail} </p>`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "ยืนยัน",
@@ -293,27 +293,35 @@ export default {
           })
           .then((result) => {
             if (result.isConfirmed) {
+              let today =
+                new Date().getDate() +
+                "/" +
+                (new Date().getMonth() + 1) +
+                "/" +
+                new Date().getFullYear();
+              let time =
+                new Date().getHours() +
+                ":" +
+                new Date().getMinutes() +
+                ":" +
+                new Date().getSeconds();
               let data = new FormData();
-              data.append("Residaual_Detail");
-              data.append("nameTh", this.profile.nameTh);
-              data.append("surnameTh", this.profile.surnameTh);
-              data.append("EmailStudent", this.profile.EmailStudent);
-              data.append("mobile", this.profile.mobile);
-              data.append("studentCode", this.studentID);
-              let sec = "-";
-              if (this.s_type == "1") {
-                data.append("Sec_Internal", this.s_section);
-                data.append("Sec_Another", sec);
-                data.append("Subject_Internal", this.s_name);
-                data.append("Subject_External", sec);
-              } else if (this.s_type == "2") {
-                data.append("Sec_Internal", sec);
-                data.append("Sec_Another", this.s_section);
-                data.append("Subject_Internal", sec);
-                data.append("Subject_External", this.s_name);
-              }
+              data.append("equipmentId", this.equip_id);
+              data.append("Repair_Date", today);
+              data.append("Repair_Time", time);
+              data.append(
+                "Repair_Detail",
+                this.equip_name +
+                  " " +
+                  this.equip_where +
+                  " " +
+                  this.equip_detail
+              );
+              data.append("Repair_Expenses", this.equip_price);
+              data.append("personnelId", "-");
+              data.append("studentId", this.studentID);
               http
-                .post(`residaual/create`, data)
+                .post(`repair/create`, data)
                 .then(() => {
                   swalWithBootstrapButtons
                     .fire(
@@ -322,7 +330,7 @@ export default {
                       "success"
                     )
                     .then(() => {
-                      window.location.reload();
+                      this.$router.push({ name: "ServiceStudent" });
                     });
                 })
                 .catch((error) => {

@@ -12,7 +12,7 @@
       >
         <div class="w-full px-4 mx-auto text-center md:w-4/12">
           <div class="py-1 text-sm font-semibold text-blueGray-500">
-            Copyright © 2021 Computer Science MJU
+            Copyright © {{years}} Computer Science MJU
             <br />
             by HOP Team | All Rights Reserved.
           </div>
@@ -23,5 +23,11 @@
   </footer>
 </template>
 <script>
-export default {};
+export default {
+   data() {
+    return {
+      years : new Date().getFullYear()
+    };
+  },
+};
 </script>
