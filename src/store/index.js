@@ -12,7 +12,8 @@ export default createStore({
     subjectEdit: 0,
     equipmentEdit: 0,
     roomEdit: 0,
-    
+    bookingEdit: 0,
+
     aboutid: 1,
 
     id_login: 0,

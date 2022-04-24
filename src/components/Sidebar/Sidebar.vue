@@ -322,7 +322,7 @@
           </li>
           <li class="items-center">
             <router-link
-              to="/admin/activityShow"
+              to="/admin/activityshow"
               v-slot="{ href, navigate, isActive }"
             >
               <a
@@ -336,7 +336,7 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tools"
+                  class="mr-2 text-sm fas fa-check-circle"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
 
@@ -346,7 +346,7 @@
           </li>
           <li class="items-center">
             <router-link
-              to="/admin/booking_classroom"
+              to="/admin/bookingshow"
               v-slot="{ href, navigate, isActive }"
             >
               <a
@@ -360,16 +360,16 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tools"
+                  class="mr-2 text-sm fas fa-check-circle"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 ระบบจองห้องเรียน
               </a>
             </router-link>
           </li>
-          <li class="items-center">
+          <!-- <li class="items-center">
             <router-link
-              to="/admin/reparing"
+              to="/admin/repairshow"
               v-slot="{ href, navigate, isActive }"
             >
               <a
@@ -383,38 +383,14 @@
                 ]"
               >
                 <i
-                  class="mr-2 text-sm fas fa-tools"
+                  class="mr-2 text-sm fas fa-check-circle"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
 
                 ระบบแจ้งซ่อม
               </a>
             </router-link>
-          </li>
-          <li class="items-center">
-            <router-link
-              to="/admin/borrow_return"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="block py-3 text-sm font-bold uppercase"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="mr-2 text-sm fas fa-tools"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-
-                ระบบยืม-คืนอุปกรณ์
-              </a>
-            </router-link>
-          </li>
+          </li> -->
           <hr class="my-4 md:min-w-full" />
           <h6
             class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"

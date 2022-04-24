@@ -7,105 +7,160 @@
         <div class="container px-4 mx-auto">
           <div class="px-6">
             <div class="mt-4 text-right ">
-              <router-link to="feed">
+              <router-link to="activityshow">
                 <i
                   class="relative duration-150 ease-linear hover:zoom fas fa-times fa-2x"
                 ></i>
               </router-link>
             </div>
             <div class="text-center ">
-              <h1 class="py-6 text-3xl font-bold ">แก้ไขข้อมูลข่าวสาร</h1>
+              <h1 class="py-6 text-3xl font-bold ">แก้ไขข้อมูลกิจกรรม</h1>
             </div>
 
             <br class="shadow-xl" />
-            <form @submit.prevent="onSubmit" enctype="multipart/form-data">
-              <div class="flex flex-wrap mb-2">
+            <form
+              ref="addProductForm"
+              @submit.prevent="onSubmit"
+              enctype="multipart/form-data"
+            >
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eTitle"
-                    >หัวข้อข่าว</label
+                  <label class="block my-3 text-gray-700 text-md"
+                    >วันที่ประกาศกิจกรรม</label
                   >
-                  <input
-                    v-model="eTitle"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="text"
-                    placeholder="Product name"
-                  />
-                </div>
-                <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eType"
-                    >ประเภทข่าว</label
+                  <div class="flex w-full mt-2">
+                    <v-date-picker v-model="Activity_Start">
+                      <template #default="{ inputValue, inputEvents }">
+                        <input
+                          class="px-3 py-1 border border-gray-500 text-gray-700 text-md focus:outline-none focus:border-blue-500"
+                          :value="inputValue"
+                          v-on="inputEvents"
+                        />
+                      </template>
+                    </v-date-picker>
+                  </div>
+                  <div
+                    v-if="v$.Activity_Start.$error"
+                    class="mt-2 text-sm text-red-500"
                   >
-                  <input
-                    v-model="eType"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="text"
-                    placeholder="Product name"
-                  />
-                </div>
-              </div>
-              <div class="flex flex-wrap mb-2">
-                <div class="w-full px-4 md:w-6/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eDates"
-                    >วันที่</label
-                  >
-                  <input
-                    v-model="eDates"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="text"
-                    placeholder="Product name"
-                  />
+                    {{ v$.Activity_Start.$errors[0].$message }}
+                  </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
+                <div class="w-full px-4 md:w-6/12">
+                  <label class="block my-3 text-gray-700 text-md" for="Title"
+                    >ชื่อกิจกรรม</label
+                  >
+                  <input
+                    v-model="Activity_Title"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
+                    type="text"
+                    placeholder="Title"
+                  />
+                  <div
+                    v-if="v$.Activity_Title.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Activity_Title.$errors[0].$message }}
+                  </div>
+                </div>
+                <div class="w-full px-4 md:w-6/12">
+                  <label class="block my-3 text-gray-700 text-md" for="Title"
+                    >ผู้รับผิดชอบ</label
+                  >
+                  <input
+                    v-model="Activity_Organizer"
+                    class="w-full px-3 py-2 leading-tight text-gray-700"
+                    type="text"
+                    placeholder="Organizer"
+                  />
+                  <div
+                    v-if="v$.Activity_Organizer.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Activity_Organizer.$errors[0].$message }}
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
-                  <label class="block my-3 text-gray-700 text-md" for="eDetail"
-                    >รายละเอียด</label
+                  <label class="block my-3 text-gray-700 text-md"
+                    >รายละเอียดกิจกรรม</label
                   >
                   <textarea
-                    v-model="eDetail"
+                    v-model="Activity_Detail"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     rows="5"
-                    placeholder="Product description"
+                    placeholder="Description"
                   ></textarea>
+                  <div
+                    v-if="v$.Activity_Detail.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Activity_Detail.$errors[0].$message }}
+                  </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
-                  <label class="block my-3 text-gray-700 text-md" for="elinks"
-                    >ลิงค์ที่เกี่ยวข้อง</label
+                  <label class="block my-3 text-gray-700 text-md"
+                    >รูปแบบกิจกรรม</label
                   >
                   <input
-                    v-model="elinks"
+                    v-model="Activity_Location"
                     class="w-full px-3 py-2 leading-tight text-gray-700"
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Location / Platform"
                   />
+                  <div
+                    v-if="v$.Activity_Location.$error"
+                    class="mt-2 text-sm text-red-500"
+                  >
+                    {{ v$.Activity_Location.$errors[0].$message }}
+                  </div>
                 </div>
               </div>
-              <div class="flex flex-wrap mb-2">
+              <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-12/12">
                   <div class="mt-4">
-                    <img v-if="eimgUrl" :src="eimgUrl" class="w-full" />
+                    <img
+                      v-if="imgUrl"
+                      :src="imgUrl"
+                      class="w-auto h-350-px rounded-lg shadow-lg center-img bg-emerald-500 border"
+                    />
                   </div>
 
                   <label class="block my-3 text-gray-700 text-md" for="image"
-                    >ภาพสินค้า</label
+                    >รูปภาพ</label
                   >
-                  <input
-                    ref="fileupload"
-                    @change="onFileChange"
-                    class="w-full px-3 py-2 leading-tight text-gray-700"
-                    type="file"
-                  />
+                  <div
+                    class="relative flex items-center justify-center h-32 bg-gray-100 border-b border-blue-700 "
+                  >
+                    <input
+                      ref="fileupload"
+                      type="file"
+                      @change="onFileChange"
+                      class="w-full h-50-px opacity-0 p-3 bg-white"
+                    />
+                  </div>
                 </div>
               </div>
+
               <div class="py-6 text-center">
                 <button
-                  @click="submitFormEdit(enewsId)"
+                  @click="onResetForm"
+                  class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
+                  type="button"
+                >
+                  ล้าง
+                </button>
+                <button
+                  @click="submit"
                   class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                   type="button"
                 >
-                  อัพเดทข้อมูล
+                  ยืนยัน
                 </button>
               </div>
             </form>
@@ -119,76 +174,75 @@
 import http from "@/services/APIService";
 import useValidate from "@vuelidate/core";
 import { required, helpers } from "@vuelidate/validators";
+//import axios from 'axios';
 export default {
   data() {
     return {
-      // รับค่าวัน-เดือน-ปี
-      day: new Date().getDate(),
-      month: new Date().getMonth() + 1,
-      year: new Date().getFullYear(),
-
       v$: useValidate(),
+      id: 0,
+      Activity_Start: "",
+      Activity_TimeStart: "8:00",
+      Activity_TimeEnd: "17:00",
+      Activity_Organizer: "",
+      Activity_Location: "",
+      Activity_Detail: "",
+      Activity_Title: "",
+      Activity_Picture: "",
 
-      enewsId: "",
-      eDetail: "",
-      eDates: "",
-      eTime: "",
-      ePicture: "xxx",
-      eTitle: "",
-      elinks: "",
-      eType: "",
-      eimgUrl: "",
-
-      imgSrc: "",
       fileName: "",
-
+      imgUrl: "",
       file: null,
     };
   },
   methods: {
-    /***********************************************************************
-     * ส่วนของการแก้ไขข้อมูลสินค้า
-     ************************************************************************/
-    // สร้างฟังก์ชันสำหรับเปิด popup แก้ไขสินค้า
+    async getProducts() {
+      this.id = this.$store.state.activityEdit;
+      http.get(`activity/id/${this.id}`).then((response) => {
+        this.Activity_Start = response.data.Activity_Start;
+        this.Activity_TimeStart = response.data.Activity_TimeStart;
+        this.Activity_TimeEnd = response.data.Activity_TimeEnd;
+        this.Activity_Organizer = response.data.Activity_Organizer;
+        this.Activity_Location = response.data.Activity_Location;
+        this.Activity_Detail = response.data.Activity_Detail;
+        this.Activity_Title = response.data.Activity_Title;
+        this.imgUrl = response.data.Activity_Picture;
+      });
+    },
     onFileChange(e) {
       const file = e.target.files[0];
       this.file = e.target.files[0];
-      this.eimgUrl = URL.createObjectURL(file);
+      this.imgUrl = URL.createObjectURL(file);
     },
-
-    EditProduct() {
-      this.newsId = this.$store.state.newsEdit;
-      http.get(`news/update/${this.newsId}`).then((response) => {
-        // console.log(response.data)
-        this.enewsId = response.data.newsId;
-        this.eTitle = response.data.News_Title;
-        this.eType = response.data.News_Type;
-        this.eDates = response.data.News_Date;
-        this.eDetail = response.data.News_Detail;
-        this.elinks = response.data.News_links;
-        this.eimgUrl = response.data.News_Picture;
-      });
+    onResetForm() {
+      this.$refs.addProductForm.reset();
+      (this.Activity_Start = ""),
+        (this.Activity_TimeStart = ""),
+        (this.Activity_TimeEnd = ""),
+        (this.Activity_Organizer = ""),
+        (this.Activity_Location = ""),
+        (this.Activity_Detail = ""),
+        (this.Activity_Title = ""),
+        (this.Activity_Picture = ""),
+        (this.fileName = "");
+      this.imgUrl = "";
+      this.file = "";
+      this.$refs.fileupload.value = null;
     },
-
-    // สร้างฟังก์ขันสำหรับอัพเดทข้อมูล
-    submitFormEdit(newsId) {
-      // console.log(id)
-      this.eDates = this.year + "-" + this.month + "-" + this.day;
-      let data = new FormData();
-      data.append("News_Title", this.eTitle);
-      data.append("News_Type", this.eType);
-      data.append("News_Date", this.eDates);
-      data.append("News_Detail", this.eDetail);
-      data.append("News_links", this.elinks);
-      data.append("News_Picture", this.file);
-      data.append("News_File", this.eimgUrl);
-
-      // Send Patch request to laravel
-      data.append("_method", "PUT");
-      http
-        .post(`newsedit/${newsId}`, data)
-        .then(() => {
-          // เรียกใช้งาน popup ของ sweetalert2
+    submit() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        let formatDate = this.Activity_Start.toISOString().slice(0, 10);
+        let data = new FormData();
+        data.append("Activity_Start", formatDate);
+        data.append("Activity_TimeStart", this.Activity_TimeStart);
+        data.append("Activity_TimeEnd", this.Activity_TimeEnd);
+        data.append("Activity_Organizer", this.Activity_Organizer);
+        data.append("Activity_Location", this.Activity_Location);
+        data.append("Activity_Detail", this.Activity_Detail);
+        data.append("Activity_Title", this.Activity_Title);
+        data.append("Activity_Picture", this.Activity_Picture);
+        data.append("_method", "PUT");
+        http.post(`activity/update/${this.id}`, data).then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
             position: "top-end",
@@ -198,39 +252,36 @@ export default {
           });
           Toast.fire({
             icon: "success",
-            title: "อัพเดทข้อมูลเรียบร้อย",
+            title: "แก้ไขข้อมูลเรียบร้อย",
           }).then(() => {
-            this.$router.push({ name: "Feed" });
+            this.$router.push({ name: "ActivityShow" });
           });
-        })
-        .catch((error) => {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
         });
+      }
     },
   },
   validations() {
     return {
-      Detail: {
-        required: helpers.withMessage("ป้อนรายละเอียดข่าวก่อน", required),
+      Activity_Start: {
+        required: helpers.withMessage("ป้อนวันที่ประกาศกิจกรรมก่อน", required),
       },
-      Dates: {
-        required: helpers.withMessage("ป้อนวันที่ก่อน", required),
+      Activity_Organizer: {
+        required: helpers.withMessage("ป้อนชื่อผู้จัดกิจกรรมก่อน", required),
       },
-
-      Title: {
-        required: helpers.withMessage("ป้อนหัวข้อข่าวก่อน", required),
+      Activity_Location: {
+        required: helpers.withMessage("ป้อนสถานที่จัดกิจกรรมก่อน", required),
       },
-
-      Type: {
-        required: helpers.withMessage("ป้อนประเภทข่าวก่อน", required),
+      Activity_Detail: {
+        required: helpers.withMessage("ป้อนรายละเอียดกิจกรรมก่อน", required),
+      },
+      Activity_Title: {
+        required: helpers.withMessage("ป้อนชื่อกิจกรรมก่อน", required),
       },
     };
   },
   components: {},
   mounted() {
-    this.EditProduct(this.newsId);
+    this.getProducts();
   },
 };
 </script>
