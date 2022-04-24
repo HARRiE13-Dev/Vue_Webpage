@@ -79,6 +79,10 @@ import RepairShow from "@/views/admin/RepairShow.vue";
 import RepairAdd from "@/views/admin/RepairAdd.vue";
 import RepairEdit from "@/views/admin/RepairEdit.vue";
 
+import AlbumShow from "@/views/admin/AlbumShow.vue";
+import AlbumAdd from "@/views/admin/AlbumAdd.vue";
+import AlbumEdit from "@/views/admin/AlbumEdit.vue";
+
 import CourseAlertShow from "@/views/admin/CourseAlertShow.vue";
 
 // views for Auth layout
@@ -107,6 +111,8 @@ import About from "@/views/About.vue";
 import Program from "@/views/Program.vue";
 import News from "@/views/News.vue";
 import NewsExplain from "@/views/NewsExplain.vue";
+import Album from "@/views/Album.vue";
+import AlbumExplain from "@/views/AlbumExplain.vue";
 import Staff from "@/views/Staff.vue";
 import Teacher from "@/views/Teacher.vue";
 import Contact from "@/views/Contact.vue";
@@ -226,6 +232,24 @@ const routes = [
         path: "/admin/changepassword",
         name: "ChangePassword",
         component: ChangePassword,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/albumshow",
+        name: "AlbumShow",
+        component: AlbumShow,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/albumadd",
+        name: "AlbumAdd",
+        component: AlbumAdd,
+        beforeEnter: authGuard_Admin,
+      },
+      {
+        path: "/admin/albumEdit",
+        name: "AlbumEdit",
+        component: AlbumEdit,
         beforeEnter: authGuard_Admin,
       },
       {
@@ -578,6 +602,18 @@ const routes = [
         path: "/newsexplain",
         name: "NewsExplain",
         component: NewsExplain,
+        beforeEnter: intoGuard,
+      },
+      {
+        path: "/album",
+        name: "Album",
+        component: Album,
+        beforeEnter: intoGuard,
+      },
+      {
+        path: "/albumexplain",
+        name: "AlbumExplain",
+        component: AlbumExplain,
         beforeEnter: intoGuard,
       },
       {
