@@ -10,7 +10,7 @@
         <!-- <img class="" src="@/assets/img/404.gif" alt="404 not found" /> -->
 
         <p
-          class="cssanimation bg-gray-100 px-6 py-2 rounded-lg sequence fadeInBottom text-2xl mt-10 text-blueGray-700 dark:text-gray-300"
+          class="bg-gray-100 px-6 py-2 rounded-lg text-2xl mt-10 text-blueGray-700 dark:text-gray-300"
         >
           ไม่พบหน้าที่คุณต้องการ!
 

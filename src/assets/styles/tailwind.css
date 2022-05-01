@@ -1455,6 +1455,10 @@ select {
   object-fit: cover;
 }
 
+.scroll-hide {
+  overflow: hidden;
+}
+
 .bg-fixed {
   background-attachment: fixed;
 }

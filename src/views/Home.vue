@@ -68,7 +68,7 @@
         <div class="container mx-auto">
           <div class="flex flex-wrap">
             <div
-              class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom"
+              class="w-full px-4 text-center md:w-6/12"
             >
               <router-link to="program" target="_blank">
                 <div
@@ -86,7 +86,7 @@
             </div>
 
             <div
-              class="w-full px-4 text-center md:w-6/12 cssanimation sequence fadeInBottom"
+              class="w-full px-4 text-center md:w-6/12"
             >
               <a href="http://www.admissions.mju.ac.th/" target="_blank">
                 <div
@@ -105,7 +105,7 @@
           </div>
           <div class="flex flex-wrap">
             <div
-              class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom"
+              class="w-full px-4 text-center md:w-4/12"
             >
               <router-link to="about" target="_blank">
                 <div
@@ -122,7 +122,7 @@
               </router-link>
             </div>
             <div
-              class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom"
+              class="w-full px-4 text-center md:w-4/12"
             >
               <router-link to="activity" target="_blank">
                 <div
@@ -139,7 +139,7 @@
               </router-link>
             </div>
             <div
-              class="w-full px-4 text-center md:w-4/12 cssanimation sequence fadeInBottom"
+              class="w-full px-4 text-center md:w-4/12"
             >
               <router-link to="contact" target="_blank">
                 <div

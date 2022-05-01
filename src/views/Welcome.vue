@@ -1,16 +1,16 @@
 <template>
-  <div class="relative page custom ">
+  <div class="relative page custom">
     <div class="countdown-col col">
       <div class="relative newslatter middle">
-        <div class="px-4 cssanimation sequence fadeInBottom">
+        <div class="px-4 cssanimation sequence fadeInBottom scroll-hide">
           <img
-            class="h-24 center-img shadow-lg bg-no-repeat bg-cover bg-full"
+            class="h-24 center-img shadow-lg bg-no-repeat bg-cover bg-full scroll-hide"
             src="@/assets/img/logo.png"
             alt=""
             srcset=""
           />
         </div>
-        <div class="relative w-full overflow-x-auto">
+        <div class="relative w-full overflow-x-auto scroll-hide">
           <div class="w-full block overflow-x-auto"></div>
           <h1
             class="text-center text-shadow line-1 h-70-px anim-typewriter-1 text-white font-normal align-middle mb-12 text-6xl leading-none"
@@ -27,7 +27,7 @@
         </div>
 
         <form
-          class="delay-btn mt-48 relative cssanimation sequence fadeInBottom"
+          class="delay-btn mt-48 relative"
         >
           <button
             @click="homePage"

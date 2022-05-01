@@ -1,7 +1,7 @@
 <template>
   <div class="container px-4 mx-auto">
     <div
-      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
       <div class="px-6">
         <div class="mt-6 text-center">
@@ -28,7 +28,7 @@
               class="relative flex flex-col w-full min-w-0 mb-6 break-words max-h-news h-full"
             >
               <div
-                class="flex flex-wrap px-0 mt-2 lg:px-10 cssanimation sequence fadeInBottom"
+                class="flex flex-wrap px-0 mt-2 lg:px-10"
               >
                 <div
                   class="w-full px-2 pb-4 lg:w-6/12 "

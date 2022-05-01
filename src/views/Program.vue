@@ -25,7 +25,7 @@
         >
           แผนการเรียนของหลักสูตรแต่ละชั้นปี
         </h3>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-12/12">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -229,7 +229,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap ">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -401,7 +401,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -509,7 +509,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -649,7 +649,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -821,7 +821,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -993,7 +993,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -1177,7 +1177,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-12/12 ">
             <div
               class="relative flex flex-col w-full min-w-0 px-0 pt-0 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"
@@ -1295,7 +1295,7 @@
         >
           กระบวนวิชาของหลักสูตรทั้งหมด
         </h3>
-        <div class="flex flex-wrap cssanimation sequence fadeInBottom ">
+        <div class="flex flex-wrap">
           <div class="w-full p-2 lg:w-6/12">
             <div
               class="relative flex flex-col w-full min-w-0 px-4 pt-6 mb-6 break-words border rounded-lg shadow-lg max-h-news border-blueGray-300 bg-blueGray-100 h-full"

@@ -17,7 +17,7 @@
           <div class="flex-auto px-4 py-10 pt-0 lg:px-10">
             <form @submit.prevent="onSubmit">
               <div
-                class="relative w-full mb-3 cssanimation sequence fadeInBottom"
+                class="relative w-full mb-3"
               >
                 <label
                   class="block mb-2 text-md font-normal uppercase text-blueGray-600"
@@ -51,7 +51,7 @@
               </div>
 
               <div
-                class="relative w-full mb-3 cssanimation sequence fadeInBottom"
+                class="relative w-full mb-3"
               >
                 <label
                   class="block mb-2 text-md font-normal uppercase text-blueGray-600"
@@ -82,7 +82,7 @@
               </div>
 
               <div
-                class="relative w-full mb-3 cssanimation sequence fadeInBottom"
+                class="relative w-full mb-3"
               >
                 <label class="inline-flex items-center cursor-pointer">
                   <input
@@ -97,7 +97,7 @@
               </div>
 
               <div
-                class="mb-3 mt-6 cssanimation sequence fadeInBottom block w-full overflow-x-auto"
+                class="mb-3 mt-6 block w-full overflow-x-auto"
               >
                 <vue-recaptcha
                   v-if="showRecaptcha"
@@ -113,7 +113,7 @@
                 >
                 </vue-recaptcha>
               </div>
-              <div class="mt-6 text-center cssanimation sequence fadeInBottom">
+              <div class="mt-6 text-center">
                 <button
                   @click="submit"
                   class="w-full px-6 py-3 mb-1 mr-1 text-sm text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"

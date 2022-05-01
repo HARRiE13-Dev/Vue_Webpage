@@ -1,7 +1,7 @@
 <template>
   <div class="container px-4 mx-auto">
     <div
-      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
       <div class="px-6">
         <div class="mt-6 text-center">
@@ -16,7 +16,7 @@
         <div class="py-5 mt-10 text-center border-t border-blueGray-200">
           <div class="flex flex-wrap">
             <div
-              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+              class="w-full px-6 mb-4 lg:w-3/12"
             >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
@@ -38,7 +38,7 @@
               </p>
             </div>
             <div
-              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+              class="w-full px-6 mb-4 lg:w-3/12"
             >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
@@ -57,7 +57,7 @@
           </div>
           <div class="flex flex-wrap mt-10">
             <div
-              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+              class="w-full px-6 mb-4 lg:w-3/12"
             >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
@@ -77,7 +77,7 @@
               </h3>
             </div>
             <div
-              class="w-full px-6 mb-4 lg:w-3/12 cssanimation sequence fadeInBottom"
+              class="w-full px-6 mb-4 lg:w-3/12"
             >
               <div
                 class="inline-flex items-center justify-center w-16 h-16 p-3 mb-5 text-white rounded-lg shadow-lg bg-emerald-400"
@@ -94,7 +94,7 @@
               </h3>
             </div>
             <div
-              class="cssanimation sequence fadeInBottom w-full border-blueGray-300 px-6 border-l mb-4 text-left lg:-mt-48 lg:w-6/12"
+              class=" w-full border-blueGray-300 px-6 border-l mb-4 text-left lg:-mt-48 lg:w-6/12"
             >
               <h3
                 class="mb-6 text-2xl font-semibold leading-normal text-center text-blueGray-700"

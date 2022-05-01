@@ -14,7 +14,7 @@
           <img class="h-200-px" src="@/assets/img/qrcode.png" />
         </div>
         <div
-          class="cssanimation px-6 py-2  sequence fadeInBottom text-2xl mt-10 text-blueGray-700 dark:text-gray-300"
+          class="px-6 py-2 text-2xl mt-10 text-blueGray-700 dark:text-gray-300"
         >
           ดาวน์โหลดแอปพลิเคชัน CSMJU
           <a
@@ -27,7 +27,7 @@
 
         <div class="text-sm mt-6">
           <p
-            class="cssanimation pb-2 sequence fadeInBottom text-blueGray-400 dark:text-gray-300"
+            class=" pb-2 text-blueGray-400 dark:text-gray-300"
           >
             หากคุณยังไม่มีแอปพลิเคชันสาขาวิชาวิทยาการคอมพิวเตอร์ ม.แม่โจ้
             กรุณาดาวน์โหลดที่ลิงค์ หรือแสกน QR Code ที่อยู่ทางด้านบน

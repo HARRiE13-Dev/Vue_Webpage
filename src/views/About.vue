@@ -1,7 +1,7 @@
 <template>
   <div class="container px-4 mx-auto">
     <div
-      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
       <div class="px-6">
         <div class="mt-6 text-center">
@@ -18,9 +18,7 @@
         <div class="py-6 mt-10 border-t border-blueGray-200">
           <div class="flex flex-wrap justify-center">
             <div class="w-full px-4 lg:w-12/12">
-              <ul
-                class="flex flex-row flex-wrap pt-3 pb-4 mb-0 list-none cssanimation sequence fadeInBottom"
-              >
+              <ul class="flex flex-row flex-wrap pt-3 pb-4 mb-0 list-none">
                 <li class="flex-auto mr-2 -mb-px text-center last:mr-0">
                   <a
                     class="block px-5 py-3 font-bold leading-normal uppercase rounded shadow-lg"
@@ -59,7 +57,6 @@
                     class="text-justify tab-content tab-space text-blueGray-700"
                   >
                     <div
-                      class="cssanimation sequence fadeInBottom"
                       v-bind:class="{
                         hidden: openTab !== 1,
                         block: openTab === 1,
@@ -195,7 +192,6 @@
                     <div
                       v-for="about in about_arr"
                       :key="about.AboutId"
-                      class="cssanimation sequence fadeInBottom"
                       v-bind:class="{
                         hidden: openTab !== about.AboutId,
                         block: openTab === about.AboutId,

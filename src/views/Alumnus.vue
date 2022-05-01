@@ -1,7 +1,7 @@
 <template>
   <div class="container px-4 mx-auto">
     <div
-      class="cssanimation sequence fadeInBottom relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
     >
       <div class="px-6">
         <div class="mt-6 text-center">
@@ -25,7 +25,7 @@
           <div
             v-for="alum in products.data"
             :key="alum.AlumniId"
-            class="w-full h-full lg:w-3/12 cssanimation sequence fadeInBottom"
+            class="w-full h-full lg:w-3/12"
           >
             <div
               class="flex flex-col w-full min-w-0 break-words  border rounded-lg bg-blueGray-100"
