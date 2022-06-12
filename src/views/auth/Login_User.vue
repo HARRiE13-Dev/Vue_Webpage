@@ -38,7 +38,9 @@
                     placeholder="รหัสนักศึกษา เช่น 6104101301"
                   />
 
-                  <div class="tooltip rounded-lg text-center text-sm">บุคลากรสาขาวิชาฯ กรอกเป็น email</div>
+                  <div class="tooltip rounded-lg text-center text-sm">
+                    บุคลากรสาขาวิชาฯ กรอกเป็น email
+                  </div>
                 </div>
               </div>
               <div
@@ -378,6 +380,7 @@ export default {
       data.append("type", type);
       data.append("Date", date + " " + time);
       data.append("Device", device);
+      data.append("studentCode", null);
       httpLogin.post(`checklogin/create`, data).then((response) => {
         this.$store.state.id_login = response.data.LoginId;
       });
