@@ -380,6 +380,7 @@ export default {
       data.append("type", type);
       data.append("Date", date + " " + time);
       data.append("Device", device);
+      data.append("studentCode", null);
       httpLogin.post(`checklogin/create`, data).then((response) => {
         this.$store.state.id_login = response.data.LoginId;
       });

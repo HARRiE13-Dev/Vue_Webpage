@@ -53,8 +53,13 @@
                       type="button"
                     >
                       <i class="fas fa-broom"></i> ล้าง
+<<<<<<< HEAD
                     </button> -->
                     <!-- <router-link to="bookingadd">
+=======
+                    </button>
+                    <router-link to="addfeed">
+>>>>>>> pr/1
                       <button
                         @click="openModalAddProduct"
                         class="px-4 py-2 mb-1 ml-2 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-md focus:outline-none "

@@ -49,6 +49,27 @@
               </div>
               <div class="flex flex-wrap mb-4">
                 <div class="w-full px-4 md:w-6/12">
+                  <label class="block my-3 text-gray-700 text-md" for="Dates"
+                    >วันที่ประกาศกิจกรรม</label
+                  >
+                  <div class="flex w-full mt-2">
+                    <v-date-picker v-model="Dates">
+                      <template #default="{ inputValue, inputEvents }">
+                        <input
+                          class="px-3 py-1 border border-gray-500 text-gray-700 text-md focus:outline-none focus:border-blue-500"
+                          :value="inputValue"
+                          v-on="inputEvents"
+                        />
+                      </template>
+                    </v-date-picker>
+                  </div>
+                  <div v-if="v$.Dates.$error" class="mt-2 text-sm text-red-500">
+                    {{ v$.Dates.$errors[0].$message }}
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap mb-2">
+                <div class="w-full px-4 md:w-12/12">
                   <label class="block my-3 text-gray-700 text-md" for="Title"
                     >ชื่อกิจกรรม</label
                   >
@@ -181,8 +202,8 @@ export default {
       v$: useValidate(),
 
       Activity_Start: "",
-      Activity_TimeStart: "8:00",
-      Activity_TimeEnd: "17:00",
+      Activity_TimeStart: "",
+      Activity_TimeEnd: "",
       Activity_Organizer: "",
       Activity_Location: "",
       Activity_Detail: "",
@@ -215,12 +236,14 @@ export default {
       this.file = "";
       this.$refs.fileupload.value = null;
     },
+
     submit() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        let formatDate = this.Activity_Start.toISOString().slice(0, 10);
+        this.Dates = this.year + "-" + this.month + "-" + this.day;
+        this.Time = this.hour + ":" + this.minute + ":" + this.second;
         let data = new FormData();
-        data.append("Activity_Start", formatDate);
+        data.append("Activity_Start", this.Activity_Start);
         data.append("Activity_TimeStart", this.Activity_TimeStart);
         data.append("Activity_TimeEnd", this.Activity_TimeEnd);
         data.append("Activity_Organizer", this.Activity_Organizer);

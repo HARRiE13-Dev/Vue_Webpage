@@ -38,6 +38,13 @@
         {{ about.Topic }}
       </router-link>
 
+       <router-link
+        to="/about"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent hover:text-emerald-600 whitespace-nowrap text-blueGray-700"
+      >
+        ผลการเรียนรู้ (PLO)
+      </router-link>
+
       <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
       <span
         class="block w-full px-4 pt-2 pb-0 text-sm font-bold bg-transparent whitespace-nowrap text-blueGray-400"

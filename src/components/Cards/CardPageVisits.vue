@@ -105,8 +105,8 @@ export default {
     async getProducts() {
       let response = await http.get(`checklogin`);
       let responseProduct = response.data;
-      this.products = responseProduct;
-      this.total = responseProduct.length;
+      this.products = responseProduct.data;
+      this.total = responseProduct.data.length;
     },
   },
   mounted() {

@@ -367,7 +367,7 @@
               </a>
             </router-link>
           </li>
-          <!-- <li class="items-center">
+          <li class="items-center">
             <router-link
               to="/admin/repairshow"
               v-slot="{ href, navigate, isActive }"
@@ -390,7 +390,7 @@
                 ระบบแจ้งซ่อม
               </a>
             </router-link>
-          </li> -->
+          </li>
           <hr class="my-4 md:min-w-full" />
           <h6
             class="block pt-1 pb-4 font-bold no-underline uppercase text-md md:min-w-full text-blueGray-500"

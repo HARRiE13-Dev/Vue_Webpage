@@ -183,30 +183,49 @@ export default {
       let local_user = JSON.parse(window.localStorage.getItem("user"));
       let email_cut = local_user.email;
       let studentID = email_cut.slice(3, 13);
+      let csStudent = studentID.substring(3, 6);
 
-      http.get(`student/${studentID}`).then((response) => {
-        this.profile = response.data.data[0];
-        let fromCheck = response.data.from;
-        if (fromCheck != null) {
-          this.studentID = this.profile.studentCode;
-          this.first_name = this.profile.nameTh;
-          this.last_name = this.profile.surnameTh;
-          this.first_nameEn = this.profile.nameEn;
-          this.last_nameEn = this.profile.surnameEn;
-          this.email = this.profile.EmailStudent;
-          this.phone = this.profile.mobile;
-          this.address = this.profile.Address;
-          this.imgUrl = this.profile.PictureProfile;
-        } else {
-          this.first_name = local_user.name;
-          this.last_name = local_user.surname;
-          this.phone = local_user.mobile;
-          this.email = local_user.email;
-          this.imgUrl = this.team;
-          let email_cut = local_user.email;
-          this.studentID = email_cut.slice(3, 13);
-        }
-      });
+      //Check Student ID => ComSci 410
+      if (csStudent == "410") {
+        http.get(`student/${studentID}`).then((response) => {
+          this.profile = response.data.data[0];
+          let fromCheck = response.data.from;
+          if (fromCheck != null) {
+            this.studentID = this.profile.studentCode;
+            this.first_name = this.profile.nameTh;
+            this.last_name = this.profile.surnameTh;
+            this.first_nameEn = this.profile.nameEn;
+            this.last_nameEn = this.profile.surnameEn;
+            this.email = this.profile.EmailStudent;
+            this.phone = this.profile.mobile;
+            this.address = this.profile.Address;
+            this.imgUrl = this.profile.PictureProfile;
+          } else {
+            this.first_name = local_user.name;
+            this.last_name = local_user.surname;
+            this.phone = local_user.mobile;
+            this.email = local_user.email;
+            this.imgUrl = this.team;
+            let email_cut = local_user.email;
+            this.studentID = email_cut.slice(3, 13);
+          }
+        });
+      } else {
+        const Toast = this.$swal.mixin({
+          position: "center",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        });
+        Toast.fire({
+          icon: "error",
+          title: "Your account is not found.",
+        }).then(() => {
+          localStorage.removeItem("user");
+          localStorage.removeItem("permission");
+          this.$router.push({ name: "Login" });
+        });
+      }
     },
     LoginCheck() {
       let user = JSON.parse(window.localStorage.getItem("user"));

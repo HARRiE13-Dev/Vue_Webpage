@@ -67,7 +67,7 @@
                 </div>
               </div>
 
-              <!-- News Feeds table -->
+         
               <div class="block w-full overflow-x-auto">
                 <!-- Projects table -->
                 <table
@@ -111,12 +111,10 @@
                       v-for="act in products"
                       :key="act.activityId"
                     >
-                      <td class="p-4 px-2 text-sm align-middle">
-                        <div>
-                          <p class="w-auto font-normal truncate-3">
-                            {{ act.Activity_Title }}
-                          </p>
-                        </div>
+                      <td
+                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
+                      >
+                        {{ act.Activity_Title }}
                       </td>
                       <td
                         class="p-4 px-6 text-sm align-middle whitespace-nowrap"

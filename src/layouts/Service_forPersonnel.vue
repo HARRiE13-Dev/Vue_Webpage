@@ -225,9 +225,6 @@ export default {
               localStorage.removeItem("user");
               localStorage.removeItem("permission");
               this.$router.push({ name: "Login" });
-              this.$router.push({
-                name: "Login",
-              });
             });
           } else if (response.data.length == 1) {
             this.personnel_array = response.data[0];

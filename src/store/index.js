@@ -13,7 +13,10 @@ export default createStore({
     subjectEdit: 0,
     equipmentEdit: 0,
     roomEdit: 0,
+
+    activityEdit: 0,
     bookingEdit: 0,
+    repairEdit: 0,
 
     aboutid: 1,
 
