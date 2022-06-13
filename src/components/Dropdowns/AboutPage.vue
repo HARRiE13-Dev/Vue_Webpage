@@ -32,6 +32,13 @@
       >
         {{ about.Topic }}
       </router-link>
+      <router-link
+        @click="close($event)"
+        to="/about"
+        class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
+      >
+        ผลการเรียนรู้ (PLO)
+      </router-link>
 
       <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
       <span

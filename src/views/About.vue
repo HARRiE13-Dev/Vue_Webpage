@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-parsing-error */
 <template>
   <div class="container px-4 mx-auto">
     <div
@@ -49,6 +50,19 @@
                   >
                     <i class="mr-1 text-base fas fa-bullseye"></i>
                     {{ about.Topic }}
+                  </a>
+                </li>
+                <li class="flex-auto mr-2 -mb-px text-center last:mr-0">
+                  <a
+                    class="block px-5 py-3 font-bold leading-normal uppercase rounded shadow-lg"
+                    v-on:click="toggleTabs(10)"
+                    v-bind:class="{
+                      'text-emerald-500 bg-white': openTab !== 10,
+                      'text-white bg-emerald-500': openTab === 10,
+                    }"
+                  >
+                    <i class="mr-1 text-base fas fa-history"></i>
+                    ผลการเรียนรู้ PLO หลักสูตร
                   </a>
                 </li>
               </ul>
@@ -212,7 +226,55 @@
                         คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
                       </p>
                       <p class="my-6 rem2 text-justify">
-                        {{ about.Detail }}
+                        {{ about.Detail.replace("PLO", "\r") }}
+                      </p>
+                    </div>
+
+                    <div
+                      class="cssanimation sequence fadeInBottom"
+                      v-bind:class="{
+                        hidden: openTab !== 10,
+                        block: openTab === 10,
+                      }"
+                    >
+                      <p
+                        class="mt-8 text-2xl font-bold leading-relaxed text-center"
+                      >
+                        ผลการเรียนรู้ PLO หลักสูตรสาขาวิชาวิทยาการคอมพิวเตอร์
+                      </p>
+                      <p
+                        class="mb-8 text-xl font-bold leading-relaxed text-center"
+                      >
+                        คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
+                      </p>
+                      <p class="my-6 rem2 font-semibold">
+                        ผลลัพธ์การเรียนรู้ที่เฉพาะเจาะจง (Specific Learning
+                        Outcomes: SLO)
+                      </p>
+
+                      <p class="my-6 px-4">
+                        <b>PLO 1</b> : มีความรู้
+                        ความสามารถทั้งภาคทฤษฎีและภาคปฏิบัติทางวิชาการและเป็นนักปฏิบัติที่เชี่ยวชาญทางด้านวิทยาการคอมพิวเตอร์
+                      </p>
+                      <p class="my-6 px-4">
+                        <b>PLO 2</b> : มีทักษะในการแสวงหาความรู้โดยอิสระ
+                        และนำไปประยุกต์ใช้งานทางด้านวิทยาการคอมพิวเตอร์
+                        ได้อย่างถูกต้องและมีประสิทธิภาพ
+                      </p>
+                      <p class="my-6 px-4">
+                        <b>PLO 3</b> : มีทักษะที่สามารถนำไปใช้ในการประกอบอาชีพทั้งภาครัฐ เอกชน และเป็นนักเทคโนโลยี ที่สามารถเป็นผู้ประกอบการในอนาคตได้
+                      </p>
+                      <p class="my-6 px-4">
+                        <b>PLO 4</b> : มีความสามารถในเชิงสหวิทยาการทั้งการคิด วิเคราะห์และแก้ไขปัญหาอย่างเป็นระบบ เพื่อสร้างผลงานวิจัยและนวัตกรรมที่มีคุณภาพ โดยมุ่งเน้นด้านการเกษตรหรือเทคโนโลยีในศตวรรษที่ 21 ทางด้านวิชาวิทยาการคอมพิวเตอร์ ผลลัพธ์การเรียนรู้ทั่วไป (Generic Learning Outcomes) ของหลักสูตร
+                      </p>
+                      <p class="my-6 px-4">
+                        <b>PLO 5</b> : มีความเป็นผู้นำ กล้าคิดตัดสินใจโดยใช้เกณฑ์หรือมาตรฐาน รู้จักบทบาทและหน้าที่ของตนเองในสังคม
+                      </p>
+                      <p class="my-6 px-4">
+                        <b>PLO 6</b> : มีวินัย เคารพกฎเกณฑ์ขององค์กรและสังคม มีสามารถในการใช้ภาษา อีกทั้งสามารถบูรณาการความรู้ที่เพิ่มศักยภาพและขีดสมรรถนะของชุมชน
+                      </p>
+                      <p class="my-6 px-4">
+                        <b>PLO 7</b> : มีคุณธรรม จริยธรรม ศีลธรรมในการครองชีพ และมีจรรยาบรรณในวิชาชีพ
                       </p>
                     </div>
                   </div>
@@ -243,7 +305,6 @@ export default {
     async getAbout() {
       let response = await http.get(`about`);
       this.about_arr = response.data;
-      // this.obj = this.about_arr[2].Detail.split(")");
     },
     changeId() {
       this.openTab = this.$store.state.aboutid;
