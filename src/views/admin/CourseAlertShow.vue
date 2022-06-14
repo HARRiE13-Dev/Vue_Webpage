@@ -1,9 +1,7 @@
 <template>
   <div class="flex flex-wrap custom">
     <div class="w-full px-4">
-      <div
-        class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg"
-      >
+      <div class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg">
         <div class="container mx-auto">
           <div class="px-6">
             <div class="mt-6 text-center">
@@ -61,70 +59,41 @@
               <!-- News Feeds table -->
               <div class="block w-full overflow-x-auto">
                 <!-- Projects table -->
-                <table
-                  class="items-center w-full bg-transparent border-collapse"
-                >
+                <table class="items-center w-full bg-transparent border-collapse">
                   <thead>
-                    <tr
-                      class="text-blueGray-500 border-b-2  border-blueGray-500"
-                    >
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap "
-                      >
+                    <tr class="text-blueGray-500 border-b-2  border-blueGray-500">
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap ">
                         ลำดับ
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap">
                         ชื่อ - นามสกุล
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap">
                         ชื่อรายวิชา
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap">
                         กลุ่มเรียน
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap">
                         รายยละเอียด
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap">
                         ติดต่อ
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      >
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap">
                         การจัดการ
                       </th>
-                      <th
-                        class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap"
-                      ></th>
+                      <th class="px-6 py-3 text-sm font-semibold text-left uppercase align-middle whitespace-nowrap">
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr
-                      class="border-b"
-                      v-for="course in products"
-                      :key="course.Id"
-                    >
-                      <td
-                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
-                      >
+                    <tr class="border-b" v-for="course in products" :key="course.Id">
+                      <td class="p-4 px-6 text-sm align-middle whitespace-nowrap">
                         {{ course.Id }}
                       </td>
-                      <td
-                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
-                      >
-                        <div
-                          class="flex items-center text-xs text-left align-middle whitespace-nowrap"
-                        >
+                      <td class="p-4 px-6 text-xs align-middle whitespace-nowrap">
+                        <div class="flex items-center text-xs text-left align-middle whitespace-nowrap">
                           <span class="ml-3 text-sm">
                             <p class="font-bold">
                               {{ course.nameTh }} {{ course.surnameTh }}
@@ -138,21 +107,17 @@
                       </td>
                       <td class="p-4 px-2 text-sm align-middle">
                         <div>
-                          <p class="w-48 font-normal truncate-3">
+                          <p class="w-48 font-normal">
                             {{ course.Subject_Internal }}
                           </p>
-                          <p
-                            class=" font-normal truncate-3 text-red-500 text-xs"
-                          >
+                          <p class=" font-normal text-red-500 text-xs">
                             (รายวิชาภายนอก :
                             {{ course.Subject_External }} )
                           </p>
                         </div>
                       </td>
 
-                      <td
-                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
-                      >
+                      <td class="p-4 px-6 text-sm align-middle whitespace-nowrap">
                         {{ course.Sec_Internal }}
                         <p class="text-red-500 text-xs">
                           กรณีกลุ่มรายวิชานอก : {{ course.Sec_Another }}
@@ -161,31 +126,25 @@
 
                       <td class="p-4 px-2 text-sm align-middle">
                         <div>
-                          <p class="w-48 font-normal truncate-3">
+                          <p class="w-48 font-normal">
                             {{ course.Residaual_Detail }}
                           </p>
                         </div>
                       </td>
-                      <td
-                        class="p-4 px-6 text-sm align-middle whitespace-nowrap"
-                      >
+                      <td class="p-4 px-6 text-sm align-middle whitespace-nowrap">
                         <p><b>โทร. :</b> {{ course.mobile }}</p>
                         <p><b>อีเมล :</b> {{ course.EmailStudent }}</p>
                       </td>
 
-                      <td
-                        class="p-4 px-6 text-xs align-middle whitespace-nowrap"
-                      >
+                      <td class="p-4 px-6 text-xs align-middle whitespace-nowrap">
                         <button
                           class="px-4 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-yellow-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                          type="button"
-                        >
+                          type="button">
                           <i class="fas fa-edit"></i>
                         </button>
                         <button
                           class="px-4 py-2 mb-1 mr-1 text-xs font-normal text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded-full shadow outline-none active:bg-emerald-600 hover:shadow-md focus:outline-none"
-                          type="button"
-                        >
+                          type="button">
                           <i class="fas fa-trash-alt"></i>
                         </button>
                       </td>
@@ -193,12 +152,8 @@
                   </tbody>
                 </table>
                 <!-- แสดงผลตัวแบ่งหน้าเพจ-->
-                <VueTailwindPagination
-                  :current="currentPage"
-                  :total="total"
-                  :per-page="perPage"
-                  @page-changed="onPageClick($event)"
-                />
+                <VueTailwindPagination :current="currentPage" :total="total" :per-page="perPage"
+                  @page-changed="onPageClick($event)" />
               </div>
             </div>
           </div>

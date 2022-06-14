@@ -167,7 +167,7 @@ export default {
     },
     submit() {
       this.v$.$validate();
-      if (this.verify == null) {
+      if (this.verify != null) {
         if (
           // eslint-disable-next-line no-useless-escape
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username)

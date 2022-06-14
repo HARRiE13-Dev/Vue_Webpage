@@ -41,7 +41,7 @@
                   class="text-lg mt-2 text-blueGray-200 item-center duration-150 ease-linear hover:text-emerald-600 hover:zoom-xs"
                 >
                   <i class="px-2 fas fa-arrow-down fa-lg"></i>
-                   <router-link to="qrcode" target="_blank">
+                  <router-link to="qrcode" target="_blank">
                     ดาวน์โหลดแอปพลิเคชัน CSMJU
                   </router-link>
                 </div>
@@ -49,12 +49,14 @@
             </div>
             <div class="w-full text-left lg:w-6/12">
               <div class="top-0 w-full h-full bg-center bg-cover">
-                <Carousel :autoplay="this.speed">
+                <Carousel :autoplay="this.speed" :wrap-around="true">
                   <Slide v-for="image in banner_array" :key="image.Banner_ID">
                     <div
                       class="cssanimation sequence fadeInBottom relative mx-0 shadow-lg bg-emerald-500 carousel__item cropped-bg round-lg"
                     >
-                      <img class="cropped-bg" :src="image.Banner_File" />
+                      <a :href="image.Link" target="_blank">
+                        <img class="cropped-bg" :src="image.Banner_File" />
+                      </a>
                     </div>
                   </Slide>
                 </Carousel>
@@ -67,9 +69,7 @@
       <section class="pb-20 lg:-mt-64 bg-blueGray-200 custom">
         <div class="container mx-auto">
           <div class="flex flex-wrap">
-            <div
-              class="w-full px-4 text-center md:w-6/12"
-            >
+            <div class="w-full px-4 text-center md:w-6/12">
               <router-link to="program" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
@@ -85,9 +85,7 @@
               </router-link>
             </div>
 
-            <div
-              class="w-full px-4 text-center md:w-6/12"
-            >
+            <div class="w-full px-4 text-center md:w-6/12">
               <a href="http://www.admissions.mju.ac.th/" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
@@ -104,9 +102,7 @@
             </div>
           </div>
           <div class="flex flex-wrap">
-            <div
-              class="w-full px-4 text-center md:w-4/12"
-            >
+            <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="about" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
@@ -121,9 +117,7 @@
                 </div>
               </router-link>
             </div>
-            <div
-              class="w-full px-4 text-center md:w-4/12"
-            >
+            <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="activity" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"
@@ -138,9 +132,7 @@
                 </div>
               </router-link>
             </div>
-            <div
-              class="w-full px-4 text-center md:w-4/12"
-            >
+            <div class="w-full px-4 text-center md:w-4/12">
               <router-link to="contact" target="_blank">
                 <div
                   class="relative flex flex-col w-full min-w-0 mb-8 break-words duration-150 ease-linear bg-white shadow-lg hover:zoom hover:text-white"

@@ -16,39 +16,57 @@
               class="relative flex flex-col w-full  mb-4 break-words rounded"
             >
               <div class="w-full lg:w-12/12 pr-4">
-                <div class="px-2">
-                  <div class="relative text-center">
-                    <div class="text-left mb-4 file-area">
-                      <label
-                        class="block mt-4 mb-2 text-gray-700 text-lg font-semibold"
-                        for="image"
-                        >อัพโหลดรูปภาพ</label
-                      >
-                      <input
-                        ref="fileupload"
-                        type="file"
-                        @change="onFileSelected"
-                        class="px-3 py-8 leading-tight text-gray-700 border rounded shadow w-full"
+                <form @submit.prevent="onSubmit" enctype="multipart/form-data">
+                  <div class="px-2">
+                    <div class="relative text-center">
+                      <div class="text-left mb-4 file-area">
+                        <label
+                          class="block mt-4 mb-2 text-gray-700 text-lg font-semibold"
+                          for="image"
+                          >อัพโหลดรูปภาพ</label
+                        >
+                        <input
+                          ref="fileupload"
+                          type="file"
+                          @change="onFileSelected"
+                          class="px-3 py-8 leading-tight text-gray-700 border rounded shadow w-full"
+                        />
+                      </div>
+                      <img
+                        alt="..."
+                        v-if="imgUrl"
+                        :src="imgUrl"
+                        class="mt-2 rounded-lg shadow-lg center-img h-1/2 w-1/2 cropped bg-emerald-500"
                       />
                     </div>
-                    <img
-                      alt="..."
-                      v-if="imgUrl"
-                      :src="imgUrl"
-                      class="mt-2 rounded-lg shadow-lg center-img h-1/2 w-1/2 cropped bg-emerald-500"
-                    />
+                    <div class="mt-4 mb-4">
+                      <div class="w-full px-0 md:w-12/12">
+                        <label class="block my-3 text-gray-700 text-md"
+                          >ลิงค์ที่เกี่ยวข้อง</label
+                        >
+                        <input
+                          v-model="link"
+                          class="w-full px-3 py-2 leading-tight text-gray-700"
+                          type="text"
+                          placeholder="URL"
+                        />
+                        <!-- <div v-if="v$.email.$error" class="mt-2 text-sm text-red-500">
+                          {{ v$.email.$errors[0].$message }}
+                        </div> -->
+                      </div>
+                    </div>
+                    <div class="text-center mt-4">
+                      <button
+                        @click="addPicture"
+                        class="px-6 py-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow-lg outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                      >
+                        <i class="fas fa-plus-circle"></i>
+                        เพิ่มรูปภาพ
+                      </button>
+                    </div>
                   </div>
-                  <div class="text-center mt-4">
-                    <button
-                      @click="addPicture"
-                      class="px-6 py-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow-lg outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                      type="button"
-                    >
-                      <i class="fas fa-plus-circle"></i>
-                      เพิ่มรูปภาพ
-                    </button>
-                  </div>
-                </div>
+                </form>
               </div>
               <!-- Simulator  -->
               <div class="w-full mt-0 lg:w-12/12 ">
@@ -72,6 +90,15 @@
                           Banner ID : {{ image.Banner_ID }}
                         </p>
                         วันที่เผยแพร่ : {{ image.Banner_Date }}
+                      </div>
+                      <div class="px-2 text-sm mx-2">
+                        <a
+                          :href="image.Link"
+                          target="_blank"
+                          class="block font-normal mb-4 pb-2 text-gray-700 text-md text-left"
+                        >
+                          URL : {{ image.Link }}</a
+                        >
                       </div>
                       <div class="mb-4">
                         <img
@@ -110,6 +137,7 @@ export default {
       banner_array: [],
       imgUrl: "",
       file: null,
+      link: "",
     };
   },
   methods: {
@@ -161,6 +189,7 @@ export default {
               const formData = new FormData();
               formData.append("Banner_Date", today);
               formData.append("Banner_Time", time);
+              formData.append("Link", this.link);
               formData.append("Banner_File", this.file);
               http.post(`banner/create`, formData).then(() => {
                 swalWithBootstrapButtons
@@ -194,7 +223,6 @@ export default {
         });
       }
     },
-
     deleteBanner(id) {
       const swalWithBootstrapButtons = this.$swal.mixin({
         customClass: {

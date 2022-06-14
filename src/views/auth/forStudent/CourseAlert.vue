@@ -5,15 +5,12 @@
         <div class="container mx-auto">
           <div class="flex flex-wrap">
             <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12"
-            >
+              class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl lg:w-12/12">
               <div class="px-6 mt-6">
                 <div class="flex flex-wrap rounded-lg bg-blueGray-100">
                   <div class="w-full lg:w-3/12">
                     <div class="mr-4 text-center rounded-lg bg-emerald-500">
-                      <h3
-                        class="text-6xl font-semibold leading-normal text-white"
-                      >
+                      <h3 class="text-6xl font-semibold leading-normal text-white">
                         MIS
                       </h3>
                     </div>
@@ -37,11 +34,9 @@
                         รายการ
                       </button> -->
 
-                      <button
-                        @click="back"
+                      <button @click="back"
                         class="px-6 py-3 mb-1 mr-4 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                        type="button"
-                      >
+                        type="button">
                         ย้อนกลับ
                       </button>
                     </div>
@@ -59,143 +54,81 @@
                       <form>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
-                            <label class="block my-3 text-gray-700 text-md"
-                              >กลุ่มรายวิชาเฉพาะ
+                            <label class="block my-3 text-gray-700 text-md">กลุ่มรายวิชาเฉพาะ
                             </label>
-                            <select
-                              v-model="s_type"
-                              @keyup="getSubject"
-                              class="w-full px-3 py-2 leading-tight text-gray-700 "
-                            >
+                            <select v-model="s_type" @keyup="getSubject"
+                              class="w-full px-3 py-2 leading-tight text-gray-700 ">
                               <option value="1">กลุ่มรายวิชาภายในสาขา</option>
                               <option value="2">กลุ่มรายวิชาภายนอกสาขา</option>
                             </select>
-                            <div
-                              v-if="v$.s_type.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
+                            <div v-if="v$.s_type.$error" class="mt-2 text-sm text-red-500">
                               {{ v$.s_type.$errors[0].$message }}
                             </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-8/12">
-                            <label class="block my-3 text-gray-700 text-md"
-                              >รหัสรายวิชา</label
-                            >
-                            <input
-                              v-model="s_code"
-                              @keyup="getSubject"
-                              class="w-full px-3 py-2 leading-tight text-gray-700"
-                              type="text"
-                              maxlength="8"
-                              placeholder="Subject Code"
-                            />
-                            <div
-                              v-if="v$.s_code.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
+                            <label class="block my-3 text-gray-700 text-md">รหัสรายวิชา</label>
+                            <input v-model="s_code" @keyup="getSubject"
+                              class="w-full px-3 py-2 leading-tight text-gray-700" type="text" maxlength="8"
+                              placeholder="Subject Code" />
+                            <div v-if="v$.s_code.$error" class="mt-2 text-sm text-red-500">
                               {{ v$.s_code.$errors[0].$message }}
                             </div>
                           </div>
                           <div class="w-full px-4 md:w-4/12">
-                            <label class="block my-3 text-gray-700 text-md"
-                              >กลุ่มเรียน</label
-                            >
-                            <input
-                              v-model="s_section"
-                              class="w-full px-3 py-2 leading-tight text-gray-700"
-                              type="number"
-                              placeholder="Section"
-                            />
-                            <div
-                              v-if="v$.s_section.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
+                            <label class="block my-3 text-gray-700 text-md">กลุ่มเรียน</label>
+                            <input v-model="s_section" class="w-full px-3 py-2 leading-tight text-gray-700"
+                              type="number" placeholder="Section" />
+                            <div v-if="v$.s_section.$error" class="mt-2 text-sm text-red-500">
                               {{ v$.s_section.$errors[0].$message }}
                             </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
-                            <label class="block my-3 text-gray-700 text-md"
-                              >ชื่อรายวิชา</label
-                            >
-                            <input
-                              v-model="s_name"
-                              class="w-full px-3 py-2 leading-tight text-gray-700"
-                              type="text"
-                              placeholder="Subject Name"
-                            />
-                            <div
-                              v-if="v$.s_name.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
+                            <label class="block my-3 text-gray-700 text-md">ชื่อรายวิชา</label>
+                            <input v-model="s_name" class="w-full px-3 py-2 leading-tight text-gray-700" type="text"
+                              placeholder="Subject Name" />
+                            <div v-if="v$.s_name.$error" class="mt-2 text-sm text-red-500">
                               {{ v$.s_name.$errors[0].$message }}
                             </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
-                            <label
-                              class="block my-3 text-gray-700 text-md"
-                              for="Dates"
-                              >อาจารย์ผู้รับผิดชอบ</label
-                            >
-                            <select
-                              v-if="showSelect"
-                              v-model="advisor"
-                              id="advisor"
-                              class="w-full px-3 py-2 leading-tight text-gray-700"
-                            ></select>
-                            <input
-                              v-if="showInput"
-                              v-model="advisor"
-                              class="w-full px-3 py-2 leading-tight text-gray-700"
-                              type="text"
-                              placeholder="Subject Advisor"
-                            />
+                            <label class="block my-3 text-gray-700 text-md" for="Dates">อาจารย์ผู้รับผิดชอบ</label>
+                            <select v-if="showSelect" v-model="advisor" id="advisor"
+                              class="w-full px-3 py-2 leading-tight text-gray-700"></select>
+                            <input v-if="showInput" v-model="advisor"
+                              class="w-full px-3 py-2 leading-tight text-gray-700" type="text"
+                              placeholder="Subject Advisor" />
 
-                            <div
-                              v-if="v$.advisor.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
+                            <div v-if="v$.advisor.$error" class="mt-2 text-sm text-red-500">
                               {{ v$.advisor.$errors[0].$message }}
                             </div>
                           </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
                           <div class="w-full px-4 md:w-12/12">
-                            <label class="block my-3 text-gray-700 text-md"
-                              >เหตุผลในการยืนคำร้องแจ้งตก-ค้างรายวิชา</label
-                            >
-                            <textarea
-                              v-model="s_detail"
-                              class="w-full px-3 py-2 leading-tight text-gray-700"
-                              rows="5"
-                              placeholder="Explain your detail"
-                            ></textarea>
-                            <div
-                              v-if="v$.s_detail.$error"
-                              class="mt-2 text-sm text-red-500"
-                            >
+                            <label
+                              class="block my-3 text-gray-700 text-md">เหตุผลในการยืนคำร้องแจ้งตก-ค้างรายวิชา</label>
+                            <textarea v-model="s_detail" class="w-full px-3 py-2 leading-tight text-gray-700" rows="5"
+                              placeholder="Explain your detail"></textarea>
+                            <div v-if="v$.s_detail.$error" class="mt-2 text-sm text-red-500">
                               {{ v$.s_detail.$errors[0].$message }}
                             </div>
                           </div>
                         </div>
                         <div class="py-6 text-center">
-                          <button
-                            @click="clearForm"
+                          <button @click="clearForm"
                             class="px-6 py-3 mb-1 mr-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-600 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                            type="button"
-                          >
+                            type="button">
                             ล้าง
                           </button>
-                          <button
-                            @click="submit"
+                          <button @click="submit"
                             class="px-6 py-3 mb-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                            type="button"
-                          >
+                            type="button">
                             ยืนยัน
                           </button>
                         </div>
@@ -347,18 +280,18 @@ export default {
               data.append("EmailStudent", this.profile.EmailStudent);
               data.append("mobile", this.profile.mobile);
               data.append("studentCode", this.studentID);
+              data.append("Subject60", this.s_code + " " + this.s_name);
               let sec = "-";
               if (this.s_type == "1") {
                 data.append("Sec_Internal", this.s_section);
                 data.append("Sec_Another", sec);
-                data.append("Subject_Internal", this.s_name);
+                data.append("Subject_Internal", `${this.s_name} (${this.s_code}) อาจารย์ผู้รับผิดชอบ : ${this.advisor}`);
                 data.append("Subject_External", sec);
               } else if (this.s_type == "2") {
                 data.append("Sec_Internal", sec);
                 data.append("Sec_Another", this.s_section);
                 data.append("Subject_Internal", sec);
-                data.append("Subject_External", this.s_name);
-                data.append("Subject60", this.s_code + " " + this.s_name);
+                data.append("Subject_External", `${this.s_name} (${this.s_code}) อาจารย์ผู้รับผิดชอบ : ${this.advisor}`);
               }
               http
                 .post(`residaual/create`, data)
@@ -404,7 +337,7 @@ export default {
         required: helpers.withMessage("ป้อนรหัสรายวิชาก่อน", required),
         minLength: helpers.withMessage(
           ({ $params }) => `รหัสรายวิชาต้องไม่น้อยกว่า ${$params.min} ตัว`,
-          minLength(8)
+          minLength(5)
         ),
       },
       s_section: {
